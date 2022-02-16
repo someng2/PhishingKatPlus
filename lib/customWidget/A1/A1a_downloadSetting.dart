@@ -2,18 +2,20 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:voskat/customWidget/A1/A1a_download.dart';
+import 'package:voskat/customWidget/A1/A1a.dart';
 
 class A1a_downloadSettingPage extends StatefulWidget {
   A1a_downloadSettingPage({Key? key}) : super(key: key);
 
   @override
-  _A1a_downloadSettingPageState createState() => _A1a_downloadSettingPageState();
+  _A1a_downloadSettingPageState createState() =>
+      _A1a_downloadSettingPageState();
 }
 
 class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
   bool isSwitched = Get.arguments['isSwitched'];
-
-  // int buildIdx = Get.arguments['buildIdx'];
+  String appName = Get.arguments['appName'];
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,16 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
         appBar: AppBar(
           title: Text('출처를 알 수 없는 앱 설치'),
           leading: TextButton(
-            child: Icon(Icons.navigate_before, color: Colors.white,),
+            child: Icon(
+              Icons.navigate_before,
+              color: Colors.white,
+            ),
             onPressed: () {
-              Get.back();
+              (isSwitched)
+                  ? Get.to(A1a_downloadPage(), arguments: {'appName': appName})
+                  : Get.to(A1aPage(
+                      appName: appName,
+                    ));
             },
           ),
         ),
@@ -57,7 +66,7 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
               SizedBox(height: 10),
               Container(
                   padding:
-                  EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 10),
+                      EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 10),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30)),
@@ -102,4 +111,3 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
         ));
   }
 }
-
