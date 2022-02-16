@@ -1,8 +1,14 @@
 // ignore_for_file: file_names
 
 class MessageAction {
-  String idx;
-  String contents;
+  String aid;
+  String contents1;
+  String url;
+  String contents2;
 
-  MessageAction({required this.idx, required this.contents});
+  MessageAction(
+      {required this.aid,
+      required this.contents1,
+      required this.url,
+      required this.contents2});
 }

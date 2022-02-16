@@ -2,7 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:voskat/model/user/user.dart';
 import 'package:voskat/tempData/simulData.dart';
+import 'package:voskat/tempData/type&ageData.dart';
+import 'package:voskat/tempData/userData.dart';
+import 'package:voskat/controller/CustomSimulController.dart';
 
 class SimulationPage extends StatefulWidget {
   const SimulationPage({Key? key}) : super(key: key);
@@ -13,8 +17,15 @@ class SimulationPage extends StatefulWidget {
 
 class _SimulationPageState extends State<SimulationPage> {
   @override
+  User _user = user2;
+
   Widget build(BuildContext context) {
-    return (scenario_0.medium == '문자')
+    CustomSimulController customSimulController =
+        CustomSimulController(user: _user);
+    var scenario =
+        CustomSimulController(user: _user).getCustomSimulation(_user);
+
+    return (scenario.medium == '문자')
         ? Scaffold(
             appBar: AppBar(
                 leading: IconButton(
@@ -28,7 +39,7 @@ class _SimulationPageState extends State<SimulationPage> {
                 ),
                 backgroundColor: Color(0xffffffff),
                 elevation: 0,
-                title: Text(scenario_0.phoneNumber,
+                title: Text(scenario.phoneNumber,
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 23,
@@ -67,20 +78,58 @@ class _SimulationPageState extends State<SimulationPage> {
                 child: Text('2022년 2월 9일 수요일',
                     style: TextStyle(
                         fontSize: 13, color: Colors.black.withOpacity(0.6))),
+                padding: EdgeInsets.only(bottom: 10),
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    child: Image.asset('image/messageProfile.png', width: 50)
-                  ),
+                      child:
+                          Image.asset('image/messageProfile.png', width: 50)),
                   SizedBox(width: 5),
-                  Container(
-                    width: 300,
-                    padding: EdgeInsets.all(10),
-                    decoration:
-                        BoxDecoration(color: Color(0xffC4C4C4).withOpacity(0.28), borderRadius: BorderRadius.circular(20)),
-                    child: Text(scenario_0.actionSequence[0].contents),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        width: 275,
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Color(0xffC4C4C4).withOpacity(0.28),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(scenario.actionSequence[0].contents1),
+                            Container(
+                              height: 20,
+                              child: TextButton(
+                                  child: Text(
+                                    scenario.actionSequence[0].url,
+                                    style: TextStyle(
+                                      color: Colors.indigo,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    Get.to((scenario.actionSequence[1].widget));
+                                  },
+                                  style: TextButton.styleFrom(
+                                      // backgroundColor: Colors.white,
+                                      padding: EdgeInsets.all(0))),
+                            ),
+                            Text(scenario.actionSequence[0].contents2),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        // width: 50,
+                        child: Text('오전 9:05',
+                            style: TextStyle(
+                                fontSize: 11,
+                                color: Colors.black.withOpacity(0.6))),
+                        padding: EdgeInsets.only(bottom: 5, left: 3),
+                      )
+                    ],
                   ),
                 ],
               )
