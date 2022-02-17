@@ -11,7 +11,8 @@ import 'package:voskat/customWidget/A1/A1a_app.dart';
 class A1a_downloadPage extends StatefulWidget {
   String subtype;
   String appName;
-  A1a_downloadPage({Key? key, required this.subtype, required this.appName}) : super(key: key);
+  A1a_downloadPage({Key? key, required this.subtype, required this.appName})
+      : super(key: key);
 
   @override
   _A1a_downloadPageState createState() => _A1a_downloadPageState();
@@ -20,7 +21,6 @@ class A1a_downloadPage extends StatefulWidget {
 class _A1a_downloadPageState extends State<A1a_downloadPage> {
   // String subtype = Get.arguments['subtype'];
   // String appName = Get.arguments['appName'];
-
 
   // double percent = 0.0;
   late Timer timer;
