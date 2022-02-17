@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:voskat/view/HomePage.dart';
 import 'package:get/get.dart';
 
+import 'view/Simulation/SimulationPage.dart';
+import 'tempData/acitonData.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,10 +18,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: const HomePage(),
+      routes: {
+        '/simulation':(context) => SimulationPage(),
+
+      },
       debugShowCheckedModeBanner: false,
     );
   }

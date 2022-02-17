@@ -19,4 +19,4 @@ MessageAction A0c = MessageAction(
     contents2: '주소지 확인요망');
 
 NonMessageAction A1a =
-    NonMessageAction(aid: 'A1-a', widget: A1aPage(appName: 'KB 국민은행'));
+    NonMessageAction(aid: 'A1-a', widget: A1aPage(subtype: '대출사기'));

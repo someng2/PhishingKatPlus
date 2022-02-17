@@ -6,7 +6,10 @@ import 'package:voskat/customWidget/A1/A1a_download.dart';
 import 'package:voskat/customWidget/A1/A1a.dart';
 
 class A1a_downloadSettingPage extends StatefulWidget {
-  A1a_downloadSettingPage({Key? key}) : super(key: key);
+  // bool isSwitched;
+  String appName;
+  String subtype;
+  A1a_downloadSettingPage({Key? key,required this.appName, required this.subtype}) : super(key: key);
 
   @override
   _A1a_downloadSettingPageState createState() =>
@@ -15,10 +18,16 @@ class A1a_downloadSettingPage extends StatefulWidget {
 
 class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
   bool isSwitched = Get.arguments['isSwitched'];
-  String appName = Get.arguments['appName'];
 
   @override
   Widget build(BuildContext context) {
+
+    // String appName = Get.arguments['appName'];
+    // String subtype = Get.arguments['subtype'];
+    // bool isSwitched = widget.isSwitched;
+    String appName = widget.appName;
+    String subtype = widget.subtype;
+
     return Scaffold(
         appBar: AppBar(
           title: Text('출처를 알 수 없는 앱 설치'),
@@ -29,10 +38,9 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
             ),
             onPressed: () {
               (isSwitched)
-                  ? Get.to(A1a_downloadPage(), arguments: {'appName': appName})
-                  : Get.to(A1aPage(
-                      appName: appName,
-                    ));
+                  ? Get.to(A1a_downloadPage(subtype: subtype, appName: appName))
+                      // arguments: {'subtype': widget.subtype, 'appName': widget.appName})
+                  : Get.back();
             },
           ),
         ),
@@ -54,7 +62,7 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('${Get.arguments['appName']}',
+                        Text(appName,
                             style: TextStyle(fontWeight: FontWeight.w600)),
                         Text('2.0.1',
                             style: TextStyle(
@@ -78,16 +86,25 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                         '이 출처 허용',
                         style: TextStyle(fontWeight: FontWeight.w600),
                       ),
+                      // Switch(
+                      //   value: isSwitched,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       isSwitched = value;
+                      //     });
+                      //   },
+                      //   // activeTrackColor: Colors.lightGreenAccent,
+                      //   // activeColor: prim,
+                      // )
                       Switch(
                         value: isSwitched,
                         onChanged: (value) {
                           setState(() {
+                            // print('isSwitched : $isSwitched');
                             isSwitched = value;
                           });
                         },
-                        // activeTrackColor: Colors.lightGreenAccent,
-                        // activeColor: prim,
-                      )
+                      ),
                     ],
                   )),
               Container(

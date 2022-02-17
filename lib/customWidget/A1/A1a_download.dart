@@ -9,24 +9,30 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:voskat/customWidget/A1/A1a_app.dart';
 
 class A1a_downloadPage extends StatefulWidget {
-  const A1a_downloadPage({Key? key}) : super(key: key);
+  String subtype;
+  String appName;
+  A1a_downloadPage({Key? key, required this.subtype, required this.appName}) : super(key: key);
 
   @override
   _A1a_downloadPageState createState() => _A1a_downloadPageState();
 }
 
 class _A1a_downloadPageState extends State<A1a_downloadPage> {
-  String appName = Get.arguments['appName'];
+  // String subtype = Get.arguments['subtype'];
+  // String appName = Get.arguments['appName'];
+
+
   // double percent = 0.0;
   late Timer timer;
   String state = '설치 중...';
 
   @override
   void initState() {
-    timer = Timer.periodic(Duration(milliseconds: 1700), (_) {
+    timer = Timer.periodic(Duration(milliseconds: 1900), (_) {
       setState(() {
         state = '설치 완료!';
-        Get.to(A1a_appPage());
+        timer.cancel();
+        Get.to(A1a_appPage(subtype: widget.subtype, appName: widget.appName));
       });
     });
     super.initState();
@@ -34,6 +40,9 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
 
   @override
   Widget build(BuildContext context) {
+    String subtype = widget.subtype;
+    String appName = widget.appName;
+
     return Scaffold(
         appBar: AppBar(title: Text(appName)),
         body: Container(
@@ -71,7 +80,7 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
                   width: 330,
                   animation: true,
                   lineHeight: 8,
-                  animationDuration: 1700,
+                  animationDuration: 1900,
                   percent: 1.0,
                   // linearStrokeCap: LinearStrokeCap.roundAll,
                   // barRadius: Radius.circular(5),

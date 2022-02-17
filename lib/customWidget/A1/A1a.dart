@@ -6,8 +6,8 @@ import 'package:get/get.dart';
 import 'package:voskat/customWidget/A1/A1a_downloadSetting.dart';
 
 class A1aPage extends StatefulWidget {
-  String appName;
-  A1aPage({Key? key, required this.appName}) : super(key: key);
+  String subtype;
+  A1aPage({Key? key, required this.subtype}) : super(key: key);
 
   @override
   _A1aPageState createState() => _A1aPageState();
@@ -16,14 +16,16 @@ class A1aPage extends StatefulWidget {
 class _A1aPageState extends State<A1aPage> {
 
   bool isSwitched = false;
+  late String appName;
 
   @override
   Widget build(BuildContext context) {
+    appName = (widget.subtype == '대출사기') ? ('KB국민은행'): ('이름없음');
 
     return Scaffold(
         appBar: AppBar(
           // TODO: leading - 앱 icon image
-          title: Text(widget.appName),
+          title: Text(appName),
           elevation: 5,
         ),
         body:  Column(
@@ -55,7 +57,7 @@ class _A1aPageState extends State<A1aPage> {
                             width: 10,
                           ),
                           Text(
-                            widget.appName,
+                            appName,
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w700),
                           ),
@@ -85,8 +87,8 @@ class _A1aPageState extends State<A1aPage> {
                                 style: TextStyle(fontWeight: FontWeight.w700),
                               ),
                               onPressed: () {
-                                Get.to(A1a_downloadSettingPage(),
-                                    arguments: {'appName': widget.appName, 'isSwitched' : isSwitched});
+                                Get.to(A1a_downloadSettingPage(subtype: widget.subtype, appName: appName),
+                                    arguments: {'isSwitched' : isSwitched});
                               },
                             ),
                           ),
@@ -103,5 +105,3 @@ class _A1aPageState extends State<A1aPage> {
   }
 }
 
-
-// TODO: 악성 앱 화면 - 개인정보 입력란, 백신 프로그램 광고배
