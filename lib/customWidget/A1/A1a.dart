@@ -7,7 +7,8 @@ import 'package:voskat/customWidget/A1/A1a_downloadSetting.dart';
 
 class A1aPage extends StatefulWidget {
   String subtype;
-  A1aPage({Key? key, required this.subtype}) : super(key: key);
+  String appName;
+  A1aPage({Key? key, required this.subtype, required this.appName}) : super(key: key);
 
   @override
   _A1aPageState createState() => _A1aPageState();
@@ -16,11 +17,11 @@ class A1aPage extends StatefulWidget {
 class _A1aPageState extends State<A1aPage> {
 
   bool isSwitched = false;
-  late String appName;
 
   @override
   Widget build(BuildContext context) {
-    appName = (widget.subtype == '대출사기') ? ('KB국민은행'): ('이름없음');
+    String appName = widget.appName;
+    // appName = (widget.subtype == '대출사기') ? ('KB국민은행'): ('이름없음');
 
     return Scaffold(
         appBar: AppBar(
