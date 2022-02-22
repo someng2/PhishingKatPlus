@@ -4,7 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:voskat/customWidget/A2/A2a.dart';
+import 'package:voskat/customWidget/A2/A2aPage.dart';
 import 'package:voskat/customWidget/vaccineApp.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -62,13 +62,13 @@ class _A1a_appPageState extends State<A1a_appPage> {
       body:
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Container(
-          padding: EdgeInsets.only(top: 100.h),
+          padding: EdgeInsets.only(top: 60.h),
           child: Row(children: [
             Container(
               width: 110.w,
               padding: EdgeInsets.only(left: 20.h),
               child: Text(info1,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                  style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600)),
             ),
             Container(
               width: 180.w,
@@ -81,7 +81,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
                     contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                   ),
                   textAlignVertical: TextAlignVertical.center,
-                  style: TextStyle(fontSize: 17.w)),
+                  style: TextStyle(fontSize: 17.sp)),
             )
           ]),
         ),
@@ -92,7 +92,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
               width: 110.w,
               padding: EdgeInsets.only(left: 20.w),
               child: Text(info2,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                  style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600)),
             ),
             Container(
               width: 120.w,
@@ -118,7 +118,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                   ),
-                  style: TextStyle(fontSize: 16)),
+                  style: TextStyle(fontSize: 16.sp)),
             )
           ]),
         ),

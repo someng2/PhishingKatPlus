@@ -2,8 +2,9 @@
 // <악성 앱 설치>
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/customWidget/A1/A1a_downloadSetting.dart';
+import 'package:voskat/customWidget/A1/A1a_downloadSettingPage.dart';
 
 class A1aPage extends StatefulWidget {
   String subtype;
@@ -40,9 +41,9 @@ class _A1aPageState extends State<A1aPage> {
                         width: 1,
                         color: Colors.black,
                       ),
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(20.sp)),
                   padding:
-                      EdgeInsets.only(top: 20, bottom: 10, left: 25, right: 25),
+                      EdgeInsets.only(top: 20.h, bottom: 10.h, left: 25.w, right: 25.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -60,13 +61,13 @@ class _A1aPageState extends State<A1aPage> {
                           Text(
                             appName,
                             style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w700),
+                                fontSize: 20.sp, fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),
-                      SizedBox(height: 15),
+                      SizedBox(height: 15.h),
                       Text('보안상의 이유로 이 경로를 통한 알 수 없는 앱을 휴대전화에 설치할 수 없습니다.'),
-                      SizedBox(height: 15),
+                      SizedBox(height: 15.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -99,7 +100,7 @@ class _A1aPageState extends State<A1aPage> {
                   )),
             ),
             SizedBox(
-              height: 10,
+              height: 10.h,
             )
           ],
         )) ;

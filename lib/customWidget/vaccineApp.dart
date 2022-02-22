@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 Widget vaccineApp() {
   return Container(
@@ -12,7 +13,7 @@ Widget vaccineApp() {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+            topLeft: Radius.circular(10.sp), topRight: Radius.circular(10.sp)),
         boxShadow: [
           BoxShadow(
             color: Colors.black54,
@@ -36,7 +37,7 @@ Widget vaccineApp() {
               // width: 400,
               child: TextButton(
                   onPressed: () {
-                    print('button pushed');
+                    Get.toNamed('/A2b');
                   },
                   // TODO: 기존에 없는 백신 프로그램 앱으로 이미지 & 이름 설정
                   child: Container(

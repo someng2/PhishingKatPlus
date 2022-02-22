@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'view/Simulation/SimulationPage.dart';
+import 'customWidget/A2/A2bPage.dart';
 import 'tempData/acitonData.dart';
 
 void main() {
@@ -23,11 +24,17 @@ class MyApp extends StatelessWidget {
         builder: () => GetMaterialApp(
               title: 'Flutter Demo',
               theme: ThemeData(
-                primarySwatch: Colors.blue,
+                appBarTheme: AppBarTheme(
+                  color: Colors.white,
+                    iconTheme: IconThemeData(
+                        color: Colors.black
+                    )
+                ),
               ),
               home: const HomePage(),
               routes: {
                 '/simulation': (context) => SimulationPage(),
+                '/A2b': (context) => A2bPage()
               },
               debugShowCheckedModeBanner: false,
             ));

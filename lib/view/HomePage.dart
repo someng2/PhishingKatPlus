@@ -15,8 +15,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         appBar: AppBar(
           title: const Text('메인 페이지'),
+          backgroundColor: Colors.white
         ),
 
         body: Center(

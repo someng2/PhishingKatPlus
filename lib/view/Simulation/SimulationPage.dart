@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/model/user/user.dart';
 import 'package:voskat/tempData/simulData.dart';
@@ -42,33 +43,31 @@ class _SimulationPageState extends State<SimulationPage> {
                 title: Text(scenario.phoneNumber,
                     style: TextStyle(
                         color: Colors.black,
-                        fontSize: 23,
+                        fontSize: 20.w,
                         fontWeight: FontWeight.w400))),
             body: Column(children: [
               Container(
-                height: 67,
+                height: 67.h,
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Container(
-                      width: 160,
-                      height: 30,
+                      width: 160.w,
+                      height: 30.h,
                       alignment: Alignment.center,
-                      child: const Text(
-                        '연락처에 추가',
-                        textAlign: TextAlign.center,
-                      ),
+                      child: Text('연락처에 추가',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 13.sp)),
                       decoration: BoxDecoration(
                           color: Colors.grey.withOpacity(0.45),
                           borderRadius: BorderRadius.circular(30))),
-                  SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Container(
-                      width: 160,
-                      height: 30,
+                      width: 160.w,
+                      height: 30.h,
                       alignment: Alignment.center,
-                      child: const Text(
-                        '수신 차단',
-                        textAlign: TextAlign.center,
-                      ),
+                      child: Text('수신 차단',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 13.sp)),
                       decoration: BoxDecoration(
                           color: Colors.grey.withOpacity(0.2),
                           borderRadius: BorderRadius.circular(30))),
@@ -77,7 +76,7 @@ class _SimulationPageState extends State<SimulationPage> {
               Container(
                 child: Text('2022년 2월 9일 수요일',
                     style: TextStyle(
-                        fontSize: 13, color: Colors.black.withOpacity(0.6))),
+                        fontSize: 13.sp, color: Colors.black.withOpacity(0.6))),
                 padding: EdgeInsets.only(bottom: 10),
               ),
               Row(
@@ -85,30 +84,31 @@ class _SimulationPageState extends State<SimulationPage> {
                 children: [
                   Container(
                       child:
-                          Image.asset('image/messageProfile.png', width: 50)),
-                  SizedBox(width: 5),
+                          Image.asset('image/messageProfile.png', width: 45.w)),
+                  SizedBox(width: 5.w),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Container(
-                        width: 275,
-                        padding: EdgeInsets.all(10),
+                        // width: 255.w,
+                        padding: EdgeInsets.all(10.sp),
                         decoration: BoxDecoration(
                             color: Color(0xffC4C4C4).withOpacity(0.28),
-                            borderRadius: BorderRadius.circular(20)),
+                            borderRadius: BorderRadius.circular(10.sp)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(scenario.actionSequence[0].contents1),
+                            Text(scenario.actionSequence[0].contents1,
+                                style: TextStyle(fontSize: 13.sp)),
                             Container(
-                              height: 20,
+                              height: 20.h,
                               child: TextButton(
                                   child: Text(
                                     scenario.actionSequence[0].url,
                                     style: TextStyle(
-                                      color: Colors.indigo,
-                                      decoration: TextDecoration.underline,
-                                    ),
+                                        color: Colors.indigo,
+                                        decoration: TextDecoration.underline,
+                                        fontSize: 13.sp),
                                   ),
 
                                   // U1
@@ -119,7 +119,8 @@ class _SimulationPageState extends State<SimulationPage> {
                                       // backgroundColor: Colors.white,
                                       padding: EdgeInsets.all(0))),
                             ),
-                            Text(scenario.actionSequence[0].contents2),
+                            Text(scenario.actionSequence[0].contents2,
+                                style: TextStyle(fontSize: 13.sp)),
                           ],
                         ),
                       ),
@@ -127,9 +128,9 @@ class _SimulationPageState extends State<SimulationPage> {
                         // width: 50,
                         child: Text('오전 9:05',
                             style: TextStyle(
-                                fontSize: 11,
+                                fontSize: 11.sp,
                                 color: Colors.black.withOpacity(0.6))),
-                        padding: EdgeInsets.only(bottom: 5, left: 3),
+                        padding: EdgeInsets.only(bottom: 5, left: 10),
                       )
                     ],
                   ),

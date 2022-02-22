@@ -3,10 +3,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_overlay_pro/loading_overlay_pro.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:voskat/customWidget/A1/A1a_app.dart';
+import 'package:voskat/customWidget/A1/A1a_appPage.dart';
 
 class A1a_downloadPage extends StatefulWidget {
   String subtype;
@@ -46,7 +47,7 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
     return Scaffold(
         appBar: AppBar(title: Text(appName)),
         body: Container(
-          padding: EdgeInsets.only(top: 230),
+          padding: EdgeInsets.only(top: 230.h),
           child: Column(children: [
             //   LinearPercentIndicator( //leaner progress bar
             //   animation: true,
@@ -67,19 +68,19 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
             Container(
               child: Icon(
                 Icons.download_sharp,
-                size: 70,
+                size: 70.sp,
                 color: Colors.grey.withOpacity(0.7),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LinearPercentIndicator(
-                  width: 330,
+                  width: 330.w,
                   animation: true,
-                  lineHeight: 8,
+                  lineHeight: 8.h,
                   animationDuration: 1900,
                   percent: 1.0,
                   // linearStrokeCap: LinearStrokeCap.roundAll,
@@ -88,7 +89,7 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
                 ),
               ],
             ),
-            Container(padding: EdgeInsets.only(top: 10), child: Text(state))
+            Container(padding: EdgeInsets.only(top: 10.h), child: Text(state))
           ]),
         ));
   }
