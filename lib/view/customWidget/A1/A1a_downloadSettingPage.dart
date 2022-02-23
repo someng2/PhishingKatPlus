@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/customWidget/A1/A1a_downloadPage.dart';
-import 'package:voskat/customWidget/A1/A1aPage.dart';
+import 'package:voskat/view/customWidget/A1/A1a_downloadPage.dart';
+import 'package:voskat/view/customWidget/A1/A1aPage.dart';
 
 class A1a_downloadSettingPage extends StatefulWidget {
   // bool isSwitched;
@@ -31,7 +31,8 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('출처를 알 수 없는 앱 설치'),
+          elevation: 0,
+          title: Text('출처를 알 수 없는 앱 설치', style: TextStyle(color: Colors.black)),
           leading: TextButton(
             child: Icon(
               Icons.navigate_before,

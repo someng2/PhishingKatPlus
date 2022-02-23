@@ -99,7 +99,7 @@ class _SimulationPageState extends State<SimulationPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(scenario.actionSequence[0].contents1,
-                                style: TextStyle(fontSize: 13.sp)),
+                                style: TextStyle(fontSize: 14.sp)),
                             Container(
                               height: 20.h,
                               child: TextButton(
@@ -108,7 +108,7 @@ class _SimulationPageState extends State<SimulationPage> {
                                     style: TextStyle(
                                         color: Colors.indigo,
                                         decoration: TextDecoration.underline,
-                                        fontSize: 13.sp),
+                                        fontSize: 14.sp),
                                   ),
 
                                   // U1
@@ -120,7 +120,7 @@ class _SimulationPageState extends State<SimulationPage> {
                                       padding: EdgeInsets.all(0))),
                             ),
                             Text(scenario.actionSequence[0].contents2,
-                                style: TextStyle(fontSize: 13.sp)),
+                                style: TextStyle(fontSize: 14.sp)),
                           ],
                         ),
                       ),

@@ -4,8 +4,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:voskat/customWidget/A2/A2aPage.dart';
-import 'package:voskat/customWidget/vaccineApp.dart';
+import 'package:voskat/view/customWidget/A2/A2aPage.dart';
+import 'package:voskat/view/customWidget/vaccineApp.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // TODO: UI 업데이트
@@ -68,7 +68,8 @@ class _A1a_appPageState extends State<A1a_appPage> {
               width: 110.w,
               padding: EdgeInsets.only(left: 20.h),
               child: Text(info1,
-                  style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600)),
+                  style:
+                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600)),
             ),
             Container(
               width: 180.w,
@@ -92,7 +93,8 @@ class _A1a_appPageState extends State<A1a_appPage> {
               width: 110.w,
               padding: EdgeInsets.only(left: 20.w),
               child: Text(info2,
-                  style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600)),
+                  style:
+                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600)),
             ),
             Container(
               width: 120.w,
@@ -104,7 +106,9 @@ class _A1a_appPageState extends State<A1a_appPage> {
                     border: OutlineInputBorder(),
                     contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                   ),
-                  style: TextStyle(fontSize: 16, )),
+                  style: TextStyle(
+                    fontSize: 16,
+                  )),
             ),
             Container(child: Text(' - ', style: TextStyle(fontSize: 16))),
             Container(
@@ -112,7 +116,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
               height: 40.h,
               // padding: EdgeInsets.only(left: 20),
               child: TextField(
-                obscureText: true,
+                  obscureText: true,
                   controller: info2_2Controller,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -130,13 +134,22 @@ class _A1a_appPageState extends State<A1a_appPage> {
             child: ElevatedButton(
               child: Text('조회하기'),
               onPressed: () {
-                bool isFilled = checkInfo(
+                String errorType = checkInfo(
                     info1Controller, info2_1Controller, info2_2Controller);
-                if (!isFilled) {
+                if (errorType == '정보부족') {
                   Get.showSnackbar(
                     GetSnackBar(
                       title: '조회 불가!',
                       message: '모든 정보를 입력하세요.',
+                      duration: Duration(seconds: 2),
+                      snackPosition: SnackPosition.BOTTOM,
+                    ),
+                  );
+                } else if (errorType == '주민번호형식오류') {
+                  Get.showSnackbar(
+                    GetSnackBar(
+                      title: '주민등록번호 오류!',
+                      message: '앞자리 6자리, 뒷자리 7자리를 모두 입력해주세요.',
                       duration: Duration(seconds: 2),
                       snackPosition: SnackPosition.BOTTOM,
                     ),
@@ -163,13 +176,21 @@ class _A1a_appPageState extends State<A1a_appPage> {
     TextEditingController info2Controller,
     TextEditingController info3Controller,
   ) {
-    bool isFilled = false;
+    String errorType = '';
 
-    isFilled = ((info1Controller.text != '') &
-        (info2Controller.text != '') &
-        (info3Controller.text != ''));
+    if ((info1Controller.text == '') |
+        (info2Controller.text == '') |
+        (info3Controller.text == '')) {
+      errorType = '정보부족';
+    } else if ((info1Controller.text != '') &
+        ((info2Controller.text.length != 6) |
+            (info3Controller.text.length != 7))) {
+      errorType = '주민번호형식오류';
+    }
+    else
+      errorType = '에러없음';
 
-    print('isFilled: $isFilled');
-    return isFilled;
+    print('errorType: $errorType');
+    return errorType;
   }
 }

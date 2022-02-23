@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_overlay_pro/loading_overlay_pro.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:voskat/customWidget/A1/A1a_appPage.dart';
+import 'package:voskat/view/customWidget/A1/A1a_appPage.dart';
 
 class A1a_downloadPage extends StatefulWidget {
   String subtype;

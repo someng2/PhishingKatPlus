@@ -4,7 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:voskat/customWidget/vaccineApp.dart';
+import 'package:voskat/view/customWidget/vaccineApp.dart';
 
 class A2aPage extends StatefulWidget {
   String subtype;
@@ -73,7 +73,7 @@ class _A2aPageState extends State<A2aPage> {
                             Text(
                               widget.info1,
                               style: TextStyle(
-                                  fontSize: 19.sp, fontWeight: FontWeight.w600),
+                                  fontSize: 25.sp, fontWeight: FontWeight.w700),
                             ),
                             Text(
                               ' 님의 신청 가능한 대출 상품',

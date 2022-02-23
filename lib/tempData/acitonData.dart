@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 
-import 'package:voskat/customWidget/A2/A2aPage.dart';
+import 'package:voskat/view/customWidget/A2/A2aPage.dart';
 import 'package:voskat/model/simulation/messageAction.dart';
 import 'package:voskat/model/simulation/nonMessageAction.dart';
-import 'package:voskat/customWidget/A1/A1aPage.dart';
+import 'package:voskat/view/customWidget/A1/A1aPage.dart';
 import 'package:voskat/tempData/simulData.dart';
 
 MessageAction A0a = MessageAction(

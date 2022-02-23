@@ -29,7 +29,8 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Get.to(SimulationPage());
                 },
-              )
+              ),
+
             ],
           ),
         ));
