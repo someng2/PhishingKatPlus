@@ -72,6 +72,7 @@ flutter:
     - image/number3Icon.png
     - image/threeDots.png
     - image/threeDots2.png
+    - image/leftArrowIcon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

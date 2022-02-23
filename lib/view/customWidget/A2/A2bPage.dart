@@ -35,7 +35,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          leading: Icon(Icons.navigate_before),
+          leading: Container(),
           actions: [
             Container(
               padding: EdgeInsets.only(right: 24.w),
