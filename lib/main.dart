@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/customWidget/A2/A2bPage.dart';
+import 'package:voskat/view/customWidget/A2/A2b_vaccineAppPage.dart';
 import 'tempData/acitonData.dart';
 
 void main() {
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
               home: const HomePage(),
               routes: {
                 '/simulation': (context) => SimulationPage(),
-                '/A2b': (context) => A2bPage()
+                '/A2b': (context) => A2bPage(),
+                '/A2b_vaccineApp' : (context) => A2b_vaccineAppPage(appIcon: 'image/v3appLogo.webp', appColor: Colors.blue)
               },
               debugShowCheckedModeBanner: false,
             ));

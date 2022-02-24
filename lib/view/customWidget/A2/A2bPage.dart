@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/tempData/appAdData.dart';
 
 class A2bPage extends StatefulWidget {
   const A2bPage({Key? key}) : super(key: key);
@@ -354,7 +355,9 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 15.sp)),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.toNamed('/A2b_vaccineApp');
+                                    },
                                   ))
                             ],
                           ))
@@ -412,40 +415,110 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                       ),
                       Container(
                           height: 170.h,
-                          child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                Container(
-                                    padding:
-                                    EdgeInsets.only(top: 10.h),
-                                    width: 90.w,
-                                    child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            height: 90.h,
-                                            decoration: BoxDecoration(
-                                                color: Colors.black,
-                                                borderRadius: BorderRadius.circular(25.sp)
+                          child: Container(
+                              padding: EdgeInsets.only(top: 20.h),
+                              width: 320.w,
+                              child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: AppAdList_v1.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    String description =
+                                        AppAdList_v1[index].description;
+
+                                    return Container(
+                                      padding: EdgeInsets.only(right: 15.w),
+                                      child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              // height: 90.h,
+                                              width: 100.h,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.sp)),
+                                              child: Image.asset(
+                                                  AppAdList_v1[index].appIcon),
                                             ),
-                                          ),
-                                          Container(
-                                              padding:
-                                                  EdgeInsets.only(top: 10.h),
-                                              child: Text('YouTube')),
-                                          Container(
-                                              child: Text('설치됨'))
-                                        ]))
-                              ])),
+                                            Container(
+                                                padding:
+                                                    EdgeInsets.only(top: 10.h),
+                                                child: Text(
+                                                    AppAdList_v1[index].appName)),
+                                            Container(
+                                                child: description == '설치됨'
+                                                    ? Row(
+                                                      children: [
+                                                        Icon(Icons.check, size: 14.sp),
+                                                        Text(description),
+                                                      ],
+                                                    )
+                                                    : Row(children: [
+                                                        Text(' $description'),
+                                                        Icon(Icons.star,
+                                                            size: 14.sp),
+                                                      ]))
+                                          ]),
+                                    );
+                                  }))),
                       SizedBox(height: 30.h),
-                      Row(children: [
-                        Text('이런 앱은 어떠세요 ?', style: TextStyle(fontSize: 19.sp))
+                      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                        Text('이런 앱은 어떠세요 ?', style: TextStyle(fontSize: 19.sp)),
+                            Icon(Icons.arrow_forward)
                       ]),
-                      Container(
-                        height: 130.h,
-                        child: Row(children: []),
-                      ),
+                Container(
+                    height: 170.h,
+                    child: Container(
+                        padding: EdgeInsets.only(top: 20.h),
+                        width: 320.w,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: AppAdList_v1.length,
+                            itemBuilder:
+                                (BuildContext context, int index) {
+                              String description =
+                                  AppAdList_v2[index].description;
+
+                              return Container(
+                                padding: EdgeInsets.only(right: 15.w),
+                                child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        // height: 90.h,
+                                        width: 100.h,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                            BorderRadius.circular(
+                                                25.sp)),
+                                        child: Image.asset(
+                                            AppAdList_v2[index].appIcon),
+                                      ),
+                                      Container(
+                                          padding:
+                                          EdgeInsets.only(top: 10.h),
+                                          child: Text(
+                                              AppAdList_v2[index].appName)),
+                                      Container(
+                                          child: description == '설치됨'
+                                              ? Row(
+                                            children: [
+                                              Icon(Icons.check, size: 14.sp),
+                                              Text(description),
+                                            ],
+                                          )
+                                              : Row(children: [
+                                            Text(' $description'),
+                                            Icon(Icons.star,
+                                                size: 14.sp),
+                                          ]))
+                                    ]),
+                              );
+                            }))),
                     ])
                   : Column()
             ],

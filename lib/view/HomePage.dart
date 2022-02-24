@@ -35,7 +35,13 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Get.toNamed('/A2b');
                 },
-              )
+              ),
+              TextButton(
+                child: Text('A2b_vaccineAppPage'),
+                onPressed: () {
+                  Get.toNamed('/A2b_vaccineApp');
+                },
+              ),
             ],
           ),
         ));

@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/customWidget/A2/A2aPage.dart';
-import 'package:voskat/view/customWidget/vaccineApp.dart';
+import 'package:voskat/view/customWidget/vaccineAppAd.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // TODO: UI 업데이트

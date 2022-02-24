@@ -4,7 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:voskat/view/customWidget/vaccineApp.dart';
+import 'package:voskat/view/customWidget/vaccineAppAd.dart';
 
 class A2aPage extends StatefulWidget {
   String subtype;
