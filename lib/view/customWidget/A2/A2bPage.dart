@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class A2bPage extends StatefulWidget {
   const A2bPage({Key? key}) : super(key: key);
@@ -32,10 +33,12 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    Color adBackgroundColor = Colors.blue;
+
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          leading: Container(),
+          leading: Icon(Icons.arrow_back),
           actions: [
             Container(
               padding: EdgeInsets.only(right: 24.w),
@@ -51,10 +54,10 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
         ),
         body: Container(
           padding: EdgeInsets.only(top: 20.h, left: 25.w, right: 25.w),
-          child: Column(
+          child: ListView(
             children: [
               Container(
-                  height: 160.h,
+                  height: 150.h,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -114,8 +117,9 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                   )),
                               Container(
                                   height: 20.h,
-                                  child: downloadPressed
-                                      ? Text('설치 중...',
+                                  child: (downloadPressed || downloadComplete)
+                                      ? Text(
+                                          downloadComplete ? '설치됨' : '설치 중...',
                                           style: TextStyle(
                                             fontSize: 15.sp,
                                           ))
@@ -126,9 +130,12 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                               fontWeight: FontWeight.w600))),
                               Container(
                                   height: 20.h,
-                                  child: (downloadPressed)
+                                  child: (downloadPressed || downloadComplete)
                                       ? Container()
-                                      : Text('광고 포함 ∙ 인앱 구매',
+                                      : Text(
+                                          downloadComplete
+                                              ? ''
+                                              : '광고 포함 ∙ 인앱 구매',
                                           style: TextStyle(fontSize: 14.sp))),
                             ]),
                       )
@@ -169,8 +176,8 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                       padding: EdgeInsets.only(
                                           left: 15.w,
                                           right: 15.w,
-                                          top: 27.h,
-                                          bottom: 27.h),
+                                          top: 35.h,
+                                          bottom: 35.h),
                                       child: VerticalDivider(
                                           thickness: 1,
                                           width: 0.3,
@@ -220,8 +227,8 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                       padding: EdgeInsets.only(
                                           left: 15.w,
                                           right: 15.w,
-                                          top: 27.h,
-                                          bottom: 27.h),
+                                          top: 35.h,
+                                          bottom: 35.h),
                                       child: VerticalDivider(
                                           thickness: 1,
                                           width: 0.3,
@@ -242,7 +249,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                         ))
                                   ],
                                 )),
-                            SizedBox(height: 20.h),
+                            SizedBox(height: 15.h),
                             Container(
                                 width: 320.w,
                                 height: 41.h,
@@ -265,6 +272,54 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                       });
                                     });
                                   },
+                                )),
+                            SizedBox(height: 33.h),
+                            Container(
+                                width: 320.w,
+                                height: 165.h,
+                                decoration: BoxDecoration(
+                                    color: adBackgroundColor,
+                                    borderRadius: BorderRadius.circular(5.sp)),
+                                alignment: Alignment.center,
+                                child: Stack(
+                                    alignment: AlignmentDirectional.center,
+                                    children: [
+                                      Text('앱 설명 ~~~~',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16.sp,
+                                          )),
+                                      Icon(Icons.play_arrow,
+                                          size: 45.sp, color: Colors.white),
+                                      Icon(Icons.play_circle_fill,
+                                          size: 70.sp,
+                                          color: Colors.black.withOpacity(0.7))
+                                    ])),
+                            SizedBox(height: 30.h),
+                            Container(
+                                child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                  Text('앱 정보',
+                                      style: TextStyle(
+                                        fontSize: 19.sp,
+                                        // fontWeight: FontWeight.w600
+                                      )),
+                                  Icon(Icons.arrow_forward)
+                                ])),
+                            SizedBox(height: 20.h),
+                            Container(
+                                width: 320.w,
+                                child: Row(
+                                  children: [
+                                    Flexible(
+                                      child: Text(
+                                        '글로벌 No.1 백신! - 부스터 / 클리너 / 앱잠금 / 갤러리 숨김 / 이미지 검사 / 알림 검사 / QR코드 검사 / URL 검사 / 배터리 최적 사용',
+                                        style: TextStyle(fontSize: 15.sp),
+                                      ),
+                                    ),
+                                  ],
                                 ))
                           ],
                         )
@@ -356,9 +411,33 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                         ],
                       ),
                       Container(
-                        height: 130.h,
-                        child: Row(children: []),
-                      ),
+                          height: 170.h,
+                          child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                Container(
+                                    padding:
+                                    EdgeInsets.only(top: 10.h),
+                                    width: 90.w,
+                                    child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            height: 90.h,
+                                            decoration: BoxDecoration(
+                                                color: Colors.black,
+                                                borderRadius: BorderRadius.circular(25.sp)
+                                            ),
+                                          ),
+                                          Container(
+                                              padding:
+                                                  EdgeInsets.only(top: 10.h),
+                                              child: Text('YouTube')),
+                                          Container(
+                                              child: Text('설치됨'))
+                                        ]))
+                              ])),
                       SizedBox(height: 30.h),
                       Row(children: [
                         Text('이런 앱은 어떠세요 ?', style: TextStyle(fontSize: 19.sp))
