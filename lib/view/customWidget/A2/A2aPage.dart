@@ -5,17 +5,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voskat/view/customWidget/vaccineAppAd.dart';
+import 'package:voskat/model/simulation/appInfo.dart';
 
 class A2aPage extends StatefulWidget {
   String subtype;
-  String appName;
+  AppInfo appInfo;
   String info1;
   String info2_1;
   String info2_2;
   A2aPage(
       {Key? key,
       required this.subtype,
-      required this.appName,
+      required this.appInfo,
       required this.info1,
       required this.info2_1,
       required this.info2_2})
@@ -40,9 +41,11 @@ class _A2aPageState extends State<A2aPage> {
 
   @override
   Widget build(BuildContext context) {
+    String appName = widget.appInfo.appName;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.appName),
+        title: Text(appName),
         // leading: Container(),
         actions: [
           // U3-a
@@ -65,7 +68,6 @@ class _A2aPageState extends State<A2aPage> {
                   ? Column(
                       children: [
                         Container(
-
                             child: Row(
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           textBaseline: TextBaseline.ideographic,
@@ -84,28 +86,39 @@ class _A2aPageState extends State<A2aPage> {
                         )),
                         SizedBox(height: 30.h),
                         Container(
-                          padding: EdgeInsets.only(bottom: 15.h),
+                            padding: EdgeInsets.only(bottom: 15.h),
                             child: Row(
-                          children: [
-                            Text('상품명: [정부지원 대환대출]',style: TextStyle(
-                                fontSize: 15.sp, fontWeight: FontWeight.w500),),
-                          ],
-                        )),
+                              children: [
+                                Text(
+                                  '상품명: [정부지원 대환대출]',
+                                  style: TextStyle(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            )),
                         Container(
                             padding: EdgeInsets.only(bottom: 15.h),
                             child: Row(
-                          children: [
-                            Text('담당자: 김OO', style: TextStyle(
-                                fontSize: 15.sp, fontWeight: FontWeight.w500),),
-                          ],
-                        )),
-                        Container(
-                            child: Row(
                               children: [
-                                Text('문의: 010-xxxx-xxxx', style: TextStyle(
-                                    fontSize: 15.sp, fontWeight: FontWeight.w500),),
+                                Text(
+                                  '담당자: 김OO',
+                                  style: TextStyle(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
                               ],
                             )),
+                        Container(
+                            child: Row(
+                          children: [
+                            Text(
+                              '문의: 010-xxxx-xxxx',
+                              style: TextStyle(
+                                  fontSize: 15.sp, fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        )),
                       ],
                     )
                   : Container(),
@@ -113,7 +126,7 @@ class _A2aPageState extends State<A2aPage> {
             // SizedBox(height: 40),
 
             // SizedBox(height: 200.h),
-            _showAd ? vaccineApp() : Container(height: 90.h)
+            _showAd ? vaccineAppAd(widget.appInfo) : Container(height: 90.h)
           ],
         ),
       ),

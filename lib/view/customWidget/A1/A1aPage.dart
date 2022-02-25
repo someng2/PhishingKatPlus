@@ -5,24 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/customWidget/A1/A1a_downloadSettingPage.dart';
+import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1aPage extends StatefulWidget {
   String subtype;
-  String appName;
-  A1aPage({Key? key, required this.subtype, required this.appName}) : super(key: key);
+  AppInfo appInfo;
+  A1aPage(
+      {Key? key,
+      required this.subtype,
+      required this.appInfo})
+      : super(key: key);
 
   @override
   _A1aPageState createState() => _A1aPageState();
 }
 
 class _A1aPageState extends State<A1aPage> {
-
   bool isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
-    String appName = widget.appName;
-    // appName = (widget.subtype == '대출사기') ? ('KB국민은행'): ('이름없음');
+    String appName = widget.appInfo.appName;
 
     return Scaffold(
         appBar: AppBar(
@@ -30,7 +33,7 @@ class _A1aPageState extends State<A1aPage> {
           title: Text(appName),
           elevation: 5,
         ),
-        body:  Column(
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Center(
@@ -42,8 +45,8 @@ class _A1aPageState extends State<A1aPage> {
                         color: Colors.black,
                       ),
                       borderRadius: BorderRadius.circular(20.sp)),
-                  padding:
-                      EdgeInsets.only(top: 20.h, bottom: 10.h, left: 25.w, right: 25.w),
+                  padding: EdgeInsets.only(
+                      top: 20.h, bottom: 10.h, left: 25.w, right: 25.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -89,8 +92,11 @@ class _A1aPageState extends State<A1aPage> {
                                 style: TextStyle(fontWeight: FontWeight.w700),
                               ),
                               onPressed: () {
-                                Get.to(A1a_downloadSettingPage(subtype: widget.subtype, appName: appName),
-                                    arguments: {'isSwitched' : isSwitched});
+                                Get.to(
+                                    A1a_downloadSettingPage(
+                                        subtype: widget.subtype,
+                                        appInfo: widget.appInfo),
+                                    arguments: {'isSwitched': isSwitched});
                               },
                             ),
                           ),
@@ -103,7 +109,6 @@ class _A1aPageState extends State<A1aPage> {
               height: 10.h,
             )
           ],
-        )) ;
+        ));
   }
 }
-

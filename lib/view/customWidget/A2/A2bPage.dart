@@ -6,9 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/tempData/appAdData.dart';
+import 'package:voskat/model/simulation/appInfo.dart';
+import 'package:voskat/view/customWidget/A2/A2b_vaccineAppPage.dart';
 
 class A2bPage extends StatefulWidget {
-  const A2bPage({Key? key}) : super(key: key);
+  AppInfo appInfo;
+  A2bPage({Key? key, required this.appInfo}) : super(key: key);
 
   @override
   _A2bPageState createState() => _A2bPageState();
@@ -356,7 +359,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                             color: Colors.white,
                                             fontSize: 15.sp)),
                                     onPressed: () {
-                                      Get.toNamed('/A2b_vaccineApp');
+                                      Get.to(A2b_vaccineAppPage(maliciousAppInfo: widget.appInfo, vaccineAppIcon: 'image/v3appLogo.webp', vaccineAppColor: Colors.blue));
                                     },
                                   ))
                             ],

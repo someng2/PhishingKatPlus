@@ -7,13 +7,14 @@ import 'package:get/get.dart';
 import 'package:voskat/view/customWidget/A2/A2aPage.dart';
 import 'package:voskat/view/customWidget/vaccineAppAd.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:voskat/model/simulation/appInfo.dart';
 
 // TODO: UI 업데이트
 
 class A1a_appPage extends StatefulWidget {
   String subtype;
-  String appName;
-  A1a_appPage({Key? key, required this.subtype, required this.appName})
+  AppInfo appInfo;
+  A1a_appPage({Key? key, required this.subtype, required this.appInfo})
       : super(key: key);
 
   @override
@@ -35,7 +36,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
 
   @override
   Widget build(BuildContext context) {
-    String appName = widget.appName;
+    String appName = widget.appInfo.appName;
 
     String info1 = (widget.subtype == '대출사기') ? '고객명' : '';
     String info2 = (widget.subtype == '대출사기') ? '주민등록번호' : '';
@@ -157,7 +158,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
                 } else {
                   Get.to(A2aPage(
                       subtype: widget.subtype,
-                      appName: widget.appName,
+                      appInfo: widget.appInfo,
                       info1: info1Controller.text,
                       info2_1: info2_1Controller.text,
                       info2_2: info2_2Controller.text));
@@ -165,7 +166,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
               },
             )),
         SizedBox(height: 200.h),
-        _showAd ? vaccineApp() : Container(height: 90.h)
+        _showAd ? vaccineAppAd(widget.appInfo) : Container(height: 90.h)
         // vaccineApp()
       ]),
     );

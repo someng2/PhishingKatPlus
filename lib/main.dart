@@ -28,8 +28,6 @@ class MyApp extends StatelessWidget {
               home: const HomePage(),
               routes: {
                 '/simulation': (context) => SimulationPage(),
-                '/A2b': (context) => A2bPage(),
-                '/A2b_vaccineApp' : (context) => A2b_vaccineAppPage(appIcon: 'image/v3appLogo.webp', appColor: Colors.blue)
               },
               debugShowCheckedModeBanner: false,
             ));

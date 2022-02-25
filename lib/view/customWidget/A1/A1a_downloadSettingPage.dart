@@ -5,12 +5,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/customWidget/A1/A1a_downloadPage.dart';
 import 'package:voskat/view/customWidget/A1/A1aPage.dart';
+import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1a_downloadSettingPage extends StatefulWidget {
   // bool isSwitched;
-  String appName;
+  AppInfo appInfo;
   String subtype;
-  A1a_downloadSettingPage({Key? key,required this.appName, required this.subtype}) : super(key: key);
+  A1a_downloadSettingPage(
+      {Key? key,
+      required this.appInfo,
+      required this.subtype})
+      : super(key: key);
 
   @override
   _A1a_downloadSettingPageState createState() =>
@@ -22,11 +27,10 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
 
   @override
   Widget build(BuildContext context) {
-
     // String appName = Get.arguments['appName'];
     // String subtype = Get.arguments['subtype'];
     // bool isSwitched = widget.isSwitched;
-    String appName = widget.appName;
+    String appName = widget.appInfo.appName;
     String subtype = widget.subtype;
 
     return Scaffold(
@@ -40,8 +44,8 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
             ),
             onPressed: () {
               (isSwitched)
-                  ? Get.to(A1a_downloadPage(subtype: subtype, appName: appName))
-                      // arguments: {'subtype': widget.subtype, 'appName': widget.appName})
+                  ? Get.to(A1a_downloadPage(subtype: subtype, appInfo: widget.appInfo))
+                  // arguments: {'subtype': widget.subtype, 'appName': widget.appName})
                   : Get.back();
             },
           ),
@@ -75,8 +79,8 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                   ])),
               SizedBox(height: 10.h),
               Container(
-                  padding:
-                      EdgeInsets.only(left: 20.w, top: 10.h, bottom: 10.h, right: 10.w),
+                  padding: EdgeInsets.only(
+                      left: 20.w, top: 10.h, bottom: 10.h, right: 10.w),
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30.sp)),
@@ -86,7 +90,8 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                     children: [
                       Text(
                         '이 출처 허용',
-                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.sp),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 14.sp),
                       ),
                       // Switch(
                       //   value: isSwitched,
@@ -120,7 +125,8 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                     Text(
                       '이 출처의 앱을 설치하면 휴대전화와 데이터가 손상될 수 있습니다.',
                       style: TextStyle(
-                          fontSize: 12.sp, color: Colors.black.withOpacity(0.7)),
+                          fontSize: 12.sp,
+                          color: Colors.black.withOpacity(0.7)),
                     ),
                   ],
                 ),

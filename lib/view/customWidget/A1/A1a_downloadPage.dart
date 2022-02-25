@@ -8,11 +8,17 @@ import 'package:get/get.dart';
 import 'package:loading_overlay_pro/loading_overlay_pro.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:voskat/view/customWidget/A1/A1a_appPage.dart';
+import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1a_downloadPage extends StatefulWidget {
   String subtype;
-  String appName;
-  A1a_downloadPage({Key? key, required this.subtype, required this.appName})
+  // String appName;
+  AppInfo appInfo;
+  A1a_downloadPage(
+      {Key? key,
+      required this.subtype,
+      // required this.appName,
+      required this.appInfo})
       : super(key: key);
 
   @override
@@ -33,7 +39,7 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
       setState(() {
         state = '설치 완료!';
         timer.cancel();
-        Get.to(A1a_appPage(subtype: widget.subtype, appName: widget.appName));
+        Get.to(A1a_appPage(subtype: widget.subtype, appInfo: widget.appInfo));
       });
     });
     super.initState();
@@ -42,7 +48,7 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
   @override
   Widget build(BuildContext context) {
     String subtype = widget.subtype;
-    String appName = widget.appName;
+    String appName = widget.appInfo.appName;
 
     return Scaffold(
         appBar: AppBar(title: Text(appName)),

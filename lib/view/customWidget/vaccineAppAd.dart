@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/view/customWidget/A2/A2bPage.dart';
+import 'package:voskat/model/simulation/appInfo.dart';
 
-Widget vaccineApp() {
+Widget vaccineAppAd(AppInfo appInfo) {
   return Container(
       width: 360.w,
       height: 90.h,
@@ -37,7 +39,7 @@ Widget vaccineApp() {
               // width: 400,
               child: TextButton(
                   onPressed: () {
-                    Get.toNamed('/A2b');
+                    Get.to(A2bPage(appInfo: appInfo));
                   },
                   // TODO: 기존에 없는 백신 프로그램 앱으로 이미지 & 이름 설정
                   child: Container(

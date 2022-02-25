@@ -5,6 +5,7 @@ import 'package:voskat/model/simulation/messageAction.dart';
 import 'package:voskat/model/simulation/nonMessageAction.dart';
 import 'package:voskat/view/customWidget/A1/A1aPage.dart';
 import 'package:voskat/tempData/simulData.dart';
+import 'package:voskat/tempData/maliciousAppData.dart';
 
 MessageAction A0a = MessageAction(
     aid: 'A0-a',
@@ -20,8 +21,12 @@ MessageAction A0c = MessageAction(
     url: 'https://muz.so/afYt',
     contents2: '주소지 확인요망');
 
-NonMessageAction A1a_A0a =
-    NonMessageAction(aid: 'A1-a', widget: A1aPage(subtype: '대출사기', appName: 'KB국민은행',));
+NonMessageAction A1a_A0a = NonMessageAction(
+    aid: 'A1-a',
+    widget: A1aPage(
+      subtype: '대출사기',
+      appInfo: maliciousApp1,
+    ));
 
 // NonMessageAction A2a_A0a =
 //     NonMessageAction(aid: 'A2-a', widget: A2aPage(subtype: '대출사기', appName: 'KB국민은행'));

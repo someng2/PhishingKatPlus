@@ -1,22 +1,62 @@
 // ignore_for_file: file_names
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:voskat/model/simulation/appInfo.dart';
 
 class A2b_vaccineAppPage extends StatefulWidget {
-  String appIcon;
-  Color appColor;
+  AppInfo maliciousAppInfo;
+  String vaccineAppIcon;
+  Color vaccineAppColor;
 
-  A2b_vaccineAppPage({Key? key, required this.appIcon, required this.appColor})
+  A2b_vaccineAppPage(
+      {Key? key,
+      required this.maliciousAppInfo,
+      required this.vaccineAppIcon,
+      required this.vaccineAppColor})
       : super(key: key);
 
   @override
   _A2b_vaccineAppPageState createState() => _A2b_vaccineAppPageState();
 }
 
-class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage> {
+class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
+    with TickerProviderStateMixin {
   String appBarTitle = '';
   bool startClicked = false;
+  bool inspectComplete = false;
+  int percent = 0;
+
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    late Timer timer;
+    timer = Timer.periodic(Duration(milliseconds: 80), (_) {
+      setState(() {
+        percent += 1;
+        if (percent >= 100) {
+          timer.cancel();
+          controller.stop();
+          // percent=0;
+          startClicked = false;
+          inspectComplete = true;
+          appBarTitle = '악성 검사 결과';
+        }
+      });
+    });
+
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+    )..addListener(() {
+        setState(() {});
+      });
+    controller.repeat();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,36 +66,99 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage> {
           centerTitle: true,
           leading: Container(
               padding: EdgeInsets.only(top: 8.h, bottom: 3.h),
-              child: Image.asset(widget.appIcon)),
+              child: Image.asset(widget.vaccineAppIcon)),
           elevation: 0,
         ),
         // backgroundColor: Colors.blue,
-        body: startClicked
-            ? Container(
-                width: 360.w,
-                padding: EdgeInsets.only(top: 150.h, bottom: 100.h),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // progress circle
-                    Container(
-                      height: 150.h,
-                      width: 150.w,
-                      decoration: BoxDecoration(color: Colors.black),
-                    ),
-
-
-
-                    Column(
+        body: (startClicked || inspectComplete)
+            ? startClicked
+                ? Container(
+                    width: 360.w,
+                    padding: EdgeInsets.only(top: 150.h, bottom: 100.h),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // progress percent
-                        Text('90%', style: TextStyle(fontSize: 30.sp)),
+                        // progress circle
+                        Container(
+                          height: 170.sp,
+                          width: 170.sp,
+                          child: CircularProgressIndicator(
+                              value: controller.value,
+                              // semanticsLabel: 'Linear progress indicator',
+                              strokeWidth: 6.w,
+                              color: widget.vaccineAppColor),
+                        ),
 
-                        Text('악성 앱 검사 중...'),
+                        Column(
+                          children: [
+                            // progress percent
+                            Text('$percent%',
+                                style: TextStyle(fontSize: 30.sp)),
+
+                            Text('악성 앱 검사 중...'),
+                          ],
+                        )
                       ],
-                    )
-                  ],
-                ))
+                    ))
+                : Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(top: 50.h),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                              height: 80.h,
+                              child: Image.asset('image/cautionIcon.png')),
+                          Container(
+                              padding: EdgeInsets.only(bottom: 0.h),
+                              child: Text('악성 앱 1개 발견',
+                                  style: TextStyle(fontSize: 20.sp))),
+                          Container(
+                              height: 150.h,
+                              width: 150.h,
+                              color: Colors.black,
+                              alignment: Alignment.center,
+                              child: Image.asset(widget.maliciousAppInfo.appIcon)),
+                          Container(
+                              padding: EdgeInsets.only(top: 70.h, bottom: 40.h),
+                              child: Text(
+                                '삭제 하시겠습니까?',
+                                style: TextStyle(fontSize: 16.sp),
+                              )),
+                          Container(
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                Container(
+                                    width: 120.w,
+                                    height: 40.h,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(),
+                                        borderRadius:
+                                            BorderRadius.circular(10.sp)),
+                                    child: TextButton(
+                                      child: Text('삭제',
+                                          style:
+                                              TextStyle(color: Colors.black)),
+                                      onPressed: () {},
+                                    )),
+                                SizedBox(width: 20.w),
+                                Container(
+                                    width: 120.w,
+                                    height: 40.h,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius:
+                                            BorderRadius.circular(10.sp)),
+                                    child: TextButton(
+                                      child: Text('취소',
+                                          style: TextStyle(color: Colors.grey)),
+                                      onPressed: () {},
+                                    )),
+                              ]))
+                        ]),
+                  )
+            // 검사 전
             : Container(
                 width: 360.w,
                 padding: EdgeInsets.only(top: 150.h),
@@ -66,7 +169,7 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage> {
                           height: 270.h,
                           width: 270.w,
                           decoration: new BoxDecoration(
-                            color: widget.appColor,
+                            color: widget.vaccineAppColor,
                             shape: BoxShape.circle,
                           ),
                           alignment: Alignment.center,
