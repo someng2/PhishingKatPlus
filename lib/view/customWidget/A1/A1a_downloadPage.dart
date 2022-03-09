@@ -51,7 +51,16 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
     String appName = widget.appInfo.appName;
 
     return Scaffold(
-        appBar: AppBar(title: Text(appName)),
+        appBar: AppBar(
+          leading: Container(padding: EdgeInsets.zero),
+            title: Row(
+              children: [
+                Container(
+                    height: 30.h, child: Image.asset(widget.appInfo.appIcon)),
+                Text(appName),
+              ],
+            ),
+        ),
         body: Container(
           padding: EdgeInsets.only(top: 230.h),
           child: Column(children: [

@@ -49,6 +49,7 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                   : Get.back();
             },
           ),
+          backgroundColor: Colors.white.withOpacity(0.05)
         ),
         backgroundColor: Colors.white.withOpacity(0.95),
         body: Container(
@@ -61,8 +62,7 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                     // TODO: 앱 아이콘으로 변경
                     Container(
                       width: 30.w,
-                      height: 30.h,
-                      color: Colors.black,
+                      child: Image.asset(widget.appInfo.appIcon)
                     ),
                     SizedBox(width: 20),
                     Column(

@@ -18,7 +18,7 @@ class SimulationPage extends StatefulWidget {
 
 class _SimulationPageState extends State<SimulationPage> {
   @override
-  User _user = user2;
+  User _user = user1;
 
   Widget build(BuildContext context) {
     CustomSimulController customSimulController =
@@ -29,22 +29,32 @@ class _SimulationPageState extends State<SimulationPage> {
     return (scenario.medium == '문자')
         ? Scaffold(
             appBar: AppBar(
-                leading: IconButton(
-                  icon: Icon(
-                    Icons.navigate_before,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    Get.back();
-                  },
+              leading: IconButton(
+                icon: Icon(
+                  Icons.navigate_before,
+                  color: Colors.black,
                 ),
-                backgroundColor: Color(0xffffffff),
-                elevation: 0,
-                title: Text(scenario.phoneNumber,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.w,
-                        fontWeight: FontWeight.w400))),
+                onPressed: () {
+                  Get.back();
+                },
+              ),
+              backgroundColor: Color(0xffffffff),
+              elevation: 0,
+              title: Text(scenario.phoneNumber,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w400)),
+              actions: [
+                TextButton(
+                  child: Icon(Icons.phone, color: Colors.black,),
+                  onPressed: () {},
+                ),
+                // TextButton(
+                //   child: Icon(Icons.)
+                // )
+              ],
+            ),
             body: Column(children: [
               Container(
                 height: 67.h,
@@ -74,7 +84,7 @@ class _SimulationPageState extends State<SimulationPage> {
                 ]),
               ),
               Container(
-                child: Text('2022년 2월 9일 수요일',
+                child: Text('2022년 3월 2일 수요일',
                     style: TextStyle(
                         fontSize: 13.sp, color: Colors.black.withOpacity(0.6))),
                 padding: EdgeInsets.only(bottom: 10),

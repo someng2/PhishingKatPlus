@@ -24,6 +24,7 @@ class A1a_appPage extends StatefulWidget {
 class _A1a_appPageState extends State<A1a_appPage> {
   bool _showAd = false;
 
+
   @override
   void initState() {
     Timer(Duration(seconds: 3), () {
@@ -37,9 +38,18 @@ class _A1a_appPageState extends State<A1a_appPage> {
   @override
   Widget build(BuildContext context) {
     String appName = widget.appInfo.appName;
+    String info1 = '';
+    String info2 = '';
 
-    String info1 = (widget.subtype == '대출사기') ? '고객명' : '';
-    String info2 = (widget.subtype == '대출사기') ? '주민등록번호' : '';
+    if (widget.subtype == '대출사기') {
+      info1 = '고객명';
+      info2 = '주민등록번호';
+    }
+    else if (widget.subtype == '택배사칭') {
+      info1 = '이름';
+      info2 = '휴대폰 번호';
+    }
+
 
     final info1Controller = TextEditingController();
     final info2_1Controller = TextEditingController();

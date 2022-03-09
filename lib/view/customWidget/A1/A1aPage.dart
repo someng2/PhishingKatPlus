@@ -10,10 +10,7 @@ import 'package:voskat/model/simulation/appInfo.dart';
 class A1aPage extends StatefulWidget {
   String subtype;
   AppInfo appInfo;
-  A1aPage(
-      {Key? key,
-      required this.subtype,
-      required this.appInfo})
+  A1aPage({Key? key, required this.subtype, required this.appInfo})
       : super(key: key);
 
   @override
@@ -28,35 +25,45 @@ class _A1aPageState extends State<A1aPage> {
     String appName = widget.appInfo.appName;
 
     return Scaffold(
-        appBar: AppBar(
-          // TODO: leading - 앱 icon image
-          title: Text(appName),
-          elevation: 5,
+      body: Stack(children: [
+        Positioned(
+          child: AppBar(
+            // TODO: leading -> 앱 icon image
+            title: Text(appName),
+            elevation: 5,
+            backgroundColor: Colors.transparent,
+          ),
         ),
-        body: Column(
+        Container(
+          width: 360.w,
+          height: 760.h,
+          color: Colors.transparent,
+        ),
+        Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Center(
               child: Container(
                   // width: 300,
                   decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: Colors.black,
-                      ),
+                      color: Colors.white,
+                      // border: Border.all(
+                      //   width: 1,
+                      //   color: Colors.black,
+                      // ),
                       borderRadius: BorderRadius.circular(20.sp)),
                   padding: EdgeInsets.only(
-                      top: 20.h, bottom: 10.h, left: 25.w, right: 25.w),
+                      top: 20.h, bottom: 10.h, left: 20.w, right: 20.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         children: [
-                          // TODO: 앱 아이콘으로 변경
                           Container(
-                            width: 15,
-                            height: 15,
-                            color: Colors.black,
+                            width: 30,
+                            // height: 15,
+                            child: Image.asset(widget.appInfo.appIcon),
+                            // decoration: BoxDecoration(color: Colors.black),
                           ),
                           SizedBox(
                             width: 10,
@@ -64,12 +71,13 @@ class _A1aPageState extends State<A1aPage> {
                           Text(
                             appName,
                             style: TextStyle(
-                                fontSize: 20.sp, fontWeight: FontWeight.w700),
+                                fontSize: 17.sp, fontWeight: FontWeight.w700),
                           ),
                         ],
                       ),
                       SizedBox(height: 15.h),
-                      Text('보안상의 이유로 이 경로를 통한 알 수 없는 앱을 휴대전화에 설치할 수 없습니다.'),
+                      Text('보안상의 이유로 이 경로를 통한 알 수 없는 앱을 휴대전화에 설치할 수 없습니다.',
+                          style: TextStyle(fontSize: 13.sp)),
                       SizedBox(height: 15.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -78,7 +86,7 @@ class _A1aPageState extends State<A1aPage> {
                             child: TextButton(
                               child: Text(
                                 '취소',
-                                style: TextStyle(fontWeight: FontWeight.w700),
+                                style: TextStyle(fontWeight: FontWeight.w600),
                               ),
                               onPressed: () {
                                 Get.back();
@@ -89,7 +97,7 @@ class _A1aPageState extends State<A1aPage> {
                             child: TextButton(
                               child: Text(
                                 '설정',
-                                style: TextStyle(fontWeight: FontWeight.w700),
+                                style: TextStyle(fontWeight: FontWeight.w600),
                               ),
                               onPressed: () {
                                 Get.to(
@@ -106,9 +114,11 @@ class _A1aPageState extends State<A1aPage> {
                   )),
             ),
             SizedBox(
-              height: 10.h,
+              height: 20.h,
             )
           ],
-        ));
+        ),
+      ]),
+    );
   }
 }

@@ -5,6 +5,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
+import 'package:get/get.dart';
+import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
 class A2b_vaccineAppPage extends StatefulWidget {
   AppInfo maliciousAppInfo;
@@ -60,6 +62,8 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
 
   @override
   Widget build(BuildContext context) {
+    String maliciousAppName = widget.maliciousAppInfo.appName;
+
     return Scaffold(
         appBar: AppBar(
           title: Text(appBarTitle, style: TextStyle(fontSize: 19.sp)),
@@ -110,7 +114,7 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                               height: 80.h,
                               child: Image.asset('image/cautionIcon.png')),
                           Container(
-                              padding: EdgeInsets.only(bottom: 0.h),
+                              padding: EdgeInsets.only(bottom: 30.h),
                               child: Text('악성 앱 1개 발견',
                                   style: TextStyle(fontSize: 20.sp))),
                           Container(
@@ -118,9 +122,19 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                               width: 150.h,
                               color: Colors.black,
                               alignment: Alignment.center,
-                              child: Image.asset(widget.maliciousAppInfo.appIcon)),
+                              child: Column(
+                                children: [
+                                  Text('악성 앱 아이콘 바꾸기',
+                                      style: TextStyle(color: Colors.white)),
+                                  Container(
+                                      height: 125.h,
+                                      child: Image.asset(
+                                          widget.maliciousAppInfo.appIcon)),
+                                ],
+                              )),
                           Container(
-                              padding: EdgeInsets.only(top: 70.h, bottom: 40.h),
+                              padding:
+                                  EdgeInsets.only(top: 120.h, bottom: 20.h),
                               child: Text(
                                 '삭제 하시겠습니까?',
                                 style: TextStyle(fontSize: 16.sp),
@@ -131,28 +145,38 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                   children: [
                                 Container(
                                     width: 120.w,
-                                    height: 40.h,
+                                    height: 43.h,
                                     decoration: BoxDecoration(
-                                        border: Border.all(),
+                                        border: Border.all(
+                                            color: widget.vaccineAppColor),
                                         borderRadius:
                                             BorderRadius.circular(10.sp)),
                                     child: TextButton(
                                       child: Text('삭제',
-                                          style:
-                                              TextStyle(color: Colors.black)),
-                                      onPressed: () {},
+                                          style: TextStyle(
+                                              color: widget.vaccineAppColor,
+                                              fontSize: 16.sp)),
+                                      onPressed: () {
+                                        Get.defaultDialog(
+                                            title: '삭제 완료',
+                                            middleText:
+                                                '$maliciousAppName 앱이 삭제되었습니다.');
+                                        Get.offAll(SimulationResultPage());
+                                      },
                                     )),
                                 SizedBox(width: 20.w),
                                 Container(
                                     width: 120.w,
-                                    height: 40.h,
+                                    height: 43.h,
                                     decoration: BoxDecoration(
                                         border: Border.all(color: Colors.grey),
                                         borderRadius:
                                             BorderRadius.circular(10.sp)),
                                     child: TextButton(
                                       child: Text('취소',
-                                          style: TextStyle(color: Colors.grey)),
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 16.sp)),
                                       onPressed: () {},
                                     )),
                               ]))

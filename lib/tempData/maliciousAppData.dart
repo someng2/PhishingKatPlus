@@ -7,3 +7,9 @@ AppInfo maliciousApp1 = AppInfo(
   appName: 'KB 국민은행',
   description: ''
 );
+
+AppInfo maliciousApp2 = AppInfo(
+  appIcon: 'image/cjIcon.webp',
+  appName: 'CJ 대한통운',
+  description: ''
+);

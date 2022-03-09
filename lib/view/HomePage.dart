@@ -30,18 +30,7 @@ class _HomePageState extends State<HomePage> {
                   Get.to(SimulationPage());
                 },
               ),
-              TextButton(
-                child: Text('A2b Page'),
-                onPressed: () {
-                  Get.toNamed('/A2b');
-                },
-              ),
-              TextButton(
-                child: Text('A2b_vaccineAppPage'),
-                onPressed: () {
-                  Get.toNamed('/A2b_vaccineApp');
-                },
-              ),
+
             ],
           ),
         ));
