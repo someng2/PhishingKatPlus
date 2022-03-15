@@ -6,8 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voskat/view/customWidget/vaccineAppAd.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
+import 'package:get/get.dart';
+import 'package:voskat/view/Simulation/SimulationResultPage.dart';
+
+import 'package:voskat/tempData/scenarioData.dart';
+import 'package:voskat/tempData/userActionData.dart';
 
 class A2aPage extends StatefulWidget {
+  String sid;
   String subtype;
   AppInfo appInfo;
   String info1;
@@ -15,6 +21,7 @@ class A2aPage extends StatefulWidget {
   String info2_2;
   A2aPage(
       {Key? key,
+      required this.sid,
       required this.subtype,
       required this.appInfo,
       required this.info1,
@@ -53,6 +60,8 @@ class _A2aPageState extends State<A2aPage> {
             icon: Icon(Icons.close),
             onPressed: () {
               //TODO: 시뮬레이션 결과 화면으로
+              scenario_A0a.userActionSequence.add(U3_a);
+              Get.to(SimulationResultPage(sid: widget.sid));
             },
           )
         ],

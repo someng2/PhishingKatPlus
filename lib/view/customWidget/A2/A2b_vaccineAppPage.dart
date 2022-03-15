@@ -161,7 +161,9 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                             title: '삭제 완료',
                                             middleText:
                                                 '$maliciousAppName 앱이 삭제되었습니다.');
-                                        Get.offAll(SimulationResultPage());
+
+                                        // TODO: sid 넣기
+                                        Get.offAll(SimulationResultPage(sid: ''));
                                       },
                                     )),
                                 SizedBox(width: 20.w),

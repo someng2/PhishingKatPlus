@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/model/user/user.dart';
-import 'package:voskat/tempData/simulData.dart';
+import 'package:voskat/tempData/scenarioData.dart';
 import 'package:voskat/tempData/type&ageData.dart';
+import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 
@@ -29,30 +30,79 @@ class _SimulationPageState extends State<SimulationPage> {
     return (scenario.medium == '문자')
         ? Scaffold(
             appBar: AppBar(
-              leading: IconButton(
-                icon: Icon(
+              leading: TextButton(
+                child: Icon(
                   Icons.navigate_before,
                   color: Colors.black,
                 ),
                 onPressed: () {
                   Get.back();
                 },
+                style: TextButton.styleFrom(
+                  minimumSize: Size.zero,
+                  padding: EdgeInsets.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
               ),
               backgroundColor: Color(0xffffffff),
               elevation: 0,
               title: Text(scenario.phoneNumber,
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 18.sp,
+                      fontSize: 19.sp,
                       fontWeight: FontWeight.w400)),
+              titleSpacing: 0,
               actions: [
-                TextButton(
-                  child: Icon(Icons.phone, color: Colors.black,),
-                  onPressed: () {},
+                Container(
+                  width: 21.w,
+                  child: TextButton(
+                    child: Icon(
+                      Icons.phone,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {},
+                    style: TextButton.styleFrom(
+                      minimumSize: Size.zero,
+                      padding: EdgeInsets.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                  ),
                 ),
-                // TextButton(
-                //   child: Icon(Icons.)
-                // )
+                SizedBox(width: 20.w),
+                Container(
+                  width: 21.w,
+                  // height: 25.h,
+                  padding: EdgeInsets.only(bottom: 6.h),
+                  child: TextButton(
+                    child: Image.asset('image/reportIcon.png'),
+                    onPressed: () {
+                      //TODO: A1-b
+                    },
+                    style: TextButton.styleFrom(
+                      minimumSize: Size.zero,
+                      padding: EdgeInsets.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 20.w),
+                Container(
+                    width: 19.w,
+                    // height: 15.h,
+                    padding: EdgeInsets.only(
+                      bottom: 6.h,
+                      top: 5.h,
+                    ),
+                    child: TextButton(
+                      child: Image.asset('image/menu.png'),
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        minimumSize: Size.zero,
+                        padding: EdgeInsets.zero,
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                    )),
+                SizedBox(width: 15.w),
               ],
             ),
             body: Column(children: [
@@ -108,13 +158,13 @@ class _SimulationPageState extends State<SimulationPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(scenario.actionSequence[0].contents1,
+                            Text(scenario.appActionSequence[0].contents1,
                                 style: TextStyle(fontSize: 14.sp)),
                             Container(
                               height: 20.h,
                               child: TextButton(
                                   child: Text(
-                                    scenario.actionSequence[0].url,
+                                    scenario.appActionSequence[0].url,
                                     style: TextStyle(
                                         color: Colors.indigo,
                                         decoration: TextDecoration.underline,
@@ -123,13 +173,15 @@ class _SimulationPageState extends State<SimulationPage> {
 
                                   // U1
                                   onPressed: () {
-                                    Get.to((scenario.actionSequence[1].widget));
+                                    scenario.userActionSequence.add(U1_a);
+                                    Get.to(
+                                        (scenario.appActionSequence[1].widget));
                                   },
                                   style: TextButton.styleFrom(
                                       // backgroundColor: Colors.white,
                                       padding: EdgeInsets.all(0))),
                             ),
-                            Text(scenario.actionSequence[0].contents2,
+                            Text(scenario.appActionSequence[0].contents2,
                                 style: TextStyle(fontSize: 14.sp)),
                           ],
                         ),

@@ -8,9 +8,10 @@ import 'package:voskat/view/customWidget/A1/A1a_downloadSettingPage.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1aPage extends StatefulWidget {
+  String sid;
   String subtype;
   AppInfo appInfo;
-  A1aPage({Key? key, required this.subtype, required this.appInfo})
+  A1aPage({Key? key, required this.sid, required this.subtype, required this.appInfo})
       : super(key: key);
 
   @override
@@ -102,6 +103,7 @@ class _A1aPageState extends State<A1aPage> {
                               onPressed: () {
                                 Get.to(
                                     A1a_downloadSettingPage(
+                                      sid: widget.sid,
                                         subtype: widget.subtype,
                                         appInfo: widget.appInfo),
                                     arguments: {'isSwitched': isSwitched});

@@ -4,9 +4,7 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:voskat/view/Simulation/SimulationPage.dart';
-import 'package:voskat/view/customWidget/A2/A2bPage.dart';
-import 'package:voskat/view/customWidget/A2/A2b_vaccineAppPage.dart';
-import 'tempData/acitonData.dart';
+import 'package:voskat/view/HomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +25,7 @@ class MyApp extends StatelessWidget {
               theme: _phishingTheme,
               home: const HomePage(),
               routes: {
+                '/home': (context) => HomePage(),
                 '/simulation': (context) => SimulationPage(),
               },
               debugShowCheckedModeBanner: false,
@@ -40,13 +39,13 @@ ThemeData _buildSimulkatTheme() {
   final ThemeData base = ThemeData.light();
 
   return base.copyWith(
-      primaryColor: Colors.black,
-      appBarTheme: AppBarTheme(
-          backgroundColor: Colors.white.withOpacity(0.95),
-          // color: Colors.white,
-          iconTheme: IconThemeData(color: Colors.black),
-          titleTextStyle: TextStyle(color: Colors.black, fontSize: 15.sp)),
-      textButtonTheme: TextButtonThemeData(style: flatButtonStyle),
+    primaryColor: Colors.black,
+    appBarTheme: AppBarTheme(
+        backgroundColor: Colors.white.withOpacity(0.95),
+        // color: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+        titleTextStyle: TextStyle(color: Colors.black, fontSize: 15.sp)),
+    textButtonTheme: TextButtonThemeData(style: flatButtonStyle),
   );
 }
 
