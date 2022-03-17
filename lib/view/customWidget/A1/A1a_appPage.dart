@@ -4,12 +4,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/customWidget/A2/A2aPage.dart';
 import 'package:voskat/view/customWidget/vaccineAppAd.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 import 'package:voskat/tempData/scenarioData.dart';
+import 'package:voskat/controller/ScenarioController.dart';
 
 // TODO: UI 업데이트
 
@@ -30,6 +32,7 @@ class A1a_appPage extends StatefulWidget {
 
 class _A1a_appPageState extends State<A1a_appPage> {
   bool _showAd = false;
+  final ScenarioController _scenarioController = ScenarioController();
 
   @override
   void initState() {
@@ -43,6 +46,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
 
   @override
   Widget build(BuildContext context) {
+    // print('widget.sid: ${widget.sid}');
     String appName = widget.appInfo.appName;
     String info1 = '';
     String info2 = '';
@@ -170,9 +174,14 @@ class _A1a_appPageState extends State<A1a_appPage> {
                     ),
                   );
                 } else {
-                  scenario_A0a.userActionSequence.add(U2_a);
+                  // scenario_A0a.userActionSequence.add(U2_a);
 
-                  Get.to(A2aPage(
+                  Scenario scenario =
+                      _scenarioController.getScenario(widget.sid);
+
+                  scenario.userActionSequence.add(U2_a);
+
+                  Get.to(() => A2aPage(
                       sid: widget.sid,
                       subtype: widget.subtype,
                       appInfo: widget.appInfo,

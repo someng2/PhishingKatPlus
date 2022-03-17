@@ -4,6 +4,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:voskat/controller/ScenarioController.dart';
+import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/view/customWidget/vaccineAppAd.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 import 'package:get/get.dart';
@@ -35,6 +37,7 @@ class A2aPage extends StatefulWidget {
 
 class _A2aPageState extends State<A2aPage> {
   bool _showAd = false;
+  final ScenarioController _scenarioController = ScenarioController();
 
   @override
   void initState() {
@@ -59,8 +62,12 @@ class _A2aPageState extends State<A2aPage> {
           IconButton(
             icon: Icon(Icons.close),
             onPressed: () {
-              //TODO: 시뮬레이션 결과 화면으로
-              scenario_A0a.userActionSequence.add(U3_a);
+              // scenario_A0a.userActionSequence.add(U3_a);
+
+              Scenario scenario = _scenarioController.getScenario(widget.sid);
+
+              scenario.userActionSequence.add(U3_a);
+
               Get.to(SimulationResultPage(sid: widget.sid));
             },
           )

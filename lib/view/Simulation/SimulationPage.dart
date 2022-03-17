@@ -22,8 +22,6 @@ class _SimulationPageState extends State<SimulationPage> {
   User _user = user1;
 
   Widget build(BuildContext context) {
-    CustomSimulController customSimulController =
-        CustomSimulController(user: _user);
     var scenario =
         CustomSimulController(user: _user).getCustomSimulation(_user);
 
