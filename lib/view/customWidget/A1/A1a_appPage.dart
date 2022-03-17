@@ -4,17 +4,24 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/customWidget/A2/A2aPage.dart';
 import 'package:voskat/view/customWidget/vaccineAppAd.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
+import 'package:voskat/tempData/scenarioData.dart';
 
 // TODO: UI 업데이트
 
 class A1a_appPage extends StatefulWidget {
+  String sid;
   String subtype;
   AppInfo appInfo;
-  A1a_appPage({Key? key, required this.subtype, required this.appInfo})
+  A1a_appPage(
+      {Key? key,
+      required this.sid,
+      required this.subtype,
+      required this.appInfo})
       : super(key: key);
 
   @override
@@ -23,7 +30,6 @@ class A1a_appPage extends StatefulWidget {
 
 class _A1a_appPageState extends State<A1a_appPage> {
   bool _showAd = false;
-
 
   @override
   void initState() {
@@ -44,12 +50,10 @@ class _A1a_appPageState extends State<A1a_appPage> {
     if (widget.subtype == '대출사기') {
       info1 = '고객명';
       info2 = '주민등록번호';
-    }
-    else if (widget.subtype == '택배사칭') {
+    } else if (widget.subtype == '택배사칭') {
       info1 = '이름';
       info2 = '휴대폰 번호';
     }
-
 
     final info1Controller = TextEditingController();
     final info2_1Controller = TextEditingController();
@@ -166,7 +170,10 @@ class _A1a_appPageState extends State<A1a_appPage> {
                     ),
                   );
                 } else {
+                  scenario_A0a.userActionSequence.add(U2_a);
+
                   Get.to(A2aPage(
+                      sid: widget.sid,
                       subtype: widget.subtype,
                       appInfo: widget.appInfo,
                       info1: info1Controller.text,
@@ -197,8 +204,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
         ((info2Controller.text.length != 6) |
             (info3Controller.text.length != 7))) {
       errorType = '주민번호형식오류';
-    }
-    else
+    } else
       errorType = '에러없음';
 
     print('errorType: $errorType');

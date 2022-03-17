@@ -8,11 +8,12 @@ import 'package:voskat/view/customWidget/A1/A1aPage.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1a_downloadSettingPage extends StatefulWidget {
-  // bool isSwitched;
+  String sid;
   AppInfo appInfo;
   String subtype;
   A1a_downloadSettingPage(
       {Key? key,
+      required this.sid,
       required this.appInfo,
       required this.subtype})
       : super(key: key);
@@ -35,22 +36,23 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
 
     return Scaffold(
         appBar: AppBar(
-          elevation: 0,
-          title: Text('출처를 알 수 없는 앱 설치', style: TextStyle(color: Colors.black)),
-          leading: TextButton(
-            child: Icon(
-              Icons.navigate_before,
-              color: Colors.black,
+            elevation: 0,
+            title:
+                Text('출처를 알 수 없는 앱 설치', style: TextStyle(color: Colors.black)),
+            leading: TextButton(
+              child: Icon(
+                Icons.navigate_before,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                (isSwitched)
+                    ? Get.to(A1a_downloadPage( sid: widget.sid,
+                        subtype: subtype, appInfo: widget.appInfo))
+                    // arguments: {'subtype': widget.subtype, 'appName': widget.appName})
+                    : Get.back();
+              },
             ),
-            onPressed: () {
-              (isSwitched)
-                  ? Get.to(A1a_downloadPage(subtype: subtype, appInfo: widget.appInfo))
-                  // arguments: {'subtype': widget.subtype, 'appName': widget.appName})
-                  : Get.back();
-            },
-          ),
-          backgroundColor: Colors.white.withOpacity(0.05)
-        ),
+            backgroundColor: Colors.white.withOpacity(0.05)),
         backgroundColor: Colors.white.withOpacity(0.95),
         body: Container(
           child: Column(
@@ -61,9 +63,8 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                   child: Row(children: [
                     // TODO: 앱 아이콘으로 변경
                     Container(
-                      width: 30.w,
-                      child: Image.asset(widget.appInfo.appIcon)
-                    ),
+                        width: 30.w,
+                        child: Image.asset(widget.appInfo.appIcon)),
                     SizedBox(width: 20),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

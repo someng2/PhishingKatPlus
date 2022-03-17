@@ -1,10 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/model/simulation/simulation.dart';
+import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/model/user/user.dart';
 import 'package:voskat/tempData/type&ageData.dart';
-import 'package:voskat/tempData/simulData.dart';
+import 'package:voskat/tempData/scenarioData.dart';
 
 class CustomSimulController extends GetxController {
   Rx<User> user;
@@ -12,7 +12,7 @@ class CustomSimulController extends GetxController {
   CustomSimulController({required User user}) : this.user = user.obs;
 
   getCustomSimulation(User user){
-    Simulation simulation;
+    Scenario simulation;
     CustomSimulController customSimulController = CustomSimulController(user: user);
 
     List<String> typeList = customSimulController.user.value.typeNage.type;

@@ -11,13 +11,13 @@ import 'package:voskat/view/customWidget/A1/A1a_appPage.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1a_downloadPage extends StatefulWidget {
+  String sid;
   String subtype;
-  // String appName;
   AppInfo appInfo;
   A1a_downloadPage(
       {Key? key,
+      required this.sid,
       required this.subtype,
-      // required this.appName,
       required this.appInfo})
       : super(key: key);
 
@@ -39,7 +39,8 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
       setState(() {
         state = '설치 완료!';
         timer.cancel();
-        Get.to(A1a_appPage(subtype: widget.subtype, appInfo: widget.appInfo));
+        Get.to(A1a_appPage(
+            sid: widget.sid, subtype: widget.subtype, appInfo: widget.appInfo));
       });
     });
     super.initState();
@@ -53,13 +54,13 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
     return Scaffold(
         appBar: AppBar(
           leading: Container(padding: EdgeInsets.zero),
-            title: Row(
-              children: [
-                Container(
-                    height: 30.h, child: Image.asset(widget.appInfo.appIcon)),
-                Text(appName),
-              ],
-            ),
+          title: Row(
+            children: [
+              Container(
+                  height: 30.h, child: Image.asset(widget.appInfo.appIcon)),
+              Text(appName),
+            ],
+          ),
         ),
         body: Container(
           padding: EdgeInsets.only(top: 230.h),
