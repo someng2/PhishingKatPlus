@@ -22,10 +22,10 @@ class _SimulationPageState extends State<SimulationPage> {
   User _user = user1;
 
   Widget build(BuildContext context) {
-    CustomSimulController customSimulController =
-        CustomSimulController(user: _user);
     var scenario =
         CustomSimulController(user: _user).getCustomSimulation(_user);
+
+    print('모의훈련 점수: ${scenario.score}점');
 
     return (scenario.medium == '문자')
         ? Scaffold(

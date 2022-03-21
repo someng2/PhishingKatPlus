@@ -11,21 +11,23 @@ class CustomSimulController extends GetxController {
 
   CustomSimulController({required User user}) : this.user = user.obs;
 
-  getCustomSimulation(User user){
-    Scenario simulation;
-    CustomSimulController customSimulController = CustomSimulController(user: user);
+  getCustomSimulation(User user) {
+    Scenario scenario;
+    CustomSimulController customSimulController =
+        CustomSimulController(user: user);
 
     List<String> typeList = customSimulController.user.value.typeNage.type;
 
     // user 연령대가 취약한 typelist random shuffle
     typeList.shuffle();
 
-    for(int i = 0; typeList[i] != null; i++) {
-      for(int j = 0; scenarioList[j] != null; j++) {
-        if(scenarioList[j].subtype == typeList[i]) {
-          print ('matched scenario for ${user.name} : ${scenarioList[j].subtype}');
-          simulation = scenarioList[j];
-          return simulation;
+    for (int i = 0; typeList[i] != null; i++) {
+      for (int j = 0; scenarioList[j] != null; j++) {
+        if (scenarioList[j].subtype == typeList[i]) {
+          print(
+              'matched scenario for ${user.name} : ${scenarioList[j].subtype}');
+          scenario = scenarioList[j];
+          return scenario;
         }
       }
     }
