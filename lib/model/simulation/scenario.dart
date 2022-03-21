@@ -7,6 +7,7 @@ class Scenario {
   String phoneNumber;
   String type; // 스미싱 유형(기관사칭 or 지인사칭)
   String subtype; // 스미싱 세부 유형
+  int score; // 모의훈련 점수
   List<dynamic> appActionSequence;
   List<UserAction> userActionSequence;
 
@@ -17,6 +18,7 @@ class Scenario {
       required this.phoneNumber,
       required this.type,
       required this.subtype,
+        required this.score,
       required this.appActionSequence,
         required this.userActionSequence,
       });

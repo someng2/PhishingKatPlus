@@ -8,6 +8,7 @@ Scenario scenario_A0a = Scenario(
   phoneNumber: '1600-xxxx',
   type: '기관사칭',
   subtype: '대출사기',
+  score: 50,
   appActionSequence: [A0a, A1a_A0a],
   userActionSequence: [],
 );
@@ -18,6 +19,7 @@ Scenario scenario_A0b = Scenario(
   phoneNumber: '070-',
   type: '기관사칭',
   subtype: '결제사기',
+  score: 50,
   appActionSequence: [A0b],
   userActionSequence: [],
 );
@@ -28,6 +30,7 @@ Scenario scenario_A0c = Scenario(
   phoneNumber: '+31 517 78 91 75',
   type: '기관사칭',
   subtype: '택배사칭',
+  score: 50,
   appActionSequence: [A0c, A1a_A0c],
   userActionSequence: [],
 );

@@ -25,6 +25,8 @@ class _SimulationPageState extends State<SimulationPage> {
     var scenario =
         CustomSimulController(user: _user).getCustomSimulation(_user);
 
+    print('모의훈련 점수: ${scenario.score}점');
+
     return (scenario.medium == '문자')
         ? Scaffold(
             appBar: AppBar(
