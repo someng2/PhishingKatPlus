@@ -76,7 +76,86 @@ class _SimulationPageState extends State<SimulationPage> {
                   child: TextButton(
                     child: Image.asset('image/reportIcon.png'),
                     onPressed: () {
-                      //TODO: A1-b
+                      //U1-c
+
+                      // scenario.userActionSequence.add(U1_c);
+                      Get.dialog(
+                        Dialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.sp))),
+                          child: Container(
+                              height: 380.h,
+                              padding: EdgeInsets.only(
+                                  top: 30.h, left: 10.w, right: 10.w),
+                              child: Column(
+                                children: [
+                                  Center(
+                                    child: Text(
+                                      '한국인터넷 진흥원(118)에 \n신고하기',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 20.sp,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.h),
+                                  Container(
+                                    // decoration: BoxDecoration(border: Border.all(), color: Colors.blue),
+                                    height: 150.h,
+                                    child: Center(
+                                        child:
+                                            Image.asset('image/kisaLogo.png')),
+                                  ),
+                                  Container(
+                                      padding: EdgeInsets.only(
+                                          top: 50.h, left: 5.w, right: 5.w),
+                                      child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Container(
+                                              width: 100.w,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.blue,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.sp)),
+                                              child: TextButton(
+                                                child: Text(
+                                                  '신고하기',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                                onPressed: () {
+                                                  // U2-c
+
+                                                  // scenario.userActionSequence.add(U2_c);
+
+                                                },
+                                              ),
+                                            ),
+                                            Container(
+                                              width: 100.w,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.sp)),
+                                              child: TextButton(
+                                                child: Text(
+                                                  '취소하기',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                                onPressed: () {},
+                                              ),
+                                            )
+                                          ]))
+                                ],
+                              )),
+                        ),
+                      );
                     },
                     style: TextButton.styleFrom(
                       minimumSize: Size.zero,
@@ -94,6 +173,7 @@ class _SimulationPageState extends State<SimulationPage> {
                       top: 5.h,
                     ),
                     child: TextButton(
+                      // TODO: 휴지통 모양으로 바꾸기
                       child: Image.asset('image/menu.png'),
                       onPressed: () {},
                       style: TextButton.styleFrom(

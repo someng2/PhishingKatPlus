@@ -22,3 +22,7 @@ UserAction U3_c = UserAction(
     aid: 'U3-c',
     feedback: '백신 프로그램을 설치했는데.. 왜 악성 앱을 삭제 안하셨나욧 ㅠㅠ.. ',
     score: -10);
+
+UserAction U1_c = UserAction(aid: 'U1-c', feedback: 'U1-c 피드백', score: 30);
+
+UserAction U2_c = UserAction(aid: 'U2-c', feedback: 'U2-c 피드백', score: 10);
