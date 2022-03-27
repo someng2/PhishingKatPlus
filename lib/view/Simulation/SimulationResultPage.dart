@@ -55,16 +55,23 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
             decoration: BoxDecoration(
                 border: Border.all(),
                 borderRadius: BorderRadius.circular(20.sp)),
+
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
                 for (int i = 0; i < scenario.userActionSequence.length; i++)
-                // Text('${scenario.userActionSequence[i].score}'),
+                  // Column(
+                  //   children: [
+                  //     Text('${scenario.userActionSequence[i].score}'),
+
                   Container(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child:
-                          Text('•${scenario.userActionSequence[i].feedback}')),
+                  padding: EdgeInsets.only(bottom: 10.h),
+                  child:
+                  Text('•${scenario.userActionSequence[i].feedback}')
+                  // ),
+                  //   ],
+                  ),
               ],
             ),
           ),

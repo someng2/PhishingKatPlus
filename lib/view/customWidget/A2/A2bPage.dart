@@ -8,10 +8,13 @@ import 'package:get/get.dart';
 import 'package:voskat/tempData/appAdData.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 import 'package:voskat/view/customWidget/A2/A2b_vaccineAppPage.dart';
+import 'package:voskat/model/simulation/scenario.dart';
 
 class A2bPage extends StatefulWidget {
+  String sid;
   AppInfo appInfo;
-  A2bPage({Key? key, required this.appInfo}) : super(key: key);
+  A2bPage({Key? key, required this.sid, required this.appInfo})
+      : super(key: key);
 
   @override
   _A2bPageState createState() => _A2bPageState();
@@ -359,7 +362,12 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                             color: Colors.white,
                                             fontSize: 15.sp)),
                                     onPressed: () {
-                                      Get.to(A2b_vaccineAppPage(maliciousAppInfo: widget.appInfo, vaccineAppIcon: 'image/v3appLogo.webp', vaccineAppColor: Colors.blue));
+                                      Get.to(A2b_vaccineAppPage(
+                                          sid: widget.sid,
+                                          maliciousAppInfo: widget.appInfo,
+                                          vaccineAppIcon:
+                                              'image/v3appLogo.webp',
+                                          vaccineAppColor: Colors.blue));
                                     },
                                   ))
                             ],
@@ -448,16 +456,17 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                             Container(
                                                 padding:
                                                     EdgeInsets.only(top: 10.h),
-                                                child: Text(
-                                                    AppAdList_v1[index].appName)),
+                                                child: Text(AppAdList_v1[index]
+                                                    .appName)),
                                             Container(
                                                 child: description == '설치됨'
                                                     ? Row(
-                                                      children: [
-                                                        Icon(Icons.check, size: 14.sp),
-                                                        Text(description),
-                                                      ],
-                                                    )
+                                                        children: [
+                                                          Icon(Icons.check,
+                                                              size: 14.sp),
+                                                          Text(description),
+                                                        ],
+                                                      )
                                                     : Row(children: [
                                                         Text(' $description'),
                                                         Icon(Icons.star,
@@ -467,61 +476,64 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                     );
                                   }))),
                       SizedBox(height: 30.h),
-                      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                        Text('이런 앱은 어떠세요 ?', style: TextStyle(fontSize: 19.sp)),
+                            Text('이런 앱은 어떠세요 ?',
+                                style: TextStyle(fontSize: 19.sp)),
                             Icon(Icons.arrow_forward)
-                      ]),
-                Container(
-                    height: 170.h,
-                    child: Container(
-                        padding: EdgeInsets.only(top: 20.h),
-                        width: 320.w,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: AppAdList_v1.length,
-                            itemBuilder:
-                                (BuildContext context, int index) {
-                              String description =
-                                  AppAdList_v2[index].description;
+                          ]),
+                      Container(
+                          height: 170.h,
+                          child: Container(
+                              padding: EdgeInsets.only(top: 20.h),
+                              width: 320.w,
+                              child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: AppAdList_v1.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    String description =
+                                        AppAdList_v2[index].description;
 
-                              return Container(
-                                padding: EdgeInsets.only(right: 15.w),
-                                child: Column(
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        // height: 90.h,
-                                        width: 100.h,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.circular(
-                                                25.sp)),
-                                        child: Image.asset(
-                                            AppAdList_v2[index].appIcon),
-                                      ),
-                                      Container(
-                                          padding:
-                                          EdgeInsets.only(top: 10.h),
-                                          child: Text(
-                                              AppAdList_v2[index].appName)),
-                                      Container(
-                                          child: description == '설치됨'
-                                              ? Row(
-                                            children: [
-                                              Icon(Icons.check, size: 14.sp),
-                                              Text(description),
-                                            ],
-                                          )
-                                              : Row(children: [
-                                            Text(' $description'),
-                                            Icon(Icons.star,
-                                                size: 14.sp),
-                                          ]))
-                                    ]),
-                              );
-                            }))),
+                                    return Container(
+                                      padding: EdgeInsets.only(right: 15.w),
+                                      child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              // height: 90.h,
+                                              width: 100.h,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          25.sp)),
+                                              child: Image.asset(
+                                                  AppAdList_v2[index].appIcon),
+                                            ),
+                                            Container(
+                                                padding:
+                                                    EdgeInsets.only(top: 10.h),
+                                                child: Text(AppAdList_v2[index]
+                                                    .appName)),
+                                            Container(
+                                                child: description == '설치됨'
+                                                    ? Row(
+                                                        children: [
+                                                          Icon(Icons.check,
+                                                              size: 14.sp),
+                                                          Text(description),
+                                                        ],
+                                                      )
+                                                    : Row(children: [
+                                                        Text(' $description'),
+                                                        Icon(Icons.star,
+                                                            size: 14.sp),
+                                                      ]))
+                                          ]),
+                                    );
+                                  }))),
                     ])
                   : Column()
             ],

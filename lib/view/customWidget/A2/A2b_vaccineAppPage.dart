@@ -4,17 +4,22 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 import 'package:get/get.dart';
+import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
+import 'package:voskat/tempData/userActionData.dart';
 
 class A2b_vaccineAppPage extends StatefulWidget {
+  String sid;
   AppInfo maliciousAppInfo;
   String vaccineAppIcon;
   Color vaccineAppColor;
 
   A2b_vaccineAppPage(
       {Key? key,
+        required this.sid,
       required this.maliciousAppInfo,
       required this.vaccineAppIcon,
       required this.vaccineAppColor})
@@ -32,6 +37,8 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
   int percent = 0;
 
   late AnimationController controller;
+
+  final ScenarioController _scenarioController = ScenarioController();
 
   @override
   void initState() {
@@ -156,14 +163,22 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                           style: TextStyle(
                                               color: widget.vaccineAppColor,
                                               fontSize: 16.sp)),
+
+                                      // U3-b
                                       onPressed: () {
+                                        controller.dispose();
+
+                                        Scenario scenario =
+                                        _scenarioController.getScenario(widget.sid);
+
+                                        // scenario.userActionSequence.add(U3_b);
+
                                         Get.defaultDialog(
                                             title: '삭제 완료',
                                             middleText:
                                                 '$maliciousAppName 앱이 삭제되었습니다.');
 
-                                        // TODO: sid 넣기
-                                        Get.offAll(SimulationResultPage(sid: ''));
+                                        Get.offAll(SimulationResultPage(sid: widget.sid));
                                       },
                                     )),
                                 SizedBox(width: 20.w),
@@ -179,7 +194,16 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                           style: TextStyle(
                                               color: Colors.grey,
                                               fontSize: 16.sp)),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        controller.dispose();
+
+                                        Scenario scenario =
+                                        _scenarioController.getScenario(widget.sid);
+
+                                        scenario.userActionSequence.add(U3_c);
+
+                                        Get.offAll(SimulationResultPage(sid: widget.sid));
+                                      },
                                     )),
                               ]))
                         ]),
