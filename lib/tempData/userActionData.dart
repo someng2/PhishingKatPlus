@@ -26,3 +26,9 @@ UserAction U3_c = UserAction(
 UserAction U1_c = UserAction(aid: 'U1-c', feedback: 'U1-c 피드백', score: 30);
 
 UserAction U2_c = UserAction(aid: 'U2-c', feedback: 'U2-c 피드백', score: 10);
+
+UserAction U2_d = UserAction(aid: 'U2-d', feedback: 'U2-d 피드백', score: -20);
+
+UserAction U3_d = UserAction(aid: 'U3-d', feedback: 'U3-d 피드백', score: 10);
+
+UserAction U3_e = UserAction(aid: 'U2-d', feedback: 'U2-d 피드백', score: 0);

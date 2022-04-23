@@ -7,8 +7,7 @@ import 'package:voskat/tempData/scenarioData.dart';
 class ScenarioController extends GetxController {
   // Rx<String> sid;
   //
-  // ScenarioController({required String sid})
-  //     : this.sid = sid.obs;
+  // ScenarioController({required String sid}) : this.sid = sid.obs;
 
   getScenario(String sid) {
     late Scenario scenario;

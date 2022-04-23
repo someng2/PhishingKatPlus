@@ -9,6 +9,8 @@ import 'package:voskat/tempData/type&ageData.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
+import 'package:voskat/view/customWidget/A3/A3bPage.dart';
+import 'package:voskat/view/customWidget/customDialog.dart';
 
 class SimulationPage extends StatefulWidget {
   const SimulationPage({Key? key}) : super(key: key);
@@ -49,12 +51,12 @@ class _SimulationPageState extends State<SimulationPage> {
               title: Text(scenario.phoneNumber,
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 19.sp,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w400)),
               titleSpacing: 0,
               actions: [
                 Container(
-                  width: 21.w,
+                  width: 18.w,
                   child: TextButton(
                     child: Icon(
                       Icons.phone,
@@ -130,8 +132,9 @@ class _SimulationPageState extends State<SimulationPage> {
                                                 onPressed: () {
                                                   // U2-c
 
-                                                  // scenario.userActionSequence.add(U2_c);
-
+                                                  scenario.userActionSequence
+                                                      .add(U2_c);
+                                                  Get.to(A3bPage());
                                                 },
                                               ),
                                             ),
@@ -191,26 +194,73 @@ class _SimulationPageState extends State<SimulationPage> {
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Container(
-                      width: 160.w,
-                      height: 30.h,
-                      alignment: Alignment.center,
-                      child: Text('연락처에 추가',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 13.sp)),
+                      width: 118.w,
+                      height: 26.h,
+                      child: TextButton(
+                        child: Text('연락처에 추가',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 12.sp, color: Color(0xff000000))),
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.all(0)),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          overlayColor: MaterialStateColor.resolveWith(
+                              (states) => Color(0xff0473e1)),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(13.sp),
+                            ),
+                          ),
+                        ),
+                      ),
                       decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.45),
-                          borderRadius: BorderRadius.circular(30))),
-                  SizedBox(width: 10.w),
+                          color: Color(0xffffff),
+                          border:
+                              Border.all(color: Color(0xffb1aeae), width: 1.sp),
+                          borderRadius: BorderRadius.circular(13.sp))),
+                  SizedBox(width: 52.w),
                   Container(
-                      width: 160.w,
-                      height: 30.h,
-                      alignment: Alignment.center,
-                      child: Text('수신 차단',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 13.sp)),
+                      width: 118.w,
+                      height: 26.h,
+                      child: TextButton(
+                        child: Text('수신 차단',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 12.sp, color: Color(0xff000000))),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return CustomDialog(
+                                  sid: scenario.sid,
+                                  aid: 'A1-b',
+                                  userOkAction: U2_c,
+                                  userCancelAction: U2_d,
+                                );
+                              });
+                        },
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.all(0)),
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          overlayColor: MaterialStateColor.resolveWith(
+                              (states) => Color(0xff0473e1)),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(13.sp),
+                            ),
+                          ),
+                        ),
+                      ),
                       decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(30))),
+                          color: Color(0xffffff),
+                          border:
+                              Border.all(color: Color(0xffb1aeae), width: 1.sp),
+                          borderRadius: BorderRadius.circular(13.sp))),
                 ]),
               ),
               Container(
