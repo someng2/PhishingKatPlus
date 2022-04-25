@@ -174,7 +174,6 @@ class _A1a_appPageState extends State<A1a_appPage> {
                     ),
                   );
                 } else {
-                  // scenario_A0a.userActionSequence.add(U2_a);
 
                   Scenario scenario =
                       _scenarioController.getScenario(widget.sid);
@@ -192,7 +191,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
               },
             )),
         SizedBox(height: 200.h),
-        _showAd ? vaccineAppAd(widget.appInfo) : Container(height: 90.h)
+        _showAd ? vaccineAppAd(widget.sid, widget.appInfo) : Container(height: 90.h)
         // vaccineApp()
       ]),
     );

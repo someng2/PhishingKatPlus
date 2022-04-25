@@ -142,7 +142,7 @@ class _A2aPageState extends State<A2aPage> {
             // SizedBox(height: 40),
 
             // SizedBox(height: 200.h),
-            _showAd ? vaccineAppAd(widget.appInfo) : Container(height: 90.h)
+            _showAd ? vaccineAppAd(widget.sid, widget.appInfo) : Container(height: 90.h)
           ],
         ),
       ),

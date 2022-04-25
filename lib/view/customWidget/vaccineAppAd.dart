@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/controller/ScenarioController.dart';
+import 'package:voskat/model/simulation/scenario.dart';
+import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/customWidget/A2/A2bPage.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 
-Widget vaccineAppAd(AppInfo appInfo) {
+Widget vaccineAppAd(String sid, AppInfo appInfo) {
+  final ScenarioController _scenarioController = ScenarioController();
+
   return Container(
       width: 360.w,
       height: 90.h,
@@ -38,8 +43,13 @@ Widget vaccineAppAd(AppInfo appInfo) {
               height: 90.h,
               // width: 400,
               child: TextButton(
+                  // U2-b
                   onPressed: () {
-                    Get.to(A2bPage(appInfo: appInfo));
+                    Scenario scenario = _scenarioController.getScenario(sid);
+
+                    scenario.userActionSequence.add(U2_b);
+
+                    Get.to(A2bPage(sid: sid, appInfo: appInfo));
                   },
                   // TODO: 기존에 없는 백신 프로그램 앱으로 이미지 & 이름 설정
                   child: Container(

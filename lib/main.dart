@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:voskat/view/Simulation/SimulationPage.dart';
-import 'package:voskat/view/HomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,7 +40,7 @@ ThemeData _buildSimulkatTheme() {
   return base.copyWith(
     primaryColor: Colors.black,
     appBarTheme: AppBarTheme(
-        backgroundColor: Colors.white.withOpacity(0.95),
+        backgroundColor: Color(0xffffffff),
         // color: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
         titleTextStyle: TextStyle(color: Colors.black, fontSize: 15.sp)),
