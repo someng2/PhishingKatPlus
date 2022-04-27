@@ -82,6 +82,11 @@ flutter:
     - image/recordingIcon2.png
     - image/videoIcon.png
     - image/bluetoothIcon.png
+    - image/speakerIcon.png
+    - image/muteIcon.png
+    - image/keypadIcon.png
+    - image/endCallIcon.png
+    - image/trashbinIcon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
