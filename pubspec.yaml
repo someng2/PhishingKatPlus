@@ -29,11 +29,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  get: ^4.6.1
+  loading_overlay_pro: ^2.1.1
+  percent_indicator: ^4.0.0
+  flutter_screenutil: ^5.3.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+
+
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +66,27 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+    - image/messageProfile.png
+    - image/v3appLogo.webp
+    - image/number3Icon.png
+    - image/threeDots.png
+    - image/threeDots2.png
+    - image/leftArrowIcon.png
+    - image/phishingkatLogo.png
+    - image/cautionIcon.png
+    - image/cjIcon.webp
+    - image/reportIcon.png
+    - image/menu.png
+    - image/kisaLogo.png
+    - image/recordingIcon2.png
+    - image/videoIcon.png
+    - image/bluetoothIcon.png
+    - image/speakerIcon.png
+    - image/muteIcon.png
+    - image/keypadIcon.png
+    - image/endCallIcon.png
+    - image/trashbinIcon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
