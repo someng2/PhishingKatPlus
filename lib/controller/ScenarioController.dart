@@ -18,6 +18,9 @@ class ScenarioController extends GetxController {
         scenario = scenarioList[i];
       }
     }
+    // if (scenario == null) {
+    //   print('[ERROR] no matched scenario !!');
+    // }
 
     return scenario;
   }

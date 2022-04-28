@@ -33,4 +33,6 @@ class CustomSimulController extends GetxController {
     }
     print('no matched scenario for ${user.name}');
   }
+
+
 }
