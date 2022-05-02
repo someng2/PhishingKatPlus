@@ -12,6 +12,7 @@ import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/view/customWidget/A3/A3bPage.dart';
 import 'package:voskat/view/customWidget/A3/A3cPage.dart';
 import 'package:voskat/view/customWidget/customDialog.dart';
+import 'package:voskat/controller/ActionController.dart';
 
 class SimulationPage extends StatefulWidget {
   const SimulationPage({Key? key}) : super(key: key);
@@ -237,8 +238,13 @@ class _SimulationPageState extends State<SimulationPage> {
                                   // U1
                                   onPressed: () {
                                     scenario.userActionSequence.add(U1_a);
-                                    Get.to(
-                                        (scenario.appActionSequence[1].widget));
+                                    // Get.to(
+                                    //     (scenario.appActionSequence[1].widget));
+
+                                    // print('getAction result : ');
+                                    // Get.to(ActionController().getAction('').widget);
+                                    Get.to(U1_a.nextAction);
+
                                   },
                                   style: TextButton.styleFrom(
                                       // backgroundColor: Colors.white,

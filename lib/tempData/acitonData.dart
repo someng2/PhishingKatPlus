@@ -6,6 +6,7 @@ import 'package:voskat/model/simulation/nonMessageAction.dart';
 import 'package:voskat/view/customWidget/A1/A1aPage.dart';
 import 'package:voskat/tempData/scenarioData.dart';
 import 'package:voskat/tempData/maliciousAppData.dart';
+import 'package:voskat/view/customWidget/A2/A2bPage.dart';
 
 MessageAction A0a = MessageAction(
     sid: 'A0-a',
@@ -48,5 +49,26 @@ NonMessageAction A1a_A0c = NonMessageAction(
       appInfo: maliciousApp2,
     ));
 
-// NonMessageAction A2a_A0a =
-//     NonMessageAction(aid: 'A2-a', widget: A2aPage(subtype: '대출사기', appName: 'KB국민은행'));
+// TODO: info 를 parameter로 전달!
+NonMessageAction A2a_A0a = NonMessageAction(
+  sid: 'A0-a',
+  aid: 'A2-a',
+  widget: A2aPage(
+    subtype: '대출사기',
+    appInfo: maliciousApp1,
+    sid: 'A0-a',
+    info2_2: 'a',
+    info2_1: 'a',
+    info1: 'a',
+  ),
+);
+
+NonMessageAction A2b_A0a = NonMessageAction(
+    sid: 'A0-a',
+    aid: 'A2-b',
+    widget: A2bPage(
+      sid: 'A0-a',
+      appInfo: maliciousApp1,
+    ));
+
+List<dynamic> actionList = [A0a, A0b, A0c, A1a_A0a, A1a_A0c];

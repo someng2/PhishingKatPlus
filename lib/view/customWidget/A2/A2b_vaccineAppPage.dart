@@ -36,7 +36,7 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
   bool inspectComplete = false;
   int percent = 0;
 
-  late AnimationController controller;
+  late AnimationController animationController;
 
   final ScenarioController _scenarioController = ScenarioController();
 
@@ -48,7 +48,7 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
         percent += 1;
         if (percent >= 100) {
           timer.cancel();
-          controller.stop();
+          animationController.stop();
           // percent=0;
           startClicked = false;
           inspectComplete = true;
@@ -57,13 +57,13 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
       });
     });
 
-    controller = AnimationController(
+    animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
     )..addListener(() {
         setState(() {});
       });
-    controller.repeat();
+    animationController.repeat();
     super.initState();
   }
 
@@ -94,7 +94,7 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                           height: 170.sp,
                           width: 170.sp,
                           child: CircularProgressIndicator(
-                              value: controller.value,
+                              value: animationController.value,
                               // semanticsLabel: 'Linear progress indicator',
                               strokeWidth: 6.w,
                               color: widget.vaccineAppColor),
@@ -166,13 +166,14 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
 
                                       // U3-b
                                       onPressed: () {
-                                        controller.dispose();
+                                        animationController.dispose();
 
                                         Scenario scenario =
                                         _scenarioController.getScenario(widget.sid);
 
-                                        // scenario.userActionSequence.add(U3_b);
+                                        scenario.userActionSequence.add(U3_b);
 
+                                        // A3-a
                                         Get.defaultDialog(
                                             title: '삭제 완료',
                                             middleText:
@@ -195,7 +196,7 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                               color: Colors.grey,
                                               fontSize: 16.sp)),
                                       onPressed: () {
-                                        controller.dispose();
+                                        animationController.dispose();
 
                                         Scenario scenario =
                                         _scenarioController.getScenario(widget.sid);
