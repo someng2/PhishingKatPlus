@@ -10,16 +10,19 @@ class Scenario {
   int score; // 모의훈련 점수
   List<dynamic> appActionSequence;
   List<UserAction> userActionSequence;
+  int pairLength;
+  int pairIndex;
 
-
-  Scenario(
-      {required this.sid,
-      required this.medium,
-      required this.phoneNumber,
-      required this.type,
-      required this.subtype,
-        required this.score,
-      required this.appActionSequence,
-        required this.userActionSequence,
-      });
+  Scenario({
+    required this.sid,
+    required this.medium,
+    required this.phoneNumber,
+    required this.type,
+    required this.subtype,
+    required this.score,
+    required this.appActionSequence,
+    required this.userActionSequence,
+    required this.pairLength,
+    required this.pairIndex
+  });
 }

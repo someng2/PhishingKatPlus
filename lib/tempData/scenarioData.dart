@@ -11,6 +11,8 @@ Scenario scenario_A0a = Scenario(
   score: 50,
   appActionSequence: [A0a, A1a_A0a],
   userActionSequence: [],
+  pairLength: 0,
+  pairIndex: 0,
 );
 
 Scenario scenario_A0b = Scenario(
@@ -22,6 +24,8 @@ Scenario scenario_A0b = Scenario(
   score: 50,
   appActionSequence: [A0b],
   userActionSequence: [],
+  pairLength: 0,
+  pairIndex: 0,
 );
 
 Scenario scenario_A0c = Scenario(
@@ -33,6 +37,8 @@ Scenario scenario_A0c = Scenario(
   score: 50,
   appActionSequence: [A0c, A1a_A0c],
   userActionSequence: [],
+  pairLength: 0,
+  pairIndex: 0,
 );
 
 List<Scenario> scenarioList = [scenario_A0a, scenario_A0c];
