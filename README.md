@@ -1,16 +1,5 @@
-# voskat
+# PhishingKat +
 
-A new Flutter project.
+PhishingKat plus는 (주)AI굿윌보이스에서 개발  스미싱 예방 솔루션 앱입니다.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+스미싱 모의훈련과 피싱 알림을 통해 근본적인 피싱 예방 솔루션을 제공합니다.
