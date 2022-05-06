@@ -1,9 +1,12 @@
+import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:voskat/view/HomePage.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:voskat/view/Simulation/SimulationPage.dart';
+import 'package:voskat/view/customWidget/A1/A1aPage.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -11,6 +14,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
+
 
   // This widget is the root of your application.
   @override
@@ -28,7 +32,11 @@ class MyApp extends StatelessWidget {
                 '/simulation': (context) => SimulationPage(),
               },
               debugShowCheckedModeBanner: false,
-            ));
+
+            ),
+
+    );
+
   }
 }
 

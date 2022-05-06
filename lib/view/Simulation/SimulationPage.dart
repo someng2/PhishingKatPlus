@@ -1,18 +1,23 @@
 // ignore_for_file: file_names
 
+import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/model/user/user.dart';
+import 'package:voskat/tempData/maliciousAppData.dart';
 import 'package:voskat/tempData/scenarioData.dart';
 import 'package:voskat/tempData/type&ageData.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
+import 'package:voskat/view/customWidget/A1/A1aPage.dart';
 import 'package:voskat/view/customWidget/A3/A3bPage.dart';
 import 'package:voskat/view/customWidget/A3/A3cPage.dart';
 import 'package:voskat/view/customWidget/customDialog.dart';
 import 'package:voskat/controller/ActionController.dart';
+
+import 'package:voskat/tempData/actionPairData.dart';
 
 class SimulationPage extends StatefulWidget {
   const SimulationPage({Key? key}) : super(key: key);
@@ -22,15 +27,26 @@ class SimulationPage extends StatefulWidget {
 }
 
 class _SimulationPageState extends State<SimulationPage> {
+  var scenario;
+
+  @override
+  void initState() {
+    super.initState();
+    scenario = CustomSimulController(user: _user).getCustomSimulation(_user);
+    print('모의훈련 점수: ${scenario.score}점');
+
+    ClassBuilder.register<A1aPage>(() => A1aPage(
+          sid: scenario.sid,
+          subtype: scenario.subtype,
+          appInfo: maliciousApp1,
+        ));
+  }
+
   @override
   User _user = user1;
   bool _isMenuPressed = false;
 
   Widget build(BuildContext context) {
-    var scenario =
-        CustomSimulController(user: _user).getCustomSimulation(_user);
-    print('모의훈련 점수: ${scenario.score}점');
-
     return (scenario.medium == '문자')
         ? Scaffold(
             appBar: AppBar(
@@ -243,7 +259,11 @@ class _SimulationPageState extends State<SimulationPage> {
 
                                     // print('getAction result : ');
                                     // Get.to(ActionController().getAction('').widget);
-                                    Get.to(U1_a.nextAction);
+
+                                    // Get.to(U1_a.nextAction);
+                                    print(ClassBuilder.fromString(pair_U1aA1a.appAction.widget));
+
+                                    Get.to(ClassBuilder.fromString(pair_U1aA1a.appAction.widget));
 
                                   },
                                   style: TextButton.styleFrom(

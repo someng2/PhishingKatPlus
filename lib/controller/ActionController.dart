@@ -8,15 +8,15 @@ import 'package:voskat/tempData/acitonData.dart';
 class ActionController extends GetxController{
 
 
-  getAction(String aid) {
-    dynamic _action;
-    for(int i = 0; i < actionList.length; i++) {
-      if (aid == actionList[i].aid) {
-        _action = actionList[i];
-      }
-    }
-
-    return _action;
-  }
+  // getAction(String aid) {
+  //   dynamic _action;
+  //   for(int i = 0; i < actionList.length; i++) {
+  //     if (aid == actionList[i].aid) {
+  //       _action = actionList[i];
+  //     }
+  //   }
+  //
+  //   return _action;
+  // }
 
 }
