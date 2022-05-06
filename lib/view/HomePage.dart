@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
+import 'package:class_builder/class_builder.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -132,22 +133,43 @@ class _HomePageState extends State<HomePage> {
                 width: 311.w,
                 height: 179.h,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8.sp)),
-                    color: const Color(0xff0473e1)),
+                  borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                  color: Color(0xff0473e1),
+                ),
                 child: TextButton(
-                  child: Text(
-                    isCustom ? '맞춤형\n모의체험' : '유형별\n모의체험',
-                    style: TextStyle(
-                        color: const Color(0xff000000),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "YDIYGO340",
-                        fontStyle: FontStyle.normal,
-                        fontSize: 19.sp),
-                    textAlign: TextAlign.center,
+                  child: Container(
+                    width: 311.w,
+                    height: 179.h,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: isCustom
+                                ? AssetImage('image/customSimul.png')
+                                : AssetImage('image/categorySimul.png'))),
+                    child: Text(
+                      isCustom ? '맞춤형\n모의체험' : '유형별\n모의체험',
+                      style: TextStyle(
+                          color: const Color(0xff000000),
+                          fontWeight: FontWeight.w400,
+                          // fontFamily: "YDIYGO340",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 19.sp),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   onPressed: () {
-                    Get.to(SimulationPage());
+                    isCustom
+                        ? Get.to(SimulationPage())
+                        : {
+                      // TODO: 유형별 모의체험으로 이동
+                      // Get.to();
+                    };
                   },
+                  style: TextButton.styleFrom(
+                    minimumSize: Size.zero,
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
                 ),
               ),
               SizedBox(height: 20.h),
