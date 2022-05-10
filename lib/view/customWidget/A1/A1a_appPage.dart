@@ -188,7 +188,7 @@ class _A1a_appPageState extends State<A1a_appPage> {
                   //     info2_1: info2_1Controller.text,
                   //     info2_2: info2_2Controller.text));
 
-                  Get.to(U2_a.nextAction);
+                  // Get.to(U2_a.nextAction);
                 }
               },
             )),
