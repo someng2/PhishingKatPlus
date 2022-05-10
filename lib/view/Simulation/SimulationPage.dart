@@ -20,7 +20,6 @@ import 'package:voskat/view/customWidget/customDialog.dart';
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
 
-import 'package:voskat/tempData/actionPairData.dart';
 
 class SimulationPage extends StatefulWidget {
   const SimulationPage({Key? key}) : super(key: key);
