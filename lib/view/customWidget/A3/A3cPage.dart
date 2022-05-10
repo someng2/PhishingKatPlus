@@ -207,13 +207,16 @@ class A3cPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(scenario.appActionSequence[0].contents1,
+                        Text(
+                            // scenario.appActionSequence[0].contents1,
+                          'contents1',
                             style: TextStyle(fontSize: 14.sp)),
                         Container(
                           height: 20.h,
                           child: TextButton(
                               child: Text(
-                                scenario.appActionSequence[0].url,
+                                // scenario.appActionSequence[0].url,
+                                '',
                                 style: TextStyle(
                                     color: Colors.indigo,
                                     decoration: TextDecoration.underline,
@@ -229,7 +232,9 @@ class A3cPage extends StatelessWidget {
                                   // backgroundColor: Colors.white,
                                   padding: EdgeInsets.all(0))),
                         ),
-                        Text(scenario.appActionSequence[0].contents2,
+                        Text(
+                            // scenario.appActionSequence[0].contents2,
+                          '',
                             style: TextStyle(fontSize: 14.sp)),
                       ],
                     ),

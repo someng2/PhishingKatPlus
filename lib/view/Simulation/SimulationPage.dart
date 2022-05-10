@@ -4,7 +4,9 @@ import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/user/user.dart';
+import 'package:voskat/tempData/appContentsData.dart';
 import 'package:voskat/tempData/maliciousAppData.dart';
 import 'package:voskat/tempData/scenarioData.dart';
 import 'package:voskat/tempData/type&ageData.dart';
@@ -15,7 +17,8 @@ import 'package:voskat/view/customWidget/A1/A1aPage.dart';
 import 'package:voskat/view/customWidget/A3/A3bPage.dart';
 import 'package:voskat/view/customWidget/A3/A3cPage.dart';
 import 'package:voskat/view/customWidget/customDialog.dart';
-import 'package:voskat/controller/ActionController.dart';
+import 'package:voskat/controller/PairController.dart';
+import 'package:voskat/controller/AppContentsController.dart';
 
 import 'package:voskat/tempData/actionPairData.dart';
 
@@ -238,13 +241,14 @@ class _SimulationPageState extends State<SimulationPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(scenario.appActionSequence[0].contents1,
+                            Text(AppContentsController().getContents('ac_1'),
                                 style: TextStyle(fontSize: 14.sp)),
                             Container(
                               height: 20.h,
                               child: TextButton(
                                   child: Text(
-                                    scenario.appActionSequence[0].url,
+                                    // scenario.appActionSequence[0].url,
+                                    AppContentsController().getContents('ac_2'),
                                     style: TextStyle(
                                         color: Colors.indigo,
                                         decoration: TextDecoration.underline,
@@ -253,24 +257,27 @@ class _SimulationPageState extends State<SimulationPage> {
 
                                   // U1
                                   onPressed: () {
-                                    scenario.userActionSequence.add(U1_a);
                                     // Get.to(
                                     //     (scenario.appActionSequence[1].widget));
 
-                                    // print('getAction result : ');
-                                    // Get.to(ActionController().getAction('').widget);
-
                                     // Get.to(U1_a.nextAction);
-                                    print(ClassBuilder.fromString(pair_U1aA1a.appAction.widget));
+                                    print(
+                                        'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_2'))}');
 
-                                    Get.to(ClassBuilder.fromString(pair_U1aA1a.appAction.widget));
+                                    Get.to(ClassBuilder.fromString(
+                                        PairController()
+                                            .getNextActionWidget('ac_2')));
 
+                                    scenario.userActionSequence.add(
+                                        UserActionController().getUserAction(
+                                            PairController()
+                                                .getCurrentActionId('ac_2')));
                                   },
                                   style: TextButton.styleFrom(
                                       // backgroundColor: Colors.white,
                                       padding: EdgeInsets.all(0))),
                             ),
-                            Text(scenario.appActionSequence[0].contents2,
+                            Text(AppContentsController().getContents('ac_3'),
                                 style: TextStyle(fontSize: 14.sp)),
                           ],
                         ),
