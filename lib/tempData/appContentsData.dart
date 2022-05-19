@@ -49,3 +49,41 @@ AppContents appContents_4 = AppContents(
     c_type: 'button',
     contents: '수신 차단',
     hasNextAction: true);
+
+// 대출사기 - 악성 앱 (KB 국민은행)
+AppContents appContents_5 = AppContents(
+    ac_id: 'ac_5',
+    sid: 'A0-a',
+    aid: 'A1-a',
+    order: 1,
+    c_type: 'appName',
+    contents: 'KB 국민은행',
+    hasNextAction: false);
+
+AppContents appContents_6 = AppContents(
+    ac_id: 'ac_6',
+    sid: 'A0-a',
+    aid: 'A1-a',
+    order: 1,
+    c_type: 'appIcon',
+    contents: 'image/cautionIcon.png',
+    hasNextAction: false);
+
+// 백신 앱
+AppContents appContents_7 = AppContents(
+    ac_id: 'ac_7',
+    sid: '',
+    aid: '',
+    order: 1,
+    c_type: 'appName',
+    contents: 'V3 Mobile-Security',
+    hasNextAction: false);
+
+AppContents appContents_8 = AppContents(
+    ac_id: 'ac_8',
+    sid: '',
+    aid: '',
+    order: 1,
+    c_type: 'appIcon',
+    contents: 'image/v3appLogo.webp',
+    hasNextAction: false);
