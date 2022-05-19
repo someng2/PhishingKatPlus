@@ -1,9 +1,16 @@
 // ignore_for_file: file_names
 
 class UserAction {
-  String aid;
+  String ua_id;
+  // String type;
   String feedback;
   int score;
+  // dynamic nextAction;
 
-  UserAction({required this.aid, required this.feedback, required this.score});
+  UserAction(
+      {required this.ua_id,
+      required this.feedback,
+      required this.score,
+      // required this.nextAction
+      });
 }

@@ -180,13 +180,15 @@ class _A1a_appPageState extends State<A1a_appPage> {
 
                   scenario.userActionSequence.add(U2_a);
 
-                  Get.to(() => A2aPage(
-                      sid: widget.sid,
-                      subtype: widget.subtype,
-                      appInfo: widget.appInfo,
-                      info1: info1Controller.text,
-                      info2_1: info2_1Controller.text,
-                      info2_2: info2_2Controller.text));
+                  // Get.to(() => A2aPage(
+                  //     sid: widget.sid,
+                  //     subtype: widget.subtype,
+                  //     appInfo: widget.appInfo,
+                  //     info1: info1Controller.text,
+                  //     info2_1: info2_1Controller.text,
+                  //     info2_2: info2_2Controller.text));
+
+                  // Get.to(U2_a.nextAction);
                 }
               },
             )),
