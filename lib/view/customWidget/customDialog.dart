@@ -192,7 +192,7 @@ class CustomDialog extends StatelessWidget {
                             onPressed: () {
                               scenario.userActionSequence.add(userCancelAction);
 
-                              Navigator.pop(context);
+                              // Navigator.pop(context);
                               if (aid == 'A1-b') {
                                 showDialog(
                                     context: context,
@@ -243,7 +243,7 @@ class CustomDialog extends StatelessWidget {
                             onPressed: () {
                               scenario.userActionSequence.add(userOkAction);
 
-                              Navigator.pop(context);
+                              // Navigator.pop(context);
                               if (aid == 'A1-b') {
                                 showDialog(
                                     context: context,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
+import 'package:voskat/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
 
 class HomePage extends StatefulWidget {
@@ -160,10 +161,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: () {
                     isCustom
                         ? Get.to(SimulationPage())
-                        : {
-                      // TODO: 유형별 모의체험으로 이동
-                      // Get.to();
-                    };
+                        : Get.to(SimulationType());
                   },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,
