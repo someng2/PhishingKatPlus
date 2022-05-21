@@ -5,13 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/customWidget/A1/A1a_downloadSettingPage.dart';
-import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1aPage extends StatefulWidget {
   String sid;
   String subtype;
-  AppInfo appInfo;
-  A1aPage({Key? key, required this.sid, required this.subtype, required this.appInfo})
+  String maliciousAppName;
+  String maliciousAppIcon;
+  A1aPage(
+      {Key? key,
+      required this.sid,
+      required this.subtype,
+      required this.maliciousAppName,
+      required this.maliciousAppIcon})
       : super(key: key);
 
   @override
@@ -23,7 +28,8 @@ class _A1aPageState extends State<A1aPage> {
 
   @override
   Widget build(BuildContext context) {
-    String appName = widget.appInfo.appName;
+    String appName = widget.maliciousAppName;
+    String appIcon = widget.maliciousAppIcon;
 
     return Scaffold(
       body: Stack(children: [
@@ -63,7 +69,7 @@ class _A1aPageState extends State<A1aPage> {
                           Container(
                             width: 30,
                             // height: 15,
-                            child: Image.asset(widget.appInfo.appIcon),
+                            child: Image.asset(appIcon),
                             // decoration: BoxDecoration(color: Colors.black),
                           ),
                           SizedBox(
@@ -104,8 +110,10 @@ class _A1aPageState extends State<A1aPage> {
                                 Get.to(
                                     A1a_downloadSettingPage(
                                       sid: widget.sid,
-                                        subtype: widget.subtype,
-                                        appInfo: widget.appInfo),
+                                      subtype: widget.subtype,
+                                      maliciousAppIcon: appIcon,
+                                      maliciousAppName: appName,
+                                    ),
                                     arguments: {'isSwitched': isSwitched});
                               },
                             ),
