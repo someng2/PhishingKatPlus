@@ -25,9 +25,9 @@ class PairController extends GetxController {
   getNextActionWidget(String ac_id) {
     for (int i = 0; i <= pairList.length; i++) {
       if (pairList[i].ac_id == ac_id) {
-        print('getNextWidget - nextActionID : ${pairList[i].nextActionId}');
-        print(
-            'getNextWidget - getWidget() => ${AppActionController().getWidget(pairList[i].nextActionId)}');
+        // print('getNextWidget - nextActionID : ${pairList[i].nextActionId}');
+        // print(
+        //     'getNextWidget - getWidget() => ${AppActionController().getWidget(pairList[i].nextActionId)}');
         return AppActionController().getWidget(pairList[i].nextActionId);
       }
     }

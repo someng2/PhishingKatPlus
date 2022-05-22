@@ -5,17 +5,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/customWidget/A1/A1a_downloadPage.dart';
 import 'package:voskat/view/customWidget/A1/A1aPage.dart';
-import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1a_downloadSettingPage extends StatefulWidget {
   String sid;
-  AppInfo appInfo;
   String subtype;
+  String maliciousAppName;
+  String maliciousAppIcon;
   A1a_downloadSettingPage(
       {Key? key,
       required this.sid,
-      required this.appInfo,
-      required this.subtype})
+      required this.subtype,
+      required this.maliciousAppName,
+      required this.maliciousAppIcon})
       : super(key: key);
 
   @override
@@ -28,10 +29,8 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
 
   @override
   Widget build(BuildContext context) {
-    // String appName = Get.arguments['appName'];
-    // String subtype = Get.arguments['subtype'];
-    // bool isSwitched = widget.isSwitched;
-    String appName = widget.appInfo.appName;
+    String appName = widget.maliciousAppName;
+    String appIcon = widget.maliciousAppIcon;
     String subtype = widget.subtype;
 
     return Scaffold(
@@ -46,8 +45,12 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
               ),
               onPressed: () {
                 (isSwitched)
-                    ? Get.to(A1a_downloadPage( sid: widget.sid,
-                        subtype: subtype, appInfo: widget.appInfo))
+                    ? Get.to(A1a_downloadPage(
+                        sid: widget.sid,
+                        subtype: subtype,
+                        maliciousAppName: appName,
+                  maliciousAppIcon: appIcon,
+                ))
                     // arguments: {'subtype': widget.subtype, 'appName': widget.appName})
                     : Get.back();
               },
@@ -62,9 +65,7 @@ class _A1a_downloadSettingPageState extends State<A1a_downloadSettingPage> {
                   height: 50.h,
                   child: Row(children: [
                     // TODO: 앱 아이콘으로 변경
-                    Container(
-                        width: 30.w,
-                        child: Image.asset(widget.appInfo.appIcon)),
+                    Container(width: 30.w, child: Image.asset(appIcon)),
                     SizedBox(width: 20),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

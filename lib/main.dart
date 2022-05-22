@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
               home: const HomePage(),
               routes: {
                 '/home': (context) => HomePage(),
-                '/simulation': (context) => SimulationPage(),
+                // '/simulation': (context) => SimulationPage(),
               },
               debugShowCheckedModeBanner: false,
 
