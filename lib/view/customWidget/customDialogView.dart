@@ -7,28 +7,30 @@ import 'package:voskat/controller/AppContentsController.dart';
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/view/customWidget/customDialog2.dart';
+import 'package:voskat/view/customWidget/customDialog.dart';
 
-Widget DialogControll(Scenario scenario, List<String> ac_id_list) {
+Widget DialogView(Scenario scenario, List<String> ac_id_list) {
   print(ac_id_list);
 
   return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         for (int i = 0; i < ac_id_list.length; i++)
-          _DialogControll(
+          _DialogView(
               AppContentsController().getContentsType(ac_id_list[i]),
               scenario,
               ac_id_list[i])
       ]);
 }
 
-Widget _DialogControll(String c_type, Scenario scenario, String ac_id) {
+Widget _DialogView(String c_type, Scenario scenario, String ac_id) {
   if (c_type == 'title') {
     return printTitle(ac_id);
+  } else if (c_type == 'description') {
+    return Description(ac_id);
   } else if (c_type == 'image') {
     return getImage(ac_id);
-  } else if (c_type == 'description') {
+  } else if (c_type == 'decoration') {
     return Description(ac_id);
   } else {
     return Text('[ERROR] - DialogControll()');
@@ -77,6 +79,7 @@ Widget Description(String ac_id) {
 
 Widget Select(BuildContext context, Scenario scenario, String ac_id) {
   var c_type = AppContentsController().getContentsType(ac_id);
+
   Color box_color = Color(0xffe7e7e7),
       border_color = Color(0xffb1aeae),
       text_color = Color(0xff000000),
@@ -114,11 +117,16 @@ Widget Select(BuildContext context, Scenario scenario, String ac_id) {
             ),
           ),
           onPressed: () {
+            print('ac_id => $ac_id');
+            print(scenario.userActionSequence);
+
             scenario.userActionSequence.add(UserActionController()
                 .getUserAction(PairController().getCurrentActionId(ac_id)));
 
+            // print(
+            //     'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(ac_id))}');
+
             Get.to(ClassBuilder.fromString(PairController()
                     .getNextActionWidget(ac_id)));
-
           }));
 }

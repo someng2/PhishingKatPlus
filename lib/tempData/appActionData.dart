@@ -2,7 +2,7 @@
 
 import 'package:voskat/model/simulation/appAction.dart';
 
-List<AppAction> appActionList = [A1a, A1b, A2c, A2d, A3b, A3c];
+List<AppAction> appActionList = [A1a, A1b, A2c, A2d, A3b, A3c, Result];
 
 AppAction A1a = AppAction(
     aa_id: 'A1-a',
@@ -19,12 +19,12 @@ AppAction A1b = AppAction(
 //수신차단
 AppAction A2c = AppAction(
     aa_id: 'A2-c',
-    widget: 'CustomDialog2'
+    widget: 'CustomDialog'
 );
 
 AppAction A2d = AppAction(
     aa_id: 'A2-d',
-    widget: 'CustomDialog2'
+    widget: 'CustomDialog'
 );
 
 AppAction A3b = AppAction(
@@ -35,4 +35,9 @@ AppAction A3b = AppAction(
 AppAction A3c = AppAction(
     aa_id: 'A3-c',
     widget: 'A3cPage'
+);
+
+AppAction Result = AppAction(
+    aa_id: 'Result',
+    widget: 'SimulationResultPage'
 );

@@ -16,10 +16,9 @@ import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/view/customWidget/A1/A1aPage.dart';
 import 'package:voskat/view/customWidget/A3/A3bPage.dart';
 import 'package:voskat/view/customWidget/A3/A3cPage.dart';
-import 'package:voskat/view/customWidget/customDialog.dart';
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
-import 'package:voskat/view/customWidget/customDialog2.dart';
+import 'package:voskat/view/customWidget/customDialog.dart';
 
 class SimulationPage extends StatefulWidget {
   const SimulationPage({Key? key}) : super(key: key);
@@ -180,6 +179,7 @@ class _SimulationPageState extends State<SimulationPage> {
                                       color: Color(0xff000000))),
                               onPressed: () {
                                 // U1-c
+                                print(scenario.userActionSequence);
                                 scenario.userActionSequence.add(
                                     UserActionController().getUserAction(
                                         PairController()
@@ -188,12 +188,10 @@ class _SimulationPageState extends State<SimulationPage> {
                                 showDialog(
                                     context: context,
                                     builder: (BuildContext context) {
-                                      return CustomDialog2(
+                                      return CustomDialog(
                                         sid: scenario.sid,
                                         aid: PairController().getNextActionId('ac_4'),
                                         height: 144,
-                                        // userOkAction: U2_c,
-                                        // userCancelAction: U2_d,
                                       );
                                     });
                               },

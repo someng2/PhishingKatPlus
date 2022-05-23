@@ -7,9 +7,9 @@ List<AppContents> appContentsList = [
   appContents_2,
   appContents_3,
   appContents_4,
-  appContents_5,
-  appContents_6,
-  appContents_7,
+  // appContents_5,
+  // appContents_6,
+  // appContents_7,
   appContents_8,
   appContents_9,
   appContents_10,
@@ -24,7 +24,10 @@ List<AppContents> appContentsList = [
   appContents_20,
   appContents_21,
   appContents_22,
-  appContents_23
+  appContents_23,
+  appContents_24,
+  appContents_25,
+  appContents_26,
 ];
 
 // 대출사기 - 문자 내용
@@ -71,34 +74,6 @@ AppContents appContents_4 = AppContents(
     contents: '수신 차단',
     hasNextAction: true);
 
-  //A1-b
-AppContents appContents_5 = AppContents(
-    ac_id: 'ac_5',
-    sid: 'A0-a',
-    aid: 'A1-b',
-    order: 1,
-    c_type: 'title',
-    contents: '수신 차단',
-    hasNextAction: true);
-
-AppContents appContents_6 = AppContents(
-    ac_id: 'ac_6',
-    sid: 'A0-a',
-    aid: 'A1-b',
-    order: 2,
-    c_type: 'description',
-    contents: '이 번호의 전화 및 메시지를 더이상 받지 않습니다.',
-    hasNextAction: true);
-
-AppContents appContents_7 = AppContents(
-    ac_id: 'ac_7',
-    sid: 'A0-a',
-    aid: 'A1-b',
-    order: 3,
-    c_type: 'cancel',
-    contents: '취소',
-    hasNextAction: true);
-
 AppContents appContents_8 = AppContents(
     ac_id: 'ac_8',
     sid: 'A0-a',
@@ -132,7 +107,7 @@ AppContents appContents_11 = AppContents(
     sid: 'A0-a',
     aid: 'A2-c',
     order: 3,
-    c_type: 'cancle',
+    c_type: 'cancel',
     contents: '취소',
     hasNextAction: true);
 
@@ -176,7 +151,7 @@ AppContents appContents_17 = AppContents(
     sid: 'A0-a',
     aid: 'A2-d',
     order: 3,
-    c_type: 'cancle',
+    c_type: 'cancel',
     contents: '취소',
     hasNextAction: true);
 AppContents appContents_18 = AppContents(
@@ -230,6 +205,54 @@ AppContents appContents_23 = AppContents(
     contents: '확인',
     hasNextAction: false);
 
+//A1-b
+AppContents appContents_24 = AppContents(
+    ac_id: 'ac_24',
+    sid: 'A0-a',
+    aid: 'A1-b',
+    order: 1,
+    c_type: 'title',
+    contents: '수신 차단',
+    hasNextAction: true);
+
+AppContents appContents_25 = AppContents(
+    ac_id: 'ac_25',
+    sid: 'A0-a',
+    aid: 'A1-b',
+    order: 2,
+    c_type: 'description',
+    contents: '이 번호의 전화 및 메시지를 더이상 받지 않습니다.',
+    hasNextAction: true);
+
+AppContents appContents_26 = AppContents(
+    ac_id: 'ac_26',
+    sid: 'A0-a',
+    aid: 'A1-b',
+    order: 3,
+    c_type: 'cancel',
+    contents: '취소',
+    hasNextAction: true);
+
+//Ac3
+  //휴지통
+AppContents appContents_27 = AppContents(
+    ac_id: 'ac_27',
+    sid: 'A0-a',
+    aid: 'A3-c',
+    order: 1,
+    c_type: 'image',
+    contents: 'image/trashbinIcon.png',
+    hasNextAction: false);
+
+  //나가기
+AppContents appContents_28 = AppContents(
+    ac_id: 'ac_28',
+    sid: 'A0-a',
+    aid: 'A3-c',
+    order: 2,
+    c_type: 'icon',
+    contents: '',
+    hasNextAction: false);
 
 
 

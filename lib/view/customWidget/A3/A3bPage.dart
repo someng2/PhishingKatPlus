@@ -9,8 +9,6 @@ import 'package:voskat/view/Simulation/SimulationPage.dart';
 
 import 'package:voskat/view/customWidget/A3/A3cPage.dart';
 
-import 'package:voskat/view/customWidget/customDialog.dart';
-
 class A3bPage extends StatefulWidget {
   final String sid;
   const A3bPage({Key? key, required this.sid}) : super(key: key);

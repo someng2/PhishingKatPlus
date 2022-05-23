@@ -6,6 +6,7 @@ import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
 List<UserAction> userActionList = [
   U1_a,
+  U1_c,
   U2_a,
   U2_b,
   U2_c,
@@ -101,7 +102,7 @@ UserAction U3_e = UserAction(
 
 UserAction U4_a = UserAction(
   ua_id: 'U4-a',
-  feedback: '나중에 클릭할 가능성까지 제거하는 꼼꼼',
+  feedback: '나중에 클릭할 가능성까지 제거하는 꼼꼼함',
   score: 5,
   // nextAction: SimulationResultPage(sid: ''),
 );

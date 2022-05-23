@@ -42,6 +42,7 @@ class PairController extends GetxController {
     }
   }
 
+
   getIndex(String ac_id) {
     for (int i = 0; i < pairList.length; i++) {
       if (pairList[i].ac_id == ac_id) {
