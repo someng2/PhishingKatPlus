@@ -2,35 +2,40 @@
 
 import 'dart:async';
 
+import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:voskat/controller/AppContentsController.dart';
+import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/ScenarioController.dart';
+import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 import 'package:get/get.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 import 'package:voskat/tempData/userActionData.dart';
 
-class A2b_vaccineAppPage extends StatefulWidget {
+class A2ePage extends StatefulWidget {
   String sid;
-  AppInfo maliciousAppInfo;
-  String vaccineAppIcon;
+  String maliciousAppName;
+  String maliciousAppIcon;
+  String vaccineAppId;
   Color vaccineAppColor;
 
-  A2b_vaccineAppPage(
+  A2ePage(
       {Key? key,
-        required this.sid,
-      required this.maliciousAppInfo,
-      required this.vaccineAppIcon,
+      required this.sid,
+      required this.maliciousAppName,
+      required this.maliciousAppIcon,
+      required this.vaccineAppId,
       required this.vaccineAppColor})
       : super(key: key);
 
   @override
-  _A2b_vaccineAppPageState createState() => _A2b_vaccineAppPageState();
+  _A2ePageState createState() => _A2ePageState();
 }
 
-class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
-    with TickerProviderStateMixin {
+class _A2ePageState extends State<A2ePage> with TickerProviderStateMixin {
   String appBarTitle = '';
   bool startClicked = false;
   bool inspectComplete = false;
@@ -42,20 +47,27 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
 
   @override
   void initState() {
-    late Timer timer;
-    timer = Timer.periodic(Duration(milliseconds: 80), (_) {
-      setState(() {
-        percent += 1;
-        if (percent >= 100) {
-          timer.cancel();
-          animationController.stop();
-          // percent=0;
-          startClicked = false;
-          inspectComplete = true;
-          appBarTitle = '악성 검사 결과';
-        }
-      });
-    });
+    // late Timer timer;
+
+    // if (startClicked) {
+    //   timer = Timer.periodic(Duration(milliseconds: 80), (_) {
+    //     setState(() {
+    //       percent += 1;
+    //       if (percent >= 100) {
+    //         timer.cancel();
+    //         animationController.stop();
+    //         // percent=0;
+    //         startClicked = false;
+    //         inspectComplete = true;
+    //         appBarTitle = '악성 검사 결과';
+    //       }
+    //     });
+    //   });
+    // }
+
+    ClassBuilder.register<SimulationResultPage>(() => SimulationResultPage(
+          sid: widget.sid,
+        ));
 
     animationController = AnimationController(
       vsync: this,
@@ -68,8 +80,14 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
   }
 
   @override
+  void dispose() {
+    animationController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    String maliciousAppName = widget.maliciousAppInfo.appName;
+    // String maliciousAppName = widget.maliciousAppInfo.appName;
+    late Timer timer;
 
     return Scaffold(
         appBar: AppBar(
@@ -77,7 +95,8 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
           centerTitle: true,
           leading: Container(
               padding: EdgeInsets.only(top: 8.h, bottom: 3.h),
-              child: Image.asset(widget.vaccineAppIcon)),
+              child: Image.asset(AppContentsController()
+                  .getContentsWithType(widget.vaccineAppId, 'appIcon'))),
           elevation: 0,
         ),
         // backgroundColor: Colors.blue,
@@ -119,7 +138,7 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                         children: [
                           Container(
                               height: 80.h,
-                              child: Image.asset('image/cautionIcon.png')),
+                              child: Image.asset(widget.maliciousAppIcon)),
                           Container(
                               padding: EdgeInsets.only(bottom: 30.h),
                               child: Text('악성 앱 1개 발견',
@@ -135,8 +154,8 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                       style: TextStyle(color: Colors.white)),
                                   Container(
                                       height: 125.h,
-                                      child: Image.asset(
-                                          widget.maliciousAppInfo.appIcon)),
+                                      child:
+                                          Image.asset(widget.maliciousAppIcon)),
                                 ],
                               )),
                           Container(
@@ -159,27 +178,41 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                         borderRadius:
                                             BorderRadius.circular(10.sp)),
                                     child: TextButton(
-                                      child: Text('삭제',
+                                      child: Text(
+                                          AppContentsController()
+                                              .getContents('ac_103'),
                                           style: TextStyle(
                                               color: widget.vaccineAppColor,
                                               fontSize: 16.sp)),
 
                                       // U3-b
                                       onPressed: () {
-                                        animationController.dispose();
-
-                                        Scenario scenario =
-                                        _scenarioController.getScenario(widget.sid);
-
-                                        scenario.userActionSequence.add(U3_b);
+                                        Scenario scenario = _scenarioController
+                                            .getScenario(widget.sid);
 
                                         // A3-a
                                         Get.defaultDialog(
                                             title: '삭제 완료',
                                             middleText:
-                                                '$maliciousAppName 앱이 삭제되었습니다.');
+                                                '${widget.maliciousAppName}'
+                                                ' 앱이 삭제되었습니다.');
 
-                                        Get.offAll(SimulationResultPage(sid: widget.sid));
+                                        Timer(Duration(seconds: 2), () {
+                                          print(
+                                              'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_103'))}');
+
+                                          Get.to(ClassBuilder.fromString(
+                                              PairController()
+                                                  .getNextActionWidget(
+                                                      'ac_103')));
+
+                                          scenario.userActionSequence.add(
+                                              UserActionController()
+                                                  .getUserAction(
+                                                      PairController()
+                                                          .getCurrentActionId(
+                                                              'ac_103')));
+                                        });
                                       },
                                     )),
                                 SizedBox(width: 20.w),
@@ -191,19 +224,32 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                         borderRadius:
                                             BorderRadius.circular(10.sp)),
                                     child: TextButton(
-                                      child: Text('취소',
+                                      child: Text(
+                                          AppContentsController()
+                                              .getContents('ac_104'),
                                           style: TextStyle(
                                               color: Colors.grey,
                                               fontSize: 16.sp)),
                                       onPressed: () {
-                                        animationController.dispose();
+                                        // animationController.dispose();
 
-                                        Scenario scenario =
-                                        _scenarioController.getScenario(widget.sid);
+                                        Scenario scenario = _scenarioController
+                                            .getScenario(widget.sid);
 
-                                        scenario.userActionSequence.add(U3_c);
+                                        // scenario.userActionSequence.add(U3_c);
 
-                                        Get.offAll(SimulationResultPage(sid: widget.sid));
+                                        print(
+                                            'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_104'))}');
+
+                                        Get.to(ClassBuilder.fromString(
+                                            PairController()
+                                                .getNextActionWidget('ac_104')));
+
+                                        scenario.userActionSequence.add(
+                                            UserActionController()
+                                                .getUserAction(PairController()
+                                                    .getCurrentActionId(
+                                                        'ac_104')));
                                       },
                                     )),
                               ]))
@@ -232,6 +278,20 @@ class _A2b_vaccineAppPageState extends State<A2b_vaccineAppPage>
                                 setState(() {
                                   startClicked = true;
                                   appBarTitle = '악성 검사 실행';
+                                  timer = Timer.periodic(
+                                      Duration(milliseconds: 80), (_) {
+                                    setState(() {
+                                      percent += 1;
+                                      if (percent >= 100) {
+                                        timer.cancel();
+                                        animationController.stop();
+                                        // percent=0;
+                                        startClicked = false;
+                                        inspectComplete = true;
+                                        appBarTitle = '악성 검사 결과';
+                                      }
+                                    });
+                                  });
                                 });
                               },
                               child: Text('검사하기',

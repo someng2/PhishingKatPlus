@@ -4,6 +4,7 @@ import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/controller/MessageController.dart';
 import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/user/user.dart';
 import 'package:voskat/tempData/appContentsData.dart';
@@ -14,14 +15,22 @@ import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/view/customWidget/A1/A1aPage.dart';
+import 'package:voskat/view/customWidget/A1/A1sPage.dart';
 import 'package:voskat/view/customWidget/A3/A3bPage.dart';
 import 'package:voskat/view/customWidget/A3/A3cPage.dart';
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
+
 import 'package:voskat/view/customWidget/customDialog.dart';
 
+import 'package:voskat/view/customWidget/messageTemplate.dart';
+
+
 class SimulationPage extends StatefulWidget {
-  const SimulationPage({Key? key}) : super(key: key);
+  /// temp
+  User user;
+
+  SimulationPage({Key? key, required this.user}) : super(key: key);
 
   @override
   _SimulationPageState createState() => _SimulationPageState();
@@ -33,21 +42,33 @@ class _SimulationPageState extends State<SimulationPage> {
   @override
   void initState() {
     super.initState();
-    scenario = CustomSimulController(user: _user).getCustomSimulation(_user);
+    scenario = CustomSimulController(user: widget.user)
+        .getCustomSimulation(widget.user);
     print('모의훈련 점수: ${scenario.score}점');
 
     ClassBuilder.register<A1aPage>(() => A1aPage(
-          sid: scenario.sid,
-          subtype: scenario.subtype,
-          appInfo: maliciousApp1,
-        ));
+        sid: scenario.sid,
+        subtype: scenario.subtype,
+        maliciousAppName: maliciousApp_1.contents,
+        maliciousAppIcon: appContents_6.contents));
+
+    ClassBuilder.register<A1sPage>(() => A1sPage(
+        sid: scenario.sid,
+        subtype: scenario.subtype,
+        maliciousAppName: AppContentsController().getContents('ac_110'),
+        maliciousAppIcon: appContents_6.contents));
   }
 
   @override
-  User _user = user1;
+  // User _user = user1;
+
   bool _isMenuPressed = false;
 
   Widget build(BuildContext context) {
+    // List<String> ac_id_list = ['ac_1', 'ac_2', 'ac_3'];
+    List<String> ac_id_list =
+        MessageController().getMessageIdList(scenario.sid);
+
     return (scenario.medium == '문자')
         ? Scaffold(
             appBar: AppBar(
@@ -232,56 +253,57 @@ class _SimulationPageState extends State<SimulationPage> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Container(
-                        // width: 255.w,
-                        padding: EdgeInsets.all(10.sp),
-                        decoration: BoxDecoration(
-                            color: Color(0xffC4C4C4).withOpacity(0.28),
-                            borderRadius: BorderRadius.circular(10.sp)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(AppContentsController().getContents('ac_1'),
-                                style: TextStyle(fontSize: 14.sp)),
-                            Container(
-                              height: 20.h,
-                              child: TextButton(
-                                  child: Text(
-                                    // scenario.appActionSequence[0].url,
-                                    AppContentsController().getContents('ac_2'),
-                                    style: TextStyle(
-                                        color: Colors.indigo,
-                                        decoration: TextDecoration.underline,
-                                        fontSize: 14.sp),
-                                  ),
-
-                                  // U1
-                                  onPressed: () {
-                                    // Get.to(
-                                    //     (scenario.appActionSequence[1].widget));
-
-                                    // Get.to(U1_a.nextAction);
-                                    print(
-                                        'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_2'))}');
-
-                                    Get.to(ClassBuilder.fromString(
-                                        PairController()
-                                            .getNextActionWidget('ac_2')));
-
-                                    scenario.userActionSequence.add(
-                                        UserActionController().getUserAction(
-                                            PairController()
-                                                .getCurrentActionId('ac_2')));
-                                  },
-                                  style: TextButton.styleFrom(
-                                      // backgroundColor: Colors.white,
-                                      padding: EdgeInsets.all(0))),
-                            ),
-                            Text(AppContentsController().getContents('ac_3'),
-                                style: TextStyle(fontSize: 14.sp)),
-                          ],
-                        ),
-                      ),
+                      MessageTemplate(scenario, ac_id_list),
+                      // Container(
+                      //   // width: 255.w,
+                      //   padding: EdgeInsets.all(10.sp),
+                      //   decoration: BoxDecoration(
+                      //       color: Color(0xffC4C4C4).withOpacity(0.28),
+                      //       borderRadius: BorderRadius.circular(10.sp)),
+                      //   child: Column(
+                      //     crossAxisAlignment: CrossAxisAlignment.start,
+                      //     children: [
+                      //       Text(AppContentsController().getContents('ac_1'),
+                      //           style: TextStyle(fontSize: 14.sp)),
+                      //       Container(
+                      //         height: 20.h,
+                      //         child: TextButton(
+                      //             child: Text(
+                      //               // scenario.appActionSequence[0].url,
+                      //               AppContentsController().getContents('ac_2'),
+                      //               style: TextStyle(
+                      //                   color: Colors.indigo,
+                      //                   decoration: TextDecoration.underline,
+                      //                   fontSize: 14.sp),
+                      //             ),
+                      //
+                      //             // U1
+                      //             onPressed: () {
+                      //               // Get.to(
+                      //               //     (scenario.appActionSequence[1].widget));
+                      //
+                      //               // Get.to(U1_a.nextAction);
+                      //               print(
+                      //                   'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_2'))}');
+                      //
+                      //               Get.to(ClassBuilder.fromString(
+                      //                   PairController()
+                      //                       .getNextActionWidget('ac_2')));
+                      //
+                      //               scenario.userActionSequence.add(
+                      //                   UserActionController().getUserAction(
+                      //                       PairController()
+                      //                           .getCurrentActionId('ac_2')));
+                      //             },
+                      //             style: TextButton.styleFrom(
+                      //                 // backgroundColor: Colors.white,
+                      //                 padding: EdgeInsets.all(0))),
+                      //       ),
+                      //       Text(AppContentsController().getContents('ac_3'),
+                      //           style: TextStyle(fontSize: 14.sp)),
+                      //     ],
+                      //   ),
+                      // ),
                       Container(
                         // width: 50,
                         child: Text('오전 9:05',

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
@@ -160,8 +161,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onPressed: () {
                     isCustom
-                        ? Get.to(SimulationPage())
-                        : Get.to(SimulationType());
+
+                      //  ? Get.to(SimulationPage())
+                      //   : Get.to(SimulationType());
+
+                        ? Get.to(SimulationPage(user: user1))
+                        :
+                        // TODO: 유형별 모의체험으로 이동
+                       // Get.to(SimulationPage(user: user2));
+                    
+                    Get.to(SimulationType());
+
                   },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,
@@ -261,7 +271,7 @@ class _HomePageState extends State<HomePage> {
                                               fontSize: 15.sp),
                                         ),
                                         onPressed: () {
-                                          Get.to(SimulationPage());
+                                          Get.to(SimulationPage(user: user1));
                                         },
                                         style: TextButton.styleFrom(
                                           minimumSize: Size.zero,

@@ -5,16 +5,24 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/controller/AppContentsController.dart';
 import 'package:voskat/tempData/appAdData.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
-import 'package:voskat/view/customWidget/A2/A2b_vaccineAppPage.dart';
+import 'package:voskat/view/customWidget/A2/A2ePage.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 
 class A2bPage extends StatefulWidget {
   String sid;
-  AppInfo appInfo;
-  A2bPage({Key? key, required this.sid, required this.appInfo})
-      : super(key: key);
+  String vaccineAppId;
+  String maliciousAppName;
+  String maliciousAppIcon;
+  A2bPage({
+    Key? key,
+    required this.sid,
+    required this.vaccineAppId,
+    required this.maliciousAppName,
+    required this.maliciousAppIcon,
+  }) : super(key: key);
 
   @override
   _A2bPageState createState() => _A2bPageState();
@@ -28,6 +36,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    super.initState();
     controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -35,12 +44,18 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
         setState(() {});
       });
     controller.repeat();
-    super.initState();
   }
+
+  // @override
+  // void dispose() {
+  //   controller.dispose();
+  // }
+
 
   @override
   Widget build(BuildContext context) {
     Color adBackgroundColor = Colors.blue;
+    String vaccineAppId = widget.vaccineAppId;
 
     return Scaffold(
         appBar: AppBar(
@@ -100,7 +115,10 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                     ? CrossAxisAlignment.center
                                     : CrossAxisAlignment.start,
                                 children: [
-                                  Image.asset('image/v3appLogo.webp',
+                                  Image.asset(
+                                      AppContentsController()
+                                          .getContentsWithType(
+                                              vaccineAppId, 'appIcon'),
                                       width: downloadPressed ? 35.w : 65.w),
                                 ],
                               )),
@@ -114,10 +132,11 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                  height: 100.h,
-                                  width: 150.w,
+                                  // height: 100.h,
+                                  width: 155.w,
                                   child: Text(
-                                    'V3 Mobile Security-백신/클리너/최적화',
+                                    AppContentsController().getContentsWithType(
+                                        vaccineAppId, 'appName'),
                                     style: TextStyle(
                                         fontSize: 23.sp,
                                         fontWeight: FontWeight.w600),
@@ -130,7 +149,10 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                           style: TextStyle(
                                             fontSize: 15.sp,
                                           ))
-                                      : Text('AhnLab Inc.',
+                                      : Text(
+                                          AppContentsController()
+                                              .getContentsWithType(
+                                                  vaccineAppId, 'appCompany'),
                                           style: TextStyle(
                                               fontSize: 15.sp,
                                               color: Colors.teal,
@@ -271,11 +293,13 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                   onPressed: () {
                                     setState(() {
                                       downloadPressed = true;
+                                      controller.repeat();
                                       Timer(Duration(seconds: 5), () {
                                         setState(() {});
                                         print('Time Off!');
                                         downloadPressed = false;
                                         downloadComplete = true;
+                                        controller.dispose();
                                       });
                                     });
                                   },
@@ -322,7 +346,9 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                   children: [
                                     Flexible(
                                       child: Text(
-                                        '글로벌 No.1 백신! - 부스터 / 클리너 / 앱잠금 / 갤러리 숨김 / 이미지 검사 / 알림 검사 / QR코드 검사 / URL 검사 / 배터리 최적 사용',
+                                        AppContentsController()
+                                            .getContentsWithType(
+                                                'ac_102', 'appDescription'),
                                         style: TextStyle(fontSize: 15.sp),
                                       ),
                                     ),
@@ -362,11 +388,13 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                             color: Colors.white,
                                             fontSize: 15.sp)),
                                     onPressed: () {
-                                      Get.to(A2b_vaccineAppPage(
+                                      Get.to(A2ePage(
                                           sid: widget.sid,
-                                          maliciousAppInfo: widget.appInfo,
-                                          vaccineAppIcon:
-                                              'image/v3appLogo.webp',
+                                          maliciousAppName:
+                                              widget.maliciousAppName,
+                                          maliciousAppIcon:
+                                              widget.maliciousAppIcon,
+                                          vaccineAppId: vaccineAppId,
                                           vaccineAppColor: Colors.blue));
                                     },
                                   ))
@@ -434,8 +462,9 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                   itemCount: AppAdList_v1.length,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    String description =
-                                        AppAdList_v1[index].description;
+                                    String description = AppContentsController()
+                                        .getContentsWithType(
+                                            'ac_102', 'appStar');
 
                                     return Container(
                                       padding: EdgeInsets.only(right: 15.w),
@@ -456,8 +485,11 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                             Container(
                                                 padding:
                                                     EdgeInsets.only(top: 10.h),
-                                                child: Text(AppAdList_v1[index]
-                                                    .appName)),
+                                                child: Text(
+                                                    AppContentsController()
+                                                        .getContentsWithType(
+                                                            'ac_102',
+                                                            'appName'))),
                                             Container(
                                                 child: description == '설치됨'
                                                     ? Row(
@@ -493,8 +525,9 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                   itemCount: AppAdList_v1.length,
                                   itemBuilder:
                                       (BuildContext context, int index) {
-                                    String description =
-                                        AppAdList_v2[index].description;
+                                    String description = AppContentsController()
+                                        .getContentsWithType(
+                                            'ac_102', 'appStar');
 
                                     return Container(
                                       padding: EdgeInsets.only(right: 15.w),
@@ -510,13 +543,18 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                                       BorderRadius.circular(
                                                           25.sp)),
                                               child: Image.asset(
-                                                  AppAdList_v2[index].appIcon),
+                                                  AppContentsController()
+                                                      .getContentsWithType(
+                                                          'ac_102', 'appIcon')),
                                             ),
                                             Container(
                                                 padding:
                                                     EdgeInsets.only(top: 10.h),
-                                                child: Text(AppAdList_v2[index]
-                                                    .appName)),
+                                                child: Text(
+                                                    AppContentsController()
+                                                        .getContentsWithType(
+                                                            'ac_102',
+                                                            'appName'))),
                                             Container(
                                                 child: description == '설치됨'
                                                     ? Row(
