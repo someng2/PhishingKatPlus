@@ -7,11 +7,13 @@ import 'package:voskat/controller/PairController.dart';
 
 import 'package:voskat/view/customWidget/A3/ReportPage.dart';
 import 'package:voskat/model/simulation/userAction.dart';
-
+import 'package:voskat/controller/ScenarioController.dart';
+import 'package:voskat/view/customWidget/customDialogTemplate.dart';
+import 'A3/MessagePage.dart';
 import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/view/customWidget/customDialogTemplate.dart';
 
-import 'A3/MessagePage.dart';
+
 
 class CustomDialog extends StatefulWidget {
   final String sid;
@@ -84,6 +86,7 @@ class _CustomDialogState extends State<CustomDialog> {
         i--;
       } else
         continue;
+
     }
 
     return SingleChildScrollView(

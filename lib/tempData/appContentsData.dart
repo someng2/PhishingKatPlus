@@ -36,6 +36,7 @@ AppContents appContents_3 = AppContents(
 
 // 대출사기 - 수신차단
 //U1-c
+
 AppContents appContents_4 = AppContents(
     ac_id: 'ac_4',
     sid: 'A0-a',
@@ -55,6 +56,7 @@ AppContents appContents_8 = AppContents(
     hasNextAction: false);
 
 //A2-c 수신차단 후 신고
+
 AppContents appContents_9 = AppContents(
     ac_id: 'ac_9',
     sid: 'A0-a',
@@ -178,6 +180,7 @@ AppContents appContents_22 = AppContents(
     contents:
         '자세한 사항은 한국인터넷진흥원 불법 스팸대응센터 (국번 없이) 118 또는 홈페이지(https://spam.kisa.or.kr)로 문의하시기 바랍니다.',
     hasNextAction: true);
+
 AppContents appContents_23 = AppContents(
     ac_id: 'ac_23',
     sid: 'A0-a',
@@ -217,6 +220,7 @@ AppContents appContents_26 = AppContents(
 
 //Ac3
 //휴지통
+
 AppContents appContents_27 = AppContents(
     ac_id: 'ac_27',
     sid: 'A0-a',
@@ -227,6 +231,7 @@ AppContents appContents_27 = AppContents(
     hasNextAction: false);
 
 //나가기
+
 AppContents appContents_28 = AppContents(
     ac_id: 'ac_28',
     sid: 'A0-a',
@@ -237,6 +242,7 @@ AppContents appContents_28 = AppContents(
     hasNextAction: false);
 
 /////////////////// 소망
+
 AppContents appContents_6 = AppContents(
     ac_id: 'ac_6',
     aid: 'A1-a',
@@ -547,7 +553,6 @@ List<AppContents> appContentsList = [
   appContents_2,
   appContents_3,
   appContents_4,
-
   appContents_8,
   appContents_9,
   appContents_10,
@@ -566,7 +571,6 @@ List<AppContents> appContentsList = [
   appContents_24,
   appContents_25,
   appContents_26,
-
   maliciousApp_1,
   appContents_6,
   vaccineAppContents_1,

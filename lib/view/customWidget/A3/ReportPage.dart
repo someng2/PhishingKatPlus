@@ -11,9 +11,11 @@ import 'package:voskat/view/Simulation/SimulationPage.dart';
 
 import 'package:voskat/view/customWidget/A3/MessagePage.dart';
 
+
 import 'package:voskat/view/customWidget/customDialog.dart';
 
 class ReportPage extends StatefulWidget {
+
   final String sid;
   const ReportPage({Key? key, required this.sid}) : super(key: key);
 
@@ -74,6 +76,7 @@ class _ReportPageState extends State<ReportPage> {
                             SizedBox(height: 17),
                             Container(
                                 width: 209,
+
                                 child: Text(
                                   AppContentsController().getContents('ac_22'),
                                   style: TextStyle(fontSize: 13),

@@ -78,6 +78,7 @@ Pair pair_8 = Pair(
     nextActionId: 'A3-c');
 
 
+
 // MessagePage (A3-c)
   //휴지통
 Pair pair_9 = Pair(
@@ -86,7 +87,9 @@ Pair pair_9 = Pair(
     ac_id: 'ac_27',
     index: 1,
     currentActionId: 'U4-a',
+
     nextActionId: 'result');
+
   //x
 Pair pair_10 = Pair(
     sid: 'A0-a',
@@ -95,6 +98,7 @@ Pair pair_10 = Pair(
     index: 2,
     currentActionId: 'U4-b',
     nextActionId: 'result');
+
 
 
 

@@ -15,14 +15,13 @@ import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 
+
 import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
 import 'package:voskat/view/customWidget/A1/MaliciousAppPage_1.dart';
 import 'package:voskat/view/customWidget/A2/PlayStorePage.dart';
 import 'package:voskat/view/customWidget/A3/ReportPage.dart';
 import 'package:voskat/view/customWidget/A3/MessagePage.dart';
 import 'package:voskat/view/customWidget/customDialog.dart';
-
-
 
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
