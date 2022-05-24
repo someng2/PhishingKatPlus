@@ -78,7 +78,8 @@ Pair pair_8 = Pair(
     nextActionId: 'A3-c');
 
 
-//A3-c
+
+// MessagePage (A3-c)
   //휴지통
 Pair pair_9 = Pair(
     sid: 'A0-a',
@@ -86,15 +87,17 @@ Pair pair_9 = Pair(
     ac_id: 'ac_27',
     index: 1,
     currentActionId: 'U4-a',
-    nextActionId: 'Result');
+
+    nextActionId: 'result');
+
   //x
 Pair pair_10 = Pair(
     sid: 'A0-a',
     pid: 'p_10',
     ac_id: 'ac_28',
     index: 2,
-    currentActionId: 'U4-a',
-    nextActionId: 'Result');
+    currentActionId: 'U4-b',
+    nextActionId: 'result');
 
 
 
@@ -149,6 +152,74 @@ Pair pair_105 = Pair(
     // TODO: 나중에 수정
     nextActionId: 'A1-s');
 
+// 플레이 스토어 이동
+Pair pair_106 = Pair(
+    sid: 'A0-c',
+    pid: 'p_106',
+    ac_id: 'ac_111',
+    index: 0,
+    currentActionId: 'U1-f',
+    nextActionId: 'A2-b');
+
+// 열기 버튼
+Pair pair_107 = Pair(
+    sid: 'A0-a',
+    pid: 'p_107',
+    ac_id: 'ac_113',
+    index: 0,
+    currentActionId: 'A2-b',
+    nextActionId: 'A2-e');
+
+// 플레이 스토어에서 택배앱 열기
+Pair pair_108 = Pair(
+    sid: 'A0-c',
+    pid: 'p_107',
+    ac_id: 'ac_113',
+    index: 0,
+    currentActionId: 'A2-b',
+    nextActionId: 'A2-f');
+
+Pair pair_109 = Pair(
+    sid: 'A0-c',
+    pid: 'p_109',
+    ac_id: 'ac_115',
+    index: 0,
+    currentActionId: 'U2-e',
+    nextActionId: 'A3-c');
+
+Pair pair_110 = Pair(
+    sid: 'A0-c',
+    pid: 'p_110',
+    ac_id: 'ac_116',
+    index: 0,
+    currentActionId: 'U3-f',
+    nextActionId: 'A3-d');
+
+Pair pair_111 = Pair(
+    sid: 'A0-c',
+    pid: 'p_111',
+    ac_id: 'ac_117',
+    index: 0,
+    currentActionId: 'U4-c',
+    nextActionId: 'A3-c');
+
+// MessagePage (A3-c)
+//휴지통
+Pair pair_112 = Pair(
+    sid: 'A0-c',
+    pid: 'p_112',
+    ac_id: 'ac_27',
+    index: 1,
+    currentActionId: 'U4-a',
+    nextActionId: 'result');
+//x
+Pair pair_113 = Pair(
+    sid: 'A0-c',
+    pid: 'p_113',
+    ac_id: 'ac_28',
+    index: 2,
+    currentActionId: 'U4-b',
+    nextActionId: 'result');
 
 // temp data
 List<Pair> pairList = [
@@ -162,6 +233,14 @@ List<Pair> pairList = [
   pair_102,
   pair_103,
   pair_104,
-  pair_105
+  pair_105,
+  pair_106,
+  pair_107,
+  pair_108,
+  pair_109,
+  pair_110,
+  pair_111,
+  pair_112,
+  pair_113,
 ];
 

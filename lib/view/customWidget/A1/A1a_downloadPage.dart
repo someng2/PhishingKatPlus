@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_overlay_pro/loading_overlay_pro.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:voskat/view/customWidget/A1/A1sPage.dart';
+import 'package:voskat/view/customWidget/A1/MaliciousAppPage_1.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1a_downloadPage extends StatefulWidget {
@@ -41,7 +41,7 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
       setState(() {
         state = '설치 완료!';
         timer.cancel();
-        Get.to(A1sPage(
+        Get.to(MaliciousAppPage_1(
           sid: widget.sid,
           subtype: widget.subtype,
           maliciousAppName: widget.maliciousAppName,

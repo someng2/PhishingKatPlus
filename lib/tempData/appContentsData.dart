@@ -2,7 +2,6 @@
 
 import 'package:voskat/model/simulation/appContents.dart';
 
-
 /// order: 0 -> 순서 상관없는 컨텐츠
 
 // 대출사기 - 문자 내용 (appContents_1 ~ 3)
@@ -35,10 +34,9 @@ AppContents appContents_3 = AppContents(
         '담당자: 김미영\n① 상단의 본인인증 PIN 클릭\n② [본인인증] 클릭하여 앱다운로드 및 설치\n③ \'간편대출\' 클릭 후 신청서 작성\n④ 담당자 확인',
     hasNextAction: false);
 
-
-
 // 대출사기 - 수신차단
-  //U1-c
+//U1-c
+
 AppContents appContents_4 = AppContents(
     ac_id: 'ac_4',
     sid: 'A0-a',
@@ -47,7 +45,6 @@ AppContents appContents_4 = AppContents(
     c_type: 'button',
     contents: '수신 차단',
     hasNextAction: true);
-
 
 AppContents appContents_8 = AppContents(
     ac_id: 'ac_8',
@@ -58,7 +55,8 @@ AppContents appContents_8 = AppContents(
     contents: '수신차단',
     hasNextAction: false);
 
-  //A2-c 수신차단 후 신고
+//A2-c 수신차단 후 신고
+
 AppContents appContents_9 = AppContents(
     ac_id: 'ac_9',
     sid: 'A0-a',
@@ -102,6 +100,7 @@ AppContents appContents_14 = AppContents(
     order: 5,
     c_type: 'decoration',
     contents: '한국인터넷 진흥원(118)',
+    hasNextAction: false);
 
 // 대출사기 - 악성 앱 (KB 국민은행)
 AppContents maliciousApp_1 = AppContents(
@@ -111,14 +110,12 @@ AppContents maliciousApp_1 = AppContents(
     order: 0,
     c_type: 'appName',
     contents: 'KB 국민은행',
-
     hasNextAction: false);
 
-  //A2-d 수신차단 x 신고
+//A2-d 수신차단 x 신고
 AppContents appContents_15 = AppContents(
     ac_id: 'ac_15',
     sid: 'A0-a',
-
     aid: 'A2-d',
     order: 1,
     c_type: 'title',
@@ -157,7 +154,7 @@ AppContents appContents_19 = AppContents(
     contents: 'image/kisaLogo.png',
     hasNextAction: false);
 
-  //A3-b 통화 화면, 신고접수
+//A3-b 통화 화면, 신고접수
 AppContents appContents_20 = AppContents(
     ac_id: 'ac_20',
     sid: 'A0-a',
@@ -180,8 +177,10 @@ AppContents appContents_22 = AppContents(
     aid: 'A3-b',
     order: 3,
     c_type: 'text',
-    contents: '자세한 사항은 한국인터넷진흥원 불법 스팸대응센터 (국번 없이) 118 또는 홈페이지(https://spam.kisa.or.kr)로 문의하시기 바랍니다.',
+    contents:
+        '자세한 사항은 한국인터넷진흥원 불법 스팸대응센터 (국번 없이) 118 또는 홈페이지(https://spam.kisa.or.kr)로 문의하시기 바랍니다.',
     hasNextAction: true);
+
 AppContents appContents_23 = AppContents(
     ac_id: 'ac_23',
     sid: 'A0-a',
@@ -220,7 +219,8 @@ AppContents appContents_26 = AppContents(
     hasNextAction: true);
 
 //Ac3
-  //휴지통
+//휴지통
+
 AppContents appContents_27 = AppContents(
     ac_id: 'ac_27',
     sid: 'A0-a',
@@ -230,7 +230,8 @@ AppContents appContents_27 = AppContents(
     contents: 'image/trashbinIcon.png',
     hasNextAction: false);
 
-  //나가기
+//나가기
+
 AppContents appContents_28 = AppContents(
     ac_id: 'ac_28',
     sid: 'A0-a',
@@ -240,14 +241,16 @@ AppContents appContents_28 = AppContents(
     contents: '',
     hasNextAction: false);
 
+/////////////////// 소망
 
-/////////////////// 소망 
-  
+AppContents appContents_6 = AppContents(
+    ac_id: 'ac_6',
     aid: 'A1-a',
     order: 0,
     c_type: 'appIcon',
     contents: 'image/cautionIcon.png',
-    hasNextAction: false);
+    hasNextAction: false,
+    sid: 'A0-a');
 
 // 백신 앱
 AppContents vaccineAppContents_1 = AppContents(
@@ -399,14 +402,14 @@ AppContents appContents_106 = AppContents(
     contents: '',
     hasNextAction: true);
 
-// 택배사기 문자 (appContents_10 ~ 12)
-AppContents appContens_107 = AppContents(
+// 택배사기 문자 (appContents_107 ~ 108)
+AppContents appContents_107 = AppContents(
     ac_id: 'ac_107',
     sid: 'A0-c',
     aid: 'A0-c',
-    order: 1,
+    order: 3,
     c_type: 'messageUrl',
-    contents: '택배사칭 url 1',
+    contents: 'https://bit.ly/3s5klZs',
     hasNextAction: true);
 
 AppContents appContents_108 = AppContents(
@@ -415,17 +418,8 @@ AppContents appContents_108 = AppContents(
     aid: 'A0-c',
     order: 2,
     c_type: 'messageText',
-    contents: '택배사칭 문자ㅏㅏㅏㅏㅏㅏㅏㅏㅏ',
+    contents: '[대한통운]\n송장번호 56**-33**-**80 배송지 오류\n배송지를 확인 부탁드립니다.',
     hasNextAction: false);
-
-AppContents appContents_109 = AppContents(
-    ac_id: 'ac_109',
-    sid: 'A0-c',
-    aid: 'A0-c',
-    order: 3,
-    c_type: 'messageUrl',
-    contents: '택배사칭 url 2',
-    hasNextAction: true);
 
 AppContents maliciousAppContents_4 = AppContents(
     ac_id: 'ac_100',
@@ -463,12 +457,102 @@ AppContents maliciousApp_2 = AppContents(
     contents: 'cj 대한통운',
     hasNextAction: false);
 
+AppContents appContents_111 = AppContents(
+    ac_id: 'ac_111',
+    sid: 'A0-c',
+    aid: 'A0-c',
+    order: 0,
+    c_type: 'button',
+    contents: 'image/googlePlayIcon.jpg',
+    hasNextAction: true);
+
+AppContents downloadAppContents_1 = AppContents(
+    ac_id: 'ac_112',
+    sid: 'A0-c',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appName',
+    contents: 'CJ 대한통운 택배',
+    hasNextAction: false);
+
+AppContents downloadAppContents_2 = AppContents(
+    ac_id: 'ac_112',
+    sid: 'A0-c',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appIcon',
+    contents: 'image/cjIcon.webp',
+    hasNextAction: false);
+
+AppContents downloadAppContents_3 = AppContents(
+    ac_id: 'ac_112',
+    sid: 'A0-c',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appCompany',
+    contents: 'CJ Logistics',
+    hasNextAction: false);
+
+AppContents downloadAppContents_4 = AppContents(
+    ac_id: 'ac_112',
+    sid: 'A0-c',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appDescription',
+    contents: '\"CJ대한통운\" 앱(APP)으로 상품 배송 걱정 끝!',
+    hasNextAction: false);
+
+AppContents appContents_113 = AppContents(
+    ac_id: 'ac_113',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'button',
+    contents: '열기',
+    hasNextAction: true);
+
+AppContents appContents_114 = AppContents(
+    ac_id: 'ac_113',
+    sid: 'A0-c',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'button',
+    contents: '열기',
+    hasNextAction: true);
+
+// 나가기 버튼
+AppContents appContents_115 = AppContents(
+    ac_id: 'ac_115',
+    sid: 'A0-c',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'button',
+    contents: ' ',
+    hasNextAction: true);
+
+AppContents appContents_116 = AppContents(
+    ac_id: 'ac_116',
+    sid: 'A0-c',
+    aid: 'A2-f',
+    order: 0,
+    c_type: 'button',
+    contents: '조회하기',
+    hasNextAction: true);
+
+AppContents appContents_117 = AppContents(
+    ac_id: 'ac_117',
+    sid: 'A0-c',
+    aid: 'A3-d',
+    order: 0,
+    c_type: 'button',
+    contents: '확인',
+    hasNextAction: true);
+
 List<AppContents> appContentsList = [
   appContents_1,
   appContents_2,
   appContents_3,
   appContents_4,
-  
   appContents_8,
   appContents_9,
   appContents_10,
@@ -487,7 +571,6 @@ List<AppContents> appContentsList = [
   appContents_24,
   appContents_25,
   appContents_26,
-  
   maliciousApp_1,
   appContents_6,
   vaccineAppContents_1,
@@ -506,12 +589,21 @@ List<AppContents> appContentsList = [
   vaccineAppBanner_1,
   vaccineAppBanner_2,
   appContents_106,
-  appContens_107,
+  // appContens_107,
   appContents_108,
-  appContents_109,
+  appContents_107,
   maliciousAppContents_4,
   maliciousAppContents_5,
   maliciousAppContents_6,
   maliciousApp_2,
+  appContents_111,
+  downloadAppContents_1,
+  downloadAppContents_2,
+  downloadAppContents_3,
+  downloadAppContents_4,
+  appContents_113,
+  appContents_114,
+  appContents_115,
+  appContents_116,
+  appContents_117
 ];
-

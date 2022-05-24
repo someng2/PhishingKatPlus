@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+/// A1-s
 
 import 'dart:async';
 
@@ -10,7 +11,7 @@ import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
-import 'package:voskat/view/customWidget/A2/A2aPage.dart';
+import 'package:voskat/view/customWidget/A2/MaliciousAppPage_2.dart';
 import 'package:voskat/view/customWidget/vaccineAppAd.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,12 +20,12 @@ import 'package:voskat/tempData/scenarioData.dart';
 
 // TODO: UI 업데이트
 
-class A1sPage extends StatefulWidget {
+class MaliciousAppPage_1 extends StatefulWidget {
   String sid;
   String subtype;
   String maliciousAppName;
   String maliciousAppIcon;
-  A1sPage(
+  MaliciousAppPage_1(
       {Key? key,
       required this.sid,
       required this.subtype,
@@ -33,10 +34,10 @@ class A1sPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  _A1sPageState createState() => _A1sPageState();
+  _MaliciousAppPage_1State createState() => _MaliciousAppPage_1State();
 }
 
-class _A1sPageState extends State<A1sPage> {
+class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
   bool _showAd = false;
   final ScenarioController _scenarioController = ScenarioController();
   final TextEditingController info1Controller = TextEditingController();
@@ -49,7 +50,7 @@ class _A1sPageState extends State<A1sPage> {
 
   @override
   void initState() {
-    ClassBuilder.register<A2aPage>(() => A2aPage(
+    ClassBuilder.register<MaliciousAppPage_2>(() => MaliciousAppPage_2(
           sid: widget.sid,
           subtype: widget.subtype,
           maliciousAppName: widget.maliciousAppName,
@@ -189,10 +190,10 @@ class _A1sPageState extends State<A1sPage> {
                   );
                 } else {
                   print(
-                      'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_101'))}');
+                      'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, 'ac_101'))}');
 
-                  Get.to(ClassBuilder.fromString(
-                      PairController().getNextActionWidget('ac_101')));
+                  Get.to(ClassBuilder.fromString(PairController()
+                      .getNextActionWidget(widget.sid, 'ac_101')));
 
                   Scenario scenario =
                       _scenarioController.getScenario(widget.sid);
@@ -214,7 +215,6 @@ class _A1sPageState extends State<A1sPage> {
   }
 
   checkInfo(
-
       String sid,
       int textFieldCount,
       // String textField_ac_id,
@@ -288,45 +288,11 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
                   textAlignVertical: TextAlignVertical.center,
                   style: TextStyle(fontSize: 17.sp)),
             )
-          : (textFieldControllerList.length == 2) ? Row(
-        children: [
-          Container(
-            width: 100.w,
-            height: 40.h,
-            padding: EdgeInsets.only(left: 20),
-            child: TextField(
-                controller: textFieldControllerList[0],
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                ),
-                style: TextStyle(
-                  fontSize: 16,
-                )),
-          ),
-          Container(
-              child: Text(' - ', style: TextStyle(fontSize: 16))),
-          Container(
-            width: 100.w,
-            height: 40.h,
-            // padding: EdgeInsets.only(left: 20),
-            child: TextField(
-              // obscureText: true,
-                controller: textFieldControllerList[1],
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                ),
-                style: TextStyle(fontSize: 16.sp)),
-          ),
-
-        ],
-      ) :
-      (textFieldControllerList.length == 3)
+          : (textFieldControllerList.length == 2)
               ? Row(
                   children: [
                     Container(
-                      width: 73.w,
+                      width: 100.w,
                       height: 40.h,
                       padding: EdgeInsets.only(left: 20),
                       child: TextField(
@@ -342,7 +308,7 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
                     Container(
                         child: Text(' - ', style: TextStyle(fontSize: 16))),
                     Container(
-                      width: 75.w,
+                      width: 100.w,
                       height: 40.h,
                       // padding: EdgeInsets.only(left: 20),
                       child: TextField(
@@ -354,24 +320,61 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
                           ),
                           style: TextStyle(fontSize: 16.sp)),
                     ),
-                    Container(
-                        child: Text(' - ', style: TextStyle(fontSize: 16))),
-                    Container(
-                      width: 75.w,
-                      height: 40.h,
-                      // padding: EdgeInsets.only(left: 20),
-                      child: TextField(
-                          // obscureText: true,
-                          controller: textFieldControllerList[2],
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                          ),
-                          style: TextStyle(fontSize: 16.sp)),
-                    )
                   ],
                 )
-              : Container(),
+              : (textFieldControllerList.length == 3)
+                  ? Row(
+                      children: [
+                        Container(
+                          width: 73.w,
+                          height: 40.h,
+                          padding: EdgeInsets.only(left: 20),
+                          child: TextField(
+                              controller: textFieldControllerList[0],
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              ),
+                              style: TextStyle(
+                                fontSize: 16,
+                              )),
+                        ),
+                        Container(
+                            child: Text(' - ', style: TextStyle(fontSize: 16))),
+                        Container(
+                          width: 75.w,
+                          height: 40.h,
+                          // padding: EdgeInsets.only(left: 20),
+                          child: TextField(
+                              // obscureText: true,
+                              controller: textFieldControllerList[1],
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              ),
+                              style: TextStyle(fontSize: 16.sp)),
+                        ),
+                        Container(
+                            child: Text(' - ', style: TextStyle(fontSize: 16))),
+                        Container(
+                          width: 75.w,
+                          height: 40.h,
+                          // padding: EdgeInsets.only(left: 20),
+                          child: TextField(
+                              // obscureText: true,
+                              controller: textFieldControllerList[2],
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              ),
+                              style: TextStyle(fontSize: 16.sp)),
+                        )
+                      ],
+                    )
+                  : Container(),
     ]),
   );
 }

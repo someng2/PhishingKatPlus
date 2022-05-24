@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/scenarioData.dart';
 import 'package:get/get.dart';
@@ -21,12 +22,14 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
   Widget build(BuildContext context) {
     late Scenario scenario;
 
-    // TODO: DB 에서 일치하는 sid 찾아서 scenario return
-    if (widget.sid == 'A0-a') {
-      scenario = scenario_A0a;
-    } else {
-      print('[ERROR] no matched scenario !!');
-    }
+    // // TODO: DB 에서 일치하는 sid 찾아서 scenario return
+    // if (widget.sid == 'A0-a') {
+    //   scenario = scenario_A0a;
+    // } else {
+    //   print('[ERROR] no matched scenario !!');
+    // }
+
+    scenario = ScenarioController().getScenario(widget.sid);
 
     return Scaffold(
       appBar: AppBar(
@@ -70,22 +73,19 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
             decoration: BoxDecoration(
                 border: Border.all(),
                 borderRadius: BorderRadius.circular(20.sp)),
-
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 for (int i = 0; i < scenario.userActionSequence.length; i++)
-                  // Column(
-                  //   children: [
-                  //     Text('${scenario.userActionSequence[i].score}'),
-
-                  Container(
-                  padding: EdgeInsets.only(bottom: 10.h),
-                  child:
-                  Text('•${scenario.userActionSequence[i].feedback}')
-                  // ),
-                  //   ],
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('${scenario.userActionSequence[i].ua_id}'),
+                      Container(
+                          padding: EdgeInsets.only(bottom: 10.h),
+                          child: Text(
+                              '•${scenario.userActionSequence[i].feedback}')),
+                    ],
                   ),
               ],
             ),
@@ -108,6 +108,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
   int calculateScore(Scenario scenario) {
     int score = scenario.score;
     for (int i = 0; i < scenario.userActionSequence.length; i++) {
+      print('calculateScore - [$i] ${scenario.userActionSequence[i]} ');
       score += scenario.userActionSequence[i].score;
     }
 

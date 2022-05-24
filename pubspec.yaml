@@ -91,6 +91,17 @@ flutter:
     - image/trashbinIcon.png
     - image/categorySimul.png
     - image/customSimul.png
+    - image/googlePlayIcon.jpg
+
+
+    - image/Type/familyBW.png
+    - image/Type/familyColor.png
+    - image/Type/deliveryBW.png
+    - image/Type/deliveryColor.png
+    - image/Type/loanBW.png
+    - image/Type/loanColor.png
+    - image/Type/gameBW.png
+    - image/Type/gameColor.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

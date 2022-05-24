@@ -92,6 +92,18 @@ UserAction U4_b = UserAction(
 UserAction U1_b =
     UserAction(ua_id: 'U1-b', feedback: 'U1-b feedback', score: -30);
 
+UserAction U1_f =
+    UserAction(ua_id: 'U1-f', feedback: 'U1-f feedback', score: 20);
+
+UserAction U2_e =
+    UserAction(ua_id: 'U2-e', feedback: 'U2-e feedback', score: -15);
+
+UserAction U3_f =
+    UserAction(ua_id: 'U3-f', feedback: 'U3-f feedback', score: 0);
+
+UserAction U4_c =
+    UserAction(ua_id: 'U4-c', feedback: 'U4-c feedback', score: 0);
+
 List<UserAction> userActionList = [
   U1_a,
   U2_a,
@@ -105,7 +117,12 @@ List<UserAction> userActionList = [
   U3_e,
   U4_a,
   U4_b,
-  U1_b
+
+  U1_b,
+  U1_f,
+  U2_e,
+  U3_f,
+  U4_c,
   
   U1_c,
 

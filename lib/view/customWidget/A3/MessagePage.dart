@@ -1,5 +1,9 @@
 // ignore_for_file: file_names
+
+/// A3-c
+
 import 'package:class_builder/class_builder.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,23 +16,24 @@ import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
-import 'A3bPage.dart';
+import 'ReportPage.dart';
 
-class A3cPage extends StatefulWidget {
+class MessagePage extends StatefulWidget {
   final String sid;
-  A3cPage({Key? key, required this.sid}) : super(key: key);
+  MessagePage({Key? key, required this.sid}) : super(key: key);
+
   @override
-  _A3cPageState createState() => _A3cPageState();
+  _MessagePageState createState() => _MessagePageState();
 }
 
-class _A3cPageState extends State<A3cPage> {
+class _MessagePageState extends State<MessagePage> {
   @override
   void initState() {
     super.initState();
 
     ClassBuilder.register<SimulationResultPage>(() => SimulationResultPage(
-      sid: widget.sid,
-    ));
+          sid: widget.sid,
+        ));
   }
 
   @override
@@ -68,9 +73,7 @@ class _A3cPageState extends State<A3cPage> {
                   Icons.phone,
                   color: Colors.black,
                 ),
-                onPressed: () {
-
-                },
+                onPressed: () {},
                 style: TextButton.styleFrom(
                   minimumSize: Size.zero,
                   padding: EdgeInsets.zero,
@@ -89,7 +92,8 @@ class _A3cPageState extends State<A3cPage> {
                   // U4-a
                   print(scenario.userActionSequence);
                   scenario.userActionSequence.add(UserActionController()
-                      .getUserAction(PairController().getCurrentActionId('ac_27')));
+                      .getUserAction(
+                          PairController().getCurrentActionId('ac_27')));
 
                   Get.showSnackbar(
                     GetSnackBar(
@@ -100,9 +104,8 @@ class _A3cPageState extends State<A3cPage> {
                     ),
                   );
 
-                  Get.to(ClassBuilder.fromString(
-                      PairController()
-                          .getNextActionWidget('ac_27')));
+                  Get.to(ClassBuilder.fromString(PairController()
+                      .getNextActionWidget(widget.sid, 'ac_27')));
                 },
                 style: TextButton.styleFrom(
                   minimumSize: Size.zero,
@@ -120,11 +123,11 @@ class _A3cPageState extends State<A3cPage> {
                   onPressed: () {
                     // U4-b
                     scenario.userActionSequence.add(UserActionController()
-                        .getUserAction(PairController().getCurrentActionId('ac_28')));
+                        .getUserAction(
+                            PairController().getCurrentActionId('ac_28')));
 
-                    Get.to(ClassBuilder.fromString(
-                        PairController()
-                            .getNextActionWidget('ac_28')));
+                    Get.to(ClassBuilder.fromString(PairController()
+                        .getNextActionWidget(widget.sid, 'ac_28')));
                   },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,
@@ -174,8 +177,7 @@ class _A3cPageState extends State<A3cPage> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 12.sp, color: Color(0xff000000))),
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsets>(
                           EdgeInsets.all(0)),
@@ -231,10 +233,9 @@ class _A3cPageState extends State<A3cPage> {
                                     decoration: TextDecoration.underline,
                                     fontSize: 14.sp),
                               ),
-                              onPressed: () {
-                              },
+                              onPressed: () {},
                               style: TextButton.styleFrom(
-                                // backgroundColor: Colors.white,
+                                  // backgroundColor: Colors.white,
                                   padding: EdgeInsets.all(0))),
                         ),
                         Text(AppContentsController().getContents('ac_3'),

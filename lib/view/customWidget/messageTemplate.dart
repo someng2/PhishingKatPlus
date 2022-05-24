@@ -64,10 +64,10 @@ Widget MessageUrl(Scenario scenario, String ac_id) {
 
           // Get.to(U1_a.nextAction);
           print(
-              'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(ac_id))}');
+              'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(scenario.sid, ac_id))}');
 
           Get.to(ClassBuilder.fromString(
-              PairController().getNextActionWidget(ac_id)));
+              PairController().getNextActionWidget(scenario.sid, ac_id)));
 
           scenario.userActionSequence.add(UserActionController()
               .getUserAction(PairController().getCurrentActionId(ac_id)));

@@ -15,7 +15,7 @@ class ScenarioController extends GetxController {
 
     for (int i = 0; i < scenarioList.length; i++) {
       if (sid == scenarioList[i].sid) {
-        print('matched sid: ${scenarioList[i].sid}');
+        print('getScenario - matched sid: ${scenarioList[i].sid}');
         foundScenario = true;
         scenario = scenarioList[i];
       }

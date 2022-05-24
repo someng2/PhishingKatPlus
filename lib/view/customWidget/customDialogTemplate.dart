@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:class_builder/class_builder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,35 +11,33 @@ import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/view/customWidget/customDialog.dart';
 
-Widget DialogView(Scenario scenario, List<String> ac_id_list) {
+Widget customDialogTemplate(Scenario scenario, List<String> ac_id_list) {
   print(ac_id_list);
 
   return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         for (int i = 0; i < ac_id_list.length; i++)
-          _DialogView(
-              AppContentsController().getContentsType(ac_id_list[i]),
-              scenario,
-              ac_id_list[i])
+          _customDialogTemplate(AppContentsController().getContentsType(ac_id_list[i]),
+              scenario, ac_id_list[i])
       ]);
 }
 
-Widget _DialogView(String c_type, Scenario scenario, String ac_id) {
+Widget _customDialogTemplate(String c_type, Scenario scenario, String ac_id) {
   if (c_type == 'title') {
-    return printTitle(ac_id);
+    return getTitle(ac_id);
   } else if (c_type == 'description') {
-    return Description(ac_id);
+    return getDescription(ac_id);
   } else if (c_type == 'image') {
     return getImage(ac_id);
   } else if (c_type == 'decoration') {
-    return Description(ac_id);
+    return getDescription(ac_id);
   } else {
     return Text('[ERROR] - DialogControll()');
   }
 }
 
-Widget printTitle(String ac_id) {
+Widget getTitle(String ac_id) {
   return Container(
     height: 38,
     child: Column(
@@ -64,7 +64,7 @@ Widget getImage(String ac_id) {
   );
 }
 
-Widget Description(String ac_id) {
+Widget getDescription(String ac_id) {
   return Container(
     width: 209,
     padding: EdgeInsets.only(bottom: 13),
@@ -118,15 +118,15 @@ Widget Select(BuildContext context, Scenario scenario, String ac_id) {
           ),
           onPressed: () {
             print('ac_id => $ac_id');
-            print(scenario.userActionSequence);
+            // print(scenario.userActionSequence);
 
             scenario.userActionSequence.add(UserActionController()
                 .getUserAction(PairController().getCurrentActionId(ac_id)));
 
-            // print(
-            //     'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(ac_id))}');
+            print(
+                'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(scenario.sid, ac_id))}');
 
-            Get.to(ClassBuilder.fromString(PairController()
-                    .getNextActionWidget(scenario.sid, ac_id)));
+            Get.to(ClassBuilder.fromString(
+                PairController().getNextActionWidget(scenario.sid, ac_id)));
           }));
 }

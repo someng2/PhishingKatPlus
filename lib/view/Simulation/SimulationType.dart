@@ -9,6 +9,8 @@ import 'package:voskat/model/simulation/scenarioType.dart';
 import 'package:voskat/tempData/scenarioTypeData.dart';
 import 'package:voskat/controller/ScenrioTypeController.dart';
 
+import 'package:voskat/tempData/userData.dart';
+
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:class_builder/class_builder.dart';
 
@@ -106,7 +108,9 @@ class _SimulationTypeState extends State<SimulationType> {
                                 : AssetImage(type.icon_disactive))),
                   ),
                   onPressed: () {
-                    isLocked ? Get.to(SimulationPage()) : Container();
+                    isLocked
+                        ? Get.to(SimulationPage(user: user1))
+                        : Container();
                   },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,

@@ -14,10 +14,15 @@ import 'package:voskat/tempData/type&ageData.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
-import 'package:voskat/view/customWidget/A1/A1aPage.dart';
-import 'package:voskat/view/customWidget/A1/A1sPage.dart';
-import 'package:voskat/view/customWidget/A3/A3bPage.dart';
-import 'package:voskat/view/customWidget/A3/A3cPage.dart';
+
+
+import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
+import 'package:voskat/view/customWidget/A1/MaliciousAppPage_1.dart';
+import 'package:voskat/view/customWidget/A2/PlayStorePage.dart';
+import 'package:voskat/view/customWidget/A3/ReportPage.dart';
+import 'package:voskat/view/customWidget/A3/MessagePage.dart';
+import 'package:voskat/view/customWidget/customDialog.dart';
+
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
 
@@ -38,6 +43,7 @@ class SimulationPage extends StatefulWidget {
 
 class _SimulationPageState extends State<SimulationPage> {
   var scenario;
+  bool _showPlayStore = false;
 
   @override
   void initState() {
@@ -45,18 +51,27 @@ class _SimulationPageState extends State<SimulationPage> {
     scenario = CustomSimulController(user: widget.user)
         .getCustomSimulation(widget.user);
     print('모의훈련 점수: ${scenario.score}점');
+    _showPlayStore = showPlayStore(scenario.sid);
+    print('showPlayStore => $_showPlayStore');
 
-    ClassBuilder.register<A1aPage>(() => A1aPage(
+    ClassBuilder.register<MaliciousAppDownloadPage>(() => MaliciousAppDownloadPage(
         sid: scenario.sid,
         subtype: scenario.subtype,
         maliciousAppName: maliciousApp_1.contents,
         maliciousAppIcon: appContents_6.contents));
 
-    ClassBuilder.register<A1sPage>(() => A1sPage(
+    ClassBuilder.register<MaliciousAppPage_1>(() => MaliciousAppPage_1(
         sid: scenario.sid,
         subtype: scenario.subtype,
         maliciousAppName: AppContentsController().getContents('ac_110'),
         maliciousAppIcon: appContents_6.contents));
+
+    ClassBuilder.register<PlayStorePage>(() => PlayStorePage(
+          sid: scenario.sid,
+          maliciousAppName: '',
+          maliciousAppIcon: '',
+          downloadAppId: 'ac_112',
+        ));
   }
 
   @override
@@ -151,6 +166,30 @@ class _SimulationPageState extends State<SimulationPage> {
                 SizedBox(width: 15.w),
               ],
             ),
+            floatingActionButton: (_showPlayStore)
+                ? Container(
+                    width: 65.w,
+                    child: FittedBox(
+                      child: FloatingActionButton(
+                          onPressed: () {
+                            print(
+                                'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(scenario.sid, 'ac_111'))}');
+
+                            Get.to(ClassBuilder.fromString(PairController()
+                                .getNextActionWidget(scenario.sid, 'ac_111')));
+
+                            scenario.userActionSequence.add(
+                                UserActionController().getUserAction(
+                                    PairController()
+                                        .getCurrentActionId('ac_111')));
+                          },
+                          backgroundColor: Colors.white,
+                          child: Image.asset(
+                              AppContentsController().getContents('ac_111'),
+                              width: 36.w)),
+                    ),
+                  )
+                : Container(),
             body: Column(children: [
               if (_isMenuPressed)
                 Container(
@@ -320,5 +359,14 @@ class _SimulationPageState extends State<SimulationPage> {
 
         // 카카오톡
         : Container();
+  }
+
+  bool showPlayStore(String sid) {
+    bool _show = false;
+    List<String> sidList = ['A0-c'];
+    if (sidList.contains(sid)) {
+      _show = true;
+    }
+    return _show;
   }
 }

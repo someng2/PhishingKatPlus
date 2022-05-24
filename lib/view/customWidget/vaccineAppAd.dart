@@ -11,13 +11,13 @@ import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/userActionData.dart';
-import 'package:voskat/view/customWidget/A2/A2bPage.dart';
+import 'package:voskat/view/customWidget/A2/PlayStorePage.dart';
 
 Widget vaccineAppAd(String sid, String maliciousAppName,
     String maliciousAppIcon, String vaccineAppId) {
-  ClassBuilder.register<A2bPage>(() => A2bPage(
+  ClassBuilder.register<PlayStorePage>(() => PlayStorePage(
         sid: sid,
-        vaccineAppId: vaccineAppId,
+        downloadAppId: vaccineAppId,
         maliciousAppName: maliciousAppName,
         maliciousAppIcon: maliciousAppIcon,
       ));
@@ -67,10 +67,10 @@ Widget vaccineAppAd(String sid, String maliciousAppName,
                     //   maliciousAppIcon: maliciousAppIcon,
                     // ));
                     print(
-                        'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_105'))}');
+                        'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(sid, 'ac_105'))}');
 
                     Get.to(ClassBuilder.fromString(
-                        PairController().getNextActionWidget('ac_105')));
+                        PairController().getNextActionWidget(sid, 'ac_105')));
 
                     scenario.userActionSequence.add(UserActionController()
                         .getUserAction(

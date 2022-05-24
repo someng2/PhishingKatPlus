@@ -1,4 +1,6 @@
 // ignore_for_file: file_names
+/// A3-b
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
@@ -7,17 +9,21 @@ import 'package:voskat/controller/AppContentsController.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 
-import 'package:voskat/view/customWidget/A3/A3cPage.dart';
+import 'package:voskat/view/customWidget/A3/MessagePage.dart';
 
-class A3bPage extends StatefulWidget {
+
+import 'package:voskat/view/customWidget/customDialog.dart';
+
+class ReportPage extends StatefulWidget {
+
   final String sid;
-  const A3bPage({Key? key, required this.sid}) : super(key: key);
+  const ReportPage({Key? key, required this.sid}) : super(key: key);
 
   @override
-  _A3bPageState createState() => _A3bPageState();
+  _ReportPageState createState() => _ReportPageState();
 }
 
-class _A3bPageState extends State<A3bPage> {
+class _ReportPageState extends State<ReportPage> {
   final backgroundColor = Colors.blueGrey;
   final disabledColor = Colors.white.withOpacity(0.5);
 
@@ -35,7 +41,8 @@ class _A3bPageState extends State<A3bPage> {
         });
       } else {
         _timer.cancel();
-        Get.off(() => A3cPage(
+
+        Get.off(MessagePage(
           sid: widget.sid,
         ));
         showDialog(
@@ -69,7 +76,9 @@ class _A3bPageState extends State<A3bPage> {
                             SizedBox(height: 17),
                             Container(
                                 width: 209,
-                                child: Text(AppContentsController().getContents('ac_22'),
+
+                                child: Text(
+                                  AppContentsController().getContents('ac_22'),
                                   style: TextStyle(fontSize: 13),
                                 )),
                             SizedBox(height: 29),
@@ -77,7 +86,9 @@ class _A3bPageState extends State<A3bPage> {
                               width: 76,
                               height: 17,
                               child: TextButton(
-                                child: Text(AppContentsController().getContents('ac_23'),
+                                child: Text(
+                                    AppContentsController()
+                                        .getContents('ac_23'),
                                     style: TextStyle(
                                         color: Color(0xff0473e1),
                                         fontSize: 12)),
@@ -147,7 +158,8 @@ class _A3bPageState extends State<A3bPage> {
           ],
         ),
         SizedBox(height: 90.h),
-        Text(AppContentsController().getContents('ac_20'), style: TextStyle(fontSize: 28.sp, color: Colors.white)),
+        Text(AppContentsController().getContents('ac_20'),
+            style: TextStyle(fontSize: 28.sp, color: Colors.white)),
         SizedBox(height: 190.h),
         Container(
             // height: 200.h,
