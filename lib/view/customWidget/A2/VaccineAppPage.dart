@@ -79,10 +79,10 @@ class _VaccineAppPageState extends State<VaccineAppPage> with TickerProviderStat
     super.initState();
   }
 
-  @override
-  void dispose() {
-    animationController.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   animationController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {

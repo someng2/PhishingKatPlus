@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:voskat/model/simulation/appAction.dart';
+import 'package:voskat/model/simulation/appPage.dart';
 
 AppPage A1a = AppPage(ap_id: 'A1-a', widget: 'MaliciousAppDownloadPage');
 
@@ -22,7 +22,14 @@ AppPage A3c = AppPage(ap_id: 'A3-c', widget: 'MessagePage');
 
 AppPage A3d = AppPage(ap_id: 'A3-d', widget: 'LogisticAppPage_2');
 
-List<AppPage> appActionList = [
+//수신차단
+AppPage A2c = AppPage(ap_id: 'A2-c', widget: 'CustomDialog');
+
+AppPage A2d = AppPage(ap_id: 'A2-d', widget: 'CustomDialog');
+
+AppPage A3b = AppPage(ap_id: 'A3-b', widget: 'ReportPage');
+
+List<AppPage> appPageList = [
   A1a,
   A1s,
   A1b,
@@ -31,6 +38,9 @@ List<AppPage> appActionList = [
   A2b,
   A2e,
   A2f,
+  A2c,
+  A2d,
+  A3b,
   A3c,
   A3d
 ];

@@ -14,15 +14,23 @@ import 'package:voskat/tempData/type&ageData.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
+
 import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
 import 'package:voskat/view/customWidget/A1/MaliciousAppPage_1.dart';
 import 'package:voskat/view/customWidget/A2/PlayStorePage.dart';
 import 'package:voskat/view/customWidget/A3/ReportPage.dart';
 import 'package:voskat/view/customWidget/A3/MessagePage.dart';
 import 'package:voskat/view/customWidget/customDialog.dart';
+
+
+
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
+
+import 'package:voskat/view/customWidget/customDialog.dart';
+
 import 'package:voskat/view/customWidget/messageTemplate.dart';
+
 
 class SimulationPage extends StatefulWidget {
   /// temp
@@ -232,17 +240,19 @@ class _SimulationPageState extends State<SimulationPage> {
                                       color: Color(0xff000000))),
                               onPressed: () {
                                 // U1-c
-                                scenario.userActionSequence.add(U1_c);
+                                print(scenario.userActionSequence);
+                                scenario.userActionSequence.add(
+                                    UserActionController().getUserAction(
+                                        PairController()
+                                            .getCurrentActionId('ac_4')));
 
                                 showDialog(
                                     context: context,
                                     builder: (BuildContext context) {
                                       return CustomDialog(
                                         sid: scenario.sid,
-                                        aid: 'A1-b',
+                                        aid: PairController().getNextActionId('ac_4'),
                                         height: 144,
-                                        userOkAction: U2_c,
-                                        userCancelAction: U2_d,
                                       );
                                     });
                               },

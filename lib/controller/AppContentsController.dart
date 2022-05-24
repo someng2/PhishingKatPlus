@@ -22,6 +22,47 @@ class AppContentsController extends GetxController {
     }
   }
 
+
+  getAppContentIds(String aid) {
+    List<String> result = new List.empty(growable: true);
+
+    for(int i = 0; i < appContentsList.length; i++){
+      if (appContentsList[i].aid == aid){
+        result.add(appContentsList[i].ac_id);
+      }
+    }
+    return result;
+  }
+
+  getContentId(String aid){
+    for(int i = 0; i < appContentsList.length; i++) {
+      if (appContentsList[i].aid == aid) {
+        return appContentsList[i].ac_id;
+      }
+    }
+  }
+
+//   getContentsType(String ac_id){
+//     for(int i = 0; i < appContentsList.length; i++) {
+//       if (appContentsList[i].ac_id == ac_id) {
+//         return appContentsList[i].c_type;
+//       }
+//     }
+//   }
+
+  getContentsTypeAid(String aid){
+    List<String> result = new List.empty(growable: true);
+
+    for(int i = 0; i < appContentsList.length; i++){
+      if (appContentsList[i].aid == aid){
+        result.add(appContentsList[i].c_type);
+      }
+    }
+    return result;
+  }
+
+
+
   /// return type: AppContents
   getContentsWithOrder(String sid, String ac_id, int order) {
     bool found = false;
@@ -41,6 +82,7 @@ class AppContentsController extends GetxController {
           '[ERROR - getContentsWithOrder] Cannot find contents! Please check the parameter!');
     }
   }
+
 
 
   getContentsWithType(String ac_id, String c_type) {

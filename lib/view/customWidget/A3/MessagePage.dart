@@ -1,24 +1,44 @@
 // ignore_for_file: file_names
+
 /// A3-c
+
+import 'package:class_builder/class_builder.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:voskat/controller/AppContentsController.dart';
+import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/ScenarioController.dart';
+import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
 import 'ReportPage.dart';
 
-class MessagePage extends StatelessWidget {
+class MessagePage extends StatefulWidget {
   final String sid;
   MessagePage({Key? key, required this.sid}) : super(key: key);
 
   @override
+  _MessagePageState createState() => _MessagePageState();
+}
+
+class _MessagePageState extends State<MessagePage> {
+  @override
+  void initState() {
+    super.initState();
+
+    ClassBuilder.register<SimulationResultPage>(() => SimulationResultPage(
+          sid: widget.sid,
+        ));
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Scenario scenario = ScenarioController().getScenario(sid);
+    Scenario scenario = ScenarioController().getScenario(widget.sid);
     double dialog_height = 187;
 
     return Scaffold(
@@ -53,9 +73,7 @@ class MessagePage extends StatelessWidget {
                   Icons.phone,
                   color: Colors.black,
                 ),
-                onPressed: () {
-
-                },
+                onPressed: () {},
                 style: TextButton.styleFrom(
                   minimumSize: Size.zero,
                   padding: EdgeInsets.zero,
@@ -72,7 +90,10 @@ class MessagePage extends StatelessWidget {
                 child: Image.asset('image/trashbinIcon.png'),
                 onPressed: () {
                   // U4-a
-                  scenario.userActionSequence.add(U4_a);
+                  print(scenario.userActionSequence);
+                  scenario.userActionSequence.add(UserActionController()
+                      .getUserAction(
+                          PairController().getCurrentActionId('ac_27')));
 
                   Get.showSnackbar(
                     GetSnackBar(
@@ -83,9 +104,8 @@ class MessagePage extends StatelessWidget {
                     ),
                   );
 
-                  Get.to(SimulationResultPage(
-                    sid: sid,
-                  ));
+                  Get.to(ClassBuilder.fromString(PairController()
+                      .getNextActionWidget(widget.sid, 'ac_27')));
                 },
                 style: TextButton.styleFrom(
                   minimumSize: Size.zero,
@@ -102,9 +122,12 @@ class MessagePage extends StatelessWidget {
                   child: Icon(Icons.close, color: Colors.black),
                   onPressed: () {
                     // U4-b
-                    scenario.userActionSequence.add(U4_b);
+                    scenario.userActionSequence.add(UserActionController()
+                        .getUserAction(
+                            PairController().getCurrentActionId('ac_28')));
 
-                    Get.to(SimulationResultPage(sid: sid));
+                    Get.to(ClassBuilder.fromString(PairController()
+                        .getNextActionWidget(widget.sid, 'ac_28')));
                   },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,
@@ -154,18 +177,7 @@ class MessagePage extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 12.sp, color: Color(0xff000000))),
-                    onPressed: () {
-                      // showDialog(
-                      //     context: context,
-                      //     builder: (BuildContext context) {
-                      //       return CustomDialog(
-                      //         sid: scenario.sid,
-                      //         aid: 'A1-b',
-                      //         userOkAction: U2_c,
-                      //         userCancelAction: U2_d,
-                      //       );
-                      //     });
-                    },
+                    onPressed: () {},
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all<EdgeInsets>(
                           EdgeInsets.all(0)),
@@ -209,34 +221,24 @@ class MessagePage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                            // scenario.appActionSequence[0].contents1,
-                          'contents1',
+                        Text(AppContentsController().getContents('ac_1'),
                             style: TextStyle(fontSize: 14.sp)),
                         Container(
                           height: 20.h,
                           child: TextButton(
                               child: Text(
-                                // scenario.appActionSequence[0].url,
-                                '',
+                                AppContentsController().getContents('ac_2'),
                                 style: TextStyle(
                                     color: Colors.indigo,
                                     decoration: TextDecoration.underline,
                                     fontSize: 14.sp),
                               ),
-
-                              // U1
-                              onPressed: () {
-                                // scenario.userActionSequence.add(U1_a);
-                                // Get.to((scenario.appActionSequence[1].widget));
-                              },
+                              onPressed: () {},
                               style: TextButton.styleFrom(
                                   // backgroundColor: Colors.white,
                                   padding: EdgeInsets.all(0))),
                         ),
-                        Text(
-                            // scenario.appActionSequence[0].contents2,
-                          '',
+                        Text(AppContentsController().getContents('ac_3'),
                             style: TextStyle(fontSize: 14.sp)),
                       ],
                     ),
