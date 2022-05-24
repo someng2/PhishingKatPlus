@@ -4,6 +4,7 @@ import 'package:voskat/model/simulation/userAction.dart';
 
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
+
 UserAction U1_a = UserAction(
   ua_id: 'U1-a',
   feedback: '출처가 불분명한 url 클릭 금지!',
@@ -48,43 +49,43 @@ UserAction U3_c = UserAction(
 
 UserAction U1_c = UserAction(
   ua_id: 'U1-c',
-  feedback: 'U1-c 피드백',
+  feedback: '문자 수신차단 시도..',
   score: 20,
 );
 
 UserAction U2_c = UserAction(
   ua_id: 'U2-c',
-  feedback: 'U2-c 피드백',
+  feedback: ' ㄴ 이상한 문자는 역시 차단해야죠!',
   score: 10,
 );
 
 UserAction U2_d = UserAction(
   ua_id: 'U2-d',
-  feedback: 'U2-d 피드백',
+  feedback: ' ㄴ 아니 시도해놓고 왜 취소하셨어요?',
   score: -20,
 );
 
 UserAction U3_d = UserAction(
   ua_id: 'U3-d',
-  feedback: 'U3-d 피드백',
+  feedback: '차단 후엔 신고까지!',
   score: 10,
 );
 
 UserAction U3_e = UserAction(
-  ua_id: 'U2-d',
-  feedback: 'U2-d 피드백',
+  ua_id: 'U3-e',
+  feedback: '신고를 통해 2차 피해를 줄입시다!',
   score: 0,
 );
 
 UserAction U4_a = UserAction(
   ua_id: 'U4-a',
-  feedback: 'U4-a 피드백',
+  feedback: '나중에 클릭할 가능성까지 제거하는 꼼꼼함',
   score: 5,
 );
 
 UserAction U4_b = UserAction(
   ua_id: 'U4-b',
-  feedback: 'U4-b 피드백',
+  feedback: '남겨놓고 다시보자!',
   score: 0,
 );
 
@@ -105,4 +106,7 @@ List<UserAction> userActionList = [
   U4_a,
   U4_b,
   U1_b
+  
+  U1_c,
+
 ];

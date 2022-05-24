@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
 import 'package:get/get.dart';
+import 'package:voskat/controller/AppContentsController.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 
 import 'package:voskat/view/customWidget/A3/A3cPage.dart';
-
-import 'package:voskat/view/customWidget/customDialog.dart';
 
 class A3bPage extends StatefulWidget {
   final String sid;
@@ -36,7 +35,7 @@ class _A3bPageState extends State<A3bPage> {
         });
       } else {
         _timer.cancel();
-        Get.off(A3cPage(
+        Get.off(() => A3cPage(
           sid: widget.sid,
         ));
         showDialog(
@@ -64,14 +63,13 @@ class _A3bPageState extends State<A3bPage> {
                                 width: 70,
                                 height: 25,
                                 child: Image.asset(
-                                  'image/kisaLogo.png',
+                                  AppContentsController().getContents('ac_21'),
                                   fit: BoxFit.fitWidth,
                                 )),
                             SizedBox(height: 17),
                             Container(
                                 width: 209,
-                                child: Text(
-                                  '자세한 사항은 한국인터넷진흥원 불법 스팸대응센터 (국번 없이) 118 또는 홈페이지(https://spam.kisa.or.kr)로 문의하시기 바랍니다.',
+                                child: Text(AppContentsController().getContents('ac_22'),
                                   style: TextStyle(fontSize: 13),
                                 )),
                             SizedBox(height: 29),
@@ -79,7 +77,7 @@ class _A3bPageState extends State<A3bPage> {
                               width: 76,
                               height: 17,
                               child: TextButton(
-                                child: Text('확인',
+                                child: Text(AppContentsController().getContents('ac_23'),
                                     style: TextStyle(
                                         color: Color(0xff0473e1),
                                         fontSize: 12)),
@@ -149,7 +147,7 @@ class _A3bPageState extends State<A3bPage> {
           ],
         ),
         SizedBox(height: 90.h),
-        Text('118', style: TextStyle(fontSize: 28.sp, color: Colors.white)),
+        Text(AppContentsController().getContents('ac_20'), style: TextStyle(fontSize: 28.sp, color: Colors.white)),
         SizedBox(height: 190.h),
         Container(
             // height: 200.h,

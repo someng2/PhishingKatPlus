@@ -31,6 +31,21 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('시뮬레이션 결과 페이지'),
+        leading: TextButton(
+          child: Icon(
+            Icons.navigate_before,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            scenario.userActionSequence.clear();
+            Get.offAll(HomePage());
+          },
+          style: TextButton.styleFrom(
+            minimumSize: Size.zero,
+            padding: EdgeInsets.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
+        ),
         automaticallyImplyLeading: false,
       ),
       body: Container(
