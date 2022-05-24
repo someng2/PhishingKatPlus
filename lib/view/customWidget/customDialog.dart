@@ -6,11 +6,11 @@ import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:get/get.dart';
 
-import 'package:voskat/view/customWidget/A3/A3bPage.dart';
+import 'package:voskat/view/customWidget/A3/ReportPage.dart';
 import 'package:voskat/model/simulation/userAction.dart';
 import 'package:voskat/controller/ScenarioController.dart';
 
-import 'A3/A3cPage.dart';
+import 'A3/MessagePage.dart';
 
 class CustomDialog extends StatelessWidget {
   final String sid;
@@ -206,7 +206,7 @@ class CustomDialog extends StatelessWidget {
                                       );
                                     });
                               } else if (aid == 'A2-d') {
-                                Get.off(A3cPage(
+                                Get.off(MessagePage(
                                   sid: sid,
                                 ));
                               }
@@ -257,7 +257,7 @@ class CustomDialog extends StatelessWidget {
                                       );
                                     });
                               } else {
-                                Get.to(A3bPage(sid: scenario.sid));
+                                Get.to(ReportPage(sid: scenario.sid));
                               }
                             },
                           ),

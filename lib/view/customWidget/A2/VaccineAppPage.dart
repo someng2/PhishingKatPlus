@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
+/// A2-e
 
 import 'dart:async';
-
 import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,14 +15,14 @@ import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 import 'package:voskat/tempData/userActionData.dart';
 
-class A2ePage extends StatefulWidget {
+class VaccineAppPage extends StatefulWidget {
   String sid;
   String maliciousAppName;
   String maliciousAppIcon;
   String vaccineAppId;
   Color vaccineAppColor;
 
-  A2ePage(
+  VaccineAppPage(
       {Key? key,
       required this.sid,
       required this.maliciousAppName,
@@ -32,10 +32,10 @@ class A2ePage extends StatefulWidget {
       : super(key: key);
 
   @override
-  _A2ePageState createState() => _A2ePageState();
+  _VaccineAppPageState createState() => _VaccineAppPageState();
 }
 
-class _A2ePageState extends State<A2ePage> with TickerProviderStateMixin {
+class _VaccineAppPageState extends State<VaccineAppPage> with TickerProviderStateMixin {
   String appBarTitle = '';
   bool startClicked = false;
   bool inspectComplete = false;
@@ -199,12 +199,12 @@ class _A2ePageState extends State<A2ePage> with TickerProviderStateMixin {
 
                                         Timer(Duration(seconds: 2), () {
                                           print(
-                                              'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_103'))}');
+                                              'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, 'ac_103'))}');
 
                                           Get.to(ClassBuilder.fromString(
                                               PairController()
                                                   .getNextActionWidget(
-                                                      'ac_103')));
+                                                      widget.sid, 'ac_103')));
 
                                           scenario.userActionSequence.add(
                                               UserActionController()
@@ -239,11 +239,12 @@ class _A2ePageState extends State<A2ePage> with TickerProviderStateMixin {
                                         // scenario.userActionSequence.add(U3_c);
 
                                         print(
-                                            'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_104'))}');
+                                            'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, 'ac_104'))}');
 
                                         Get.to(ClassBuilder.fromString(
                                             PairController()
-                                                .getNextActionWidget('ac_104')));
+                                                .getNextActionWidget(
+                                                    widget.sid, 'ac_104')));
 
                                         scenario.userActionSequence.add(
                                             UserActionController()

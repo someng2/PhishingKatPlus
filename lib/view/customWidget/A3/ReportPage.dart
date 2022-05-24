@@ -1,4 +1,6 @@
 // ignore_for_file: file_names
+/// A3-b
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
@@ -6,19 +8,19 @@ import 'package:get/get.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 
-import 'package:voskat/view/customWidget/A3/A3cPage.dart';
+import 'package:voskat/view/customWidget/A3/MessagePage.dart';
 
 import 'package:voskat/view/customWidget/customDialog.dart';
 
-class A3bPage extends StatefulWidget {
+class ReportPage extends StatefulWidget {
   final String sid;
-  const A3bPage({Key? key, required this.sid}) : super(key: key);
+  const ReportPage({Key? key, required this.sid}) : super(key: key);
 
   @override
-  _A3bPageState createState() => _A3bPageState();
+  _ReportPageState createState() => _ReportPageState();
 }
 
-class _A3bPageState extends State<A3bPage> {
+class _ReportPageState extends State<ReportPage> {
   final backgroundColor = Colors.blueGrey;
   final disabledColor = Colors.white.withOpacity(0.5);
 
@@ -36,7 +38,7 @@ class _A3bPageState extends State<A3bPage> {
         });
       } else {
         _timer.cancel();
-        Get.off(A3cPage(
+        Get.off(MessagePage(
           sid: widget.sid,
         ));
         showDialog(

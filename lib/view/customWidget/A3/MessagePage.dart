@@ -1,4 +1,6 @@
 // ignore_for_file: file_names
+/// A3-c
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,11 +10,11 @@ import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
-import 'A3bPage.dart';
+import 'ReportPage.dart';
 
-class A3cPage extends StatelessWidget {
+class MessagePage extends StatelessWidget {
   final String sid;
-  A3cPage({Key? key, required this.sid}) : super(key: key);
+  MessagePage({Key? key, required this.sid}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

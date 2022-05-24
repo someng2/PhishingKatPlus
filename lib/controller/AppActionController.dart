@@ -7,7 +7,7 @@ import 'package:voskat/tempData/appActionData.dart';
 class AppActionController extends GetxController {
   getWidget(String aid) {
     for (int i = 0; i < appActionList.length; i++) {
-      if (appActionList[i].aa_id == aid) {
+      if (appActionList[i].ap_id == aid) {
         print('getWidget - widget: ${appActionList[i].widget}');
         return appActionList[i].widget;
       }

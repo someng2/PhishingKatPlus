@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+///A2-a
 
 import 'dart:async';
 
@@ -16,7 +17,7 @@ import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
 import 'package:voskat/tempData/scenarioData.dart';
 
-class A2aPage extends StatefulWidget {
+class MaliciousAppPage_2 extends StatefulWidget {
   String sid;
   String subtype;
   String maliciousAppName;
@@ -25,7 +26,7 @@ class A2aPage extends StatefulWidget {
   String textField_ac_id;
   List<List<TextEditingController>> textControllerList;
 
-  A2aPage({
+  MaliciousAppPage_2({
     Key? key,
     required this.sid,
     required this.subtype,
@@ -37,10 +38,10 @@ class A2aPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<A2aPage> createState() => _A2aPageState();
+  State<MaliciousAppPage_2> createState() => _MaliciousAppPage_2State();
 }
 
-class _A2aPageState extends State<A2aPage> {
+class _MaliciousAppPage_2State extends State<MaliciousAppPage_2> {
   bool _showAd = false;
   final ScenarioController _scenarioController = ScenarioController();
 
@@ -83,10 +84,10 @@ class _A2aPageState extends State<A2aPage> {
                 // Get.to(SimulationResultPage(sid: widget.sid));
 
                 print(
-                    'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_106'))}');
+                    'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, 'ac_106'))}');
 
-                Get.to(ClassBuilder.fromString(
-                    PairController().getNextActionWidget('ac_106')));
+                Get.to(ClassBuilder.fromString(PairController()
+                    .getNextActionWidget(widget.sid, 'ac_106')));
 
                 Scenario scenario = _scenarioController.getScenario(widget.sid);
 
@@ -110,11 +111,8 @@ class _A2aPageState extends State<A2aPage> {
                         //     ?
                         Column(
                       children: [
-                        MaliciousAppTemplate2(
-                            widget.sid,
-                            widget.textField_ac_id,
-                            widget.textControllerList),
-
+                        MaliciousAppTemplate2(widget.sid,
+                            widget.textField_ac_id, widget.textControllerList),
                         _showAd
                             ? vaccineAppAd(
                                 widget.sid,

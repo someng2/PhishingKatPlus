@@ -1,17 +1,17 @@
 // ignore_for_file: file_names
-// <악성 앱 설치>
+/// A1-a
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/customWidget/A1/A1a_downloadSettingPage.dart';
 
-class A1aPage extends StatefulWidget {
+class MaliciousAppDownloadPage extends StatefulWidget {
   String sid;
   String subtype;
   String maliciousAppName;
   String maliciousAppIcon;
-  A1aPage(
+  MaliciousAppDownloadPage(
       {Key? key,
       required this.sid,
       required this.subtype,
@@ -20,10 +20,10 @@ class A1aPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  _A1aPageState createState() => _A1aPageState();
+  _MaliciousAppDownloadPageState createState() => _MaliciousAppDownloadPageState();
 }
 
-class _A1aPageState extends State<A1aPage> {
+class _MaliciousAppDownloadPageState extends State<MaliciousAppDownloadPage> {
   bool isSwitched = false;
 
   @override

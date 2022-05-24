@@ -1,36 +1,46 @@
 // ignore_for_file: file_names
+/// A2-b
 
 import 'dart:async';
 
+import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/controller/AppContentsController.dart';
+import 'package:voskat/controller/PairController.dart';
+import 'package:voskat/controller/ScenarioController.dart';
+import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/tempData/appAdData.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
-import 'package:voskat/view/customWidget/A2/A2ePage.dart';
+import 'package:voskat/view/customWidget/A2/VaccineAppPage.dart';
 import 'package:voskat/model/simulation/scenario.dart';
+import 'package:voskat/view/customWidget/A2/LogisticAppPage_1.dart';
+import 'package:voskat/view/customWidget/A3/MessagePage.dart';
 
-class A2bPage extends StatefulWidget {
+class PlayStorePage extends StatefulWidget {
   String sid;
-  String vaccineAppId;
+  String downloadAppId;
   String maliciousAppName;
   String maliciousAppIcon;
-  A2bPage({
+  PlayStorePage({
     Key? key,
     required this.sid,
-    required this.vaccineAppId,
+    required this.downloadAppId,
     required this.maliciousAppName,
     required this.maliciousAppIcon,
   }) : super(key: key);
 
   @override
-  _A2bPageState createState() => _A2bPageState();
+  _PlayStorePageState createState() => _PlayStorePageState();
 }
 
-class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
+class _PlayStorePageState extends State<PlayStorePage> with TickerProviderStateMixin {
   bool downloadPressed = false;
   bool downloadComplete = false;
+  bool hasCloseIcon = false;
+
+  List<String> sidList_closeIcon = ['A0-c'];
 
   late AnimationController controller;
 
@@ -44,6 +54,19 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
         setState(() {});
       });
     controller.repeat();
+
+    ClassBuilder.register<VaccineAppPage>(() => VaccineAppPage(
+        sid: widget.sid,
+        maliciousAppName: widget.maliciousAppName,
+        maliciousAppIcon: widget.maliciousAppIcon,
+        vaccineAppId: widget.downloadAppId,
+        vaccineAppColor: Colors.blue));
+
+    ClassBuilder.register<LogisticAppPage_1>(() => LogisticAppPage_1(sid: widget.sid));
+
+    ClassBuilder.register<MessagePage>(() => MessagePage(
+          sid: widget.sid,
+        ));
   }
 
   // @override
@@ -51,11 +74,10 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
   //   controller.dispose();
   // }
 
-
   @override
   Widget build(BuildContext context) {
     Color adBackgroundColor = Colors.blue;
-    String vaccineAppId = widget.vaccineAppId;
+    String downloadAppId = widget.downloadAppId;
 
     return Scaffold(
         appBar: AppBar(
@@ -68,7 +90,31 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                 children: [
                   Icon(Icons.search),
                   SizedBox(width: 20.w),
-                  Image.asset('image/threeDots2.png', height: 16.h)
+                  sidList_closeIcon.contains(widget.sid)
+                      ? TextButton(
+                          child: Icon(Icons.close, color: Colors.black),
+                          style: TextButton.styleFrom(
+                            minimumSize: Size.zero,
+                            padding: EdgeInsets.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          onPressed: () {
+                            print(
+                                'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, 'ac_115'))}');
+
+                            Get.to(ClassBuilder.fromString(PairController()
+                                .getNextActionWidget(widget.sid, 'ac_115')));
+
+                            Scenario scenario =
+                                ScenarioController().getScenario(widget.sid);
+
+                            scenario.userActionSequence.add(
+                                UserActionController().getUserAction(
+                                    PairController()
+                                        .getCurrentActionId('ac_115')));
+                          },
+                        )
+                      : Image.asset('image/threeDots2.png', height: 16.h)
                 ],
               ),
             ),
@@ -79,7 +125,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
           child: ListView(
             children: [
               Container(
-                  height: 150.h,
+                  height: 120.h,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -118,7 +164,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                   Image.asset(
                                       AppContentsController()
                                           .getContentsWithType(
-                                              vaccineAppId, 'appIcon'),
+                                              downloadAppId, 'appIcon'),
                                       width: downloadPressed ? 35.w : 65.w),
                                 ],
                               )),
@@ -127,7 +173,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                       SizedBox(width: downloadPressed ? 40.w : 25.w),
                       Container(
                         width: 170.w,
-                        height: 160.h,
+                        height: 100.h,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -136,7 +182,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                   width: 155.w,
                                   child: Text(
                                     AppContentsController().getContentsWithType(
-                                        vaccineAppId, 'appName'),
+                                        downloadAppId, 'appName'),
                                     style: TextStyle(
                                         fontSize: 23.sp,
                                         fontWeight: FontWeight.w600),
@@ -152,7 +198,7 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                       : Text(
                                           AppContentsController()
                                               .getContentsWithType(
-                                                  vaccineAppId, 'appCompany'),
+                                                  downloadAppId, 'appCompany'),
                                           style: TextStyle(
                                               fontSize: 15.sp,
                                               color: Colors.teal,
@@ -348,7 +394,8 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                       child: Text(
                                         AppContentsController()
                                             .getContentsWithType(
-                                                'ac_102', 'appDescription'),
+                                                widget.downloadAppId,
+                                                'appDescription'),
                                         style: TextStyle(fontSize: 15.sp),
                                       ),
                                     ),
@@ -383,19 +430,19 @@ class _A2bPageState extends State<A2bPage> with TickerProviderStateMixin {
                                       borderRadius: BorderRadius.circular(5.sp),
                                       color: Colors.teal),
                                   child: TextButton(
-                                    child: Text('열기',
+                                    child: Text(
+                                        AppContentsController()
+                                            .getContents('ac_113'),
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 15.sp)),
                                     onPressed: () {
-                                      Get.to(A2ePage(
-                                          sid: widget.sid,
-                                          maliciousAppName:
-                                              widget.maliciousAppName,
-                                          maliciousAppIcon:
-                                              widget.maliciousAppIcon,
-                                          vaccineAppId: vaccineAppId,
-                                          vaccineAppColor: Colors.blue));
+                                      print(
+                                          'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, 'ac_113'))}');
+
+                                      Get.to(ClassBuilder.fromString(
+                                          PairController().getNextActionWidget(
+                                              widget.sid, 'ac_113')));
                                     },
                                   ))
                             ],

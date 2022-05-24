@@ -6,7 +6,6 @@ import 'package:voskat/model/simulation/contentsList.dart';
 import 'package:flutter/material.dart';
 
 import 'package:voskat/tempData/appContentsData.dart';
-import 'package:voskat/tempData/contentsListData.dart';
 
 class AppContentsController extends GetxController {
   getContents(String ac_id) {

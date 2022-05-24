@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:voskat/view/Simulation/SimulationPage.dart';
-import 'package:voskat/view/customWidget/A1/A1aPage.dart';
+import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
 
 
 void main() {
