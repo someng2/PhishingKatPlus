@@ -33,26 +33,6 @@ class _CustomDialogState extends State<CustomDialog> {
   void initState() {
     super.initState();
 
-    // if(widget.aid == 'A0-a'){
-    //   ClassBuilder.register<CustomDialog>(() => CustomDialog(
-    //     sid: widget.sid,
-    //     aid: 'A1-b',
-    //     height: 160,
-    //   ));
-    // } else if(widget.aid == 'A1-b'){
-    //   ClassBuilder.register<CustomDialog>(() => CustomDialog(
-    //     sid: widget.sid,
-    //     aid: 'A2-c',
-    //     height: 160,
-    //   ));
-    // }else if(widget.aid == 'A2-c'){
-    //   ClassBuilder.register<CustomDialog>(() => CustomDialog(
-    //     sid: widget.sid,
-    //     aid: 'A2-d',
-    //     height: 160,
-    //   ));
-    // }
-
     ClassBuilder.register<CustomDialog>(() => CustomDialog(
           sid: widget.sid,
           aid: PairController().getNextActionId(

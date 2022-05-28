@@ -3,11 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/controller/AppActionController.dart';
 import 'package:voskat/controller/ScenrioTypeController.dart';
 
 import 'package:voskat/model/simulation/scenarioType.dart';
 import 'package:voskat/tempData/scenarioTypeData.dart';
 import 'package:voskat/controller/ScenrioTypeController.dart';
+import 'package:voskat/view/Simulation/AcquaintanceImpersonationPage.dart';
 
 import 'package:voskat/tempData/userData.dart';
 
@@ -26,6 +28,20 @@ class SimulationType extends StatefulWidget {
 class _SimulationTypeState extends State<SimulationType> {
   final ScenarioTypeController _scenarioTypeController =
       ScenarioTypeController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    ClassBuilder.register<SimulationPage>(() => SimulationPage());
+
+    ClassBuilder.register<AcquaintanceImpersonationPage>(
+        () => AcquaintanceImpersonationPage(
+              sid: 'A0-h',
+              aid: 'A1-i',
+              messageList: ['ac_29', 'ac_30', 'A1-i'],
+            ));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,17 +76,55 @@ class _SimulationTypeState extends State<SimulationType> {
         children: [
           SizedBox(height: 29.5.h),
           Container(
-            child: Row(
-              children: <Widget>[
-                SizedBox(width: 20.w),
-                sType(_scenarioTypeController.getScenarioType('대출')),
-                SizedBox(width: 35.w),
-                sType(_scenarioTypeController.getScenarioType('게임')),
-                SizedBox(width: 35.w),
-                sType(_scenarioTypeController.getScenarioType('택배')),
-                SizedBox(width: 18.w)
-              ],
-            ),
+            child: Column(children: [
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 20.w),
+                  sType(_scenarioTypeController.getScenarioType('대출')),
+                  SizedBox(width: 35.w),
+                  sType(_scenarioTypeController.getScenarioType('게임')),
+                  SizedBox(width: 35.w),
+                  sType(_scenarioTypeController.getScenarioType('택배')),
+                  SizedBox(width: 18.w)
+                ],
+              ),
+              SizedBox(height: 30.h),
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 20.w),
+                  sType(_scenarioTypeController.getScenarioType('가족')),
+                  SizedBox(width: 35.w),
+                  sType(_scenarioTypeController.getScenarioType('아르바이트')),
+                  SizedBox(width: 35.w),
+                  sType(_scenarioTypeController.getScenarioType('취업')),
+                  SizedBox(width: 18.w)
+                ],
+              ),
+              SizedBox(height: 30.h),
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 20.w),
+                  sType(_scenarioTypeController.getScenarioType('중고거래')),
+                  SizedBox(width: 35.w),
+                  sType(_scenarioTypeController.getScenarioType('이성교제')),
+                  SizedBox(width: 35.w),
+                  sType(_scenarioTypeController.getScenarioType('지원금')),
+                  SizedBox(width: 18.w)
+                ],
+              ),
+              SizedBox(height: 30.h),
+              Row(
+                children: <Widget>[
+                  SizedBox(width: 20.w),
+                  sType(_scenarioTypeController.getScenarioType('주식')),
+                  SizedBox(width: 35.w),
+                  sType(_scenarioTypeController.getScenarioType('쇼핑')),
+                  SizedBox(width: 35.w),
+                  sType(_scenarioTypeController.getScenarioType('보험')),
+                  SizedBox(width: 18.w)
+                ],
+              ),
+            ]),
           ),
           SizedBox(height: 29.5.h),
         ],
@@ -78,8 +132,9 @@ class _SimulationTypeState extends State<SimulationType> {
     );
   }
 
-  sType(ScenarioType type) {
-    bool isLocked = type.lock;
+  sType(ScenarioType subtype) {
+    bool isLocked = subtype.lock;
+    int medal = subtype.medal;
 
     return Column(children: [
       SizedBox(
@@ -87,11 +142,12 @@ class _SimulationTypeState extends State<SimulationType> {
           height: 83,
           child: Stack(
             fit: StackFit.expand,
+            clipBehavior: Clip.none,
             children: <Widget>[
               CircularProgressIndicator(
                 strokeWidth: 5,
                 //score 진행도
-                value: (type.score / 100),
+                value: isLocked ? 0 : (subtype.score / 100),
                 backgroundColor: Color(0xffe7e7e7),
                 color: Color(0xff6fb7fd),
               ),
@@ -104,14 +160,67 @@ class _SimulationTypeState extends State<SimulationType> {
                         image: DecorationImage(
                             fit: BoxFit.cover,
                             image: isLocked
-                                ? AssetImage(type.icon_active)
-                                : AssetImage(type.icon_disactive))),
+                                ? AssetImage(subtype.icon_disactive)
+                                : AssetImage(subtype.icon_active))),
                   ),
                   onPressed: () {
                     isLocked
-                        ? Get.to(SimulationPage(user: user1))
-                        : Container();
+
+                        ? SizedBox.shrink()
+                        : Get.to(ClassBuilder.fromString(
+                            AppActionController().getWidget(subtype.aid)));
+
+//                         ? Get.to(SimulationPage(user: user1))
+//                         : Container();
+
                   },
+                  style: TextButton.styleFrom(
+                    minimumSize: Size.zero,
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 70,
+                right: 28,
+                child: TextButton(
+                  child: isLocked
+                      ? SizedBox.shrink()
+                      : Container(
+                          width: 27.w,
+                          height: 29.h,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(
+                                _scenarioTypeController.getMedalImage(medal)),
+                          )),
+                        ),
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    minimumSize: Size.zero,
+                    padding: EdgeInsets.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: TextButton(
+                  child: isLocked
+                      ? Container(
+                          width: 22.w,
+                          height: 26.h,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage('image/Lock.png'),
+                          )),
+                        )
+                      : SizedBox.shrink(),
+                  onPressed: () {},
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,
                     padding: EdgeInsets.zero,
@@ -125,7 +234,7 @@ class _SimulationTypeState extends State<SimulationType> {
         height: 6.h,
       ),
       Text(
-        type.type,
+        subtype.subtype,
         style: const TextStyle(
             color: const Color(0xff000000),
             fontWeight: FontWeight.w400,

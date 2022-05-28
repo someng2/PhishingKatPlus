@@ -89,6 +89,94 @@ UserAction U4_b = UserAction(
   score: 0,
 );
 
+
+
+// 자녀 사칭
+UserAction U2_i = UserAction(
+  ua_id: 'U2_i',
+  feedback: '어떻게 신청하는데?',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U2_j = UserAction(
+  ua_id: 'U2_j',
+  feedback: '응 전화로 방법 알려줘~',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U3_g = UserAction(
+  ua_id: 'U3_g',
+  feedback: '(url 클릭)',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U3_h = UserAction(
+  ua_id: 'U3_h',
+  feedback: '알겠어~ 근데 아들 곧 생일이지?\n받고 싶은 선물 있어?',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U3_i = UserAction(
+  ua_id: 'U3_i',
+  feedback: '그래 알겠어~',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U3_j = UserAction(
+  ua_id: 'U3_j',
+  feedback: '휴대폰 빌려서 전화줘~',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U4_e = UserAction(
+  ua_id: 'U4_e',
+  feedback: 'xxx-xxx-xxx\n(인증번호 전송)',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U4_f = UserAction(
+  ua_id: 'U4_f',
+  feedback: '근데 아들 곧 생일이지?\n받고 싶은 선물 있어?',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U4_g = UserAction(
+  ua_id: 'U4_g',
+  feedback: '알려주면 보내줄게~',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U4_h = UserAction(
+  ua_id: 'U4_h',
+  feedback: '알겠어~\n(url 클릭)',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U5_a = UserAction(
+  ua_id: 'U5_a',
+  feedback: '우리 아들 생일 지난주였다.. 😠',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U5_b = UserAction(
+  ua_id: 'U5_b',
+  feedback: '그래 이따 봐~',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U5_c = UserAction(
+  ua_id: 'U5_c',
+  feedback: 'xxx-xxx-xxx\n(인증번호 전송)',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+UserAction U5_d = UserAction(
+  ua_id: 'U5_d',
+  feedback: '전송하는 척 꺼버린다',
+  score: 0,
+  // nextAction: SimulationResultPage(sid: ''),
+);
+
 UserAction U1_b =
     UserAction(ua_id: 'U1-b', feedback: 'U1-b feedback', score: -30);
 
@@ -127,3 +215,4 @@ List<UserAction> userActionList = [
   U1_c,
 
 ];
+

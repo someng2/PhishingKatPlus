@@ -34,4 +34,19 @@ Scenario scenario_A0c = Scenario(
   userActionSequence: [],
 );
 
-List<Scenario> scenarioList = [scenario_A0a, scenario_A0b, scenario_A0c];
+
+Scenario scenario_A0h = Scenario(
+  sid: 'A0-h',
+  medium: '카카오',
+  phoneNumber: '010-1234-5678',
+  type: '지인사칭',
+  subtype: '자녀사칭',
+  score: 50,
+  // appActionSequence: [A0c, A1a_A0c],
+  userActionSequence: [],
+  // pairLength: 0,
+  // pairIndex: 0,
+);
+
+List<Scenario> scenarioList = [scenario_A0a, scenario_A0c, scenario_A0h, , scenario_A0c];
+
