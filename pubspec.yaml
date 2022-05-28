@@ -91,6 +91,34 @@ flutter:
     - image/trashbinIcon.png
     - image/categorySimul.png
     - image/customSimul.png
+    - image/Type/familyBW.png
+    - image/Type/familyColor.png
+    - image/Type/deliveryBW.png
+    - image/Type/deliveryColor.png
+    - image/Type/loanBW.png
+    - image/Type/loanColor.png
+    - image/Type/gameBW.png
+    - image/Type/gameColor.png
+    - image/Type/datingBW.png
+    - image/Type/datingColor.png
+    - image/Type/employmentBW.png
+    - image/Type/employmentColor.png
+    - image/Type/grantBW.png
+    - image/Type/grantColor.png
+    - image/Type/insuranceBW.png
+    - image/Type/insuranceColor.png
+    - image/Type/parttimeBW.png
+    - image/Type/parttimeColor.png
+    - image/Type/shoppingBW.png
+    - image/Type/shoppingColor.png
+    - image/Type/stockBW.png
+    - image/Type/stockColor.png
+    - image/Type/tradeBW.png
+    - image/Type/tradeColor.png
+    - image/Lock.png
+    - image/medalBronze.png
+    - image/medalSilver.png
+    - image/medalGold.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

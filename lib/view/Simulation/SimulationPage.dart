@@ -29,6 +29,7 @@ class SimulationPage extends StatefulWidget {
 
 class _SimulationPageState extends State<SimulationPage> {
   var scenario;
+  var messageList = ['A1-i'];
 
   @override
   void initState() {
@@ -190,7 +191,8 @@ class _SimulationPageState extends State<SimulationPage> {
                                     builder: (BuildContext context) {
                                       return CustomDialog(
                                         sid: scenario.sid,
-                                        aid: PairController().getNextActionId('ac_4'),
+                                        aid: PairController()
+                                            .getNextActionId('ac_4'),
                                         height: 144,
                                       );
                                     });
@@ -264,7 +266,7 @@ class _SimulationPageState extends State<SimulationPage> {
                                     print(
                                         'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_2'))}');
 
-                                    Get.to(ClassBuilder.fromString(
+                                    Get.to(() => ClassBuilder.fromString(
                                         PairController()
                                             .getNextActionWidget('ac_2')));
 
