@@ -40,7 +40,8 @@ dependencies:
 
   class_builder: ^1.0.1
 
-
+  circular_menu: ^2.0.0
+  fab_circular_menu: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -89,6 +90,7 @@ flutter:
     - image/keypadIcon.png
     - image/endCallIcon.png
     - image/trashbinIcon.png
+
     - image/categorySimul.png
     - image/customSimul.png
     - image/Type/familyBW.png
@@ -120,6 +122,35 @@ flutter:
     - image/medalSilver.png
     - image/medalGold.png
 
+    - image/googlePlayIcon.jpg
+    - image/customSimulation.png
+    - image/categorySimulation.png
+    - image/bellIcon.png
+    - image/appCharacter.png
+    - image/kbBankIcon.png
+    - image/cjAdImage.jpeg
+    - image/v3AdImage.jpeg
+    - image/시티즌코난_로고.png
+    - image/피싱아이즈_로고.jpeg
+    - image/후후_로고.webp
+
+
+    - image/SimulationType/familyBW.png
+    - image/SimulationType/familyColor.png
+    - image/SimulationType/deliveryBW.png
+    - image/SimulationType/deliveryColor.png
+    - image/SimulationType/loanBW.png
+    - image/SimulationType/loanColor.png
+    - image/SimulationType/gameBW.png
+    - image/SimulationType/gameColor.png
+
+
+    - image/CatType/랙돌.png
+    - image/CatType/봄베이.png
+    - image/CatType/엑죠틱.png
+    - image/CatType/랙돌_ex.png
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -131,12 +162,26 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+     - family: Recipekorea
+       fonts:
+         - asset: font/Recipekorea-medium.otf
+
+     - family: MalgunGothic
+       fonts:
+         - asset: font/MalgunGothic.ttf
+
+     - family: YDIYGO340
+       fonts:
+         - asset: font/YDIYGO340.ttf
+
+     - family: designhouse
+       fonts:
+         - asset: font/designhouseOTFBold.otf
+
+     - family: HancomMalangMalang
+       fonts:
+         - asset: font/HancomMalangMalang-Bold.otf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

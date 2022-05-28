@@ -7,18 +7,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_overlay_pro/loading_overlay_pro.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:voskat/view/customWidget/A1/A1a_appPage.dart';
+import 'package:voskat/view/customWidget/A1/MaliciousAppPage_1.dart';
 import 'package:voskat/model/simulation/appInfo.dart';
 
 class A1a_downloadPage extends StatefulWidget {
   String sid;
   String subtype;
-  AppInfo appInfo;
+  String maliciousAppName;
+  String maliciousAppIcon;
   A1a_downloadPage(
       {Key? key,
       required this.sid,
       required this.subtype,
-      required this.appInfo})
+      required this.maliciousAppName,
+      required this.maliciousAppIcon})
       : super(key: key);
 
   @override
@@ -39,8 +41,12 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
       setState(() {
         state = '설치 완료!';
         timer.cancel();
-        Get.to(A1a_appPage(
-            sid: widget.sid, subtype: widget.subtype, appInfo: widget.appInfo));
+        Get.to(MaliciousAppPage_1(
+          sid: widget.sid,
+          subtype: widget.subtype,
+          maliciousAppName: widget.maliciousAppName,
+          maliciousAppIcon: widget.maliciousAppIcon,
+        ));
       });
     });
     super.initState();
@@ -49,15 +55,17 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
   @override
   Widget build(BuildContext context) {
     String subtype = widget.subtype;
-    String appName = widget.appInfo.appName;
+    String appName = widget.maliciousAppName;
+    String appIcon = widget.maliciousAppIcon;
 
     return Scaffold(
         appBar: AppBar(
-          leading: Container(padding: EdgeInsets.zero),
+          leadingWidth: 0,
+          automaticallyImplyLeading: false,
           title: Row(
             children: [
-              Container(
-                  height: 30.h, child: Image.asset(widget.appInfo.appIcon)),
+              Container(height: 30.h, child: Image.asset(appIcon)),
+              SizedBox(width: 25.w),
               Text(appName),
             ],
           ),

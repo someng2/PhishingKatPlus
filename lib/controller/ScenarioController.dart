@@ -11,17 +11,34 @@ class ScenarioController extends GetxController {
 
   getScenario(String sid) {
     late Scenario scenario;
+    bool foundScenario = false;
 
     for (int i = 0; i < scenarioList.length; i++) {
       if (sid == scenarioList[i].sid) {
-        print('matched sid: ${scenarioList[i].sid}');
+        print('getScenario - matched sid: ${scenarioList[i].sid}');
+        foundScenario = true;
         scenario = scenarioList[i];
       }
     }
-    // if (scenario == null) {
-    //   print('[ERROR] no matched scenario !!');
-    // }
+    if (!foundScenario) {
+      print('[ERROR] getScenario - no matched scenario !!');
+    }
 
     return scenario;
+  }
+
+  getSubtype(String sid) {
+    bool foundScenario = false;
+
+    for (int i = 0; i < scenarioList.length; i++) {
+      if (sid == scenarioList[i].sid) {
+        print('matched sid:${scenarioList[i].sid} ');
+        foundScenario = true;
+        return scenarioList[i].subtype;
+      }
+    }
+    if (!foundScenario) {
+      print('[ERROR] getScenario - no matched scenario !!');
+    }
   }
 }

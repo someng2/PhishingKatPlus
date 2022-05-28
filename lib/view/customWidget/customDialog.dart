@@ -5,11 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:voskat/controller/AppContentsController.dart';
 import 'package:voskat/controller/PairController.dart';
 
+import 'package:voskat/view/customWidget/A3/ReportPage.dart';
+import 'package:voskat/model/simulation/userAction.dart';
 import 'package:voskat/controller/ScenarioController.dart';
-import 'package:voskat/view/customWidget/customDialogView.dart';
+import 'package:voskat/view/customWidget/customDialogTemplate.dart';
+import 'A3/MessagePage.dart';
+import 'package:voskat/controller/ScenarioController.dart';
+import 'package:voskat/view/customWidget/customDialogTemplate.dart';
 
-import 'package:voskat/view/customWidget/A3/A3bPage.dart';
-import 'package:voskat/view/customWidget/A3/A3cPage.dart';
+
 
 class CustomDialog extends StatefulWidget {
   final String sid;
@@ -30,15 +34,16 @@ class _CustomDialogState extends State<CustomDialog> {
     super.initState();
 
     ClassBuilder.register<CustomDialog>(() => CustomDialog(
-      sid: widget.sid,
-      aid: PairController().getNextActionId(AppContentsController().getContentId(widget.aid)),
-      height: 180,
-    ));
+          sid: widget.sid,
+          aid: PairController().getNextActionId(
+              AppContentsController().getContentId(widget.aid)),
+          height: 180,
+        ));
 
-    ClassBuilder.register<A3bPage>(() => A3bPage(
+    ClassBuilder.register<ReportCallPage>(() => ReportCallPage(
           sid: widget.sid,
         ));
-    ClassBuilder.register<A3cPage>(() => A3cPage(
+    ClassBuilder.register<MessagePage>(() => MessagePage(
           sid: widget.sid,
         ));
   }
@@ -50,17 +55,18 @@ class _CustomDialogState extends State<CustomDialog> {
     String cancel = '';
     String accept = '';
 
-    for(int i = 0; i < ids.length; i++){
-      if(AppContentsController().getContentsType(ids[i]) == 'cancel'){
+    for (int i = 0; i < ids.length; i++) {
+      if (AppContentsController().getContentsType(ids[i]) == 'cancel') {
         cancel = ids[i];
         ids.remove(ids[i]);
         i--;
-      } else if(AppContentsController().getContentsType(ids[i]) == 'accept'){
+      } else if (AppContentsController().getContentsType(ids[i]) == 'accept') {
         accept = ids[i];
         ids.remove(ids[i]);
         i--;
-      }
-      else continue;
+      } else
+        continue;
+
     }
 
     return SingleChildScrollView(
@@ -81,7 +87,7 @@ class _CustomDialogState extends State<CustomDialog> {
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          DialogView(scenario, ids),
+                          customDialogTemplate(scenario, ids),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[

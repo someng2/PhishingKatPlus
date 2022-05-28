@@ -8,10 +8,7 @@ Scenario scenario_A0a = Scenario(
   type: '기관사칭',
   subtype: '대출사기',
   score: 50,
-  // appActionSequence: [A0a, A1a_A0a],
   userActionSequence: [],
-  // pairLength: 0,
-  // pairIndex: 0,
 );
 
 Scenario scenario_A0b = Scenario(
@@ -34,11 +31,9 @@ Scenario scenario_A0c = Scenario(
   type: '기관사칭',
   subtype: '택배사칭',
   score: 50,
-  // appActionSequence: [A0c, A1a_A0c],
   userActionSequence: [],
-  // pairLength: 0,
-  // pairIndex: 0,
 );
+
 
 Scenario scenario_A0h = Scenario(
   sid: 'A0-h',
@@ -53,4 +48,5 @@ Scenario scenario_A0h = Scenario(
   // pairIndex: 0,
 );
 
-List<Scenario> scenarioList = [scenario_A0a, scenario_A0c, scenario_A0h];
+List<Scenario> scenarioList = [scenario_A0a, scenario_A0c, scenario_A0h, , scenario_A0c];
+

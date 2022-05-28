@@ -1,16 +1,27 @@
 // ignore_for_file: file_names
 
+import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/controller/AppContentsController.dart';
+import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/ScenarioController.dart';
+import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/userActionData.dart';
-import 'package:voskat/view/customWidget/A2/A2bPage.dart';
-import 'package:voskat/model/simulation/appInfo.dart';
+import 'package:voskat/view/customWidget/A2/PlayStorePage.dart';
 
-Widget vaccineAppAd(String sid, AppInfo appInfo) {
+Widget vaccineAppAd(String sid, String maliciousAppName,
+    String maliciousAppIcon, String vaccineAppId) {
+  ClassBuilder.register<PlayStorePage>(() => PlayStorePage(
+        sid: sid,
+        downloadAppId: vaccineAppId,
+        maliciousAppName: maliciousAppName,
+        maliciousAppIcon: maliciousAppIcon,
+      ));
+
   final ScenarioController _scenarioController = ScenarioController();
 
   return Container(
@@ -47,9 +58,23 @@ Widget vaccineAppAd(String sid, AppInfo appInfo) {
                   onPressed: () {
                     Scenario scenario = _scenarioController.getScenario(sid);
 
-                    scenario.userActionSequence.add(U2_b);
+                    // scenario.userActionSequence.add(U2_b);
+                    //
+                    // Get.to(A2bPage(
+                    //   sid: sid,
+                    //   vaccineAppId: vaccineAppId,
+                    //   maliciousAppName: maliciousAppName,
+                    //   maliciousAppIcon: maliciousAppIcon,
+                    // ));
+                    print(
+                        'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(sid, 'ac_105'))}');
 
-                    Get.to(A2bPage(sid: sid, appInfo: appInfo));
+                    Get.to(ClassBuilder.fromString(
+                        PairController().getNextActionWidget(sid, 'ac_105')));
+
+                    scenario.userActionSequence.add(UserActionController()
+                        .getUserAction(
+                            PairController().getCurrentActionId('ac_105')));
                   },
                   // TODO: 기존에 없는 백신 프로그램 앱으로 이미지 & 이름 설정
                   child: Container(
@@ -58,14 +83,16 @@ Widget vaccineAppAd(String sid, AppInfo appInfo) {
                       children: [
                         Container(
                             width: 55.w,
-                            child: Image.asset('image/v3appLogo.webp')),
+                            child: Image.asset(AppContentsController()
+                                .getContentsWithType(vaccineAppId, 'appIcon'))),
                         Container(
                           padding: EdgeInsets.only(left: 15.w, top: 7.h),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '글로벌 안드로이드 백신 No.1',
+                                AppContentsController().getContentsWithType(
+                                    vaccineAppId, 'appDescription'),
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
@@ -73,7 +100,8 @@ Widget vaccineAppAd(String sid, AppInfo appInfo) {
                               ),
                               SizedBox(height: 10.h),
                               Text(
-                                'AhnLab V3 Mobile Security',
+                                AppContentsController().getContentsWithType(
+                                    vaccineAppId, 'appName'),
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w700,

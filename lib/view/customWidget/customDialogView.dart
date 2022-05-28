@@ -127,6 +127,6 @@ Widget Select(BuildContext context, Scenario scenario, String ac_id) {
             //     'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(ac_id))}');
 
             Get.to(ClassBuilder.fromString(PairController()
-                    .getNextActionWidget(ac_id)));
+                    .getNextActionWidget(scenario.sid, ac_id)));
           }));
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:voskat/model/simulation/scenarioType.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 
@@ -24,6 +26,7 @@ ScenarioType Type_0 = ScenarioType(
   icon_active: 'image/Type/loanColor.png',
   icon_disactive: 'image/Type/loanBW.png',
   lock: false,
+
   score: 67,
   widget: 'SimulationPage',
 );
@@ -35,12 +38,14 @@ ScenarioType Type_1 = ScenarioType(
   subtype: '택배',
   icon_active: 'image/Type/deliveryColor.png',
   icon_disactive: 'image/Type/deliveryBW.png',
+
   lock: false,
   score: 0,
   widget: 'SimulationPage',
 );
 
 ScenarioType Type_2 = ScenarioType(
+
   sid: 'A0-a',
   aid: 'A0-a',
   medal: 2,
@@ -59,6 +64,7 @@ ScenarioType Type_3 = ScenarioType(
   subtype: '가족',
   icon_active: 'image/Type/familyColor.png',
   icon_disactive: 'image/Type/familyBW.png',
+
   lock: false,
   score: 0,
   widget: 'FamilyPage',

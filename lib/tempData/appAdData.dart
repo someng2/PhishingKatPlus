@@ -1,6 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:voskat/model/simulation/appInfo.dart';
+import 'package:voskat/tempData/appContentsData.dart';
+
+List<String> AdAppContentsIDList_v1 = ['ac_102', 'ac_118', ];
+List<String> AdAppContentsIDList_v2 = ['ac_119', 'ac_120'];
 
 AppInfo AppAd_v1_1 = AppInfo(
   appName: 'YouTube',
