@@ -109,7 +109,7 @@ AppContents maliciousApp_1 = AppContents(
     aid: 'A1-a',
     order: 0,
     c_type: 'appName',
-    contents: 'KB 국민은행',
+    contents: 'KB국민은행 스타뱅킹',
     hasNextAction: false);
 
 //A2-d 수신차단 x 신고
@@ -243,12 +243,13 @@ AppContents appContents_28 = AppContents(
 
 /////////////////// 소망
 
+// 악성 앱 - 대출사기
 AppContents appContents_6 = AppContents(
     ac_id: 'ac_6',
     aid: 'A1-a',
     order: 0,
     c_type: 'appIcon',
-    contents: 'image/cautionIcon.png',
+    contents: 'image/kbBankIcon.png',
     hasNextAction: false,
     sid: 'A0-a');
 
@@ -277,7 +278,7 @@ AppContents vaccineAppContents_3 = AppContents(
     aid: '',
     order: 0,
     c_type: 'appDescription',
-    contents: '글로벌 안드로이드 백신 No.1',
+    contents: '글로벌 No.1 백신!',
     hasNextAction: false);
 
 AppContents vaccineAppContents_4 = AppContents(
@@ -289,14 +290,13 @@ AppContents vaccineAppContents_4 = AppContents(
     contents: 'AhnLab Inc.',
     hasNextAction: false);
 
-AppContents adAppContents_4 = AppContents(
-    ac_id: 'ac_102',
-    sid: 'A0-a',
-    aid: 'A2-b',
+AppContents vaccineAppContents_5 = AppContents(
+    ac_id: 'ac_7',
+    sid: '',
+    aid: '',
     order: 0,
-    c_type: 'appDescription',
-    contents:
-        '글로벌 No.1 백신! - 부스터 / 클리너 / 앱잠금 / 갤러리 숨김 / 이미지 검사 / 알림 검사 / QR코드 검사 / URL 검사 / 배터리 최적 사용',
+    c_type: 'appAdImage',
+    contents: 'image/v3AdImage.jpeg',
     hasNextAction: false);
 
 // 악성 앱 - 고객 정보 입력
@@ -327,6 +327,24 @@ AppContents maliciousAppContents_3 = AppContents(
     contents: '조회하기',
     hasNextAction: true);
 
+AppContents maliciousAppContents_7 = AppContents(
+    ac_id: 'ac_101',
+    sid: 'A0-a',
+    aid: 'A1-s',
+    order: 0,
+    c_type: 'appColor',
+    contents: 'Color(0xffFFD117)',
+    hasNextAction: false);
+
+AppContents maliciousAppContents_8 = AppContents(
+    ac_id: 'ac_101',
+    sid: 'A0-a',
+    aid: 'A1-s',
+    order: 0,
+    c_type: 'title',
+    contents: '내게 맞는 대출상품',
+    hasNextAction: false);
+
 AppContents adAppContents_1 = AppContents(
     ac_id: 'ac_102',
     sid: 'A0-a',
@@ -352,6 +370,16 @@ AppContents adAppContents_3 = AppContents(
     order: 0,
     c_type: 'appStar',
     contents: '5.0',
+    hasNextAction: false);
+
+AppContents adAppContents_4 = AppContents(
+    ac_id: 'ac_102',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appDescription',
+    contents:
+        '글로벌 No.1 백신! - 부스터 / 클리너 / 앱잠금 / 갤러리 숨김 / 이미지 검사 / 알림 검사 / QR코드 검사 / URL 검사 / 배터리 최적 사용',
     hasNextAction: false);
 
 // 백신 앱 - 악성 앱 삭제
@@ -502,6 +530,15 @@ AppContents downloadAppContents_4 = AppContents(
     contents: '\"CJ대한통운\" 앱(APP)으로 상품 배송 걱정 끝!',
     hasNextAction: false);
 
+AppContents downloadAppContents_5 = AppContents(
+    ac_id: 'ac_112',
+    sid: 'A0-c',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appAdImage',
+    contents: 'image/cjAdImage.jpeg',
+    hasNextAction: false);
+
 AppContents appContents_113 = AppContents(
     ac_id: 'ac_113',
     sid: 'A0-a',
@@ -548,6 +585,90 @@ AppContents appContents_117 = AppContents(
     contents: '확인',
     hasNextAction: true);
 
+AppContents adAppContents_5 = AppContents(
+    ac_id: 'ac_118',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appName',
+    contents: '시티즌코난',
+    hasNextAction: false);
+
+AppContents adAppContents_6 = AppContents(
+    ac_id: 'ac_118',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appIcon',
+    contents: 'image/시티즌코난_로고.png',
+    hasNextAction: false);
+
+AppContents adAppContents_7 = AppContents(
+    ac_id: 'ac_118',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appStar',
+    contents: '4.4',
+    hasNextAction: false);
+
+
+AppContents adAppContents_9 = AppContents(
+    ac_id: 'ac_119',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appName',
+    contents: '피싱아이즈',
+    hasNextAction: false);
+
+AppContents adAppContents_10 = AppContents(
+    ac_id: 'ac_119',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appIcon',
+    contents: 'image/피싱아이즈_로고.jpeg',
+    hasNextAction: false);
+
+AppContents adAppContents_11 = AppContents(
+    ac_id: 'ac_119',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appStar',
+    contents: '4.2',
+    hasNextAction: false);
+
+AppContents adAppContents_8 = AppContents(
+    ac_id: 'ac_120',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appName',
+    contents: '후후',
+    hasNextAction: false);
+
+AppContents adAppContents_12 = AppContents(
+    ac_id: 'ac_120',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appIcon',
+    contents: 'image/후후_로고.webp',
+    hasNextAction: false);
+
+AppContents adAppContents_13 = AppContents(
+    ac_id: 'ac_120',
+    sid: 'A0-a',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'appStar',
+    contents: '4.2',
+    hasNextAction: false);
+
+
+
 List<AppContents> appContentsList = [
   appContents_1,
   appContents_2,
@@ -573,13 +694,12 @@ List<AppContents> appContentsList = [
   appContents_26,
   maliciousApp_1,
   appContents_6,
-  vaccineAppContents_1,
-  vaccineAppContents_2,
-  vaccineAppContents_3,
-  vaccineAppContents_4,
+  vaccineAppContents_1, vaccineAppContents_2, vaccineAppContents_3, vaccineAppContents_4,vaccineAppContents_5,
   maliciousAppContents_1,
   maliciousAppContents_2,
   maliciousAppContents_3,
+  maliciousAppContents_7,
+  maliciousAppContents_8,
   adAppContents_1,
   adAppContents_2,
   adAppContents_3,
@@ -601,9 +721,13 @@ List<AppContents> appContentsList = [
   downloadAppContents_2,
   downloadAppContents_3,
   downloadAppContents_4,
+  downloadAppContents_5,
   appContents_113,
   appContents_114,
   appContents_115,
   appContents_116,
-  appContents_117
+  appContents_117,
+  adAppContents_5, adAppContents_6,adAppContents_7,
+  adAppContents_9,adAppContents_10,adAppContents_11,
+  adAppContents_8, adAppContents_12, adAppContents_13,
 ];

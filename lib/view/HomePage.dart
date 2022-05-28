@@ -8,6 +8,9 @@ import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
 
+import 'package:circular_menu/circular_menu.dart';
+import 'package:fab_circular_menu/fab_circular_menu.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -29,22 +32,47 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(
-              "PhishingKat",
-              style: TextStyle(
-                  color: const Color(0xff000000),
-                  fontWeight: FontWeight.w700,
-                  fontFamily: "designhouse",
-                  fontStyle: FontStyle.normal,
-                  fontSize: 23.sp),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(46.5.h),
+          child: AppBar(
+            titleSpacing: 0,
+            title: Container(
+              child: Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 118.w, top: 11.5.h),
+                    child: Text(
+                      "PhishingKat",
+                      style: TextStyle(
+                          color: const Color(0xff000000),
+                          fontWeight: FontWeight.w700,
+                          fontFamily: "designhouse",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 23.sp),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(bottom: 20.5.h),
+                    child: Text('+',
+                        style: const TextStyle(
+                            color: const Color(0xff000000),
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "SegoeUI",
+                            fontStyle: FontStyle.normal,
+                            fontSize: 20.0),
+                        textAlign: TextAlign.left),
+                  )
+                ],
+              ),
             ),
             actions: [
               Container(
-                width: 18.w,
+                padding: EdgeInsets.only(right: 12.w, top: 7.5.h, bottom: 10.h),
                 child: TextButton(
-                  child: Icon(
-                    Icons.notifications,
+                  child: Image.asset(
+                    'image/bellIcon.png',
+                    // color: const Color(0xff898686),
                     color: Colors.black,
                   ),
                   onPressed: () {},
@@ -55,22 +83,51 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(width: 20.w),
             ],
             centerTitle: true,
             elevation: 0.0,
-            backgroundColor: Colors.white),
+            backgroundColor: Colors.white,
+            shape: Border(
+                bottom: BorderSide(color: Color(0xffe7e7e7), width: 2.h)),
+          ),
+        ),
+        floatingActionButton: FabCircularMenu(
+            fabSize: 64.sp,
+            fabColor: Colors.white,
+            fabMargin: EdgeInsets.only(bottom: 19.h, right: 24.w),
+            fabOpenIcon: Image.asset('image/appCharacter.png',
+                // width: 64.sp, height: 64.sp,
+            ),
+            children: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.home),
+                  onPressed: () {
+                    print('Home');
+                  }),
+              IconButton(
+                  icon: Icon(Icons.favorite),
+                  onPressed: () {
+                    print('Favorite');
+                  })
+            ]),
         body: Container(
           padding: EdgeInsets.only(left: 25.w, right: 24.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Container(
+              //   padding: EdgeInsets.zero,
+              //     width: 359.5,
+              //     height: 2,
+              //     decoration: BoxDecoration(
+              //         color: const Color(0xffe7e7e7)
+              //     ),),
               SizedBox(height: 29.5.h),
               Text("홍길동님!\n시작할 준비가 되었나요?",
                   style: TextStyle(
-                      color: const Color(0xff0473e1),
+                      color: Color(0xff0473e1),
                       fontWeight: FontWeight.bold,
-                      // fontFamily: "Recipekorea",
+                      fontFamily: 'Recipekorea',
                       fontStyle: FontStyle.normal,
                       fontSize: 20.sp),
                   textAlign: TextAlign.left),
@@ -78,7 +135,7 @@ class _HomePageState extends State<HomePage> {
               Text("모의훈련을 통해 최신 피싱에 대비하세요",
                   style: TextStyle(
                       color: const Color(0xffb1aeae),
-                      fontFamily: "MalgunGothic",
+                      fontFamily: 'MalgunGothic',
                       fontStyle: FontStyle.normal,
                       fontSize: 12.sp),
                   textAlign: TextAlign.left),
@@ -143,35 +200,55 @@ class _HomePageState extends State<HomePage> {
                     width: 311.w,
                     height: 179.h,
                     decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(8.sp)),
                         image: DecorationImage(
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fitWidth,
                             image: isCustom
-                                ? AssetImage('image/customSimul.png')
-                                : AssetImage('image/categorySimul.png'))),
-                    child: Text(
-                      isCustom ? '맞춤형\n모의체험' : '유형별\n모의체험',
-                      style: TextStyle(
-                          color: const Color(0xff000000),
-                          fontWeight: FontWeight.w400,
-                          // fontFamily: "YDIYGO340",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 19.sp),
-                      textAlign: TextAlign.center,
+                                ? AssetImage('image/customSimulation.png')
+                                : AssetImage('image/categorySimulation.png'))),
+                    child: Container(
+                      padding: EdgeInsets.only(right: 18.w, top: 15.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            isCustom ? '맞춤형' : '유형별',
+                            style: TextStyle(
+                                color: const Color(0xff000000),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "YDIYGO340",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 19.sp),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 9.h),
+                          Text(
+                            '모의체험',
+                            style: TextStyle(
+                                color: const Color(0xff000000),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "YDIYGO340",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 19.sp),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   onPressed: () {
                     isCustom
 
-                      //  ? Get.to(SimulationPage())
-                      //   : Get.to(SimulationType());
+                        //  ? Get.to(SimulationPage())
+                        //   : Get.to(SimulationType());
 
                         ? Get.to(SimulationPage(user: user1))
                         :
-                        // TODO: 유형별 모의체험으로 이동
-                       // Get.to(SimulationPage(user: user2));
-                    
-                    Get.to(SimulationType());
 
+                        // Get.to(SimulationPage(user: user2));
+
+                    // TODO: 유형별 모의체험으로 이동
+                        Get.to(SimulationType());
                   },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,
@@ -180,7 +257,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 36.h),
               Container(
                   width: 311.w,
                   height: 199.h,
@@ -253,6 +330,7 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
+                              SizedBox(width:82.w),
                               Container(
                                 width: 60.w,
                                 child: Column(

@@ -27,7 +27,7 @@ AppPage A2c = AppPage(ap_id: 'A2-c', widget: 'CustomDialog');
 
 AppPage A2d = AppPage(ap_id: 'A2-d', widget: 'CustomDialog');
 
-AppPage A3b = AppPage(ap_id: 'A3-b', widget: 'ReportPage');
+AppPage A3b = AppPage(ap_id: 'A3-b', widget: 'ReportCallPage');
 
 List<AppPage> appPageList = [
   A1a,

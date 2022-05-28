@@ -80,6 +80,7 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
     print('widget.sid: ${widget.sid}');
 
     String appName = widget.maliciousAppName;
+    Color appColor = Color(0xffFFD117);
 
     // column 별 text editing controller 저장하는 2차원 배열
 
@@ -142,31 +143,39 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
     }
 
     return Scaffold(
+      backgroundColor: appColor,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text(appName),
-        // leading: Container(),
-        // actions: [
-        //   IconButton(
-        //     icon: Icon(Icons.close),
-        //     onPressed: () {
-        //       bool isFilled = checkInfo(
-        //           info1Controller, info2Controller, info3Controller);
-        //     },
-        //   )
-        // ],
+        title: Text(
+          AppContentsController().getContentsWithType('ac_101', 'title'),
+          style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 19.sp,
+              fontFamily: 'YDIYGO340)'),
+        ),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: appColor,
       ),
       body:
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        MaliciousAppTemplate(
-            widget.sid, textFieldCount, textField_ac_id, textControllerList),
+        MaliciousAppTemplate(widget.sid, appColor, textFieldCount,
+            textField_ac_id, textControllerList),
         SizedBox(height: 40.h),
 
         // U2-a
         Container(
-            width: 120,
+            width: 120.w,
+            height: 50.h,
             child: ElevatedButton(
-              child: Text('조회하기'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+              ),
+              child: Text(
+                AppContentsController().getContents('ac_101'),
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+              ),
               onPressed: () {
                 String errorType =
                     checkInfo(widget.sid, textFieldCount, textControllerList);
@@ -228,13 +237,6 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
       }
     }
 
-    // if ((subtype == '대출사기') &
-    //     (info1Controller.text != '') &
-    //     ((info2Controller.text.length != 6) |
-    //         (info3Controller.text.length != 7))) {
-    //   errorType = '주민번호형식오류';
-    // }
-
     print('errorType: $errorType');
     return errorType;
   }
@@ -242,6 +244,7 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
 
 Widget MaliciousAppTemplate(
     String sid,
+    Color appColor,
     int textFieldCount,
     String textField_ac_id,
     List<List<TextEditingController>> textControllerList) {
@@ -255,13 +258,18 @@ Widget MaliciousAppTemplate(
         AppContentsController()
             .getContentsWithOrder(sid, textField_ac_id, i + 1)
             .contents,
+        appColor,
         textField_ac_id,
         textControllerList[i],
       ),
   ]);
 }
 
-Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
+Widget _maliciousAppTemplate(
+    String sid,
+    String info,
+    Color appColor,
+    String textField_ac_id,
     List<TextEditingController> textFieldControllerList) {
   // print('textFieldControllerList.length : ${textFieldControllerList.length}');
 
@@ -276,13 +284,19 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
       ),
       (textFieldControllerList.length == 1)
           ? Container(
-              width: 180.w,
-              height: 40.h,
+              width: 190.w,
+              height: 45.h,
               padding: EdgeInsets.only(left: 20.w),
               child: TextField(
+                  cursorColor: appColor,
                   controller: textFieldControllerList[0],
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
+                    fillColor: Colors.white.withOpacity(0.5),
+                    filled: true,
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white, width: 3)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white)),
                     contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                   ),
                   textAlignVertical: TextAlignVertical.center,
@@ -292,13 +306,19 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
               ? Row(
                   children: [
                     Container(
-                      width: 100.w,
-                      height: 40.h,
+                      width: 110.w,
+                      height: 45.h,
                       padding: EdgeInsets.only(left: 20),
                       child: TextField(
                           controller: textFieldControllerList[0],
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(),
+                            fillColor: Colors.white.withOpacity(0.5),
+                            filled: true,
+                            focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.white, width: 3)),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white)),
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                           ),
                           style: TextStyle(
@@ -306,16 +326,24 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
                           )),
                     ),
                     Container(
-                        child: Text(' - ', style: TextStyle(fontSize: 16))),
+                        child: Text(' - ',
+                            style: TextStyle(
+                                fontSize: 18.sp, fontWeight: FontWeight.w700))),
                     Container(
                       width: 100.w,
-                      height: 40.h,
+                      height: 45.h,
                       // padding: EdgeInsets.only(left: 20),
                       child: TextField(
                           // obscureText: true,
                           controller: textFieldControllerList[1],
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(),
+                            fillColor: Colors.white.withOpacity(0.5),
+                            filled: true,
+                            focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.white, width: 3)),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white)),
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                           ),
                           style: TextStyle(fontSize: 16.sp)),
@@ -327,12 +355,19 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
                       children: [
                         Container(
                           width: 73.w,
-                          height: 40.h,
+                          height: 45.h,
                           padding: EdgeInsets.only(left: 20),
                           child: TextField(
                               controller: textFieldControllerList[0],
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                                fillColor: Colors.white.withOpacity(0.5),
+                                filled: true,
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 3)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 contentPadding:
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                               ),
@@ -341,23 +376,36 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
                               )),
                         ),
                         Container(
-                            child: Text(' - ', style: TextStyle(fontSize: 16))),
+                            child: Text(' - ',
+                                style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w700))),
                         Container(
                           width: 75.w,
-                          height: 40.h,
+                          height: 45.h,
                           // padding: EdgeInsets.only(left: 20),
                           child: TextField(
                               // obscureText: true,
                               controller: textFieldControllerList[1],
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                                fillColor: Colors.white.withOpacity(0.5),
+                                filled: true,
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 3)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 contentPadding:
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                               ),
                               style: TextStyle(fontSize: 16.sp)),
                         ),
                         Container(
-                            child: Text(' - ', style: TextStyle(fontSize: 16))),
+                            child: Text(' - ',
+                                style: TextStyle(
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w700))),
                         Container(
                           width: 75.w,
                           height: 40.h,
@@ -366,7 +414,14 @@ Widget _maliciousAppTemplate(String sid, String info, String textField_ac_id,
                               // obscureText: true,
                               controller: textFieldControllerList[2],
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                                fillColor: Colors.white.withOpacity(0.5),
+                                filled: true,
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Colors.white, width: 3)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white)),
                                 contentPadding:
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                               ),

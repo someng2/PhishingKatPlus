@@ -60,10 +60,12 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
 
     return Scaffold(
         appBar: AppBar(
-          leading: Container(padding: EdgeInsets.zero),
+          leadingWidth: 0,
+          automaticallyImplyLeading: false,
           title: Row(
             children: [
               Container(height: 30.h, child: Image.asset(appIcon)),
+              SizedBox(width: 25.w),
               Text(appName),
             ],
           ),
