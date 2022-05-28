@@ -60,7 +60,7 @@ class _CustomDialogState extends State<CustomDialog> {
           height: 180,
         ));
 
-    ClassBuilder.register<ReportPage>(() => ReportPage(
+    ClassBuilder.register<ReportCallPage>(() => ReportCallPage(
           sid: widget.sid,
         ));
     ClassBuilder.register<MessagePage>(() => MessagePage(

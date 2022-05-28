@@ -14,16 +14,16 @@ import 'package:voskat/view/customWidget/A3/MessagePage.dart';
 
 import 'package:voskat/view/customWidget/customDialog.dart';
 
-class ReportPage extends StatefulWidget {
+class ReportCallPage extends StatefulWidget {
 
   final String sid;
-  const ReportPage({Key? key, required this.sid}) : super(key: key);
+  const ReportCallPage({Key? key, required this.sid}) : super(key: key);
 
   @override
-  _ReportPageState createState() => _ReportPageState();
+  _ReportCallPageState createState() => _ReportCallPageState();
 }
 
-class _ReportPageState extends State<ReportPage> {
+class _ReportCallPageState extends State<ReportCallPage> {
   final backgroundColor = Colors.blueGrey;
   final disabledColor = Colors.white.withOpacity(0.5);
 

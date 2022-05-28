@@ -20,7 +20,8 @@ class MaliciousAppDownloadPage extends StatefulWidget {
       : super(key: key);
 
   @override
-  _MaliciousAppDownloadPageState createState() => _MaliciousAppDownloadPageState();
+  _MaliciousAppDownloadPageState createState() =>
+      _MaliciousAppDownloadPageState();
 }
 
 class _MaliciousAppDownloadPageState extends State<MaliciousAppDownloadPage> {
@@ -67,10 +68,10 @@ class _MaliciousAppDownloadPageState extends State<MaliciousAppDownloadPage> {
                       Row(
                         children: [
                           Container(
-                            width: 30,
+                            width: 30.w,
                             // height: 15,
-                            child: Image.asset(appIcon),
-                            // decoration: BoxDecoration(color: Colors.black),
+                            child: Image.asset(appIcon, width: 30.w),
+
                           ),
                           SizedBox(
                             width: 10,

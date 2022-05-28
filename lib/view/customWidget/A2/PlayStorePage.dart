@@ -35,7 +35,8 @@ class PlayStorePage extends StatefulWidget {
   _PlayStorePageState createState() => _PlayStorePageState();
 }
 
-class _PlayStorePageState extends State<PlayStorePage> with TickerProviderStateMixin {
+class _PlayStorePageState extends State<PlayStorePage>
+    with TickerProviderStateMixin {
   bool downloadPressed = false;
   bool downloadComplete = false;
   bool hasCloseIcon = false;
@@ -62,7 +63,8 @@ class _PlayStorePageState extends State<PlayStorePage> with TickerProviderStateM
         vaccineAppId: widget.downloadAppId,
         vaccineAppColor: Colors.blue));
 
-    ClassBuilder.register<LogisticAppPage_1>(() => LogisticAppPage_1(sid: widget.sid));
+    ClassBuilder.register<LogisticAppPage_1>(
+        () => LogisticAppPage_1(sid: widget.sid));
 
     ClassBuilder.register<MessagePage>(() => MessagePage(
           sid: widget.sid,
@@ -352,26 +354,28 @@ class _PlayStorePageState extends State<PlayStorePage> with TickerProviderStateM
                                 )),
                             SizedBox(height: 33.h),
                             Container(
-                                width: 320.w,
-                                height: 165.h,
-                                decoration: BoxDecoration(
-                                    color: adBackgroundColor,
-                                    borderRadius: BorderRadius.circular(5.sp)),
+                                width: 360.w,
+                                // height: 165.h,
                                 alignment: Alignment.center,
-                                child: Stack(
-                                    alignment: AlignmentDirectional.center,
-                                    children: [
-                                      Text('앱 설명 ~~~~',
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16.sp,
-                                          )),
-                                      Icon(Icons.play_arrow,
-                                          size: 45.sp, color: Colors.white),
-                                      Icon(Icons.play_circle_fill,
-                                          size: 70.sp,
-                                          color: Colors.black.withOpacity(0.7))
-                                    ])),
+                                child: Image.asset(
+                                    AppContentsController().getContentsWithType(
+                                        downloadAppId, 'appAdImage'),
+                                    fit: BoxFit.fitWidth)
+                                // Stack(
+                                //     alignment: AlignmentDirectional.center,
+                                //     children: [
+                                //       Text('앱 설명 ~~~~',
+                                //           style: TextStyle(
+                                //             color: Colors.white,
+                                //             fontSize: 16.sp,
+                                //           )),
+                                //       Icon(Icons.play_arrow,
+                                //           size: 45.sp, color: Colors.white),
+                                //       Icon(Icons.play_circle_fill,
+                                //           size: 70.sp,
+                                //           color: Colors.black.withOpacity(0.7))
+                                //     ])
+                                ),
                             SizedBox(height: 30.h),
                             Container(
                                 child: Row(
@@ -506,12 +510,13 @@ class _PlayStorePageState extends State<PlayStorePage> with TickerProviderStateM
                               width: 320.w,
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: AppAdList_v1.length,
+                                  itemCount: AdAppContentsIDList_v1.length,
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     String description = AppContentsController()
                                         .getContentsWithType(
-                                            'ac_102', 'appStar');
+                                            AdAppContentsIDList_v1[index],
+                                            'appStar');
 
                                     return Container(
                                       padding: EdgeInsets.only(right: 15.w),
@@ -520,23 +525,36 @@ class _PlayStorePageState extends State<PlayStorePage> with TickerProviderStateM
                                               CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              // height: 90.h,
+                                              height: 90.h,
                                               width: 100.h,
                                               decoration: BoxDecoration(
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Colors.grey
+                                                          .withOpacity(0.3),
+                                                      spreadRadius: 1,
+                                                      blurRadius: 7,
+                                                      offset: Offset(0, 2),
+                                                    )
+                                                  ],
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           25.sp)),
                                               child: Image.asset(
-                                                  AppAdList_v1[index].appIcon),
+                                                  AppContentsController()
+                                                      .getContentsWithType(
+                                                          AdAppContentsIDList_v1[
+                                                              index],
+                                                          'appIcon')),
                                             ),
                                             Container(
                                                 padding:
                                                     EdgeInsets.only(top: 10.h),
-                                                child: Text(
-                                                    AppContentsController()
-                                                        .getContentsWithType(
-                                                            'ac_102',
-                                                            'appName'))),
+                                                child: Text(AppContentsController()
+                                                    .getContentsWithType(
+                                                        AdAppContentsIDList_v1[
+                                                            index],
+                                                        'appName'))),
                                             Container(
                                                 child: description == '설치됨'
                                                     ? Row(
@@ -569,12 +587,13 @@ class _PlayStorePageState extends State<PlayStorePage> with TickerProviderStateM
                               width: 320.w,
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: AppAdList_v1.length,
+                                  itemCount: AdAppContentsIDList_v2.length,
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     String description = AppContentsController()
                                         .getContentsWithType(
-                                            'ac_102', 'appStar');
+                                            AdAppContentsIDList_v2[index],
+                                            'appStar');
 
                                     return Container(
                                       padding: EdgeInsets.only(right: 15.w),
@@ -583,25 +602,37 @@ class _PlayStorePageState extends State<PlayStorePage> with TickerProviderStateM
                                               CrossAxisAlignment.start,
                                           children: [
                                             Container(
-                                              // height: 90.h,
+                                              height: 90.h,
                                               width: 100.h,
                                               decoration: BoxDecoration(
                                                   borderRadius:
                                                       BorderRadius.circular(
-                                                          25.sp)),
+                                                          25.sp),
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.grey
+                                                        .withOpacity(0.3),
+                                                    spreadRadius: 1,
+                                                    blurRadius: 7,
+                                                    offset: Offset(0, 2),
+                                                  )
+                                                ],
+                                              ),
                                               child: Image.asset(
                                                   AppContentsController()
                                                       .getContentsWithType(
-                                                          'ac_102', 'appIcon')),
+                                                          AdAppContentsIDList_v2[
+                                                              index],
+                                                          'appIcon')),
                                             ),
                                             Container(
                                                 padding:
                                                     EdgeInsets.only(top: 10.h),
-                                                child: Text(
-                                                    AppContentsController()
-                                                        .getContentsWithType(
-                                                            'ac_102',
-                                                            'appName'))),
+                                                child: Text(AppContentsController()
+                                                    .getContentsWithType(
+                                                        AdAppContentsIDList_v2[
+                                                            index],
+                                                        'appName'))),
                                             Container(
                                                 child: description == '설치됨'
                                                     ? Row(

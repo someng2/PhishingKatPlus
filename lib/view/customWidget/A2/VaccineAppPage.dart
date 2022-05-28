@@ -138,29 +138,19 @@ class _VaccineAppPageState extends State<VaccineAppPage> with TickerProviderStat
                         children: [
                           Container(
                               height: 80.h,
+                              child: Image.asset('image/cautionIcon.png')),
+                          Container(
+                              padding: EdgeInsets.only(bottom: 60.h),
+                              child: Text('악성 앱 1개 발견',
+                                  style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600))),
+                          Container(
+                              height: 120.h,
+                              width: 120.h,
+                              alignment: Alignment.center,
                               child: Image.asset(widget.maliciousAppIcon)),
                           Container(
-                              padding: EdgeInsets.only(bottom: 30.h),
-                              child: Text('악성 앱 1개 발견',
-                                  style: TextStyle(fontSize: 20.sp))),
-                          Container(
-                              height: 150.h,
-                              width: 150.h,
-                              color: Colors.black,
-                              alignment: Alignment.center,
-                              child: Column(
-                                children: [
-                                  Text('악성 앱 아이콘 바꾸기',
-                                      style: TextStyle(color: Colors.white)),
-                                  Container(
-                                      height: 125.h,
-                                      child:
-                                          Image.asset(widget.maliciousAppIcon)),
-                                ],
-                              )),
-                          Container(
                               padding:
-                                  EdgeInsets.only(top: 120.h, bottom: 20.h),
+                                  EdgeInsets.only(top: 110.h, bottom: 20.h),
                               child: Text(
                                 '삭제 하시겠습니까?',
                                 style: TextStyle(fontSize: 16.sp),
@@ -174,7 +164,7 @@ class _VaccineAppPageState extends State<VaccineAppPage> with TickerProviderStat
                                     height: 43.h,
                                     decoration: BoxDecoration(
                                         border: Border.all(
-                                            color: widget.vaccineAppColor),
+                                            color: widget.vaccineAppColor, width: 2),
                                         borderRadius:
                                             BorderRadius.circular(10.sp)),
                                     child: TextButton(
@@ -220,7 +210,7 @@ class _VaccineAppPageState extends State<VaccineAppPage> with TickerProviderStat
                                     width: 120.w,
                                     height: 43.h,
                                     decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.grey),
+                                        border: Border.all(color: Colors.grey, width: 2),
                                         borderRadius:
                                             BorderRadius.circular(10.sp)),
                                     child: TextButton(
