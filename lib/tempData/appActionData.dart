@@ -1,72 +1,71 @@
 
 // ignore_for_file: file_names
 
-import 'package:voskat/model/simulation/appAction.dart';
+import 'package:voskat/model/simulation/appPage.dart';
 
-List<AppAction> appActionList = [A1a, A1b, A2c, A2d, A3b, A3c, result, A0h, A0a, A1i, A3e];
+List<AppPage> appActionList = [A1a, A1b, A2c, A2d, A3b, A3c, result, A0h, A0a, A1i, A3e];
 
-AppAction A1a = AppAction(
-    aa_id: 'A1-a',
+AppPage A1a = AppPage(
+    ap_id: 'A1-a',
     // sid: 'A0-a', contents: '',
     widget: 'A1aPage'
 );
 
-AppAction A1b = AppAction(
-    aa_id: 'A1-b',
+AppPage A1b = AppPage(
+    ap_id: 'A1-b',
     widget: 'A1bPage'
 );
 
 
 //수신차단
-AppAction A2c = AppAction(
-    aa_id: 'A2-c',
+AppPage A2c = AppPage(
+    ap_id: 'A2-c',
     widget: 'CustomDialog'
 );
 
-AppAction A2d = AppAction(
-    aa_id: 'A2-d',
+AppPage A2d = AppPage(
+    ap_id: 'A2-d',
     widget: 'CustomDialog'
 );
 
-AppAction A3b = AppAction(
-    aa_id: 'A3-b',
+AppPage A3b = AppPage(
+    ap_id: 'A3-b',
     widget: 'A3bPage'
 );
 
-AppAction A3c = AppAction(
-    aa_id: 'A3-c',
+AppPage A3c = AppPage(
+    ap_id: 'A3-c',
     widget: 'A3cPage'
 );
 
-AppAction result = AppAction(
-    aa_id: 'result',
+AppPage result = AppPage(
+    ap_id: 'result',
     widget: 'SimulationResultPage'
 );
 
 
-AppAction A0a = AppAction(
-    aa_id: 'A0-a',
+AppPage A0a = AppPage(
+    ap_id: 'A0-a',
     widget: 'SimulationPage'
 );
 
-AppAction A0h = AppAction(
-    aa_id: 'A0-h',
+AppPage A0h = AppPage(
+    ap_id: 'A0-h',
     widget: 'AcquaintanceImpersonationPage'
 );
 
-AppAction A1i = AppAction(
-    aa_id: 'A1-i',
+AppPage A1i = AppPage(
+    ap_id: 'A1-i',
     widget: 'AcquaintanceImpersonationPage'
 );
 
-AppAction A3e = AppAction(
-    aa_id: 'A3-e',
+AppPage A3e = AppPage(
+    ap_id: 'A3-e',
     widget: 'AcquaintanceImpersonationPage'
 );
 
 // // ignore_for_file: file_names
 //
-// import 'package:voskat/model/simulation/appAction.dart';
 //
 //
 //

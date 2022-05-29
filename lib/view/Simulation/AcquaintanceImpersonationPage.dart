@@ -18,9 +18,6 @@ import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
-import 'package:voskat/view/customWidget/A1/A1aPage.dart';
-import 'package:voskat/view/customWidget/A3/A3bPage.dart';
-import 'package:voskat/view/customWidget/A3/A3cPage.dart';
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
 import 'package:voskat/view/customWidget/customDialog.dart';
@@ -295,7 +292,7 @@ class _AcquaintanceImpersonationPageState
                           'result') {
                         Get.to(() =>
                             ClassBuilder.fromString(
-                                PairController().getNextActionWidget(ids[2])));
+                                PairController().getNextActionWidget(widget.sid, ids[2])));
                       } else {
                         setState(() {
                           messageList += [

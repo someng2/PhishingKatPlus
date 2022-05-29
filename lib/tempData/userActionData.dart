@@ -214,5 +214,20 @@ List<UserAction> userActionList = [
   
   U1_c,
 
+  U2_i,
+  U2_j,
+  U3_g,
+  U3_h,
+  U3_i,
+  U3_j,
+  U4_e,
+  U4_f,
+  U4_g,
+  U4_h,
+  U5_a,
+  U5_b,
+  U5_c,
+  U5_d,
+
 ];
 
