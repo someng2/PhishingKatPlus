@@ -8,7 +8,7 @@ class AppActionController extends GetxController {
   getWidget(String aid) {
     for (int i = 0; i < appPageList.length; i++) {
       if (appPageList[i].ap_id == aid) {
-        print('getWidget - widget: ${appPageList[i].widget}');
+        print('[AppActionController]getWidget - widget: ${appPageList[i].widget}');
         return appPageList[i].widget;
       }
     }
