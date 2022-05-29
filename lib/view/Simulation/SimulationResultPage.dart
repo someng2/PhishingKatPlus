@@ -25,7 +25,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
     Scenario scenario = ScenarioController().getScenario(widget.sid);
 
     /// catID 바꾸는 부분
-    String catID = (scenario.type == '기관사칭') ? 'cat_1' : '';
+    String catID = (scenario.type == '기관사칭') ? 'cat_1' : 'cat_4';
 
     List<String> descriptionList =
         CatTypeController().getDescriptionList(catID, scenario);

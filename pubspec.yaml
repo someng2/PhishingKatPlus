@@ -91,8 +91,8 @@ flutter:
     - image/endCallIcon.png
     - image/trashbinIcon.png
 
-#    - image/categorySimul.png
-#    - image/customSimul.png
+    #    - image/categorySimul.png
+    #    - image/customSimul.png
     - image/SimulationType/familyBW.png
     - image/SimulationType/familyColor.png
     - image/SimulationType/deliveryBW.png
@@ -145,10 +145,22 @@ flutter:
     - image/SimulationType/gameColor.png
 
 
-    - image/CatType/랙돌.png
-    - image/CatType/봄베이.png
-    - image/CatType/엑죠틱.png
-    - image/CatType/랙돌_ex.png
+    - image/CatType/Ragdoll.png
+    - image/CatType/Ragdoll_ex.png
+    - image/CatType/Bombay.png
+    - image/CatType/Bombay_ex.png
+    - image/CatType/Exotic.png
+    - image/CatType/Exotic_ex.png
+    - image/CatType/KoreanShorthair.png
+    - image/CatType/KoreanShorthair_ex.png
+    - image/CatType/MaineCoon.png
+    - image/CatType/MaineCoon_ex.png
+    - image/CatType/RussianBlue.png
+    - image/CatType/RussianBlue_ex.png
+    - image/CatType/ScottishFold.png
+    - image/CatType/ScottishFold_ex.png
+    - image/CatType/Siamese.png
+    - image/CatType/Siamese_ex.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -163,25 +175,25 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-     - family: Recipekorea
-       fonts:
-         - asset: font/Recipekorea-medium.otf
+    - family: Recipekorea
+      fonts:
+        - asset: font/Recipekorea-medium.otf
 
-     - family: MalgunGothic
-       fonts:
-         - asset: font/MalgunGothic.ttf
+    - family: MalgunGothic
+      fonts:
+        - asset: font/MalgunGothic.ttf
 
-     - family: YDIYGO340
-       fonts:
-         - asset: font/YDIYGO340.ttf
+    - family: YDIYGO340
+      fonts:
+        - asset: font/YDIYGO340.ttf
 
-     - family: designhouse
-       fonts:
-         - asset: font/designhouseOTFBold.otf
+    - family: designhouse
+      fonts:
+        - asset: font/designhouseOTFBold.otf
 
-     - family: HancomMalangMalang
-       fonts:
-         - asset: font/HancomMalangMalang-Bold.otf
+    - family: HancomMalangMalang
+      fonts:
+        - asset: font/HancomMalangMalang-Bold.otf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

@@ -330,7 +330,7 @@ class _SimulationPageState extends State<SimulationPage> {
                                     print(
                                         'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(scenario.sid, 'ac_2'))}');
 
-                                    Get.to(() => ClassBuilder.fromString(
+                                    Get.to(ClassBuilder.fromString(
                                         PairController()
                                             .getNextActionWidget(scenario.sid, 'ac_2')));
 
