@@ -91,32 +91,32 @@ flutter:
     - image/endCallIcon.png
     - image/trashbinIcon.png
 
-    - image/categorySimul.png
-    - image/customSimul.png
-    - image/Type/familyBW.png
-    - image/Type/familyColor.png
-    - image/Type/deliveryBW.png
-    - image/Type/deliveryColor.png
-    - image/Type/loanBW.png
-    - image/Type/loanColor.png
-    - image/Type/gameBW.png
-    - image/Type/gameColor.png
-    - image/Type/datingBW.png
-    - image/Type/datingColor.png
-    - image/Type/employmentBW.png
-    - image/Type/employmentColor.png
-    - image/Type/grantBW.png
-    - image/Type/grantColor.png
-    - image/Type/insuranceBW.png
-    - image/Type/insuranceColor.png
-    - image/Type/parttimeBW.png
-    - image/Type/parttimeColor.png
-    - image/Type/shoppingBW.png
-    - image/Type/shoppingColor.png
-    - image/Type/stockBW.png
-    - image/Type/stockColor.png
-    - image/Type/tradeBW.png
-    - image/Type/tradeColor.png
+#    - image/categorySimul.png
+#    - image/customSimul.png
+    - image/SimulationType/familyBW.png
+    - image/SimulationType/familyColor.png
+    - image/SimulationType/deliveryBW.png
+    - image/SimulationType/deliveryColor.png
+    - image/SimulationType/loanBW.png
+    - image/SimulationType/loanColor.png
+    - image/SimulationType/gameBW.png
+    - image/SimulationType/gameColor.png
+    - image/SimulationType/datingBW.png
+    - image/SimulationType/datingColor.png
+    - image/SimulationType/employmentBW.png
+    - image/SimulationType/employmentColor.png
+    - image/SimulationType/grantBW.png
+    - image/SimulationType/grantColor.png
+    - image/SimulationType/insuranceBW.png
+    - image/SimulationType/insuranceColor.png
+    - image/SimulationType/parttimeBW.png
+    - image/SimulationType/parttimeColor.png
+    - image/SimulationType/shoppingBW.png
+    - image/SimulationType/shoppingColor.png
+    - image/SimulationType/stockBW.png
+    - image/SimulationType/stockColor.png
+    - image/SimulationType/tradeBW.png
+    - image/SimulationType/tradeColor.png
     - image/Lock.png
     - image/medalBronze.png
     - image/medalSilver.png

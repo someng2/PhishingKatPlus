@@ -328,11 +328,11 @@ class _SimulationPageState extends State<SimulationPage> {
 
                                     // Get.to(U1_a.nextAction);
                                     print(
-                                        'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget('ac_2'))}');
+                                        'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(scenario.sid, 'ac_2'))}');
 
                                     Get.to(() => ClassBuilder.fromString(
                                         PairController()
-                                            .getNextActionWidget('ac_2')));
+                                            .getNextActionWidget(scenario.sid, 'ac_2')));
 
                                     scenario.userActionSequence.add(
                                         UserActionController().getUserAction(
