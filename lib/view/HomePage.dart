@@ -95,20 +95,194 @@ class _HomePageState extends State<HomePage> {
             fabSize: 64.sp,
             fabColor: Colors.white,
             fabMargin: EdgeInsets.only(bottom: 19.h, right: 24.w),
-            fabOpenIcon: Image.asset('image/appCharacter.png',
-                // width: 64.sp, height: 64.sp,
+            fabOpenIcon: Image.asset(
+              'image/appCharacter.png',
+              // width: 64.sp, height: 64.sp,
             ),
+            ringWidth: 95.w,
+            ringDiameter: 380.w,
+            ringColor: Color(0xffe7e7e7),
+            fabCloseIcon: Image.asset('image/menuCloseIcon.png'),
             children: <Widget>[
-              IconButton(
-                  icon: Icon(Icons.home),
-                  onPressed: () {
-                    print('Home');
-                  }),
-              IconButton(
-                  icon: Icon(Icons.favorite),
-                  onPressed: () {
-                    print('Favorite');
-                  })
+              Container(
+                width: 42.sp,
+                height: 63.sp,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 42.sp,
+                      height: 42.sp,
+                      decoration: BoxDecoration(
+                          color: Color(0xffffffff), shape: BoxShape.circle),
+                      padding: EdgeInsets.only(
+                          top: 3.7.sp, bottom: 3.7.sp, left: 4.sp, right: 4.5.sp),
+                      child: TextButton(
+                        child: Image.asset('image/myPageIcon.png'),
+                        onPressed: () {
+                          print('공지사항');
+                        },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 7.h),
+                    Text('MY', style: TextStyle(
+                        color:  const Color(0xff373b40),
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "YDIYGO330",
+                        fontStyle:  FontStyle.normal,
+                        fontSize: 9.sp
+                    ),)
+                  ],
+                ),
+              ),
+              Container(
+                width: 42.sp,
+                height: 63.sp,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 42.sp,
+                      height: 42.sp,
+                      decoration: BoxDecoration(
+                          color: Color(0xffffffff), shape: BoxShape.circle),
+                      padding: EdgeInsets.only(
+                          top: 3.7.sp, bottom: 3.7.sp, left: 4.sp, right: 4.5.sp),
+                      child: TextButton(
+                        child: Image.asset('image/noticeIcon.png'),
+                        onPressed: () {
+                          print('공지사항');
+                        },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 7.h),
+                    Text('공지사항', style: TextStyle(
+                        color:  const Color(0xff373b40),
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "YDIYGO330",
+                        fontStyle:  FontStyle.normal,
+                        fontSize: 9.sp
+                    ),)
+                  ],
+                ),
+              ),
+              Container(
+                width: 42.sp,
+                height: 63.sp,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 42.sp,
+                      height: 42.sp,
+                      decoration: BoxDecoration(
+                          color: Color(0xffffffff), shape: BoxShape.circle),
+                      padding: EdgeInsets.only(
+                          top: 6.6.sp, bottom: 6.6.sp,
+                          left: 4.8.sp, right: 4.8.sp
+                      ),
+                      child: TextButton(
+                        child: Image.asset('image/Q&AIcon.png'),
+                        onPressed: () {
+                          print('Q&A');
+                        },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 7.h),
+                    Text('Q&A', style: TextStyle(
+                        color:  const Color(0xff373b40),
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "YDIYGO330",
+                        fontStyle:  FontStyle.normal,
+                        fontSize: 9.sp
+                    ),)
+                  ],
+                ),
+              ),
+              Container(
+                width: 42.sp,
+                height: 63.sp,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 42.sp,
+                      height: 42.sp,
+                      decoration: BoxDecoration(
+                          color: Color(0xffffffff), shape: BoxShape.circle),
+                      padding: EdgeInsets.only(
+                          top: 9.4.sp, bottom: 5.sp,
+                      ),
+                      child: TextButton(
+                        child: Image.asset('image/settingIcon.png'),
+                        onPressed: () {
+                          print('설정');
+                        },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 7.h),
+                    Text('설정', style: TextStyle(
+                        color:  const Color(0xff373b40),
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "YDIYGO330",
+                        fontStyle:  FontStyle.normal,
+                        fontSize: 9.sp
+                    ),)
+                  ],
+                ),
+              ),
+              Container(
+                width: 42.sp,
+                height: 63.sp,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 42.sp,
+                      height: 42.sp,
+                      decoration: BoxDecoration(
+                          color: Color(0xffffffff), shape: BoxShape.circle),
+                      padding: EdgeInsets.only(
+                        top: 9.4.sp, bottom: 5.sp,
+                      ),
+                      child: TextButton(
+                        child: Image.asset('image/phishingNewsIcon.png'),
+                        onPressed: () {
+                          print('피싱뉴스');
+                        },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 7.h),
+                    Text('피싱뉴스', style: TextStyle(
+                        color:  const Color(0xff373b40),
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "YDIYGO330",
+                        fontStyle:  FontStyle.normal,
+                        fontSize: 9.sp
+                    ),)
+                  ],
+                ),
+              ),
             ]),
         body: Container(
           padding: EdgeInsets.only(left: 25.w, right: 24.w),
@@ -247,7 +421,7 @@ class _HomePageState extends State<HomePage> {
 
                         // Get.to(SimulationPage(user: user2));
 
-                    // TODO: 유형별 모의체험으로 이동
+                        // TODO: 유형별 모의체험으로 이동
                         Get.to(SimulationType());
                   },
                   style: TextButton.styleFrom(
@@ -330,7 +504,7 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                              SizedBox(width:82.w),
+                              SizedBox(width: 82.w),
                               Container(
                                 width: 60.w,
                                 child: Column(

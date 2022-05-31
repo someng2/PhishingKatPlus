@@ -133,6 +133,12 @@ flutter:
     - image/시티즌코난_로고.png
     - image/피싱아이즈_로고.jpeg
     - image/후후_로고.webp
+    - image/noticeIcon.png
+    - image/myPageIcon.png
+    - image/Q&AIcon.png
+    - image/settingIcon.png
+    - image/phishingNewsIcon.png
+    - image/menuCloseIcon.png
 
 
     - image/SimulationType/familyBW.png
