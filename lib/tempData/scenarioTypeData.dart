@@ -52,7 +52,7 @@ ScenarioType Type_2 = ScenarioType(
   subtype: '게임',
   icon_active: 'image/SimulationType/gameColor.png',
   icon_disactive: 'image/SimulationType/gameBW.png',
-  lock: true,
+  lock: false,
   score: 0,
   widget: 'SimulationPage',
 );

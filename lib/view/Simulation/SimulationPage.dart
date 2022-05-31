@@ -15,7 +15,6 @@ import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 
-
 import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
 import 'package:voskat/view/customWidget/A1/MaliciousAppPage_1.dart';
 import 'package:voskat/view/customWidget/A2/PlayStorePage.dart';
@@ -29,7 +28,6 @@ import 'package:voskat/controller/AppContentsController.dart';
 import 'package:voskat/view/customWidget/customDialog.dart';
 
 import 'package:voskat/view/customWidget/messageTemplate.dart';
-
 
 class SimulationPage extends StatefulWidget {
   /// temp
@@ -48,7 +46,6 @@ class _SimulationPageState extends State<SimulationPage> {
 
   bool _showPlayStore = false;
 
-
   @override
   void initState() {
     super.initState();
@@ -58,11 +55,12 @@ class _SimulationPageState extends State<SimulationPage> {
     _showPlayStore = showPlayStore(scenario.sid);
     print('showPlayStore => $_showPlayStore');
 
-    ClassBuilder.register<MaliciousAppDownloadPage>(() => MaliciousAppDownloadPage(
-        sid: scenario.sid,
-        subtype: scenario.subtype,
-        maliciousAppName: maliciousApp_1.contents,
-        maliciousAppIcon: appContents_6.contents));
+    ClassBuilder.register<MaliciousAppDownloadPage>(() =>
+        MaliciousAppDownloadPage(
+            sid: scenario.sid,
+            subtype: scenario.subtype,
+            maliciousAppName: maliciousApp_1.contents,
+            maliciousAppIcon: appContents_6.contents));
 
     ClassBuilder.register<MaliciousAppPage_1>(() => MaliciousAppPage_1(
         sid: scenario.sid,
@@ -297,7 +295,6 @@ class _SimulationPageState extends State<SimulationPage> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-
                       Container(
                         // width: 255.w,
                         padding: EdgeInsets.all(10.sp),
@@ -331,8 +328,8 @@ class _SimulationPageState extends State<SimulationPage> {
                                         'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(scenario.sid, 'ac_2'))}');
 
                                     Get.to(ClassBuilder.fromString(
-                                        PairController()
-                                            .getNextActionWidget(scenario.sid, 'ac_2')));
+                                        PairController().getNextActionWidget(
+                                            scenario.sid, 'ac_2')));
 
                                     scenario.userActionSequence.add(
                                         UserActionController().getUserAction(
@@ -348,7 +345,6 @@ class _SimulationPageState extends State<SimulationPage> {
                           ],
                         ),
                       ),
-
                       Container(
                         // width: 50,
                         child: Text('오전 9:05',

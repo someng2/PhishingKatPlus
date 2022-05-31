@@ -31,7 +31,7 @@ class PairController extends GetxController {
       pairList[i].sid == sid &&
           pairList[i].ac_id == ac_id) {
               print('sid = $sid');
-        print('getNextWidget - nextActionID : ${pairList[i].nextActionId}');
+        print('[PairController] getNextActionWidget - nextActionID : ${pairList[i].nextActionId}');
         print(
             'getNextWidget - getWidget() => ${AppPageController().getWidget(pairList[i].nextActionId)}');
         return AppPageController().getWidget(pairList[i].nextActionId);

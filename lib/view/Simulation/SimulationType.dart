@@ -33,7 +33,7 @@ class _SimulationTypeState extends State<SimulationType> {
   void initState() {
     super.initState();
 
-    ClassBuilder.register<SimulationPage>(() => SimulationPage(user: user1));
+    ClassBuilder.register<SimulationPage>(() => SimulationPage(user: user2));
 
     ClassBuilder.register<AcquaintanceImpersonationPage>(
         () => AcquaintanceImpersonationPage(
