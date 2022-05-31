@@ -294,7 +294,7 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             children: [
                               Container(
-                                width: 90.w,
+                                width: 100.w,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -332,11 +332,11 @@ class _HomePageState extends State<HomePage> {
                               ),
                               SizedBox(width:82.w),
                               Container(
-                                width: 60.w,
+                                width: 70.w,
                                 child: Column(
                                   children: [
                                     Container(
-                                      width: 60.w,
+                                      width: 70.w,
                                       height: 20.h,
                                       child: TextButton(
                                         child: Text(

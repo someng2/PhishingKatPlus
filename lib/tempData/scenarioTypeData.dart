@@ -32,7 +32,7 @@ ScenarioType Type_0 = ScenarioType(
 );
 
 ScenarioType Type_1 = ScenarioType(
-  sid: 'A0-a',
+  sid: 'A0-c',
   aid: 'A0-c',
   medal: 0,
   subtype: '택배',
@@ -52,7 +52,7 @@ ScenarioType Type_2 = ScenarioType(
   subtype: '게임',
   icon_active: 'image/SimulationType/gameColor.png',
   icon_disactive: 'image/SimulationType/gameBW.png',
-  lock: true,
+  lock: false,
   score: 0,
   widget: 'SimulationPage',
 );

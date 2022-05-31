@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/controller/AppActionController.dart';
+import 'package:voskat/controller/AppPageController.dart';
 import 'package:voskat/controller/ScenrioTypeController.dart';
 
 import 'package:voskat/model/simulation/scenarioType.dart';
@@ -33,7 +33,7 @@ class _SimulationTypeState extends State<SimulationType> {
   void initState() {
     super.initState();
 
-    ClassBuilder.register<SimulationPage>(() => SimulationPage(user: user1));
+    ClassBuilder.register<SimulationPage>(() => SimulationPage(user: user2));
 
     ClassBuilder.register<AcquaintanceImpersonationPage>(
         () => AcquaintanceImpersonationPage(
@@ -165,10 +165,9 @@ class _SimulationTypeState extends State<SimulationType> {
                   ),
                   onPressed: () {
                     isLocked
-
                         ? SizedBox.shrink()
                         : Get.to(ClassBuilder.fromString(
-                            AppActionController().getWidget(subtype.aid)));
+                            AppPageController().getWidget(subtype.aid)));
 
 //                         ? Get.to(SimulationPage(user: user1))
 //                         : Container();

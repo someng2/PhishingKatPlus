@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:voskat/model/simulation/appPage.dart';
 import 'package:voskat/tempData/appPageData.dart';
 
-class AppActionController extends GetxController {
+class AppPageController extends GetxController {
   getWidget(String aid) {
     for (int i = 0; i < appPageList.length; i++) {
       if (appPageList[i].ap_id == aid) {

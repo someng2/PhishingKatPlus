@@ -75,6 +75,8 @@ Widget vaccineAppAd(String sid, String maliciousAppName,
                     scenario.userActionSequence.add(UserActionController()
                         .getUserAction(
                             PairController().getCurrentActionId('ac_105')));
+
+                    print('uaScore => ${scenario.userActionSequence}');
                   },
                   // TODO: 기존에 없는 백신 프로그램 앱으로 이미지 & 이름 설정
                   child: Container(

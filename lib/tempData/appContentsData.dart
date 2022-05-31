@@ -35,7 +35,7 @@ AppContents appContents_3 = AppContents(
     order: 3,
     c_type: 'messageText',
     contents:
-        '담당자: 김미영\n① 상단의 본인인증 PIN 클릭\n② [본인인증] 클릭하여 앱다운로드 및 설치\n③ \'간편대출\' 클릭 후 신청서 작성\n④ 담당자 확인',
+        '담당자: 김미영\n① 상단의 본인인증 PIN 클릭\n② [본인인증] 클릭하여 인앱다운로드\n및 설치\n③ \'간편대출\' 클릭 후 신청서 작성\n④ 담당자 확인',
     hasNextAction: false);
 
 // 대출사기 - 수신차단
@@ -776,7 +776,7 @@ AppContents appContents_115 = AppContents(
 AppContents appContents_116 = AppContents(
     ac_id: 'ac_116',
     sid: 'A0-c',
-    aid: 'A2-f',
+    aid: 'A2-b',
     order: 0,
     c_type: 'button',
     contents: '조회하기',

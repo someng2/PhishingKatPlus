@@ -93,87 +93,87 @@ UserAction U4_b = UserAction(
 
 // 자녀 사칭
 UserAction U2_i = UserAction(
-  ua_id: 'U2_i',
+  ua_id: 'U2-i',
   feedback: '어떻게 신청하는데?',
-  score: 0,
+  score: 5,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U2_j = UserAction(
-  ua_id: 'U2_j',
+  ua_id: 'U2-j',
   feedback: '응 전화로 방법 알려줘~',
-  score: 0,
+  score: 10,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U3_g = UserAction(
-  ua_id: 'U3_g',
+  ua_id: 'U3-g',
   feedback: '(url 클릭)',
-  score: 0,
+  score: -10,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U3_h = UserAction(
-  ua_id: 'U3_h',
+  ua_id: 'U3-h',
   feedback: '알겠어~ 근데 아들 곧 생일이지?\n받고 싶은 선물 있어?',
-  score: 0,
+  score: 5,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U3_i = UserAction(
-  ua_id: 'U3_i',
+  ua_id: 'U3-i',
   feedback: '그래 알겠어~',
-  score: 0,
+  score: -5,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U3_j = UserAction(
-  ua_id: 'U3_j',
+  ua_id: 'U3-j',
   feedback: '휴대폰 빌려서 전화줘~',
-  score: 0,
+  score: 15,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U4_e = UserAction(
-  ua_id: 'U4_e',
+  ua_id: 'U4-e',
   feedback: 'xxx-xxx-xxx\n(인증번호 전송)',
-  score: 0,
+  score: -10,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U4_f = UserAction(
-  ua_id: 'U4_f',
+  ua_id: 'U4-f',
   feedback: '근데 아들 곧 생일이지?\n받고 싶은 선물 있어?',
-  score: 0,
+  score: 10,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U4_g = UserAction(
-  ua_id: 'U4_g',
+  ua_id: 'U4-g',
   feedback: '알려주면 보내줄게~',
-  score: 0,
+  score: 5,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U4_h = UserAction(
-  ua_id: 'U4_h',
+  ua_id: 'U4-h',
   feedback: '알겠어~\n(url 클릭)',
-  score: 0,
+  score: -5,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U5_a = UserAction(
-  ua_id: 'U5_a',
+  ua_id: 'U5-a',
   feedback: '우리 아들 생일 지난주였다.. 😠',
-  score: 0,
+  score: 20,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U5_b = UserAction(
-  ua_id: 'U5_b',
+  ua_id: 'U5-b',
   feedback: '그래 이따 봐~',
-  score: 0,
+  score: -20,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U5_c = UserAction(
-  ua_id: 'U5_c',
+  ua_id: 'U5-c',
   feedback: 'xxx-xxx-xxx\n(인증번호 전송)',
-  score: 0,
+  score: -10,
   // nextAction: SimulationResultPage(sid: ''),
 );
 UserAction U5_d = UserAction(
-  ua_id: 'U5_d',
+  ua_id: 'U5-d',
   feedback: '전송하는 척 꺼버린다',
-  score: 0,
+  score: 10,
   // nextAction: SimulationResultPage(sid: ''),
 );
 
@@ -213,6 +213,21 @@ List<UserAction> userActionList = [
   U4_c,
   
   U1_c,
+
+  U2_i,
+  U2_j,
+  U3_g,
+  U3_h,
+  U3_i,
+  U3_j,
+  U4_e,
+  U4_f,
+  U4_g,
+  U4_h,
+  U5_a,
+  U5_b,
+  U5_c,
+  U5_d,
 
 ];
 
