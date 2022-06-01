@@ -115,14 +115,14 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                               fontWeight: FontWeight.w700,
                               fontFamily: "Helvetica75",
                               fontStyle: FontStyle.normal,
-                              fontSize: 40.0)),
+                              fontSize: 40.sp)),
                       Text('점',
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: const Color(0xff0473e1),
                               fontWeight: FontWeight.w700,
                               fontFamily: "HancomMalangMalang",
                               fontStyle: FontStyle.normal,
-                              fontSize: 19.0))
+                              fontSize: 19.sp))
                     ],
                   ),
                 ])),
@@ -398,6 +398,9 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
           // fontStyle:  FontStyle.normal,
           fontSize: 20.sp),
           textAlign: TextAlign.center);
+    }
+    else{
+      return Container();
     }
   }
 }
