@@ -7,14 +7,34 @@ import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/resultCatTypeData.dart';
 
 class CatTypeController extends GetxController {
-  getCatType(String catID, Scenario scenario) {
+
+  getCatID(Scenario scenario) {
+    String catID = '';
     int score = SimulationResultController().calculateScore(scenario);
 
+    if (score <= 10) {
+      catID = 'cat_1';
+    } else if (score <= 20) {
+      catID = 'cat_2';
+    } else if (score <= 30) {
+      catID = 'cat_3';
+    } else if (score <= 50) {
+      catID = 'cat_4';
+    } else if (score <= 70) {
+      catID = 'cat_6';
+    } else if (score <= 80) {
+      catID = 'cat_6';
+    } else if (score <= 90) {
+      catID = 'cat_7';
+    } else {
+      catID = 'cat_8';
+    }
+    return catID;
+  }
+  getCatDescriptionType(String catID) {
     for (int i = 0; i < resultCatList.length; i++) {
       if (resultCatList[i].catID == catID) {
-        return ((score <= 50)
-            ? resultCatList[i].under50Type
-            : resultCatList[i].over50Type);
+        return resultCatList[i].catDescription;
       }
     }
   }
@@ -91,10 +111,10 @@ class CatTypeController extends GetxController {
     }
   }
 
-  getCatDescription(String catID, Scenario scenario) {
+  getCatExtraDescription(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
       if (resultCatList[i].catID == catID) {
-        return resultCatList[i].catDesciprion;
+        return resultCatList[i].catExtraDescription;
       }
     }
   }

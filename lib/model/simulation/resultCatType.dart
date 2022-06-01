@@ -2,10 +2,12 @@
 
 class ResultCatType {
   String catID;
-  String under50Type; // 0~50점
-  String over50Type; //  51~100점
+
+  // String under50Type; // 0~50점
+  // String over50Type; //  51~100점
   String catName;
-  String catDesciprion;
+  String catDescription;
+  String catExtraDescription; // ㅍㅏ트너일 때 설명
   String catImage;
   String titleDescription;
   double titleDescriptionSize;
@@ -16,10 +18,10 @@ class ResultCatType {
 
   ResultCatType(
       {required this.catID,
-      required this.under50Type,
-      required this.over50Type,
+
       required this.catName,
-        required this.catDesciprion,
+        required this.catDescription,
+        required this.catExtraDescription,
       required this.catImage,
       required this.titleDescription,
       required this.titleDescriptionSize,
