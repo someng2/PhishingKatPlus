@@ -97,7 +97,7 @@ class _MaliciousAppDownloadPageState extends State<MaliciousAppDownloadPage> {
                                 style: TextStyle(fontWeight: FontWeight.w600),
                               ),
                               onPressed: () {
-                                Get.back();
+                                // Get.back();
                               },
                             ),
                           ),

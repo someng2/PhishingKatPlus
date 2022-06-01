@@ -8,7 +8,7 @@ ResultCatType resultCatType1 = ResultCatType(
     catDescription: '사랑한다면 모두 퍼주는 당신',
     catExtraDescription: '거절은 거절한다! 무조건 퍼주는,',
     catImage: 'image/CatType/Bombay.png',
-    titleDescription: '슬프지만 당신의 성향상 인생의 대부분 상황을 조심해야 해요.',
+    titleDescription: '슬프지만 당신의 성향상 인생의\n대부분 상황을 조심해야 해요.',
     titleDescriptionSize: 19.sp,
     catDescriptionList: [
       '좋아하는 사람이라면 묻지도 따지지도 않고 퍼주는 때 묻지 않은 순수한 영혼이라 피싱 당 할 확률이 아주 높아요.',
@@ -25,8 +25,7 @@ ResultCatType resultCatType2 = ResultCatType(
     catDescription: '가까운 사이엔 아낌없는 나무인 당신',
     catExtraDescription: '아낌없이 퍼주는,',
     catImage: 'image/CatType/RussianBlue.png',
-    titleDescription:
-        '인간관계나 우정을 볼모로 무리한 요구를 들어주고 있지 않은지 돌이켜봐요. 피싱의 시작은 사칭이랍니다.',
+    titleDescription: '친하다는 이유로 무리한 요구를 들어주고 있지 않은지 돌이켜봐요.',
     titleDescriptionSize: 19.sp,
     catDescriptionList: [
       '일상에서 겪는 크고 작은 부당함을 인식하려 노력하는 편이지만 타고난 정이 많은 타입이라 자신도 모르는 새 가까운 친구들에게 아낌없이 주는\n나무가 되거나, 당하고도 모른 채 지나가 기도 해요.',
@@ -112,7 +111,7 @@ ResultCatType resultCatType7 = ResultCatType(
     catDescription: '눈치만렙, 외유내강인 당신',
     catExtraDescription: '눈치만렙, 외유내강',
     catImage: 'image/CatType/ScottishFold.png',
-    titleDescription: '증거 수집하는 당신의 노력을 후려치는 지인이 최대 장애물이에요.',
+    titleDescription: '증거 수집하는 당신의 노력을\n후려치는 지인이 최대 장애물이에요.',
     titleDescriptionSize: 19.sp,
     catDescriptionList: [
       '주로 외유내강 스타일로 무던하고 주변에 적을 두지 않는 성격이지만 은근히 만렙 직장인급',

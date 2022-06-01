@@ -2,11 +2,7 @@
 
 import 'package:voskat/model/simulation/appContents.dart';
 
-
-
-
 /// order: 0 -> 순서 상관없는 컨텐츠
-
 
 // 대출사기 - 문자 내용 (appContents_1 ~ 3)
 AppContents appContents_1 = AppContents(
@@ -245,7 +241,6 @@ AppContents appContents_28 = AppContents(
     contents: '',
     hasNextAction: false);
 
-
 //자녀사칭 1
 AppContents appContents_29 = AppContents(
     ac_id: 'ac_29',
@@ -265,14 +260,15 @@ AppContents appContents_30 = AppContents(
     contents: '응 어쩌다 깨졌어~',
     hasNextAction: true);
 
-  //A1-i
+//A1-i
 AppContents appContents_31 = AppContents(
     ac_id: 'ac_31',
     sid: 'A0-h',
     aid: 'A1-i',
     order: 1,
     c_type: 'Ytext',
-    contents: '횡단보도 급하게 건너다가ㅠㅠ\n폰 수리는 방금 맡겼는데 액정보험처리 때문에 통신사 인증받아야 하는데 인증번호 확인이 안되네..\n아빠 폰으로 신청해도 돼?',
+    contents:
+        '횡단보도 급하게 건너다가ㅠㅠ\n폰 수리는 방금 맡겼는데 액정보험처리 때문에 통신사 인증받아야 하는데 인증번호 확인이 안되네..\n아빠 폰으로 신청해도 돼?',
     hasNextAction: true);
 AppContents appContents_32 = AppContents(
     ac_id: 'ac_32',
@@ -291,14 +287,15 @@ AppContents appContents_33 = AppContents(
     contents: '응 전화로 방법 알려줘~',
     hasNextAction: false);
 
-  //A2-e
+//A2-e
 AppContents appContents_34 = AppContents(
     ac_id: 'ac_34',
     sid: 'A0-h',
     aid: 'A2-e',
     order: 1,
     c_type: 'Ytext',
-    contents: '내가 링크 하나 보내면 그거 클릭해서 앱 설치하면 돼\n설치하고 열면 귀하의 ID라고 보일거야 그 뒤에 9자리 숫자 나한테 보내주면 돼',
+    contents:
+        '내가 링크 하나 보내면 그거 클릭해서 앱 설치하면 돼\n설치하고 열면 귀하의 ID라고 보일거야 그 뒤에 9자리 숫자 나한테 보내주면 돼',
     hasNextAction: true);
 AppContents appContents_35 = AppContents(
     ac_id: 'ac_35',
@@ -317,7 +314,7 @@ AppContents appContents_36 = AppContents(
     contents: '알겠어~ 근데 딸! 곧 생일이지?\n받고 싶은 선물 있어?',
     hasNextAction: false);
 
-  //A3-g
+//A3-g
 AppContents appContents_37 = AppContents(
     ac_id: 'ac_37',
     sid: 'A0-h',
@@ -343,7 +340,7 @@ AppContents appContents_39 = AppContents(
     contents: '근데 딸! 곧 생일이지?\n받고 싶은 선물 있어?',
     hasNextAction: false);
 
-  //A3-h
+//A3-h
 AppContents appContents_40 = AppContents(
     ac_id: 'ac_40',
     sid: 'A0-h',
@@ -369,7 +366,7 @@ AppContents appContents_42 = AppContents(
     contents: '알겠어!\n(url 클릭)',
     hasNextAction: false);
 
-  //A4-a
+//A4-a
 AppContents appContents_43 = AppContents(
     ac_id: 'ac_43',
     sid: 'A0-h',
@@ -395,7 +392,7 @@ AppContents appContents_45 = AppContents(
     contents: '그래 이따 봐~',
     hasNextAction: false);
 
-  //A4-b
+//A4-b
 AppContents appContents_46 = AppContents(
     ac_id: 'ac_46',
     sid: 'A0-h',
@@ -421,7 +418,7 @@ AppContents appContents_48 = AppContents(
     contents: '전송하는 척 꺼버린다',
     hasNextAction: false);
 
-  //A2-f
+//A2-f
 AppContents appContents_49 = AppContents(
     ac_id: 'ac_49',
     sid: 'A0-h',
@@ -450,7 +447,7 @@ AppContents appContents_51 = AppContents(
 /////////////////// 소망
 
 // 악성 앱 - 대출사기
-AppContents appContents_6 = AppContents(
+AppContents maliciousApp_4 = AppContents(
     ac_id: 'ac_6',
     aid: 'A1-a',
     order: 0,
@@ -526,7 +523,7 @@ AppContents maliciousAppContents_2 = AppContents(
 
 AppContents maliciousAppContents_3 = AppContents(
     ac_id: 'ac_101',
-    sid: 'A0-a',
+    sid: '',
     aid: 'A1-s',
     order: 0,
     c_type: 'button',
@@ -553,7 +550,7 @@ AppContents maliciousAppContents_8 = AppContents(
 
 AppContents adAppContents_1 = AppContents(
     ac_id: 'ac_102',
-    sid: 'A0-a',
+    sid: '',
     aid: 'A2-b',
     order: 0,
     c_type: 'appName',
@@ -641,7 +638,7 @@ AppContents appContents_107 = AppContents(
     ac_id: 'ac_107',
     sid: 'A0-c',
     aid: 'A0-c',
-    order: 3,
+    order: 2,
     c_type: 'messageUrl',
     contents: 'https://bit.ly/3s5klZs',
     hasNextAction: true);
@@ -650,7 +647,7 @@ AppContents appContents_108 = AppContents(
     ac_id: 'ac_108',
     sid: 'A0-c',
     aid: 'A0-c',
-    order: 2,
+    order: 1,
     c_type: 'messageText',
     contents: '[대한통운]\n송장번호 56**-33**-**80 배송지 오류\n배송지를 확인 부탁드립니다.',
     hasNextAction: false);
@@ -689,6 +686,24 @@ AppContents maliciousApp_2 = AppContents(
     order: 0,
     c_type: 'appName',
     contents: 'cj 대한통운',
+    hasNextAction: false);
+
+AppContents maliciousApp_3 = AppContents(
+    ac_id: 'ac_110',
+    sid: 'A0-c',
+    aid: 'A1-s',
+    order: 0,
+    c_type: 'appColor',
+    contents: 'Color(0xffFFD117)',
+    hasNextAction: false);
+
+AppContents maliciousApp_6 = AppContents(
+    ac_id: 'ac_110',
+    sid: 'A0-c',
+    aid: 'A1-s',
+    order: 0,
+    c_type: 'appIcon',
+    contents: 'image/cjIcon.webp',
     hasNextAction: false);
 
 AppContents appContents_111 = AppContents(
@@ -745,6 +760,7 @@ AppContents downloadAppContents_5 = AppContents(
     contents: 'image/cjAdImage.jpeg',
     hasNextAction: false);
 
+// 백신 앱 설치 후 열기 ->ac_113
 AppContents appContents_113 = AppContents(
     ac_id: 'ac_113',
     sid: 'A0-a',
@@ -793,7 +809,7 @@ AppContents appContents_117 = AppContents(
 
 AppContents adAppContents_5 = AppContents(
     ac_id: 'ac_118',
-    sid: 'A0-a',
+    sid: '',
     aid: 'A2-b',
     order: 0,
     c_type: 'appName',
@@ -818,10 +834,9 @@ AppContents adAppContents_7 = AppContents(
     contents: '4.4',
     hasNextAction: false);
 
-
 AppContents adAppContents_9 = AppContents(
     ac_id: 'ac_119',
-    sid: 'A0-a',
+    sid: '',
     aid: 'A2-b',
     order: 0,
     c_type: 'appName',
@@ -848,7 +863,7 @@ AppContents adAppContents_11 = AppContents(
 
 AppContents adAppContents_8 = AppContents(
     ac_id: 'ac_120',
-    sid: 'A0-a',
+    sid: '',
     aid: 'A2-b',
     order: 0,
     c_type: 'appName',
@@ -873,14 +888,31 @@ AppContents adAppContents_13 = AppContents(
     contents: '4.2',
     hasNextAction: false);
 
+AppContents appContents_121 = AppContents(
+    ac_id: 'ac_121',
+    sid: 'A0-c',
+    aid: 'A1-s',
+    order: 0,
+    c_type: 'title',
+    contents: '운송장 조회',
+    hasNextAction: false);
 
+// 택배사 앱 설치 후 열기
+AppContents appContents_122 = AppContents(
+    ac_id: 'ac_122',
+    sid: 'A0-c',
+    aid: 'A2-b',
+    order: 0,
+    c_type: 'button',
+    contents: '열기',
+    hasNextAction: true);
 
 List<AppContents> appContentsList = [
   appContents_1,
   appContents_2,
   appContents_3,
   appContents_4,
-    // appContents_5,
+  // appContents_5,
   // appContents_6,
   // appContents_7,
   appContents_8,
@@ -926,10 +958,12 @@ List<AppContents> appContentsList = [
   appContents_49,
   appContents_50,
   appContents_51,
-  
+
   maliciousApp_1,
-  appContents_6,
-  vaccineAppContents_1, vaccineAppContents_2, vaccineAppContents_3, vaccineAppContents_4,vaccineAppContents_5,
+  maliciousApp_4,
+  maliciousApp_6,
+  vaccineAppContents_1, vaccineAppContents_2, vaccineAppContents_3,
+  vaccineAppContents_4, vaccineAppContents_5,
   maliciousAppContents_1,
   maliciousAppContents_2,
   maliciousAppContents_3,
@@ -950,7 +984,7 @@ List<AppContents> appContentsList = [
   maliciousAppContents_4,
   maliciousAppContents_5,
   maliciousAppContents_6,
-  maliciousApp_2,
+  maliciousApp_2, maliciousApp_3,
   appContents_111,
   downloadAppContents_1,
   downloadAppContents_2,
@@ -962,8 +996,19 @@ List<AppContents> appContentsList = [
   appContents_115,
   appContents_116,
   appContents_117,
-  adAppContents_5, adAppContents_6,adAppContents_7,
-  adAppContents_9,adAppContents_10,adAppContents_11,
+  adAppContents_5, adAppContents_6, adAppContents_7,
+  adAppContents_9, adAppContents_10, adAppContents_11,
   adAppContents_8, adAppContents_12, adAppContents_13,
+  appContents_122
+];
+
+List<AppContents> maliciousAppList = [
+  maliciousApp_1,
+  maliciousApp_2,
+  maliciousApp_3,
+  maliciousApp_4,
+  maliciousApp_6,
+  appContents_121,
+  maliciousAppContents_8
 ];
 

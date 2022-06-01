@@ -55,14 +55,23 @@ class _SimulationPageState extends State<SimulationPage> {
         MaliciousAppDownloadPage(
             sid: scenario.sid,
             subtype: scenario.subtype,
-            maliciousAppName: maliciousApp_1.contents,
-            maliciousAppIcon: appContents_6.contents));
+            maliciousAppName:
+            // maliciousApp_1.contents,
+            AppContentsController().getContentsWithSidNType(scenario.sid, 'appName'),
+            maliciousAppIcon:
+            // maliciousApp_4.contents
+            AppContentsController().getContentsWithSidNType(scenario.sid, 'appIcon'),
+        ));
 
-    ClassBuilder.register<MaliciousAppPage_1>(() => MaliciousAppPage_1(
-        sid: scenario.sid,
-        subtype: scenario.subtype,
-        maliciousAppName: AppContentsController().getContents('ac_110'),
-        maliciousAppIcon: appContents_6.contents));
+    // ClassBuilder.register<MaliciousAppPage_1>(() => MaliciousAppPage_1(
+    //       sid: scenario.sid,
+    //       subtype: scenario.subtype,
+    //       maliciousAppName:
+    //           AppContentsController().getContentsWithType('ac_110', 'appName'),
+    //       maliciousAppIcon: appContents_6.contents,
+    //       maliciousAppColor:
+    //           AppContentsController().getContentsWithType('ac_110', 'appColor'),
+    //     ));
 
     ClassBuilder.register<PlayStorePage>(() => PlayStorePage(
           sid: widget.scenario.sid,
@@ -78,9 +87,9 @@ class _SimulationPageState extends State<SimulationPage> {
   bool _isMenuPressed = false;
 
   Widget build(BuildContext context) {
-    // List<String> ac_id_list = ['ac_1', 'ac_2', 'ac_3'];
     List<String> ac_id_list =
         MessageController().getMessageIdList(widget.scenario.sid);
+
 
     // scenario = CustomSimulController(user: widget.user)
     //     .getCustomSimulation(widget.user);

@@ -46,6 +46,8 @@ class _A1a_downloadPageState extends State<A1a_downloadPage> {
           subtype: widget.subtype,
           maliciousAppName: widget.maliciousAppName,
           maliciousAppIcon: widget.maliciousAppIcon,
+          // TODO: widget.maliciousAppColor로 바꾸기
+          maliciousAppColor: Color(0xffFFD117),
         ));
       });
     });
