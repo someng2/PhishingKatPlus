@@ -35,9 +35,11 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
 
     bool isPartnerExist =
         CatTypeController().checkPartnerExist(catID, scenario);
+    print('isPartnerExist: $isPartnerExist');
 
     String bestPartnerID =
         CatTypeController().getBestPartnerID(catID, scenario);
+
     String worstPartnerID =
         CatTypeController().getWorstPartnerID(catID, scenario);
 
@@ -127,48 +129,61 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
             SizedBox(height: 14.h),
             Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(CatTypeController().getCatDescriptionType(catID),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "HancomMalangMalang",
-                            // fontStyle:  FontStyle.normal,
-                            fontSize: 20.sp),
-                        textAlign: TextAlign.center),
-                    Text("은",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "HancomMalangMalang",
-                            // fontStyle:  FontStyle.normal,
-                            fontSize: 20.sp),
-                        textAlign: TextAlign.center),
-                  ],
+                Container(
+                  padding: EdgeInsets.only(left: 15.w, right: 15.w),
+                  child: Column(
+                    children: [
+                      Container(
+                        // padding: EdgeInsets.only(left: 15.w, right: 15.w),
+                        width: 330.w,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(CatTypeController().getCatDescriptionType(catID),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "HancomMalangMalang",
+                                    // fontStyle:  FontStyle.normal,
+                                    fontSize: 20.sp),
+                                textAlign: TextAlign.center),
+                            Text("은",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "HancomMalangMalang",
+                                    // fontStyle:  FontStyle.normal,
+                                    fontSize: 20.sp),
+                                textAlign: TextAlign.center),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(CatTypeController().getCatName(catID, scenario),
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: "HancomMalangMalang",
+                                  // fontStyle:  FontStyle.normal,
+                                  fontSize: 20.sp),
+                              textAlign: TextAlign.center),
+                          checkExtraWords(catID),
+                          Text("군요!",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: "HancomMalangMalang",
+                                  // fontStyle:  FontStyle.normal,
+                                  fontSize: 20.sp),
+                              textAlign: TextAlign.center),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(CatTypeController().getCatName(catID, scenario),
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "HancomMalangMalang",
-                            // fontStyle:  FontStyle.normal,
-                            fontSize: 20.sp),
-                        textAlign: TextAlign.center),
-                    Text("군요!",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.w700,
-                            fontFamily: "HancomMalangMalang",
-                            // fontStyle:  FontStyle.normal,
-                            fontSize: 20.sp),
-                        textAlign: TextAlign.center),
-                  ],
-                ),
+
               ],
             ),
             SizedBox(height: 6.8.h),
@@ -176,7 +191,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                 width: 122.7.w,
                 height: 122.7.h,
                 child: Image.asset(
-                    CatTypeController().getCatImage(catID, scenario))),
+                    CatTypeController().getCatImage(catID))),
             // Container(
             //   padding: EdgeInsets.only(
             //       left: 20.w, right: 20.w, top: 30.h, bottom: 30.h),
@@ -291,7 +306,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                               width: 122.6.sp,
                               height: 122.6.sp,
                               child: Image.asset(CatTypeController()
-                                  .getCatImage(bestPartnerID, scenario)),
+                                  .getCatImage(bestPartnerID)),
                             ),
                             SizedBox(height: 17.4.h),
                             Text(
@@ -341,7 +356,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                                   .getCatImage(
                                       CatTypeController()
                                           .getWorstPartnerID(catID, scenario),
-                                      scenario)),
+                                      )),
                             ),
                             SizedBox(height: 17.4.h),
                             Text(
@@ -370,5 +385,19 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
         ),
       )),
     );
+  }
+
+  checkExtraWords(String catID) {
+    List<String> catList = ['cat_3', 'cat_4', 'cat_6', 'cat_8'];
+    // 3, 4, 6, 8
+    if (catList.contains(catID)) {
+      return Text('이', style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.w700,
+          fontFamily: "HancomMalangMalang",
+          // fontStyle:  FontStyle.normal,
+          fontSize: 20.sp),
+          textAlign: TextAlign.center);
+    }
   }
 }

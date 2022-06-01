@@ -47,9 +47,12 @@ class CatTypeController extends GetxController {
     }
   }
 
-  getCatImage(String catID, Scenario scenario) {
+  getCatImage(String catID) {
     for (int i = 0; i < resultCatList.length; i++) {
+      print('getCatImage - current id : ${resultCatList[i].cat_id}');
       if (resultCatList[i].cat_id == catID) {
+        print('catID: $catID');
+        print('getCatImage -> ${resultCatList[i].catImage}');
         return resultCatList[i].catImage;
       }
     }

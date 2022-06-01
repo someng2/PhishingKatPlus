@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:voskat/controller/AppPageController.dart';
+import 'package:voskat/controller/CustomSimulController.dart';
+import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/Simulation/SimulationType.dart';
@@ -11,6 +14,8 @@ import 'package:class_builder/class_builder.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 
 import 'package:voskat/view/SignUp/SignUpPage_age.dart';
+
+import 'Simulation/AcquaintanceImpersonationPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -27,6 +32,21 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     isSelected = [isCustom, isType];
+
+    var customScenario = CustomSimulController(user: userList.last)
+        .getCustomSimulation(userList.last);
+
+    ClassBuilder.register<SimulationPage>(() => SimulationPage(
+        user: userList.last,
+        scenario: CustomSimulController(user: userList.last)
+            .getCustomSimulation(userList.last)));
+
+    ClassBuilder.register<AcquaintanceImpersonationPage>(
+        () => AcquaintanceImpersonationPage(
+              sid: 'A0-h',
+              aid: 'A1-i',
+              messageList: ['ac_29', 'ac_30', 'A1-i'],
+            ));
     super.initState();
   }
 
@@ -46,9 +66,9 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     padding: EdgeInsets.only(
-                      // TODO: 주석처리 된걸로 돌아가
+                        // TODO: 주석처리 된걸로 돌아가
                         left: 118.w,
-                      // left: 80.w,
+                        // left: 80.w,
                         top: 11.5.h),
                     child: Text(
                       "PhishingKat",
@@ -479,12 +499,37 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   onPressed: () {
+                    if(isCustom) {
+                      print('CustomSimulController(user: userList.last).getCustomSimulation_withScenarioType(userList.last).aid => ${AppPageController()
+                          .getWidget(CustomSimulController(user: userList.last)
+                          .getCustomSimulation_withScenarioType(
+                          userList.last)
+                          .aid)}');
+                      print(
+                          'ClassBuilder.fromString => ${ClassBuilder.fromString(
+                              AppPageController()
+                                  .getWidget(
+                                  CustomSimulController(user: userList.last)
+                                      .getCustomSimulation_withScenarioType(
+                                      userList.last)
+                                      .aid))}');
+                    }
+
                     isCustom
 
                         //  ? Get.to(SimulationPage())
                         //   : Get.to(SimulationType());
 
-                        ? Get.to(SimulationPage(user: user1))
+                        ? {
+
+                            // Get.to(SimulationPage(user: userList.last))
+                            Get.to(ClassBuilder.fromString(AppPageController()
+                                .getWidget(
+                                    CustomSimulController(user: userList.last)
+                                        .getCustomSimulation_withScenarioType(
+                                            userList.last)
+                                        .aid)))
+                          }
                         :
 
                         // Get.to(SimulationPage(user: user2));
@@ -591,7 +636,8 @@ class _HomePageState extends State<HomePage> {
                                               fontSize: 15.sp),
                                         ),
                                         onPressed: () {
-                                          Get.to(SimulationPage(user: user1));
+                                          // Get.to(SimulationPage(
+                                          //     user: userList.last));
                                         },
                                         style: TextButton.styleFrom(
                                           minimumSize: Size.zero,

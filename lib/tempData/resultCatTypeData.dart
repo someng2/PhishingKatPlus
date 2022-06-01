@@ -91,11 +91,10 @@ ResultCatType resultCatType5 = ResultCatType(
 ResultCatType resultCatType6 = ResultCatType(
     cat_id: 'cat_6',
     catName: '샴',
-    catDescription: '당장은 편할지 몰라도, 티끌같은 귀차니즘 습관이 모여 태산같은 실수를 만드는 법이에요.',
+    catDescription: '만사 귀찮아서 대충 살고 싶은 당신',
     catExtraDescription: '친할수록 선을 지키는',
     catImage: 'image/CatType/Siamese.png',
-    titleDescription:
-    '귀차니즘의 최고봉인 샴답게 처리 과정의 1단계만 들어도 귀찮아서 대충 오케이하는 타입. 당장은 편할지 몰라도, 티끌같은 습관이 모여 태산같은 실수를 만드는 법! 피싱 예방팁 Best 5 같은 컨텐츠는 꼭 숙지하자.',
+    titleDescription:'당장은 편할지 몰라도, 티끌같은 귀차니즘 습관이 모여 태산같은 실수를 만드는 법이에요.',
     titleDescriptionSize: 19.sp,
     catDescriptionList: [
       '나만의 원리원칙을 중요시해서 겉으로 보기엔 완벽주의자 타입.',
@@ -103,6 +102,7 @@ ResultCatType resultCatType6 = ResultCatType(
       '대신 밖에서 돈 쓸 때는 큰돈 아니면 귀찮아서 알면서도 손해 보고 말아버리는 경우가 부 지기수. "얼마 차이 안 나는데 뭐~" 같은 대사를 자주 시전함.',
     ],
     exampleScenario: 'image/CatType/Siamese_ex.png',
+
     worstPartnerID: 'cat_3',
     bestPartnerID: 'cat_2');
 
@@ -148,7 +148,7 @@ ResultCatType resultCatType8 = ResultCatType(
 ///
 List<ResultCatType> resultCatList = [
   resultCatType1,
-  resultCatType1,
+  resultCatType2,
   resultCatType3,
   resultCatType4,
   resultCatType5,

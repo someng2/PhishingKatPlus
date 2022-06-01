@@ -6,7 +6,7 @@ Scenario scenario_A0a = Scenario(
   medium: '문자',
   phoneNumber: '1600-xxxx',
   type: '기관사칭',
-  subtype: '대출사기',
+  subtype: '대출',
   score: 50,
   userActionSequence: [],
 );
@@ -18,10 +18,7 @@ Scenario scenario_A0b = Scenario(
   type: '기관사칭',
   subtype: '결제사기',
   score: 50,
-  // appActionSequence: [A0b],
   userActionSequence: [],
-  // pairLength: 0,
-  // pairIndex: 0,
 );
 
 Scenario scenario_A0c = Scenario(
@@ -29,7 +26,7 @@ Scenario scenario_A0c = Scenario(
   medium: '문자',
   phoneNumber: '+31 517 78 91 75',
   type: '기관사칭',
-  subtype: '택배사칭',
+  subtype: '택배',
   score: 50,
   userActionSequence: [],
 );
@@ -37,10 +34,10 @@ Scenario scenario_A0c = Scenario(
 
 Scenario scenario_A0h = Scenario(
   sid: 'A0-h',
-  medium: '카카오',
+  medium: '문자',
   phoneNumber: '010-1234-5678',
   type: '지인사칭',
-  subtype: '자녀사칭',
+  subtype: '가족',
   score: 50,
   // appActionSequence: [A0c, A1a_A0c],
   userActionSequence: [],

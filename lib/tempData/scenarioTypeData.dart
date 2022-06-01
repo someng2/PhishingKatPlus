@@ -58,7 +58,7 @@ ScenarioType Type_2 = ScenarioType(
 );
 
 ScenarioType Type_3 = ScenarioType(
-  sid: 'A0-a',
+  sid: 'A0-h',
   aid: 'A0-h',
   medal: 2,
   subtype: '가족',
