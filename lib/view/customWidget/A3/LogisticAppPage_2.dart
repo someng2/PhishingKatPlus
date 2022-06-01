@@ -58,6 +58,7 @@ class _LogisticAppPage_2State extends State<LogisticAppPage_2> {
             style: TextStyle(color: Colors.white, fontSize: 18.sp),
           ),
           centerTitle: true,
+          automaticallyImplyLeading: false,
         ),
         body: Container(
           padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),

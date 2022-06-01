@@ -22,6 +22,8 @@ AppPage A3c = AppPage(ap_id: 'A3-c', widget: 'MessagePage');
 
 AppPage A3d = AppPage(ap_id: 'A3-d', widget: 'LogisticAppPage_2');
 
+
+
 //수신차단
 AppPage A2c = AppPage(ap_id: 'A2-c', widget: 'CustomDialog');
 
@@ -37,6 +39,8 @@ AppPage A0h = AppPage(ap_id: 'A0-h', widget: 'AcquaintanceImpersonationPage');
 AppPage A1i = AppPage(ap_id: 'A1-i', widget: 'AcquaintanceImpersonationPage');
 
 AppPage A3e = AppPage(ap_id: 'A3-e', widget: 'AcquaintanceImpersonationPage');
+
+AppPage A0c = AppPage(ap_id: 'A0-c', widget: 'SimulationPage');
 
 List<AppPage> appPageList = [
   A1a,
@@ -56,4 +60,5 @@ List<AppPage> appPageList = [
   A0h,
   A1i,
   A3e,
+  A0c
 ];

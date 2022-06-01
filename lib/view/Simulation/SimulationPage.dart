@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/controller/MessageController.dart';
 import 'package:voskat/controller/UserActionController.dart';
+import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/model/user/user.dart';
 import 'package:voskat/tempData/appContentsData.dart';
 import 'package:voskat/tempData/maliciousAppData.dart';
@@ -32,28 +33,23 @@ import 'package:voskat/view/customWidget/messageTemplate.dart';
 class SimulationPage extends StatefulWidget {
   /// temp
   User user;
+  Scenario scenario;
 
-  SimulationPage({Key? key, required this.user}) : super(key: key);
+  SimulationPage({Key? key, required this.user, required this.scenario}) : super(key: key);
 
   @override
   _SimulationPageState createState() => _SimulationPageState();
 }
 
 class _SimulationPageState extends State<SimulationPage> {
-  var scenario;
 
   var messageList = ['A1-i'];
 
   bool _showPlayStore = false;
-
   @override
   void initState() {
     super.initState();
-    scenario = CustomSimulController(user: widget.user)
-        .getCustomSimulation(widget.user);
-    print('모의훈련 점수: ${scenario.score}점');
-    _showPlayStore = showPlayStore(scenario.sid);
-    print('showPlayStore => $_showPlayStore');
+    Scenario scenario = widget.scenario;
 
     ClassBuilder.register<MaliciousAppDownloadPage>(() =>
         MaliciousAppDownloadPage(
@@ -69,7 +65,7 @@ class _SimulationPageState extends State<SimulationPage> {
         maliciousAppIcon: appContents_6.contents));
 
     ClassBuilder.register<PlayStorePage>(() => PlayStorePage(
-          sid: scenario.sid,
+          sid: widget.scenario.sid,
           maliciousAppName: '',
           maliciousAppIcon: '',
           downloadAppId: 'ac_112',
@@ -81,10 +77,18 @@ class _SimulationPageState extends State<SimulationPage> {
 
   bool _isMenuPressed = false;
 
+
   Widget build(BuildContext context) {
     // List<String> ac_id_list = ['ac_1', 'ac_2', 'ac_3'];
-    List<String> ac_id_list =
-        MessageController().getMessageIdList(scenario.sid);
+    // List<String> ac_id_list =
+    //     MessageController().getMessageIdList(scenario.sid);
+
+    // scenario = CustomSimulController(user: widget.user)
+    //     .getCustomSimulation(widget.user);
+    var scenario = widget.scenario;
+    print('모의훈련 점수: ${scenario.score}점');
+    _showPlayStore = showPlayStore(scenario.sid);
+    print('showPlayStore => $_showPlayStore');
 
     return (scenario.medium == '문자')
         ? Scaffold(
@@ -174,6 +178,7 @@ class _SimulationPageState extends State<SimulationPage> {
                     child: FittedBox(
                       child: FloatingActionButton(
                           onPressed: () {
+                            print('sid: $scenario.sid');
                             print(
                                 'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(scenario.sid, 'ac_111'))}');
 
@@ -280,7 +285,7 @@ class _SimulationPageState extends State<SimulationPage> {
                       ]),
                 ),
               Container(
-                child: Text('2022년 3월 2일 수요일',
+                child: Text('2022년 6월 1일 수요일',
                     style: TextStyle(
                         fontSize: 13.sp, color: Colors.black.withOpacity(0.6))),
                 padding: EdgeInsets.only(bottom: 10),
