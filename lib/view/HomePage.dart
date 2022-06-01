@@ -8,8 +8,9 @@ import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
 
-import 'package:circular_menu/circular_menu.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
+
+import 'package:voskat/view/SignUp/SignUpPage_age.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,6 +32,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print('userList.last.name -> ${userList.last.name}');
+    print('userList.last.typeNAge -> ${userList.last.typeNage.ageGroup}');
+
     return Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(46.5.h),
@@ -41,7 +45,11 @@ class _HomePageState extends State<HomePage> {
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 118.w, top: 11.5.h),
+                    padding: EdgeInsets.only(
+                      // TODO: 주석처리 된걸로 돌아가
+                        left: 118.w,
+                      // left: 80.w,
+                        top: 11.5.h),
                     child: Text(
                       "PhishingKat",
                       style: TextStyle(
@@ -83,6 +91,22 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+              Container(
+                  padding: EdgeInsets.only(
+                    right: 12.w,
+                  ),
+                  child: TextButton(
+                    child: Icon(Icons.logout),
+                    onPressed: () {
+                      if (userList.length == 3) userList.removeAt(2);
+                      Get.to(SignUpPage_age());
+                    },
+                    style: TextButton.styleFrom(
+                      minimumSize: Size.zero,
+                      padding: EdgeInsets.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                  ))
             ],
             centerTitle: true,
             elevation: 0.0,
@@ -115,7 +139,10 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Color(0xffffffff), shape: BoxShape.circle),
                       padding: EdgeInsets.only(
-                          top: 3.7.sp, bottom: 3.7.sp, left: 4.sp, right: 4.5.sp),
+                          top: 3.7.sp,
+                          bottom: 3.7.sp,
+                          left: 4.sp,
+                          right: 4.5.sp),
                       child: TextButton(
                         child: Image.asset('image/myPageIcon.png'),
                         onPressed: () {
@@ -129,13 +156,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: 7.h),
-                    Text('MY', style: TextStyle(
-                        color:  const Color(0xff373b40),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "YDIYGO330",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 9.sp
-                    ),)
+                    Text(
+                      'MY',
+                      style: TextStyle(
+                          color: const Color(0xff373b40),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "YDIYGO330",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 9.sp),
+                    )
                   ],
                 ),
               ),
@@ -150,7 +179,10 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Color(0xffffffff), shape: BoxShape.circle),
                       padding: EdgeInsets.only(
-                          top: 3.7.sp, bottom: 3.7.sp, left: 4.sp, right: 4.5.sp),
+                          top: 3.7.sp,
+                          bottom: 3.7.sp,
+                          left: 4.sp,
+                          right: 4.5.sp),
                       child: TextButton(
                         child: Image.asset('image/noticeIcon.png'),
                         onPressed: () {
@@ -164,13 +196,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: 7.h),
-                    Text('공지사항', style: TextStyle(
-                        color:  const Color(0xff373b40),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "YDIYGO330",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 9.sp
-                    ),)
+                    Text(
+                      '공지사항',
+                      style: TextStyle(
+                          color: const Color(0xff373b40),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "YDIYGO330",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 9.sp),
+                    )
                   ],
                 ),
               ),
@@ -185,9 +219,10 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Color(0xffffffff), shape: BoxShape.circle),
                       padding: EdgeInsets.only(
-                          top: 6.6.sp, bottom: 6.6.sp,
-                          left: 4.8.sp, right: 4.8.sp
-                      ),
+                          top: 6.6.sp,
+                          bottom: 6.6.sp,
+                          left: 4.8.sp,
+                          right: 4.8.sp),
                       child: TextButton(
                         child: Image.asset('image/Q&AIcon.png'),
                         onPressed: () {
@@ -201,13 +236,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: 7.h),
-                    Text('Q&A', style: TextStyle(
-                        color:  const Color(0xff373b40),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "YDIYGO330",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 9.sp
-                    ),)
+                    Text(
+                      'Q&A',
+                      style: TextStyle(
+                          color: const Color(0xff373b40),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "YDIYGO330",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 9.sp),
+                    )
                   ],
                 ),
               ),
@@ -222,7 +259,8 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Color(0xffffffff), shape: BoxShape.circle),
                       padding: EdgeInsets.only(
-                          top: 9.4.sp, bottom: 5.sp,
+                        top: 9.4.sp,
+                        bottom: 5.sp,
                       ),
                       child: TextButton(
                         child: Image.asset('image/settingIcon.png'),
@@ -237,13 +275,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: 7.h),
-                    Text('설정', style: TextStyle(
-                        color:  const Color(0xff373b40),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "YDIYGO330",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 9.sp
-                    ),)
+                    Text(
+                      '설정',
+                      style: TextStyle(
+                          color: const Color(0xff373b40),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "YDIYGO330",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 9.sp),
+                    )
                   ],
                 ),
               ),
@@ -258,7 +298,8 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                           color: Color(0xffffffff), shape: BoxShape.circle),
                       padding: EdgeInsets.only(
-                        top: 9.4.sp, bottom: 5.sp,
+                        top: 9.4.sp,
+                        bottom: 5.sp,
                       ),
                       child: TextButton(
                         child: Image.asset('image/phishingNewsIcon.png'),
@@ -273,13 +314,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: 7.h),
-                    Text('피싱뉴스', style: TextStyle(
-                        color:  const Color(0xff373b40),
-                        fontWeight: FontWeight.w400,
-                        fontFamily: "YDIYGO330",
-                        fontStyle:  FontStyle.normal,
-                        fontSize: 9.sp
-                    ),)
+                    Text(
+                      '피싱뉴스',
+                      style: TextStyle(
+                          color: const Color(0xff373b40),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: "YDIYGO330",
+                          fontStyle: FontStyle.normal,
+                          fontSize: 9.sp),
+                    )
                   ],
                 ),
               ),
@@ -297,14 +340,39 @@ class _HomePageState extends State<HomePage> {
               //         color: const Color(0xffe7e7e7)
               //     ),),
               SizedBox(height: 29.5.h),
-              Text("홍길동님!\n시작할 준비가 되었나요?",
-                  style: TextStyle(
-                      color: Color(0xff0473e1),
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Recipekorea',
-                      fontStyle: FontStyle.normal,
-                      fontSize: 20.sp),
-                  textAlign: TextAlign.left),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text("${userList.last.name}",
+                          style: TextStyle(
+                              color: Color(0xff0473e1),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Recipekorea',
+                              fontStyle: FontStyle.normal,
+                              fontSize: 20.sp),
+                          textAlign: TextAlign.left),
+                      Text("님!",
+                          style: TextStyle(
+                              color: Color(0xff0473e1),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Recipekorea',
+                              fontStyle: FontStyle.normal,
+                              fontSize: 20.sp),
+                          textAlign: TextAlign.left),
+                    ],
+                  ),
+                  Text("시작할 준비가 되었나요?",
+                      style: TextStyle(
+                          color: Color(0xff0473e1),
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Recipekorea',
+                          fontStyle: FontStyle.normal,
+                          fontSize: 20.sp),
+                      textAlign: TextAlign.left),
+                ],
+              ),
               SizedBox(height: 3.h),
               Text("모의훈련을 통해 최신 피싱에 대비하세요",
                   style: TextStyle(

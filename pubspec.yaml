@@ -40,8 +40,10 @@ dependencies:
 
   class_builder: ^1.0.1
 
-  circular_menu: ^2.0.0
+#  circular_menu: ^2.0.0
   fab_circular_menu: ^1.0.0
+
+  selectable_container: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -200,6 +202,10 @@ flutter:
     - family: HancomMalangMalang
       fonts:
         - asset: font/HancomMalangMalang-Bold.otf
+
+    - family: NotoSansCJKKR
+      fonts:
+        - asset: font/NotoSansCJKkr-Regular.otf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

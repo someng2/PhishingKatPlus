@@ -25,7 +25,8 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
     Scenario scenario = ScenarioController().getScenario(widget.sid);
 
     /// catID 바꾸는 부분
-    String catID = (scenario.type == '기관사칭') ? 'cat_1' : 'cat_4';
+    String catID = CatTypeController().getCatID(scenario);
+    print('catID: ${CatTypeController().getCatID(scenario)}');
 
     List<String> descriptionList =
         CatTypeController().getDescriptionList(catID, scenario);
@@ -129,7 +130,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(CatTypeController().getCatType(catID, scenario),
+                    Text(CatTypeController().getCatDescriptionType(catID),
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w700,
@@ -202,9 +203,9 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
             SizedBox(height: 28.h),
             Container(
                 width: 360.w,
-                height: 85.h,
+                // height: 85.h,
                 alignment: Alignment.center,
-                padding: EdgeInsets.only(top: 8.h),
+                padding: EdgeInsets.only(top: 19.h, left: 35.w, right:35.w, bottom: 11.h,),
                 decoration: BoxDecoration(color: const Color(0x4faed7ff)),
                 child: Text(
                     CatTypeController().getTitleDescription(catID, scenario),
@@ -213,9 +214,11 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                         fontWeight: FontWeight.w500,
                         fontFamily: "Recipekorea",
                         fontStyle: FontStyle.normal,
-                        fontSize: CatTypeController()
-                            .getTitleDescriptionSize(catID, scenario)),
-                    textAlign: TextAlign.center)),
+                        fontSize: 19.sp,
+                        // CatTypeController()
+                        //     .getTitleDescriptionSize(catID, scenario)
+                    ),
+                    textAlign: TextAlign.left)),
             Container(
                 padding: EdgeInsets.only(top: 20.h, left: 35.w, right: 39.w),
                 child: Column(children: [
@@ -238,14 +241,17 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                                 ],
                               ),
                               SizedBox(width: 7.w),
-                              Text(descriptionList[i],
-                                  style: TextStyle(
-                                      color: const Color(0xff000000),
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: "HancomMalangMalang",
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: 13.sp),
-                                  textAlign: TextAlign.left)
+                              Container(
+                                width: 274.w,
+                                child: Text(descriptionList[i],
+                                    style: TextStyle(
+                                        color: const Color(0xff000000),
+                                        fontWeight: FontWeight.w400,
+                                        fontFamily: "HancomMalangMalang",
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 13.sp),
+                                    textAlign: TextAlign.left),
+                              )
                             ]),
                         SizedBox(height: 17.h),
                       ],
@@ -290,7 +296,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                             SizedBox(height: 17.4.h),
                             Text(
                                 CatTypeController()
-                                    .getCatDescription(bestPartnerID, scenario),
+                                    .getCatExtraDescription(bestPartnerID, scenario),
                                 style: TextStyle(
                                     color: const Color(0xff000000),
                                     fontWeight: FontWeight.w400,
@@ -339,7 +345,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                             ),
                             SizedBox(height: 17.4.h),
                             Text(
-                                CatTypeController().getCatDescription(
+                                CatTypeController().getCatExtraDescription(
                                     worstPartnerID, scenario),
                                 style: TextStyle(
                                     color: const Color(0xff000000),
