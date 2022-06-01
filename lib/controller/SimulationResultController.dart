@@ -7,7 +7,7 @@ class SimulationResultController extends GetxController {
   int calculateScore(Scenario scenario) {
     int score = scenario.score;
     for (int i = 0; i < scenario.userActionSequence.length; i++) {
-      print('calculateScore - [$i] ${scenario.userActionSequence[i]} ');
+      print('calculateScore - [$i] ${scenario.userActionSequence[i].score} ');
       score += scenario.userActionSequence[i].score;
     }
 

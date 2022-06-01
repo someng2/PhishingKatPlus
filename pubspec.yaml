@@ -44,6 +44,7 @@ dependencies:
   fab_circular_menu: ^1.0.0
 
   selectable_container: ^1.0.2
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:

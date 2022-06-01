@@ -21,7 +21,7 @@ class CatTypeController extends GetxController {
     } else if (score <= 50) {
       catID = 'cat_4';
     } else if (score <= 70) {
-      catID = 'cat_6';
+      catID = 'cat_5';
     } else if (score <= 80) {
       catID = 'cat_6';
     } else if (score <= 90) {
@@ -41,7 +41,10 @@ class CatTypeController extends GetxController {
 
   getCatName(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
+      print('getCatName - current id : ${resultCatList[i].cat_id}');
       if (resultCatList[i].cat_id == catID) {
+        print('catID: ${resultCatList[i].cat_id}');
+        print('return catName: ${resultCatList[i].catName}');
         return resultCatList[i].catName;
       }
     }
@@ -49,10 +52,10 @@ class CatTypeController extends GetxController {
 
   getCatImage(String catID) {
     for (int i = 0; i < resultCatList.length; i++) {
-      print('getCatImage - current id : ${resultCatList[i].cat_id}');
+      // print('getCatImage - current id : ${resultCatList[i].cat_id}');
       if (resultCatList[i].cat_id == catID) {
-        print('catID: $catID');
-        print('getCatImage -> ${resultCatList[i].catImage}');
+        // print('catID: $catID');
+        // print('getCatImage -> ${resultCatList[i].catImage}');
         return resultCatList[i].catImage;
       }
     }

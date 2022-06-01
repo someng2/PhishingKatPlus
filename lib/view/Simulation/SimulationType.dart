@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/controller/AppPageController.dart';
+import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/controller/ScenrioTypeController.dart';
+import 'package:voskat/model/simulation/scenario.dart';
 
 import 'package:voskat/model/simulation/scenarioType.dart';
 import 'package:voskat/tempData/scenarioTypeData.dart';
@@ -29,12 +31,17 @@ class _SimulationTypeState extends State<SimulationType> {
   final ScenarioTypeController _scenarioTypeController =
       ScenarioTypeController();
 
+  late Scenario _scenario;
+
   @override
   void initState() {
     super.initState();
 
     // TODO: paramter 추가
-    // ClassBuilder.register<SimulationPage>(() => SimulationPage(user: userList.last));
+    ClassBuilder.register<SimulationPage>(() => SimulationPage(
+          user: userList.last,
+          scenario: _scenario,
+        ));
 
     ClassBuilder.register<AcquaintanceImpersonationPage>(
         () => AcquaintanceImpersonationPage(
@@ -165,15 +172,26 @@ class _SimulationTypeState extends State<SimulationType> {
                                 : AssetImage(subtype.icon_active))),
                   ),
                   onPressed: () {
-                    isLocked
-                        ? SizedBox.shrink()
-                        : Get.to(ClassBuilder.fromString(
-                            AppPageController().getWidget(subtype.aid)));
+                    // isLocked
+                    //     ? SizedBox.shrink()
+                    //     : _scenario =
+                    //         ScenarioController().getScenario(subtype.sid);
+                    // Get.to(ClassBuilder.fromString(
+                    //     AppPageController().getWidget(subtype.aid)));
 
+                    if (isLocked) {
+                      SizedBox.shrink();
+                    }
+                    else {
+                      _scenario =
+                          ScenarioController().getScenario(subtype.sid);
+                      Get.to(ClassBuilder.fromString(
+                          AppPageController().getWidget(subtype.aid)));
+                    }
+                  },
 //                         ? Get.to(SimulationPage(user: user1))
 //                         : Container();
 
-                  },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,
                     padding: EdgeInsets.zero,
