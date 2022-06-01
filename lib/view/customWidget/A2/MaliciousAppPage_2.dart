@@ -22,6 +22,7 @@ class MaliciousAppPage_2 extends StatefulWidget {
   String subtype;
   String maliciousAppName;
   String maliciousAppIcon;
+  Color maliciousAppColor;
   int textFieldCount;
   String textField_ac_id;
   List<List<TextEditingController>> textControllerList;
@@ -32,6 +33,7 @@ class MaliciousAppPage_2 extends StatefulWidget {
     required this.subtype,
     required this.maliciousAppName,
     required this.maliciousAppIcon,
+    required this.maliciousAppColor,
     required this.textFieldCount,
     required this.textField_ac_id,
     required this.textControllerList,
@@ -65,10 +67,19 @@ class _MaliciousAppPage_2State extends State<MaliciousAppPage_2> {
   @override
   Widget build(BuildContext context) {
     String appName = widget.maliciousAppName;
+    Color appColor = widget.maliciousAppColor;
 
     return Scaffold(
         appBar: AppBar(
-          title: Text(appName),
+          backgroundColor: appColor,
+          automaticallyImplyLeading: false,
+          elevation: 4,
+          title: Text(appName,
+              style: TextStyle(
+                fontFamily: 'YDIYGO340',
+                fontWeight: FontWeight.w500,
+                fontSize: 19.sp,
+              )),
           // leading: Container(),
           actions: [
             // U3-a
@@ -98,6 +109,7 @@ class _MaliciousAppPage_2State extends State<MaliciousAppPage_2> {
             )
           ],
         ),
+        backgroundColor: appColor,
         body: Container(
             padding: EdgeInsets.only(top: 30.h),
             child: Column(
@@ -113,17 +125,17 @@ class _MaliciousAppPage_2State extends State<MaliciousAppPage_2> {
                       children: [
                         MaliciousAppTemplate2(widget.sid,
                             widget.textField_ac_id, widget.textControllerList),
-                        _showAd
-                            ? vaccineAppAd(
-                                widget.sid,
-                                widget.maliciousAppName,
-                                widget.maliciousAppIcon,
-                                vaccineAppId,
-                              )
-                            : Container(height: 90.h)
                       ],
                     ),
                   ),
+                  _showAd
+                      ? vaccineAppAd(
+                          widget.sid,
+                          widget.maliciousAppName,
+                          widget.maliciousAppIcon,
+                          vaccineAppId,
+                        )
+                      : Container(height: 90.h)
                 ])));
   }
 }
@@ -138,7 +150,7 @@ Widget MaliciousAppTemplate2(
   //     .getContentsOrderWithType(textField_ac_id, 'textfield_1_name');
   // print('rowIndex : $rowIndex');
 
-  if (subtype == '대출사기') {
+  if (subtype == '대출') {
     return Container(
       height: 300.h,
       child: Column(
@@ -154,34 +166,53 @@ Widget MaliciousAppTemplate2(
                                 textField_ac_id, 'textfield_1_name') -
                         1][0]
                     .text,
-                style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.w700),
+                style: TextStyle(
+                  fontSize: 25.sp,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'YDIYGO340',
+                ),
               ),
               Text(
                 ' 님의 신청 가능한 대출 상품',
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'YDIYGO340',
+                ),
               ),
             ],
           )),
-          SizedBox(height: 30.h),
+          Divider(
+            thickness: 5,
+            color: Colors.white.withOpacity(0.4),
+            endIndent: 70.w,
+          ),
+          SizedBox(height: 50.h),
           Container(
-              padding: EdgeInsets.only(bottom: 15.h),
+              padding: EdgeInsets.only(bottom: 20.h),
               child: Row(
                 children: [
                   Text(
                     '상품명: [정부지원 대환대출]',
-                    style:
-                        TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'YDIYGO340',
+                    ),
                   ),
                 ],
               )),
           Container(
-              padding: EdgeInsets.only(bottom: 15.h),
+              padding: EdgeInsets.only(bottom: 20.h),
               child: Row(
                 children: [
                   Text(
-                    '담당자: 김OO',
-                    style:
-                        TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500),
+                    '담당자: 김미영',
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'YDIYGO340',
+                    ),
                   ),
                 ],
               )),
@@ -189,8 +220,12 @@ Widget MaliciousAppTemplate2(
               child: Row(
             children: [
               Text(
-                '문의: 010-xxxx-xxxx',
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500),
+                '문의: 010-9931-1121',
+                style: TextStyle(
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'YDIYGO340',
+                ),
               ),
             ],
           )),

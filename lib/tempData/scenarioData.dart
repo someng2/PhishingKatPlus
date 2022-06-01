@@ -4,7 +4,7 @@ import 'package:voskat/model/simulation/scenario.dart';
 Scenario scenario_A0a = Scenario(
   sid: 'A0-a',
   medium: '문자',
-  phoneNumber: '1600-xxxx',
+  phoneNumber: '1600-5410',
   type: '기관사칭',
   subtype: '대출',
   score: 50,
@@ -24,7 +24,7 @@ Scenario scenario_A0b = Scenario(
 Scenario scenario_A0c = Scenario(
   sid: 'A0-c',
   medium: '문자',
-  phoneNumber: '+31 517 78 91 75',
+  phoneNumber: '010-2965-1087',
   type: '기관사칭',
   subtype: '택배',
   score: 50,

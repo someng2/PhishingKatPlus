@@ -25,12 +25,15 @@ class MaliciousAppPage_1 extends StatefulWidget {
   String subtype;
   String maliciousAppName;
   String maliciousAppIcon;
+  Color maliciousAppColor;
   MaliciousAppPage_1(
       {Key? key,
       required this.sid,
       required this.subtype,
       required this.maliciousAppName,
-      required this.maliciousAppIcon})
+      required this.maliciousAppIcon,
+        required this.maliciousAppColor,
+      })
       : super(key: key);
 
   @override
@@ -55,6 +58,7 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
           subtype: widget.subtype,
           maliciousAppName: widget.maliciousAppName,
           maliciousAppIcon: widget.maliciousAppIcon,
+          maliciousAppColor: widget.maliciousAppColor,
           textFieldCount: textFieldCount,
           textField_ac_id: textField_ac_id,
           textControllerList: textControllerList,
@@ -80,7 +84,7 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
     print('widget.sid: ${widget.sid}');
 
     String appName = widget.maliciousAppName;
-    Color appColor = Color(0xffFFD117);
+    Color appColor = widget.maliciousAppColor;
 
     // column 별 text editing controller 저장하는 2차원 배열
 
@@ -147,15 +151,16 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
-          AppContentsController().getContentsWithType('ac_101', 'title'),
+          AppContentsController().getContentsWithSidNType(widget.sid, 'title'),
           style: TextStyle(
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w500,
               fontSize: 19.sp,
-              fontFamily: 'YDIYGO340)'),
+              fontFamily: 'YDIYGO340'),
         ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: appColor,
+        automaticallyImplyLeading: false,
       ),
       body:
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -213,7 +218,7 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
                 }
               },
             )),
-        SizedBox(height: 200.h),
+        SizedBox(height: 180.h),
         _showAd
             ? vaccineAppAd(widget.sid, widget.maliciousAppName,
                 widget.maliciousAppIcon, 'ac_7')
@@ -354,7 +359,7 @@ Widget _maliciousAppTemplate(
                   ? Row(
                       children: [
                         Container(
-                          width: 73.w,
+                          width: 75.w,
                           height: 45.h,
                           padding: EdgeInsets.only(left: 20),
                           child: TextField(
@@ -381,7 +386,7 @@ Widget _maliciousAppTemplate(
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.w700))),
                         Container(
-                          width: 75.w,
+                          width: 70.w,
                           height: 45.h,
                           // padding: EdgeInsets.only(left: 20),
                           child: TextField(
@@ -407,8 +412,8 @@ Widget _maliciousAppTemplate(
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.w700))),
                         Container(
-                          width: 75.w,
-                          height: 40.h,
+                          width: 70.w,
+                          height: 45.h,
                           // padding: EdgeInsets.only(left: 20),
                           child: TextField(
                               // obscureText: true,

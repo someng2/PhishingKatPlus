@@ -22,7 +22,6 @@ Pair pair_2 = Pair(
     currentActionId: 'U1-c',
     nextActionId: 'A1-b');
 
-
 //수신차단 확인
 
 Pair pair_3 = Pair(
@@ -78,11 +77,8 @@ Pair pair_8 = Pair(
     currentActionId: 'U3-e',
     nextActionId: 'A3-c');
 
-
-
-
 // MessagePage (A3-c)
-  //휴지통
+//휴지통
 
 Pair pair_9 = Pair(
     sid: 'A0-a',
@@ -90,7 +86,6 @@ Pair pair_9 = Pair(
     ac_id: 'ac_27',
     index: 1,
     currentActionId: 'U4-a',
-
     nextActionId: 'result');
 //x
 
@@ -151,7 +146,6 @@ Pair pair_16 = Pair(
     currentActionId: 'U4-f',
     nextActionId: 'A3-h');
 
-
 //A3-h
 Pair pair_17 = Pair(
     sid: 'A0-h',
@@ -167,7 +161,6 @@ Pair pair_18 = Pair(
     index: 2,
     currentActionId: 'U4-h',
     nextActionId: 'A4-b');
-
 
 //A4-a
 Pair pair_19 = Pair(
@@ -265,7 +258,7 @@ Pair pair_105 = Pair(
     index: 1,
     currentActionId: 'U1-b',
     // TODO: 나중에 수정
-    nextActionId: 'A1-s');
+    nextActionId: 'A1-a');
 
 // 플레이 스토어 이동
 Pair pair_106 = Pair(
@@ -276,10 +269,18 @@ Pair pair_106 = Pair(
     currentActionId: 'U1-f',
     nextActionId: 'A2-b');
 
-// 열기 버튼
+// 백신앱 설치 후 열기 버튼
 Pair pair_107 = Pair(
     sid: 'A0-a',
     pid: 'p_107',
+    ac_id: 'ac_113',
+    index: 0,
+    currentActionId: 'A2-b',
+    nextActionId: 'A2-e');
+
+Pair pair_116 = Pair(
+    sid: 'A0-c',
+    pid: 'p_116',
     ac_id: 'ac_113',
     index: 0,
     currentActionId: 'A2-b',
@@ -289,7 +290,7 @@ Pair pair_107 = Pair(
 Pair pair_108 = Pair(
     sid: 'A0-c',
     pid: 'p_107',
-    ac_id: 'ac_113',
+    ac_id: 'ac_122',
     index: 0,
     currentActionId: 'A2-b',
     nextActionId: 'A2-f');
@@ -336,13 +337,51 @@ Pair pair_113 = Pair(
     currentActionId: 'U4-b',
     nextActionId: 'result');
 
+Pair pair_114 = Pair(
+    sid: 'A0-c',
+    pid: 'p_114',
+    ac_id: 'ac_101',
+    index: 0,
+    currentActionId: 'U2-a',
+    nextActionId: 'A2-a');
+
+Pair pair_115 = Pair(
+    sid: 'A0-c',
+    pid: 'p_115',
+    ac_id: 'ac_105',
+    index: 0,
+    currentActionId: 'U2-b',
+    nextActionId: 'A2-b');
+
+Pair pair_117 = Pair(
+    sid: 'A0-c',
+    pid: 'p_117',
+    ac_id: 'ac_103',
+    index: 0,
+    currentActionId: 'U3-b',
+    nextActionId: 'result');
+
+Pair pair_118 = Pair(
+    sid: 'A0-c',
+    pid: 'p_118',
+    ac_id: 'ac_104',
+    index: 0,
+    currentActionId: 'U3-c',
+    nextActionId: 'result');
+
 // temp data
 List<Pair> pairList = [
   pair_1,
   pair_2,
-  
-  pair_3, pair_4, pair_5, pair_6, pair_7, pair_8, pair_9, pair_10,
-   pair_11,
+  pair_3,
+  pair_4,
+  pair_5,
+  pair_6,
+  pair_7,
+  pair_8,
+  pair_9,
+  pair_10,
+  pair_11,
   pair_12,
   pair_13,
   pair_14,
@@ -356,7 +395,6 @@ List<Pair> pairList = [
   pair_22,
   pair_23,
   pair_24,
-  
   pair_100,
   pair_101,
   pair_102,
@@ -371,5 +409,8 @@ List<Pair> pairList = [
   pair_111,
   pair_112,
   pair_113,
+  pair_114,
+  pair_115,
+  pair_116,
+  pair_117, pair_118
 ];
-

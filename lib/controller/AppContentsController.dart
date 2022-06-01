@@ -147,4 +147,20 @@ class AppContentsController extends GetxController {
       print('[ERROR - getContentsOrderWithType] Cannot find contents\' order!');
     }
   }
+
+
+  /// temp
+  getContentsWithSidNType(String sid, String c_type) {
+    bool found = false;
+    for (int i = 0; i < maliciousAppList.length; i++) {
+      if (maliciousAppList[i].sid == sid &&
+          maliciousAppList[i].c_type.contains(c_type)) {
+        found = true;
+        return maliciousAppList[i].contents;
+      }
+    }
+    if (!found) {
+      print('[ERROR - getContentsOrderWithType] Cannot find contents\' order!');
+    }
+  }
 }

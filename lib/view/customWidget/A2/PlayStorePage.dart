@@ -81,6 +81,11 @@ class _PlayStorePageState extends State<PlayStorePage>
     Color adBackgroundColor = Colors.blue;
     String downloadAppId = widget.downloadAppId;
 
+    String nextAppContents =
+        (widget.downloadAppId == 'ac_7') ? 'ac_113' : 'ac_122';
+
+    print('nextAppContents: $nextAppContents');
+
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -436,17 +441,19 @@ class _PlayStorePageState extends State<PlayStorePage>
                                   child: TextButton(
                                     child: Text(
                                         AppContentsController()
-                                            .getContents('ac_113'),
+                                            .getContents(nextAppContents),
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 15.sp)),
                                     onPressed: () {
+                                      print(nextAppContents);
+                                      print('${PairController().getNextActionWidget(widget.sid, nextAppContents)}');
                                       print(
-                                          'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, 'ac_113'))}');
+                                          'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, nextAppContents))}');
 
                                       Get.to(ClassBuilder.fromString(
                                           PairController().getNextActionWidget(
-                                              widget.sid, 'ac_113')));
+                                              widget.sid, nextAppContents)));
                                     },
                                   ))
                             ],
@@ -605,9 +612,9 @@ class _PlayStorePageState extends State<PlayStorePage>
                                               height: 90.h,
                                               width: 100.h,
                                               decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          25.sp),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        25.sp),
                                                 boxShadow: [
                                                   BoxShadow(
                                                     color: Colors.grey
