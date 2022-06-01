@@ -1,8 +1,7 @@
 // ignore_for_file: file_names
 
 class ResultCatType {
-  String catID;
-
+  String cat_id;
   // String under50Type; // 0~50점
   // String over50Type; //  51~100점
   String catName;
@@ -11,13 +10,13 @@ class ResultCatType {
   String catImage;
   String titleDescription;
   double titleDescriptionSize;
-  List<String> descriptionList;
+  List<String> catDescriptionList;
   String exampleScenario;
   String worstPartnerID;
   String bestPartnerID;
 
   ResultCatType(
-      {required this.catID,
+      {required this.cat_id,
 
       required this.catName,
         required this.catDescription,
@@ -25,7 +24,7 @@ class ResultCatType {
       required this.catImage,
       required this.titleDescription,
       required this.titleDescriptionSize,
-      required this.descriptionList,
+      required this.catDescriptionList,
         required this.exampleScenario,
       required this.worstPartnerID,
       required this.bestPartnerID});

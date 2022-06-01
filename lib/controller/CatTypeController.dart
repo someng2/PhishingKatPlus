@@ -33,7 +33,7 @@ class CatTypeController extends GetxController {
   }
   getCatDescriptionType(String catID) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].catDescription;
       }
     }
@@ -41,7 +41,7 @@ class CatTypeController extends GetxController {
 
   getCatName(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].catName;
       }
     }
@@ -49,7 +49,7 @@ class CatTypeController extends GetxController {
 
   getCatImage(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].catImage;
       }
     }
@@ -57,7 +57,7 @@ class CatTypeController extends GetxController {
 
   getTitleDescription(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].titleDescription;
       }
     }
@@ -65,7 +65,7 @@ class CatTypeController extends GetxController {
 
   getTitleDescriptionSize(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].titleDescriptionSize;
       }
     }
@@ -73,15 +73,15 @@ class CatTypeController extends GetxController {
 
   getDescriptionList(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
-        return resultCatList[i].descriptionList;
+      if (resultCatList[i].cat_id == catID) {
+        return resultCatList[i].catDescriptionList;
       }
     }
   }
 
   checkPartnerExist(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return (resultCatList[i].bestPartnerID != '');
       }
     }
@@ -89,7 +89,7 @@ class CatTypeController extends GetxController {
 
   getExampleScenario(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].exampleScenario;
       }
     }
@@ -97,7 +97,7 @@ class CatTypeController extends GetxController {
 
   getBestPartnerID(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].bestPartnerID;
       }
     }
@@ -105,7 +105,7 @@ class CatTypeController extends GetxController {
 
   getWorstPartnerID(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].worstPartnerID;
       }
     }
@@ -113,7 +113,7 @@ class CatTypeController extends GetxController {
 
   getCatExtraDescription(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
-      if (resultCatList[i].catID == catID) {
+      if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].catExtraDescription;
       }
     }
