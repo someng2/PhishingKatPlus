@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:voskat/controller/AppContentsController.dart';
+import 'package:voskat/controller/MessageController.dart';
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/controller/UserActionController.dart';
@@ -16,6 +17,7 @@ import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/tempData/userActionData.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
+import 'package:voskat/view/customWidget/messageTemplate.dart';
 import 'ReportPage.dart';
 
 class MessagePage extends StatefulWidget {
@@ -40,6 +42,8 @@ class _MessagePageState extends State<MessagePage> {
   @override
   Widget build(BuildContext context) {
     Scenario scenario = ScenarioController().getScenario(widget.sid);
+    List<String> ac_id_list =
+    MessageController().getMessageIdList(widget.sid);
 
     return Scaffold(
         appBar: AppBar(
@@ -198,7 +202,7 @@ class _MessagePageState extends State<MessagePage> {
             ]),
           ),
           Container(
-            child: Text('2022년 3월 2일 수요일',
+            child: Text('2022년 6월 1일 수요일',
                 style: TextStyle(
                     fontSize: 13.sp, color: Colors.black.withOpacity(0.6))),
             padding: EdgeInsets.only(bottom: 10),
@@ -212,37 +216,38 @@ class _MessagePageState extends State<MessagePage> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    // width: 255.w,
-                    padding: EdgeInsets.all(10.sp),
-                    decoration: BoxDecoration(
-                        color: Color(0xffC4C4C4).withOpacity(0.28),
-                        borderRadius: BorderRadius.circular(10.sp)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(AppContentsController().getContents('ac_1'),
-                            style: TextStyle(fontSize: 14.sp)),
-                        Container(
-                          height: 20.h,
-                          child: TextButton(
-                              child: Text(
-                                AppContentsController().getContents('ac_2'),
-                                style: TextStyle(
-                                    color: Colors.indigo,
-                                    decoration: TextDecoration.underline,
-                                    fontSize: 14.sp),
-                              ),
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                  // backgroundColor: Colors.white,
-                                  padding: EdgeInsets.all(0))),
-                        ),
-                        Text(AppContentsController().getContents('ac_3'),
-                            style: TextStyle(fontSize: 14.sp)),
-                      ],
-                    ),
-                  ),
+                  MessageTemplate(scenario, ac_id_list),
+                  // Container(
+                  //   // width: 255.w,
+                  //   padding: EdgeInsets.all(10.sp),
+                  //   decoration: BoxDecoration(
+                  //       color: Color(0xffC4C4C4).withOpacity(0.28),
+                  //       borderRadius: BorderRadius.circular(10.sp)),
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Text(AppContentsController().getContents('ac_1'),
+                  //           style: TextStyle(fontSize: 14.sp)),
+                  //       Container(
+                  //         height: 20.h,
+                  //         child: TextButton(
+                  //             child: Text(
+                  //               AppContentsController().getContents('ac_2'),
+                  //               style: TextStyle(
+                  //                   color: Colors.indigo,
+                  //                   decoration: TextDecoration.underline,
+                  //                   fontSize: 14.sp),
+                  //             ),
+                  //             onPressed: () {},
+                  //             style: TextButton.styleFrom(
+                  //                 // backgroundColor: Colors.white,
+                  //                 padding: EdgeInsets.all(0))),
+                  //       ),
+                  //       Text(AppContentsController().getContents('ac_3'),
+                  //           style: TextStyle(fontSize: 14.sp)),
+                  //     ],
+                  //   ),
+                  // ),
                   Container(
                     // width: 50,
                     child: Text('오전 9:05',
