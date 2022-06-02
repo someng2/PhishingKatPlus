@@ -210,6 +210,73 @@ Pair pair_24 = Pair(
     currentActionId: 'U3-j',
     nextActionId: 'result');
 
+
+//택배사칭 수신차단
+Pair pair_25 = Pair(
+    sid: 'A0-c',
+    pid: 'p_25',
+    ac_id: 'ac_4',
+    index: 2,
+    currentActionId: 'U1-c',
+    nextActionId: 'A1-b');
+
+//수신차단 확인
+
+Pair pair_26 = Pair(
+    sid: 'A0-c',
+    pid: 'p_26',
+    ac_id: 'ac_8',
+    index: 2,
+    currentActionId: 'U2-c',
+    nextActionId: 'A2-c');
+
+//수신차단 취소하기
+Pair pair_27 = Pair(
+    sid: 'A0-c',
+    pid: 'p_27',
+    ac_id: 'ac_26',
+    index: 2,
+    currentActionId: 'U2-d',
+    nextActionId: 'A2-d');
+
+//인터넷 진흥원 신고하기
+Pair pair_28 = Pair(
+    sid: 'A0-c',
+    pid: 'p_28',
+    ac_id: 'ac_13',
+    index: 3,
+    currentActionId: 'U3-d',
+    nextActionId: 'A3-b');
+
+//인터넷 진흥원 신고 취소하기
+Pair pair_29 = Pair(
+    sid: 'A0-c',
+    pid: 'p_29',
+    ac_id: 'ac_11',
+    index: 3,
+    currentActionId: 'U3-e',
+    nextActionId: 'A3-c');
+
+// 수신 차단 취소 - 신고 확인
+Pair pair_30 = Pair(
+    sid: 'A0-c',
+    pid: 'p_30',
+    ac_id: 'ac_18',
+    index: 3,
+    currentActionId: 'U3-d',
+    nextActionId: 'A3-b');
+
+// 수신차단 취소 - 신고 취소
+Pair pair_31 = Pair(
+    sid: 'A0-c',
+    pid: 'p_31',
+    ac_id: 'ac_17',
+    index: 3,
+    currentActionId: 'U3-e',
+    nextActionId: 'A3-c');
+
+
+
 Pair pair_100 = Pair(
     sid: 'A0-a',
     pid: 'p_100',
@@ -395,6 +462,13 @@ List<Pair> pairList = [
   pair_22,
   pair_23,
   pair_24,
+  pair_25,
+  pair_26,
+  pair_27,
+  pair_28,
+  pair_29,
+  pair_30,
+  pair_31,
   pair_100,
   pair_101,
   pair_102,

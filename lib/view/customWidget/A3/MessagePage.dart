@@ -27,6 +27,7 @@ class MessagePage extends StatefulWidget {
 }
 
 class _MessagePageState extends State<MessagePage> {
+
   @override
   void initState() {
     super.initState();
@@ -39,7 +40,6 @@ class _MessagePageState extends State<MessagePage> {
   @override
   Widget build(BuildContext context) {
     Scenario scenario = ScenarioController().getScenario(widget.sid);
-    double dialog_height = 187;
 
     return Scaffold(
         appBar: AppBar(
@@ -49,7 +49,7 @@ class _MessagePageState extends State<MessagePage> {
               color: Colors.black,
             ),
             onPressed: () {
-              Get.back();
+              // Get.back();
             },
             style: TextButton.styleFrom(
               minimumSize: Size.zero,
