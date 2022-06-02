@@ -169,13 +169,13 @@ class _LogisticAppPage_2State extends State<LogisticAppPage_2> {
   Widget LogisticDialog() {
     return SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.only(top: 681 - 100),
+            padding: EdgeInsets.only(top: 681.h - 100.h),
             child: Dialog(
               child: Container(
                   width: 130.w,
                   height: 110.h,
                   padding: EdgeInsets.only(
-                      top: 10.h, bottom: 10.h, left: 15.w, right: 15.w),
+                      top: 10.h, bottom: 4.h, left: 15.w, right: 15.w),
                   child: Column(
                     children: [
                       Container(child: Text('문자 내용과 달리 배송지가 잘 등록되어 있네요!')),

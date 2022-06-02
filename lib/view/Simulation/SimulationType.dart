@@ -80,62 +80,66 @@ class _SimulationTypeState extends State<SimulationType> {
           centerTitle: true,
           elevation: 0.0,
           backgroundColor: const Color(0xffeaf5ff)),
-      body: Column(
-        children: [
-          SizedBox(height: 29.5.h),
-          Container(
-            child: Column(children: [
-              Row(
-                children: <Widget>[
-                  SizedBox(width: 20.w),
-                  sType(_scenarioTypeController.getScenarioType('대출')),
-                  SizedBox(width: 35.w),
-                  sType(_scenarioTypeController.getScenarioType('게임')),
-                  SizedBox(width: 35.w),
-                  sType(_scenarioTypeController.getScenarioType('택배')),
-                  SizedBox(width: 18.w)
-                ],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [Column(
+            children: [
+              SizedBox(height: 29.5.h),
+              Container(
+                child: Column(children: [
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 20.w),
+                      sType(_scenarioTypeController.getScenarioType('대출')),
+                      SizedBox(width: 35.w),
+                      sType(_scenarioTypeController.getScenarioType('게임')),
+                      SizedBox(width: 35.w),
+                      sType(_scenarioTypeController.getScenarioType('택배')),
+                      SizedBox(width: 18.w)
+                    ],
+                  ),
+                  SizedBox(height: 30.h),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 20.w),
+                      sType(_scenarioTypeController.getScenarioType('가족')),
+                      SizedBox(width: 35.w),
+                      sType(_scenarioTypeController.getScenarioType('아르바이트')),
+                      SizedBox(width: 35.w),
+                      sType(_scenarioTypeController.getScenarioType('취업')),
+                      SizedBox(width: 18.w)
+                    ],
+                  ),
+                  SizedBox(height: 30.h),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 20.w),
+                      sType(_scenarioTypeController.getScenarioType('중고거래')),
+                      SizedBox(width: 35.w),
+                      sType(_scenarioTypeController.getScenarioType('이성교제')),
+                      SizedBox(width: 35.w),
+                      sType(_scenarioTypeController.getScenarioType('지원금')),
+                      SizedBox(width: 18.w)
+                    ],
+                  ),
+                  SizedBox(height: 30.h),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(width: 20.w),
+                      sType(_scenarioTypeController.getScenarioType('주식')),
+                      SizedBox(width: 35.w),
+                      sType(_scenarioTypeController.getScenarioType('쇼핑')),
+                      SizedBox(width: 35.w),
+                      sType(_scenarioTypeController.getScenarioType('보험')),
+                      SizedBox(width: 18.w)
+                    ],
+                  ),
+                ]),
               ),
-              SizedBox(height: 30.h),
-              Row(
-                children: <Widget>[
-                  SizedBox(width: 20.w),
-                  sType(_scenarioTypeController.getScenarioType('가족')),
-                  SizedBox(width: 35.w),
-                  sType(_scenarioTypeController.getScenarioType('아르바이트')),
-                  SizedBox(width: 35.w),
-                  sType(_scenarioTypeController.getScenarioType('취업')),
-                  SizedBox(width: 18.w)
-                ],
-              ),
-              SizedBox(height: 30.h),
-              Row(
-                children: <Widget>[
-                  SizedBox(width: 20.w),
-                  sType(_scenarioTypeController.getScenarioType('중고거래')),
-                  SizedBox(width: 35.w),
-                  sType(_scenarioTypeController.getScenarioType('이성교제')),
-                  SizedBox(width: 35.w),
-                  sType(_scenarioTypeController.getScenarioType('지원금')),
-                  SizedBox(width: 18.w)
-                ],
-              ),
-              SizedBox(height: 30.h),
-              Row(
-                children: <Widget>[
-                  SizedBox(width: 20.w),
-                  sType(_scenarioTypeController.getScenarioType('주식')),
-                  SizedBox(width: 35.w),
-                  sType(_scenarioTypeController.getScenarioType('쇼핑')),
-                  SizedBox(width: 35.w),
-                  sType(_scenarioTypeController.getScenarioType('보험')),
-                  SizedBox(width: 18.w)
-                ],
-              ),
-            ]),
-          ),
-          SizedBox(height: 29.5.h),
-        ],
+              SizedBox(height: 29.5.h),
+            ],
+          )],
+        ),
       ),
     );
   }
