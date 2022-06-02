@@ -35,8 +35,8 @@ class _MessagePageState extends State<MessagePage> {
     super.initState();
 
     ClassBuilder.register<SimulationResultPage>(() => SimulationResultPage(
-          sid: widget.sid,
-        ));
+      sid: widget.sid,
+    ));
   }
 
   @override
@@ -97,7 +97,7 @@ class _MessagePageState extends State<MessagePage> {
                   print(scenario.userActionSequence);
                   scenario.userActionSequence.add(UserActionController()
                       .getUserAction(
-                          PairController().getCurrentActionId('ac_27')));
+                      PairController().getCurrentActionId('ac_27')));
 
                   Get.showSnackbar(
                     GetSnackBar(
@@ -128,7 +128,7 @@ class _MessagePageState extends State<MessagePage> {
                     // U4-b
                     scenario.userActionSequence.add(UserActionController()
                         .getUserAction(
-                            PairController().getCurrentActionId('ac_28')));
+                        PairController().getCurrentActionId('ac_28')));
 
                     Get.to(ClassBuilder.fromString(PairController()
                         .getNextActionWidget(widget.sid, 'ac_28')));
@@ -160,7 +160,7 @@ class _MessagePageState extends State<MessagePage> {
                           EdgeInsets.all(0)),
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       overlayColor: MaterialStateColor.resolveWith(
-                          (states) => Color(0xff0473e1)),
+                              (states) => Color(0xff0473e1)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(13.sp),
@@ -187,7 +187,7 @@ class _MessagePageState extends State<MessagePage> {
                           EdgeInsets.all(0)),
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       overlayColor: MaterialStateColor.resolveWith(
-                          (states) => Color(0xff0473e1)),
+                              (states) => Color(0xff0473e1)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(13.sp),
