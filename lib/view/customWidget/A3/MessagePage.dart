@@ -216,7 +216,7 @@ class _MessagePageState extends State<MessagePage> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  MessageTemplate(scenario, ac_id_list),
+                  MessageTemplate(scenario, ac_id_list, false),
                   // Container(
                   //   // width: 255.w,
                   //   padding: EdgeInsets.all(10.sp),

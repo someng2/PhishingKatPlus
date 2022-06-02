@@ -218,7 +218,7 @@ class _MaliciousAppPage_1State extends State<MaliciousAppPage_1> {
                 }
               },
             )),
-        SizedBox(height: 180.h),
+        SizedBox(height: 17.h),
         _showAd
             ? vaccineAppAd(widget.sid, widget.maliciousAppName,
                 widget.maliciousAppIcon, 'ac_7')

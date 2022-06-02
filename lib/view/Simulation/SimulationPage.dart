@@ -307,7 +307,7 @@ class _SimulationPageState extends State<SimulationPage> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      MessageTemplate(scenario, ac_id_list),
+                      MessageTemplate(scenario, ac_id_list, true),
                       // Container(
                       //   // width: 255.w,
                       //   padding: EdgeInsets.all(10.sp),
