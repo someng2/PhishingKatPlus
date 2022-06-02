@@ -9,7 +9,6 @@ import 'package:voskat/controller/UserActionController.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/model/user/user.dart';
 import 'package:voskat/tempData/appContentsData.dart';
-import 'package:voskat/tempData/maliciousAppData.dart';
 import 'package:voskat/tempData/scenarioData.dart';
 import 'package:voskat/tempData/type&ageData.dart';
 import 'package:voskat/tempData/userActionData.dart';

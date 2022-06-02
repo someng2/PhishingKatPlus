@@ -118,10 +118,12 @@ Widget Select(BuildContext context, Scenario scenario, String ac_id) {
           ),
           onPressed: () {
             print('ac_id => $ac_id');
-            // print(scenario.userActionSequence);
+            print('nextaction => ${PairController().getNextActionId(ac_id)}');
 
             scenario.userActionSequence.add(UserActionController()
                 .getUserAction(PairController().getCurrentActionId(ac_id)));
+
+            print('useraction => ${PairController().getCurrentActionId(ac_id)}');
 
             print(
                 'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(scenario.sid, ac_id))}');
