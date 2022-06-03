@@ -151,7 +151,11 @@ class _AcquaintanceImpersonationPageState
                                         child: Image.asset(
                                             'image/messageProfile.png',
                                             width: 45.w)),
-                                    SizedBox(width: 5.w),
+                                    SizedBox(width: 5.w,
+                                        child: const DecoratedBox(
+                                        decoration: const BoxDecoration(
+                                        color: Color(0xffffffff)),)
+                                    ),
                                     Row(
                                       crossAxisAlignment: CrossAxisAlignment.end,
                                       children: [

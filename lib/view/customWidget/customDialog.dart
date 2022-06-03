@@ -12,7 +12,7 @@ import 'package:voskat/view/customWidget/customDialogTemplate.dart';
 import 'A3/MessagePage.dart';
 import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/view/customWidget/customDialogTemplate.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class CustomDialog extends StatefulWidget {
@@ -71,7 +71,7 @@ class _CustomDialogState extends State<CustomDialog> {
 
     return SingleChildScrollView(
         child: Padding(
-            padding: EdgeInsets.only(top: 681 - widget.height),
+            padding: EdgeInsets.only(top: 670.h - widget.height),
             child: Dialog(
                 // insetPadding: EdgeInsets.only(bottom: 300.h,),
                 shape: RoundedRectangleBorder(
