@@ -59,6 +59,7 @@ class _HomePageState extends State<HomePage> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(46.5.h),
           child: AppBar(
+            automaticallyImplyLeading: false,
             titleSpacing: 0,
             title: Container(
               child: Row(
@@ -638,8 +639,12 @@ class _HomePageState extends State<HomePage> {
                                                   fontSize: 15.sp),
                                             ),
                                             onPressed: () {
-                                              // Get.to(SimulationPage(
-                                              //     user: userList.last));
+                                              Get.to(ClassBuilder.fromString(AppPageController()
+                                                  .getWidget(
+                                                  CustomSimulController(user: userList.last)
+                                                      .getCustomSimulation_withScenarioType(
+                                                      userList.last)
+                                                      .aid)));
                                             },
                                             style: TextButton.styleFrom(
                                               minimumSize: Size.zero,

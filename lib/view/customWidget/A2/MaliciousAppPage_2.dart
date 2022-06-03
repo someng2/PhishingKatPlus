@@ -94,6 +94,7 @@ class _MaliciousAppPage_2State extends State<MaliciousAppPage_2> {
                 //
                 // Get.to(SimulationResultPage(sid: widget.sid));
 
+                print('PairController().getNextActionWidget(widget.sid, ac_106)) => ${PairController().getNextActionWidget(widget.sid, 'ac_106')}');
                 print(
                     'ClassBuilder.fromString => ${ClassBuilder.fromString(PairController().getNextActionWidget(widget.sid, 'ac_106'))}');
 
