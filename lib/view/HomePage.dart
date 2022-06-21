@@ -7,6 +7,7 @@ import 'package:voskat/controller/AppPageController.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/tempData/userData.dart';
+import 'package:voskat/view/SignUp/AuthorityRequestPage.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
@@ -355,6 +356,9 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  TextButton(
+                    child: Text('회원가입 페이지'), onPressed: () {Get.to(AuthorityRequestPage());},
+                  ),
                   // Container(
                   //   padding: EdgeInsets.zero,
                   //     width: 359.5,
