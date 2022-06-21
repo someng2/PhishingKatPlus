@@ -2,12 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/SignUp/PhoneVerificationPage.dart';
+import 'package:permission_handler/permission_handler.dart';
 
-class AuthorityRequestPage extends StatelessWidget {
+class AuthorityRequestPage extends StatefulWidget {
   const AuthorityRequestPage({Key? key}) : super(key: key);
 
   @override
+  State<AuthorityRequestPage> createState() => _AuthorityRequestPageState();
+}
+
+class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
+
+  @override
+  void initState() {
+    print('oops');
+    super.initState();
+    getPermission();
+
+  }
+
+  @override
   Widget build(BuildContext context) {
+    permission();
     return Scaffold(
       body: Column(
         children: [
@@ -128,5 +144,33 @@ class AuthorityRequestPage extends StatelessWidget {
 
       ),
     );
+  }
+
+  void permission() async {
+
+    // Map<Permission, PermissionStatus> statuses = await [
+    //   Permission.contacts,
+    //   Permission.location,
+    // ].request();
+    // print('statueses :${statuses[Permission.contacts]}');
+    print('oops');
+    if (await Permission.camera.isRestricted) {
+      // The OS restricts access, for example because of parental controls.
+      print('currently isRestricted..');
+    }
+    if (await Permission.camera.request().isGranted) {
+      // Either the permission was already granted before or the user just granted it.
+      print('granted!');
+    }
+  }
+
+  getPermission() async{
+    var status = await Permission.contacts.status;
+    if(status.isGranted){
+      print('허락됨');
+    } else if (status.isDenied){
+      print('거절됨');
+      Permission.contacts.request(); // 허락해달라고 팝업띄우는 코드
+    }
   }
 }
