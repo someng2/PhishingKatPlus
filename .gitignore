@@ -48,3 +48,8 @@ app.*.map.json
 /android/build.gradle
 /android/app/src/main/AndroidManifest.xml
 /android/gradle/wrapper/gradle-wrapper.properties
+
+# DB related
+lib/data/
+lib/domain/
+lib/presentation/

@@ -15,7 +15,6 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
 
   @override
   void initState() {
-    print('oops');
     super.initState();
     getPermission();
 
@@ -23,7 +22,6 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
 
   @override
   Widget build(BuildContext context) {
-    permission();
     return Scaffold(
       body: Column(
         children: [
@@ -146,23 +144,6 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
     );
   }
 
-  void permission() async {
-
-    // Map<Permission, PermissionStatus> statuses = await [
-    //   Permission.contacts,
-    //   Permission.location,
-    // ].request();
-    // print('statueses :${statuses[Permission.contacts]}');
-    print('oops');
-    if (await Permission.camera.isRestricted) {
-      // The OS restricts access, for example because of parental controls.
-      print('currently isRestricted..');
-    }
-    if (await Permission.camera.request().isGranted) {
-      // Either the permission was already granted before or the user just granted it.
-      print('granted!');
-    }
-  }
 
   getPermission() async{
     var status = await Permission.contacts.status;
@@ -172,5 +153,7 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
       print('거절됨');
       Permission.contacts.request(); // 허락해달라고 팝업띄우는 코드
     }
+
+
   }
 }
