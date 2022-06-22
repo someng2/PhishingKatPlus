@@ -53,3 +53,4 @@ app.*.map.json
 lib/data/
 lib/domain/
 lib/presentation/
+lib/view/DBTest.dart
