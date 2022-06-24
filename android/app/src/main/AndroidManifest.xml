@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.voskat">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="voskat"
         android:icon="@mipmap/ic_launcher">
