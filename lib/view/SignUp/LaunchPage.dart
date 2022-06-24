@@ -89,10 +89,8 @@ class LaunchPage extends StatelessWidget {
                         Container(
                             width: 60.w,
                             height: 1,
-                            decoration: BoxDecoration(
-                                color: const Color(0xffcce3f9)
-                            )
-                        )
+                            decoration:
+                                BoxDecoration(color: const Color(0xffcce3f9)))
                       ],
                     ),
                     onPressed: () {
@@ -115,7 +113,6 @@ class LaunchPage extends StatelessWidget {
                 ],
               ),
             ),
-
           ]),
         ));
   }
