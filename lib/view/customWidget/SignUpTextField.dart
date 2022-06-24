@@ -10,6 +10,7 @@ Widget SignUpTextField(double _width, double _height,
       child: TextField(
         controller: _textController,
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(10.sp),
           border: InputBorder.none,
           hintText: _hintText,
           hintStyle: TextStyle(

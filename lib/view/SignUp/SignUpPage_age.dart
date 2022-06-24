@@ -6,9 +6,11 @@ import 'package:voskat/model/simulation/type&age.dart';
 import 'package:voskat/model/user/user.dart';
 import 'package:voskat/tempData/type&ageData.dart';
 import 'package:voskat/tempData/userData.dart';
+import 'package:voskat/view/SignUp/SignUpCompletePage.dart';
 import 'package:voskat/view/customWidget/SignUpTextField.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/HomePage.dart';
+import 'package:voskat/view/customWidget/customProgressDot.dart';
 
 class SignUpPage_age extends StatefulWidget {
   const SignUpPage_age({Key? key}) : super(key: key);
@@ -23,36 +25,42 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
   TextEditingController nickNameController = TextEditingController();
   DateTime birthYear = DateTime.now();
   bool _yearSelected = false;
+  List<String> interestList = [
+    '보험',
+    '게임',
+    '택배',
+    '주식',
+    '지원금',
+    '취업',
+    '중고거래',
+    '이성교제',
+    '대출',
+    '알바',
+    '가족',
+    '쇼핑'
+  ];
+
+  List<bool> interestSelected = List.filled(12, false);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         // alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(children: [
+            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              SizedBox(height: 51.h),
+              CustomProgressDot(false),
               Container(
                 alignment: Alignment.centerLeft,
                 padding: EdgeInsets.only(left: 32.6.w, right: 37.4.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // TODO: 여기서부터
-                    SizedBox(height: 70.h),
-                    Text(
-                      '환영합니다!',
-                      style: TextStyle(
-                          color: const Color(0xff010101),
-                          fontWeight: FontWeight.w700,
-                          fontFamily: "NotoSansCJKKR",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 21.sp),
-                    ),
-                    // TODO: 여기까지 지워
-                    // SizedBox(height: 86.8.h),
-                    SizedBox(height: 15.h),
+                    SizedBox(height: 27.8.h),
                     Text(
                       "보다 정확한 스미싱 훈련 서비스를\n위해 정보를 입력해주세요",
                       style: TextStyle(
@@ -279,6 +287,92 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                     SignUpTextField(
                         310.w, 52.h, nickNameController, '별명 (최대 6자)'),
                   ])),
+              SizedBox(height: 48.h),
+              Container(
+                padding: EdgeInsets.only(
+                  left: 24.w,
+                  right: 24.w,
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      textBaseline: TextBaseline.alphabetic,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      children: [
+                        Text("관심사",
+                            style: TextStyle(
+                                color: const Color(0xff000000),
+                                fontWeight: FontWeight.w700,
+                                fontFamily: "NotoSansCJKKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 16.sp),
+                            textAlign: TextAlign.left),
+                        SizedBox(width: 8.w),
+                        Text("중복선택 가능",
+                            style: TextStyle(
+                                color: const Color(0xffb1aeae),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "NotoSansCJKKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 12.5.sp),
+                            textAlign: TextAlign.left)
+                      ],
+                    ),
+                    SizedBox(height: 13.h),
+                    Container(
+                        height: 250.h,
+                        child: GridView.builder(
+                            itemCount: interestList.length,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 4, //1 개의 행에 보여줄 item 개수
+                              childAspectRatio: 2.3, //item 의 가로 1, 세로 2 의 비율
+                              mainAxisSpacing: 12.w, //수평 Padding
+                              crossAxisSpacing: 6.h, //수직 Padding
+                            ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return TextButton(
+                                child: Container(
+                                  width: 69.w,
+                                  height: 30.h,
+                                  // padding: EdgeInsets.only(top: 5.h,),
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(15.sp)),
+                                      color: interestSelected[index]
+                                          ? Color(0xff0473e1)
+                                          : Color(0x4ae7e7e7)),
+
+                                  child: Text(
+                                    interestList[index],
+                                    style: TextStyle(
+                                        color: interestSelected[index]
+                                            ? Color(0xffffffff)
+                                            : Color(0xff000000),
+                                        fontWeight: FontWeight.w400,
+                                        fontFamily: "NotoSansCJKKR",
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 12.5.sp),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    interestSelected[index] =
+                                        !interestSelected[index];
+                                  });
+                                },
+                                style: TextButton.styleFrom(
+                                  minimumSize: Size.zero,
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                              );
+                            }))
+                  ],
+                ),
+              )
             ]),
             Container(
                 width: 360.w,
@@ -311,14 +405,33 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                         duration: Duration(seconds: 2),
                         snackPosition: SnackPosition.BOTTOM,
                       ));
+                    } else if (nickNameController.text.length > 6) {
+                      Get.showSnackbar(GetSnackBar(
+                        message: '6자 이내의 별명을 입력해 주세요.',
+                        duration: Duration(seconds: 2),
+                        snackPosition: SnackPosition.BOTTOM,
+                      ));
                     } else {
                       print('getAgeGroup => ${getAgeGroup(age).ageGroup}');
-                      userList.add(User(
-                          uid: 100,
-                          name: nickNameController.text,
-                          age: age,
-                          typeNage: getAgeGroup(age)));
-                      Get.to(HomePage());
+                      print('nickname: ${nickNameController.text}');
+                      if(_femaleSelected) {
+                        print('성별: 여');
+                      } else {
+                        print('성별: 남');
+                      }
+                      List<String> selectedInterestList= getInterestList(interestSelected);
+                      for(int i = 0; i < selectedInterestList.length; i++) {
+                        print('$i: ${selectedInterestList[i]}');
+                      }
+
+                      // TODO: user DB 에 저장
+
+                      // userList.add(User(
+                      //     uid: 100,
+                      //     name: nickNameController.text,
+                      //     age: age,
+                      //     typeNage: getAgeGroup(age)));
+                      Get.to(SignUpCompletePage());
                     }
                   },
                 ))
@@ -326,6 +439,17 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
         ),
       ),
     );
+  }
+
+  List<String> getInterestList(List<bool> interestSelected) {
+    List<String> selectedInterestList = [];
+    for(int i = 0; i < interestSelected.length; i++) {
+      if(interestSelected[i]) {
+        selectedInterestList.add(interestList[i]);
+      }
+    }
+
+    return selectedInterestList ;
   }
 
   TypeNAge getAgeGroup(int age) {

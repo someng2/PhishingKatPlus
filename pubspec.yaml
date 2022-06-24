@@ -182,6 +182,15 @@ flutter:
     - image/CatType/Siamese.png
     - image/CatType/Siamese_ex.png
 
+    - image/signUpFeedback1.png
+    - image/signUpFeedback2.png
+    - image/signUpComplete.png
+    - image/back_button.png
+    - image/myPageBackground.png
+    - image/profileSettingIcon.png
+    - image/defaultProfileImage.png
+    - image/thumbsUpIcon.png
+    - image/badMoodIcon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -218,6 +227,26 @@ flutter:
     - family: NotoSansCJKKR
       fonts:
         - asset: font/NotoSansCJKkr-Regular.otf
+
+    - family: yspotlight
+      fonts:
+        - asset: font/Yspotlight.otf
+
+    - family: SegoeUI
+      fonts:
+        - asset: font/SegoeUI.ttf
+
+    - family: AppleSDGothicNeoSB00
+      fonts:
+        - asset: font/AppleSDGothicNeoSB.ttf
+
+    - family: AppleSDGothicNeoL00
+      fonts:
+        - asset: font/AppleSDGothicNeoL.ttf
+
+    - family: Helvetica-Narrow
+      fonts:
+        - asset: font/HelveticaNw.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

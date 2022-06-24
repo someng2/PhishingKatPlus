@@ -12,12 +12,10 @@ class AuthorityRequestPage extends StatefulWidget {
 }
 
 class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
-
   @override
   void initState() {
     super.initState();
     getPermission();
-
   }
 
   @override
@@ -112,7 +110,6 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
                       fontSize: 14.sp),
                 ),
                 SizedBox(height: 273.4.h),
-
               ],
             ),
           ),
@@ -130,30 +127,37 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
                       fontSize: 19.sp),
                   textAlign: TextAlign.center),
               onPressed: () {
-
                 // TODO: 권한 허용 절차
 
-
-                Get.to(PhoneVerificationPage());
+                Get.to(PhoneVerificationPage(firstLogin: true,));
               },
             ),
           )
         ],
-
       ),
     );
   }
 
-
-  getPermission() async{
+  getPermission() async {
     var status = await Permission.contacts.status;
-    if(status.isGranted){
+
+    if (status.isGranted) {
       print('허락됨');
-    } else if (status.isDenied){
+    } else if (status.isDenied) {
       print('거절됨');
-      Permission.contacts.request(); // 허락해달라고 팝업띄우는 코드
+     await Permission.contacts.request(); // 허락해달라고 팝업띄우는 코드
+      print('contact denied: ${await Permission.contacts.isDenied}');
+      if (await Permission.contacts.isDenied) {
+        bool isOpened = await openAppSettings();
+        print('setting open : $isOpened');
+      }
+      // print(request.isGranted);
+      // Map<Permission, PermissionStatus> statuses = await [
+      //   Permission.contacts,
+      //   Permission.phone,
+      // ].request();
+      //
+      // print(statuses[Permission.contacts]?.isGranted);
     }
-
-
   }
 }

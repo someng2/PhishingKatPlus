@@ -7,7 +7,9 @@ import 'package:voskat/controller/AppPageController.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/tempData/userData.dart';
+import 'package:voskat/view/MY/MyPage.dart';
 import 'package:voskat/view/SignUp/AuthorityRequestPage.dart';
+import 'package:voskat/view/SignUp/LaunchPage.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
@@ -68,9 +70,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     padding: EdgeInsets.only(
-                        // TODO: 주석처리 된걸로 돌아가
                         left: 118.w,
-                        // left: 80.w,
                         top: 11.5.h),
                     child: Text(
                       "PhishingKat",
@@ -85,12 +85,12 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     padding: EdgeInsets.only(bottom: 20.5.h),
                     child: Text('+',
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: const Color(0xff000000),
                             fontWeight: FontWeight.w400,
                             fontFamily: "SegoeUI",
                             fontStyle: FontStyle.normal,
-                            fontSize: 20.0),
+                            fontSize: 20.sp),
                         textAlign: TextAlign.left),
                   )
                 ],
@@ -113,22 +113,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              Container(
-                  padding: EdgeInsets.only(
-                    right: 12.w,
-                  ),
-                  child: TextButton(
-                    child: Icon(Icons.logout),
-                    onPressed: () {
-                      if (userList.length == 3) userList.removeAt(2);
-                      Get.to(SignUpPage_age());
-                    },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
-                      padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                  ))
             ],
             centerTitle: true,
             elevation: 0.0,
@@ -168,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                       child: TextButton(
                         child: Image.asset('image/myPageIcon.png'),
                         onPressed: () {
-                          print('공지사항');
+                          Get.to(MyPage());
                         },
                         style: TextButton.styleFrom(
                           minimumSize: Size.zero,
@@ -357,7 +341,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextButton(
-                    child: Text('회원가입 페이지'), onPressed: () {Get.to(AuthorityRequestPage());},
+                    child: Text('회원가입 페이지'), onPressed: () {Get.to(LaunchPage());},
                   ),
                   // Container(
                   //   padding: EdgeInsets.zero,
