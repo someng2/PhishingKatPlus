@@ -13,7 +13,6 @@ class SignUpCompletePage extends StatefulWidget {
 }
 
 class _SignUpCompletePageState extends State<SignUpCompletePage> {
-
   late Timer _timer;
   var time = 0;
 
@@ -25,7 +24,6 @@ class _SignUpCompletePageState extends State<SignUpCompletePage> {
   // }
   @override
   Widget build(BuildContext context) {
-
     // // 3초 후 홈화면으로 이동
     // _timer = Timer(Duration(seconds: 3), () {
     //   time ++;
