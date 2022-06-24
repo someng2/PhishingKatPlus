@@ -14,7 +14,6 @@ import 'package:voskat/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
 
 import 'package:fab_circular_menu/fab_circular_menu.dart';
-
 import 'package:voskat/view/SignUp/SignUpPage_age.dart';
 
 import 'Simulation/AcquaintanceImpersonationPage.dart';
