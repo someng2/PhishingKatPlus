@@ -96,7 +96,9 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                               height: 11.58544921875.h,
                               child: (phoneNumberLength == 7 ||
                                       phoneNumberLength == 8)
-                                  ? Image.asset('image/signUpFeedback1.png',)
+                                  ? Image.asset(
+                                      'image/signUpFeedback1.png',
+                                    )
                                   : Container())
                         ],
                       )),
