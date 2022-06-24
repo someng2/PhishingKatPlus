@@ -6,13 +6,14 @@ import 'package:get/get.dart';
 import 'package:voskat/controller/AppPageController.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/tempData/userData.dart';
-import 'package:voskat/tempData/userData.dart';
+import 'package:voskat/view/MY/MyPage.dart';
+import 'package:voskat/view/SignUp/AuthorityRequestPage.dart';
+import 'package:voskat/view/SignUp/LaunchPage.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
 
 import 'package:fab_circular_menu/fab_circular_menu.dart';
-
 import 'package:voskat/view/SignUp/SignUpPage_age.dart';
 
 import 'Simulation/AcquaintanceImpersonationPage.dart';
@@ -66,11 +67,7 @@ class _HomePageState extends State<HomePage> {
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(
-                        // TODO: 주석처리 된걸로 돌아가
-                        left: 118.w,
-                        // left: 80.w,
-                        top: 11.5.h),
+                    padding: EdgeInsets.only(left: 118.w, top: 11.5.h),
                     child: Text(
                       "PhishingKat",
                       style: TextStyle(
@@ -84,12 +81,12 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     padding: EdgeInsets.only(bottom: 20.5.h),
                     child: Text('+',
-                        style: const TextStyle(
+                        style: TextStyle(
                             color: const Color(0xff000000),
                             fontWeight: FontWeight.w400,
                             fontFamily: "SegoeUI",
                             fontStyle: FontStyle.normal,
-                            fontSize: 20.0),
+                            fontSize: 20.sp),
                         textAlign: TextAlign.left),
                   )
                 ],
@@ -112,22 +109,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              Container(
-                  padding: EdgeInsets.only(
-                    right: 12.w,
-                  ),
-                  child: TextButton(
-                    child: Icon(Icons.logout),
-                    onPressed: () {
-                      if (userList.length == 3) userList.removeAt(2);
-                      Get.to(SignUpPage_age());
-                    },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
-                      padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                  ))
             ],
             centerTitle: true,
             elevation: 0.0,
@@ -167,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                       child: TextButton(
                         child: Image.asset('image/myPageIcon.png'),
                         onPressed: () {
-                          print('공지사항');
+                          Get.to(MyPage());
                         },
                         style: TextButton.styleFrom(
                           minimumSize: Size.zero,
@@ -350,340 +331,351 @@ class _HomePageState extends State<HomePage> {
             ]),
         body: SingleChildScrollView(
           child: Stack(
-            children: [Container(
-              padding: EdgeInsets.only(left: 25.w, right: 24.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Container(
-                  //   padding: EdgeInsets.zero,
-                  //     width: 359.5,
-                  //     height: 2,
-                  //     decoration: BoxDecoration(
-                  //         color: const Color(0xffe7e7e7)
-                  //     ),),
-                  SizedBox(height: 29.5.h),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text("${userList.last.name}",
-                              style: TextStyle(
-                                  color: Color(0xff0473e1),
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Recipekorea',
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 20.sp),
-                              textAlign: TextAlign.left),
-                          Text("님!",
-                              style: TextStyle(
-                                  color: Color(0xff0473e1),
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Recipekorea',
-                                  fontStyle: FontStyle.normal,
-                                  fontSize: 20.sp),
-                              textAlign: TextAlign.left),
-                        ],
-                      ),
-                      Text("시작할 준비가 되었나요?",
-                          style: TextStyle(
-                              color: Color(0xff0473e1),
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Recipekorea',
-                              fontStyle: FontStyle.normal,
-                              fontSize: 20.sp),
-                          textAlign: TextAlign.left),
-                    ],
-                  ),
-                  SizedBox(height: 3.h),
-                  Text("모의훈련을 통해 최신 피싱에 대비하세요",
-                      style: TextStyle(
-                          color: const Color(0xffb1aeae),
-                          fontFamily: 'MalgunGothic',
-                          fontStyle: FontStyle.normal,
-                          fontSize: 12.sp),
-                      textAlign: TextAlign.left),
-                  SizedBox(height: 36.h),
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                    Text(
-                      "버튼을 움직여 유형을 선택해보세요!",
-                      style: TextStyle(
-                          color: const Color(0xffb1aeae),
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "MalgunGothic",
-                          fontStyle: FontStyle.normal,
-                          fontSize: 12.sp),
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 25.w, right: 24.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextButton(
+                      child: Text('회원가입 페이지'),
+                      onPressed: () {
+                        Get.to(LaunchPage());
+                      },
                     ),
-                    ToggleButtons(
-                      constraints: BoxConstraints(
-                          minHeight: 25.h,
-                          maxHeight: 25.h,
-                          minWidth: 51.w,
-                          maxWidth: 51.w),
+                    // Container(
+                    //   padding: EdgeInsets.zero,
+                    //     width: 359.5,
+                    //     height: 2,
+                    //     decoration: BoxDecoration(
+                    //         color: const Color(0xffe7e7e7)
+                    //     ),),
+                    SizedBox(height: 29.5.h),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "맞춤형",
-                          style: TextStyle(
-                              color:
-                                  isCustom ? Color(0xffffffff) : Color(0xffb1aeae),
-                              fontFamily: "MalgunGothic",
-                              fontStyle: FontStyle.normal,
-                              fontSize: 12.sp),
+                        Row(
+                          children: [
+                            Text("${userList.last.name}",
+                                style: TextStyle(
+                                    color: Color(0xff0473e1),
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Recipekorea',
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 20.sp),
+                                textAlign: TextAlign.left),
+                            Text("님!",
+                                style: TextStyle(
+                                    color: Color(0xff0473e1),
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Recipekorea',
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 20.sp),
+                                textAlign: TextAlign.left),
+                          ],
                         ),
-                        Text(
-                          "유형별",
-                          style: TextStyle(
-                              color: isType ? Color(0xffffffff) : Color(0xffb1aeae),
-                              fontWeight: FontWeight.w400,
-                              fontFamily: "MalgunGothic",
-                              fontStyle: FontStyle.normal,
-                              fontSize: 12.sp),
-                        ),
+                        Text("시작할 준비가 되었나요?",
+                            style: TextStyle(
+                                color: Color(0xff0473e1),
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Recipekorea',
+                                fontStyle: FontStyle.normal,
+                                fontSize: 20.sp),
+                            textAlign: TextAlign.left),
                       ],
-                      color: Color(0xffffffff),
-                      // selectedColor: Color(0xff0473e1),
-                      // selectedBorderColor: Color(0xff0473e1),
-                      fillColor: Color(0xff0473e1),
-                      splashColor: Color(0xff0473e1).withOpacity(0.12),
-                      hoverColor: Color(0xff0473e1).withOpacity(0.04),
-                      borderRadius: BorderRadius.circular(9.sp),
-                      isSelected: isSelected,
-                      onPressed: toggleSelect,
                     ),
-                  ]),
-                  SizedBox(height: 11.h),
-                  Container(
-                    width: 311.w,
-                    height: 179.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(8.sp)),
-                      color: Color(0xff0473e1),
-                    ),
-                    child: TextButton(
-                      child: Container(
-                        width: 311.w,
-                        height: 179.h,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(8.sp)),
-                            image: DecorationImage(
-                                fit: BoxFit.fitWidth,
-                                image: isCustom
-                                    ? AssetImage('image/customSimulation.png')
-                                    : AssetImage('image/categorySimulation.png'))),
-                        child: Container(
-                          padding: EdgeInsets.only(right: 18.w, top: 15.h),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                    SizedBox(height: 3.h),
+                    Text("모의훈련을 통해 최신 피싱에 대비하세요",
+                        style: TextStyle(
+                            color: const Color(0xffb1aeae),
+                            fontFamily: 'MalgunGothic',
+                            fontStyle: FontStyle.normal,
+                            fontSize: 12.sp),
+                        textAlign: TextAlign.left),
+                    SizedBox(height: 36.h),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "버튼을 움직여 유형을 선택해보세요!",
+                            style: TextStyle(
+                                color: const Color(0xffb1aeae),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "MalgunGothic",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 12.sp),
+                          ),
+                          ToggleButtons(
+                            constraints: BoxConstraints(
+                                minHeight: 25.h,
+                                maxHeight: 25.h,
+                                minWidth: 51.w,
+                                maxWidth: 51.w),
                             children: [
                               Text(
-                                isCustom ? '맞춤형' : '유형별',
+                                "맞춤형",
                                 style: TextStyle(
-                                    color: const Color(0xff000000),
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: "YDIYGO340",
+                                    color: isCustom
+                                        ? Color(0xffffffff)
+                                        : Color(0xffb1aeae),
+                                    fontFamily: "MalgunGothic",
                                     fontStyle: FontStyle.normal,
-                                    fontSize: 19.sp),
-                                textAlign: TextAlign.center,
+                                    fontSize: 12.sp),
                               ),
-                              SizedBox(height: 9.h),
                               Text(
-                                '모의체험',
+                                "유형별",
                                 style: TextStyle(
-                                    color: const Color(0xff000000),
+                                    color: isType
+                                        ? Color(0xffffffff)
+                                        : Color(0xffb1aeae),
                                     fontWeight: FontWeight.w400,
-                                    fontFamily: "YDIYGO340",
+                                    fontFamily: "MalgunGothic",
                                     fontStyle: FontStyle.normal,
-                                    fontSize: 19.sp),
-                                textAlign: TextAlign.center,
+                                    fontSize: 12.sp),
                               ),
                             ],
+                            color: Color(0xffffffff),
+                            // selectedColor: Color(0xff0473e1),
+                            // selectedBorderColor: Color(0xff0473e1),
+                            fillColor: Color(0xff0473e1),
+                            splashColor: Color(0xff0473e1).withOpacity(0.12),
+                            hoverColor: Color(0xff0473e1).withOpacity(0.04),
+                            borderRadius: BorderRadius.circular(9.sp),
+                            isSelected: isSelected,
+                            onPressed: toggleSelect,
+                          ),
+                        ]),
+                    SizedBox(height: 11.h),
+                    Container(
+                      width: 311.w,
+                      height: 179.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                        color: Color(0xff0473e1),
+                      ),
+                      child: TextButton(
+                        child: Container(
+                          width: 311.w,
+                          height: 179.h,
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.sp)),
+                              image: DecorationImage(
+                                  fit: BoxFit.fitWidth,
+                                  image: isCustom
+                                      ? AssetImage('image/customSimulation.png')
+                                      : AssetImage(
+                                          'image/categorySimulation.png'))),
+                          child: Container(
+                            padding: EdgeInsets.only(right: 18.w, top: 15.h),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  isCustom ? '맞춤형' : '유형별',
+                                  style: TextStyle(
+                                      color: const Color(0xff000000),
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: "YDIYGO340",
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 19.sp),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(height: 9.h),
+                                Text(
+                                  '모의체험',
+                                  style: TextStyle(
+                                      color: const Color(0xff000000),
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: "YDIYGO340",
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 19.sp),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      onPressed: () {
-                        if(isCustom) {
-                          print('CustomSimulController(user: userList.last).getCustomSimulation_withScenarioType(userList.last).aid => ${AppPageController()
-                              .getWidget(CustomSimulController(user: userList.last)
-                              .getCustomSimulation_withScenarioType(
-                              userList.last)
-                              .aid)}');
-                          print(
-                              'ClassBuilder.fromString => ${ClassBuilder.fromString(
-                                  AppPageController()
-                                      .getWidget(
-                                      CustomSimulController(user: userList.last)
+                        onPressed: () {
+                          if (isCustom) {
+                            print(
+                                'CustomSimulController(user: userList.last).getCustomSimulation_withScenarioType(userList.last).aid => ${AppPageController().getWidget(CustomSimulController(user: userList.last).getCustomSimulation_withScenarioType(userList.last).aid)}');
+                            print(
+                                'ClassBuilder.fromString => ${ClassBuilder.fromString(AppPageController().getWidget(CustomSimulController(user: userList.last).getCustomSimulation_withScenarioType(userList.last).aid))}');
+                          }
+
+                          isCustom
+
+                              //  ? Get.to(SimulationPage())
+                              //   : Get.to(SimulationType());
+
+                              ? {
+                                  // Get.to(SimulationPage(user: userList.last))
+                                  Get.to(ClassBuilder.fromString(AppPageController()
+                                      .getWidget(CustomSimulController(
+                                              user: userList.last)
                                           .getCustomSimulation_withScenarioType(
-                                          userList.last)
-                                          .aid))}');
-                        }
+                                              userList.last)
+                                          .aid)))
+                                }
+                              :
 
-                        isCustom
+                              // Get.to(SimulationPage(user: user2));
 
-                            //  ? Get.to(SimulationPage())
-                            //   : Get.to(SimulationType());
-
-                            ? {
-
-                                // Get.to(SimulationPage(user: userList.last))
-                                Get.to(ClassBuilder.fromString(AppPageController()
-                                    .getWidget(
-                                        CustomSimulController(user: userList.last)
-                                            .getCustomSimulation_withScenarioType(
-                                                userList.last)
-                                            .aid)))
-                              }
-                            :
-
-                            // Get.to(SimulationPage(user: user2));
-
-                            // TODO: 유형별 모의체험으로 이동
-                            Get.to(SimulationType());
-                      },
-                      style: TextButton.styleFrom(
-                        minimumSize: Size.zero,
-                        padding: EdgeInsets.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              // TODO: 유형별 모의체험으로 이동
+                              Get.to(SimulationType());
+                        },
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 36.h),
-                  Container(
-                      width: 311.w,
-                      height: 199.h,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(8.sp)),
-                          color: const Color(0xff0473e1)),
-                      padding: EdgeInsets.only(left: 19.w, top: 21.h),
-                      child: Column(
-                          // crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Row(children: [
-                              Text("나의 안심점수",
+                    SizedBox(height: 36.h),
+                    Container(
+                        width: 311.w,
+                        height: 199.h,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(8.sp)),
+                            color: const Color(0xff0473e1)),
+                        padding: EdgeInsets.only(left: 19.w, top: 21.h),
+                        child: Column(
+                            // crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(children: [
+                                Text("나의 안심점수",
+                                    style: TextStyle(
+                                        color: const Color(0xffffffff),
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: "Recipekorea",
+                                        fontStyle: FontStyle.normal,
+                                        fontSize: 25.sp),
+                                    textAlign: TextAlign.left),
+                                SizedBox(width: 31.w),
+                                Text(
+                                  "80점",
                                   style: TextStyle(
                                       color: const Color(0xffffffff),
                                       fontWeight: FontWeight.w500,
                                       fontFamily: "Recipekorea",
                                       fontStyle: FontStyle.normal,
                                       fontSize: 25.sp),
-                                  textAlign: TextAlign.left),
-                              SizedBox(width: 31.w),
-                              Text(
-                                "80점",
-                                style: TextStyle(
-                                    color: const Color(0xffffffff),
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: "Recipekorea",
-                                    fontStyle: FontStyle.normal,
-                                    fontSize: 25.sp),
-                              ),
-                            ]),
-                            SizedBox(height: 20.h),
-                            Container(
-                              padding: EdgeInsets.only(left: 1.w),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 100.w,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "T 모의훈련",
-                                          style: TextStyle(
-                                              color: const Color(0xffffffff),
-                                              fontWeight: FontWeight.w500,
-                                              fontFamily: "Recipekorea",
-                                              fontStyle: FontStyle.normal,
-                                              fontSize: 15.sp),
-                                        ),
-                                        SizedBox(height: 22.h),
-                                        Text(
-                                          "S 스미싱",
-                                          style: TextStyle(
-                                              color: const Color(0xffffffff),
-                                              fontWeight: FontWeight.w500,
-                                              fontFamily: "Recipekorea",
-                                              fontStyle: FontStyle.normal,
-                                              fontSize: 15.sp),
-                                        ),
-                                        SizedBox(height: 22.h),
-                                        Text(
-                                          "V 보이스피싱",
-                                          style: TextStyle(
-                                              color: const Color(0xffffffff),
-                                              fontWeight: FontWeight.w500,
-                                              fontFamily: "Recipekorea",
-                                              fontStyle: FontStyle.normal,
-                                              fontSize: 15.sp),
-                                        ),
-                                      ],
+                                ),
+                              ]),
+                              SizedBox(height: 20.h),
+                              Container(
+                                padding: EdgeInsets.only(left: 1.w),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 100.w,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "T 모의훈련",
+                                            style: TextStyle(
+                                                color: const Color(0xffffffff),
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: "Recipekorea",
+                                                fontStyle: FontStyle.normal,
+                                                fontSize: 15.sp),
+                                          ),
+                                          SizedBox(height: 22.h),
+                                          Text(
+                                            "S 스미싱",
+                                            style: TextStyle(
+                                                color: const Color(0xffffffff),
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: "Recipekorea",
+                                                fontStyle: FontStyle.normal,
+                                                fontSize: 15.sp),
+                                          ),
+                                          SizedBox(height: 22.h),
+                                          Text(
+                                            "V 보이스피싱",
+                                            style: TextStyle(
+                                                color: const Color(0xffffffff),
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: "Recipekorea",
+                                                fontStyle: FontStyle.normal,
+                                                fontSize: 15.sp),
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(width: 82.w),
-                                  Container(
-                                    width: 70.w,
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          width: 70.w,
-                                          height: 20.h,
-                                          child: TextButton(
-                                            child: Text(
-                                              "시작하기",
-                                              style: TextStyle(
-                                                  color: const Color(0xffddff00),
-                                                  fontWeight: FontWeight.w500,
-                                                  fontFamily: "Recipekorea",
-                                                  fontStyle: FontStyle.normal,
-                                                  fontSize: 15.sp),
-                                            ),
-                                            onPressed: () {
-                                              Get.to(ClassBuilder.fromString(AppPageController()
-                                                  .getWidget(
-                                                  CustomSimulController(user: userList.last)
-                                                      .getCustomSimulation_withScenarioType(
-                                                      userList.last)
-                                                      .aid)));
-                                            },
-                                            style: TextButton.styleFrom(
-                                              minimumSize: Size.zero,
-                                              padding: EdgeInsets.zero,
-                                              tapTargetSize:
-                                                  MaterialTapTargetSize.shrinkWrap,
+                                    SizedBox(width: 82.w),
+                                    Container(
+                                      width: 70.w,
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            width: 70.w,
+                                            height: 20.h,
+                                            child: TextButton(
+                                              child: Text(
+                                                "시작하기",
+                                                style: TextStyle(
+                                                    color:
+                                                        const Color(0xffddff00),
+                                                    fontWeight: FontWeight.w500,
+                                                    fontFamily: "Recipekorea",
+                                                    fontStyle: FontStyle.normal,
+                                                    fontSize: 15.sp),
+                                              ),
+                                              onPressed: () {
+                                                Get.to(ClassBuilder.fromString(
+                                                    AppPageController().getWidget(
+                                                        CustomSimulController(
+                                                                user: userList
+                                                                    .last)
+                                                            .getCustomSimulation_withScenarioType(
+                                                                userList.last)
+                                                            .aid)));
+                                              },
+                                              style: TextButton.styleFrom(
+                                                minimumSize: Size.zero,
+                                                padding: EdgeInsets.zero,
+                                                tapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        SizedBox(height: 22.h),
-                                        Text(
-                                          "80점",
-                                          style: TextStyle(
-                                              color: const Color(0xffffffff),
-                                              fontWeight: FontWeight.w500,
-                                              fontFamily: "Recipekorea",
-                                              fontStyle: FontStyle.normal,
-                                              fontSize: 15.sp),
-                                        ),
-                                        SizedBox(height: 22.h),
-                                        Text(
-                                          "80점",
-                                          style: TextStyle(
-                                              color: const Color(0xffffffff),
-                                              fontWeight: FontWeight.w500,
-                                              fontFamily: "Recipekorea",
-                                              fontStyle: FontStyle.normal,
-                                              fontSize: 15.sp),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            )
-                          ]))
-                ],
-              ),
-            )],
+                                          SizedBox(height: 22.h),
+                                          Text(
+                                            "80점",
+                                            style: TextStyle(
+                                                color: const Color(0xffffffff),
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: "Recipekorea",
+                                                fontStyle: FontStyle.normal,
+                                                fontSize: 15.sp),
+                                          ),
+                                          SizedBox(height: 22.h),
+                                          Text(
+                                            "80점",
+                                            style: TextStyle(
+                                                color: const Color(0xffffffff),
+                                                fontWeight: FontWeight.w500,
+                                                fontFamily: "Recipekorea",
+                                                fontStyle: FontStyle.normal,
+                                                fontSize: 15.sp),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              )
+                            ]))
+                  ],
+                ),
+              )
+            ],
           ),
         ));
   }

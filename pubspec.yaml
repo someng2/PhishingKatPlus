@@ -44,10 +44,13 @@ dependencies:
   fab_circular_menu: ^1.0.0
 
   selectable_container: ^1.0.2
+
   http: ^0.13.4
-  freezed_annotation: ^1.1.0
-  provider: ^6.0.2
+  freezed_annotation: ^2.0.3
+  provider: ^6.0.3
   json_annotation: ^4.5.0
+
+  permission_handler: ^10.0.0
 
 dev_dependencies:
   flutter_test:
@@ -59,9 +62,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
-  freezed: ^1.1.1
-  json_serializable: ^6.1.5
-  build_runner: ^2.1.8
+
+  freezed: ^2.0.3+1
+  json_serializable: ^6.2.0
+  build_runner: ^2.1.11
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -177,6 +182,15 @@ flutter:
     - image/CatType/Siamese.png
     - image/CatType/Siamese_ex.png
 
+    - image/signUpFeedback1.png
+    - image/signUpFeedback2.png
+    - image/signUpComplete.png
+    - image/back_button.png
+    - image/myPageBackground.png
+    - image/profileSettingIcon.png
+    - image/defaultProfileImage.png
+    - image/thumbsUpIcon.png
+    - image/badMoodIcon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -213,6 +227,26 @@ flutter:
     - family: NotoSansCJKKR
       fonts:
         - asset: font/NotoSansCJKkr-Regular.otf
+
+    - family: yspotlight
+      fonts:
+        - asset: font/Yspotlight.otf
+
+    - family: SegoeUI
+      fonts:
+        - asset: font/SegoeUI.ttf
+
+    - family: AppleSDGothicNeoSB00
+      fonts:
+        - asset: font/AppleSDGothicNeoSB.ttf
+
+    - family: AppleSDGothicNeoL00
+      fonts:
+        - asset: font/AppleSDGothicNeoL.ttf
+
+    - family: Helvetica-Narrow
+      fonts:
+        - asset: font/HelveticaNw.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
