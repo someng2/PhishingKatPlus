@@ -19,12 +19,7 @@ class BoardRepositoryImpl implements BoardRepository {
     await api.insert(ac_id, sid, aid, order, c_type, contents, hasNextAction);
   }
 
-  @override
-  Future<List<UserDB>> getUser() async{
-    final response = await api.getAllList('User');
-    final Iterable json = jsonDecode(response.body);
-    return json.map((e) => UserDB.fromJson(e)).toList();
-  }
+
 
   @override
   Future<List<AppContentsDB>> getContents() async{

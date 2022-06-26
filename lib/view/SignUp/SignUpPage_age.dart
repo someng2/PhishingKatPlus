@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:voskat/model/simulation/type&age.dart';
 import 'package:voskat/model/user/user.dart';
 import 'package:voskat/tempData/type&ageData.dart';
@@ -11,6 +12,10 @@ import 'package:voskat/view/customWidget/SignUpTextField.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/HomePage.dart';
 import 'package:voskat/view/customWidget/customProgressDot.dart';
+
+import 'package:voskat/view/user_view_model.dart';
+
+import 'package:voskat/view/user_event.dart';
 
 class SignUpPage_age extends StatefulWidget {
   const SignUpPage_age({Key? key}) : super(key: key);
@@ -41,9 +46,13 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
   ];
 
   List<bool> interestSelected = List.filled(12, false);
+  String gender = '';
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<user_view_model>();
+    final state = viewModel.state;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -412,26 +421,28 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                         snackPosition: SnackPosition.BOTTOM,
                       ));
                     } else {
+                      print('birthYear : ${birthYear.year}');
                       print('getAgeGroup => ${getAgeGroup(age).ageGroup}');
                       print('nickname: ${nickNameController.text}');
-                      if(_femaleSelected) {
+                      if (_femaleSelected) {
+                        gender = 'female';
                         print('성별: 여');
                       } else {
+                        gender = 'male';
                         print('성별: 남');
                       }
-                      List<String> selectedInterestList= getInterestList(interestSelected);
-                      for(int i = 0; i < selectedInterestList.length; i++) {
+                      List<String> selectedInterestList =
+                          getInterestList(interestSelected);
+                      for (int i = 0; i < selectedInterestList.length; i++) {
                         print('$i: ${selectedInterestList[i]}');
                       }
 
-                      // TODO: user DB 에 저장
 
-                      // userList.add(User(
-                      //     uid: 100,
-                      //     name: nickNameController.text,
-                      //     age: age,
-                      //     typeNage: getAgeGroup(age)));
-                      Get.to(SignUpCompletePage());
+                      // user DB 에 저장
+                      viewModel.onEvent(UserEvent.insertUser(
+                          nickNameController.text, birthYear.year, gender));
+
+                      // Get.to(SignUpCompletePage());
                     }
                   },
                 ))
@@ -443,13 +454,13 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
 
   List<String> getInterestList(List<bool> interestSelected) {
     List<String> selectedInterestList = [];
-    for(int i = 0; i < interestSelected.length; i++) {
-      if(interestSelected[i]) {
+    for (int i = 0; i < interestSelected.length; i++) {
+      if (interestSelected[i]) {
         selectedInterestList.add(interestList[i]);
       }
     }
 
-    return selectedInterestList ;
+    return selectedInterestList;
   }
 
   TypeNAge getAgeGroup(int age) {

@@ -11,7 +11,10 @@ class UserDB with _$UserDB {
   factory UserDB({
     required int uid,
     required String name,
-    required int age,
+    required int birthYear,
+    required String gender,
+    required String reg_date,
+    required String mod_date,
   }) = _UserDB;
 
   factory UserDB.fromJson(Map<String, dynamic> json) =>
