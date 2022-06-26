@@ -12,37 +12,20 @@ part of 'userDB.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserDB _$UserDBFromJson(Map<String, dynamic> json) {
   return _UserDB.fromJson(json);
 }
 
 /// @nodoc
-class _$UserDBTearOff {
-  const _$UserDBTearOff();
-
-  _UserDB call({required int uid, required String name, required int age}) {
-    return _UserDB(
-      uid: uid,
-      name: name,
-      age: age,
-    );
-  }
-
-  UserDB fromJson(Map<String, Object?> json) {
-    return UserDB.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UserDB = _$UserDBTearOff();
-
-/// @nodoc
 mixin _$UserDB {
   int get uid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get age => throw _privateConstructorUsedError;
+  int get birthYear => throw _privateConstructorUsedError;
+  String get gender => throw _privateConstructorUsedError;
+  String get reg_date => throw _privateConstructorUsedError;
+  String get mod_date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +36,13 @@ mixin _$UserDB {
 abstract class $UserDBCopyWith<$Res> {
   factory $UserDBCopyWith(UserDB value, $Res Function(UserDB) then) =
       _$UserDBCopyWithImpl<$Res>;
-  $Res call({int uid, String name, int age});
+  $Res call(
+      {int uid,
+      String name,
+      int birthYear,
+      String gender,
+      String reg_date,
+      String mod_date});
 }
 
 /// @nodoc
@@ -68,7 +57,10 @@ class _$UserDBCopyWithImpl<$Res> implements $UserDBCopyWith<$Res> {
   $Res call({
     Object? uid = freezed,
     Object? name = freezed,
-    Object? age = freezed,
+    Object? birthYear = freezed,
+    Object? gender = freezed,
+    Object? reg_date = freezed,
+    Object? mod_date = freezed,
   }) {
     return _then(_value.copyWith(
       uid: uid == freezed
@@ -79,38 +71,59 @@ class _$UserDBCopyWithImpl<$Res> implements $UserDBCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      age: age == freezed
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
+      birthYear: birthYear == freezed
+          ? _value.birthYear
+          : birthYear // ignore: cast_nullable_to_non_nullable
               as int,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      reg_date: reg_date == freezed
+          ? _value.reg_date
+          : reg_date // ignore: cast_nullable_to_non_nullable
+              as String,
+      mod_date: mod_date == freezed
+          ? _value.mod_date
+          : mod_date // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$UserDBCopyWith<$Res> implements $UserDBCopyWith<$Res> {
-  factory _$UserDBCopyWith(_UserDB value, $Res Function(_UserDB) then) =
-      __$UserDBCopyWithImpl<$Res>;
+abstract class _$$_UserDBCopyWith<$Res> implements $UserDBCopyWith<$Res> {
+  factory _$$_UserDBCopyWith(_$_UserDB value, $Res Function(_$_UserDB) then) =
+      __$$_UserDBCopyWithImpl<$Res>;
   @override
-  $Res call({int uid, String name, int age});
+  $Res call(
+      {int uid,
+      String name,
+      int birthYear,
+      String gender,
+      String reg_date,
+      String mod_date});
 }
 
 /// @nodoc
-class __$UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
-    implements _$UserDBCopyWith<$Res> {
-  __$UserDBCopyWithImpl(_UserDB _value, $Res Function(_UserDB) _then)
-      : super(_value, (v) => _then(v as _UserDB));
+class __$$_UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
+    implements _$$_UserDBCopyWith<$Res> {
+  __$$_UserDBCopyWithImpl(_$_UserDB _value, $Res Function(_$_UserDB) _then)
+      : super(_value, (v) => _then(v as _$_UserDB));
 
   @override
-  _UserDB get _value => super._value as _UserDB;
+  _$_UserDB get _value => super._value as _$_UserDB;
 
   @override
   $Res call({
     Object? uid = freezed,
     Object? name = freezed,
-    Object? age = freezed,
+    Object? birthYear = freezed,
+    Object? gender = freezed,
+    Object? reg_date = freezed,
+    Object? mod_date = freezed,
   }) {
-    return _then(_UserDB(
+    return _then(_$_UserDB(
       uid: uid == freezed
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
@@ -119,10 +132,22 @@ class __$UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      age: age == freezed
-          ? _value.age
-          : age // ignore: cast_nullable_to_non_nullable
+      birthYear: birthYear == freezed
+          ? _value.birthYear
+          : birthYear // ignore: cast_nullable_to_non_nullable
               as int,
+      gender: gender == freezed
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      reg_date: reg_date == freezed
+          ? _value.reg_date
+          : reg_date // ignore: cast_nullable_to_non_nullable
+              as String,
+      mod_date: mod_date == freezed
+          ? _value.mod_date
+          : mod_date // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -130,7 +155,13 @@ class __$UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserDB implements _UserDB {
-  _$_UserDB({required this.uid, required this.name, required this.age});
+  _$_UserDB(
+      {required this.uid,
+      required this.name,
+      required this.birthYear,
+      required this.gender,
+      required this.reg_date,
+      required this.mod_date});
 
   factory _$_UserDB.fromJson(Map<String, dynamic> json) =>
       _$$_UserDBFromJson(json);
@@ -140,34 +171,47 @@ class _$_UserDB implements _UserDB {
   @override
   final String name;
   @override
-  final int age;
+  final int birthYear;
+  @override
+  final String gender;
+  @override
+  final String reg_date;
+  @override
+  final String mod_date;
 
   @override
   String toString() {
-    return 'UserDB(uid: $uid, name: $name, age: $age)';
+    return 'UserDB(uid: $uid, name: $name, birthYear: $birthYear, gender: $gender, reg_date: $reg_date, mod_date: $mod_date)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserDB &&
+            other is _$_UserDB &&
             const DeepCollectionEquality().equals(other.uid, uid) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.age, age));
+            const DeepCollectionEquality().equals(other.birthYear, birthYear) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality().equals(other.reg_date, reg_date) &&
+            const DeepCollectionEquality().equals(other.mod_date, mod_date));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(uid),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(age));
+      const DeepCollectionEquality().hash(birthYear),
+      const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(reg_date),
+      const DeepCollectionEquality().hash(mod_date));
 
   @JsonKey(ignore: true)
   @override
-  _$UserDBCopyWith<_UserDB> get copyWith =>
-      __$UserDBCopyWithImpl<_UserDB>(this, _$identity);
+  _$$_UserDBCopyWith<_$_UserDB> get copyWith =>
+      __$$_UserDBCopyWithImpl<_$_UserDB>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -176,18 +220,30 @@ class _$_UserDB implements _UserDB {
 }
 
 abstract class _UserDB implements UserDB {
-  factory _UserDB({required int uid, required String name, required int age}) =
-      _$_UserDB;
+  factory _UserDB(
+      {required final int uid,
+      required final String name,
+      required final int birthYear,
+      required final String gender,
+      required final String reg_date,
+      required final String mod_date}) = _$_UserDB;
 
   factory _UserDB.fromJson(Map<String, dynamic> json) = _$_UserDB.fromJson;
 
   @override
-  int get uid;
+  int get uid => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String get name => throw _privateConstructorUsedError;
   @override
-  int get age;
+  int get birthYear => throw _privateConstructorUsedError;
+  @override
+  String get gender => throw _privateConstructorUsedError;
+  @override
+  String get reg_date => throw _privateConstructorUsedError;
+  @override
+  String get mod_date => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UserDBCopyWith<_UserDB> get copyWith => throw _privateConstructorUsedError;
+  _$$_UserDBCopyWith<_$_UserDB> get copyWith =>
+      throw _privateConstructorUsedError;
 }

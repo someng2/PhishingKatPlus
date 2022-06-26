@@ -4,7 +4,13 @@ class BoardApi {
   final http.Client _client;
 
   BoardApi({http.Client? client}) : _client = (client ?? http.Client());
-  static const baseUrl = 'http://10.0.2.2:9001';
+
+  // 에뮬레이터 ip: 10.0.2.2
+  // 실제 기기 -> 실제 pc의 ip
+  // static const baseUrl = 'http://10.0.2.2:9001';
+
+  // 소망 맥북 ip
+  static const baseUrl = 'http://192.168.0.32:9001';
 
   Future<http.Response> getAllList(String table) async {
     final response = await _client.get(Uri.parse('$baseUrl/query.php?table=$table'));

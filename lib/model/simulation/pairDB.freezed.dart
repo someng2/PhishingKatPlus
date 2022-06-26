@@ -12,40 +12,11 @@ part of 'pairDB.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PairDB _$PairDBFromJson(Map<String, dynamic> json) {
   return _PairDB.fromJson(json);
 }
-
-/// @nodoc
-class _$PairDBTearOff {
-  const _$PairDBTearOff();
-
-  _PairDB call(
-      {required String sid,
-      required String pid,
-      @JsonKey(name: 'ac_id') required String acid,
-      required int index,
-      required String currentActionId,
-      required String nextActionId}) {
-    return _PairDB(
-      sid: sid,
-      pid: pid,
-      acid: acid,
-      index: index,
-      currentActionId: currentActionId,
-      nextActionId: nextActionId,
-    );
-  }
-
-  PairDB fromJson(Map<String, Object?> json) {
-    return PairDB.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PairDB = _$PairDBTearOff();
 
 /// @nodoc
 mixin _$PairDB {
@@ -122,9 +93,9 @@ class _$PairDBCopyWithImpl<$Res> implements $PairDBCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PairDBCopyWith<$Res> implements $PairDBCopyWith<$Res> {
-  factory _$PairDBCopyWith(_PairDB value, $Res Function(_PairDB) then) =
-      __$PairDBCopyWithImpl<$Res>;
+abstract class _$$_PairDBCopyWith<$Res> implements $PairDBCopyWith<$Res> {
+  factory _$$_PairDBCopyWith(_$_PairDB value, $Res Function(_$_PairDB) then) =
+      __$$_PairDBCopyWithImpl<$Res>;
   @override
   $Res call(
       {String sid,
@@ -136,13 +107,13 @@ abstract class _$PairDBCopyWith<$Res> implements $PairDBCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PairDBCopyWithImpl<$Res> extends _$PairDBCopyWithImpl<$Res>
-    implements _$PairDBCopyWith<$Res> {
-  __$PairDBCopyWithImpl(_PairDB _value, $Res Function(_PairDB) _then)
-      : super(_value, (v) => _then(v as _PairDB));
+class __$$_PairDBCopyWithImpl<$Res> extends _$PairDBCopyWithImpl<$Res>
+    implements _$$_PairDBCopyWith<$Res> {
+  __$$_PairDBCopyWithImpl(_$_PairDB _value, $Res Function(_$_PairDB) _then)
+      : super(_value, (v) => _then(v as _$_PairDB));
 
   @override
-  _PairDB get _value => super._value as _PairDB;
+  _$_PairDB get _value => super._value as _$_PairDB;
 
   @override
   $Res call({
@@ -153,7 +124,7 @@ class __$PairDBCopyWithImpl<$Res> extends _$PairDBCopyWithImpl<$Res>
     Object? currentActionId = freezed,
     Object? nextActionId = freezed,
   }) {
-    return _then(_PairDB(
+    return _then(_$_PairDB(
       sid: sid == freezed
           ? _value.sid
           : sid // ignore: cast_nullable_to_non_nullable
@@ -219,7 +190,7 @@ class _$_PairDB implements _PairDB {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PairDB &&
+            other is _$_PairDB &&
             const DeepCollectionEquality().equals(other.sid, sid) &&
             const DeepCollectionEquality().equals(other.pid, pid) &&
             const DeepCollectionEquality().equals(other.acid, acid) &&
@@ -230,6 +201,7 @@ class _$_PairDB implements _PairDB {
                 .equals(other.nextActionId, nextActionId));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -242,8 +214,8 @@ class _$_PairDB implements _PairDB {
 
   @JsonKey(ignore: true)
   @override
-  _$PairDBCopyWith<_PairDB> get copyWith =>
-      __$PairDBCopyWithImpl<_PairDB>(this, _$identity);
+  _$$_PairDBCopyWith<_$_PairDB> get copyWith =>
+      __$$_PairDBCopyWithImpl<_$_PairDB>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -253,29 +225,30 @@ class _$_PairDB implements _PairDB {
 
 abstract class _PairDB implements PairDB {
   factory _PairDB(
-      {required String sid,
-      required String pid,
-      @JsonKey(name: 'ac_id') required String acid,
-      required int index,
-      required String currentActionId,
-      required String nextActionId}) = _$_PairDB;
+      {required final String sid,
+      required final String pid,
+      @JsonKey(name: 'ac_id') required final String acid,
+      required final int index,
+      required final String currentActionId,
+      required final String nextActionId}) = _$_PairDB;
 
   factory _PairDB.fromJson(Map<String, dynamic> json) = _$_PairDB.fromJson;
 
   @override
-  String get sid;
+  String get sid => throw _privateConstructorUsedError;
   @override
-  String get pid;
+  String get pid => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'ac_id')
-  String get acid;
+  String get acid => throw _privateConstructorUsedError;
   @override
-  int get index;
+  int get index => throw _privateConstructorUsedError;
   @override
-  String get currentActionId;
+  String get currentActionId => throw _privateConstructorUsedError;
   @override
-  String get nextActionId;
+  String get nextActionId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PairDBCopyWith<_PairDB> get copyWith => throw _privateConstructorUsedError;
+  _$$_PairDBCopyWith<_$_PairDB> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -9,11 +9,17 @@ part of 'userDB.dart';
 _$_UserDB _$$_UserDBFromJson(Map<String, dynamic> json) => _$_UserDB(
       uid: json['uid'] as int,
       name: json['name'] as String,
-      age: json['age'] as int,
+      birthYear: json['birthYear'] as int,
+      gender: json['gender'] as String,
+      reg_date: json['reg_date'] as String,
+      mod_date: json['mod_date'] as String,
     );
 
 Map<String, dynamic> _$$_UserDBToJson(_$_UserDB instance) => <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
-      'age': instance.age,
+      'birthYear': instance.birthYear,
+      'gender': instance.gender,
+      'reg_date': instance.reg_date,
+      'mod_date': instance.mod_date,
     };

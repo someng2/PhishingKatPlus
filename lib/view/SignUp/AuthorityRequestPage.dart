@@ -22,6 +22,7 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
             padding: EdgeInsets.only(left: 32.6.w, right: 42.4.w),

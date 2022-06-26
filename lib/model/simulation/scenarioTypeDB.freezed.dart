@@ -12,46 +12,11 @@ part of 'scenarioTypeDB.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ScenarioTypeDB _$ScenarioTypeDBFromJson(Map<String, dynamic> json) {
   return _ScenarioTypeDB.fromJson(json);
 }
-
-/// @nodoc
-class _$ScenarioTypeDBTearOff {
-  const _$ScenarioTypeDBTearOff();
-
-  _ScenarioTypeDB call(
-      {required String sid,
-      required String aid,
-      required String subtype,
-      @JsonKey(name: 'icon_active') required String iconactive,
-      @JsonKey(name: 'icon_deactive') required String icondeactive,
-      required bool lock,
-      required int score,
-      required int medal,
-      required String widget}) {
-    return _ScenarioTypeDB(
-      sid: sid,
-      aid: aid,
-      subtype: subtype,
-      iconactive: iconactive,
-      icondeactive: icondeactive,
-      lock: lock,
-      score: score,
-      medal: medal,
-      widget: widget,
-    );
-  }
-
-  ScenarioTypeDB fromJson(Map<String, Object?> json) {
-    return ScenarioTypeDB.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ScenarioTypeDB = _$ScenarioTypeDBTearOff();
 
 /// @nodoc
 mixin _$ScenarioTypeDB {
@@ -153,11 +118,11 @@ class _$ScenarioTypeDBCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ScenarioTypeDBCopyWith<$Res>
+abstract class _$$_ScenarioTypeDBCopyWith<$Res>
     implements $ScenarioTypeDBCopyWith<$Res> {
-  factory _$ScenarioTypeDBCopyWith(
-          _ScenarioTypeDB value, $Res Function(_ScenarioTypeDB) then) =
-      __$ScenarioTypeDBCopyWithImpl<$Res>;
+  factory _$$_ScenarioTypeDBCopyWith(
+          _$_ScenarioTypeDB value, $Res Function(_$_ScenarioTypeDB) then) =
+      __$$_ScenarioTypeDBCopyWithImpl<$Res>;
   @override
   $Res call(
       {String sid,
@@ -172,15 +137,15 @@ abstract class _$ScenarioTypeDBCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ScenarioTypeDBCopyWithImpl<$Res>
+class __$$_ScenarioTypeDBCopyWithImpl<$Res>
     extends _$ScenarioTypeDBCopyWithImpl<$Res>
-    implements _$ScenarioTypeDBCopyWith<$Res> {
-  __$ScenarioTypeDBCopyWithImpl(
-      _ScenarioTypeDB _value, $Res Function(_ScenarioTypeDB) _then)
-      : super(_value, (v) => _then(v as _ScenarioTypeDB));
+    implements _$$_ScenarioTypeDBCopyWith<$Res> {
+  __$$_ScenarioTypeDBCopyWithImpl(
+      _$_ScenarioTypeDB _value, $Res Function(_$_ScenarioTypeDB) _then)
+      : super(_value, (v) => _then(v as _$_ScenarioTypeDB));
 
   @override
-  _ScenarioTypeDB get _value => super._value as _ScenarioTypeDB;
+  _$_ScenarioTypeDB get _value => super._value as _$_ScenarioTypeDB;
 
   @override
   $Res call({
@@ -194,7 +159,7 @@ class __$ScenarioTypeDBCopyWithImpl<$Res>
     Object? medal = freezed,
     Object? widget = freezed,
   }) {
-    return _then(_ScenarioTypeDB(
+    return _then(_$_ScenarioTypeDB(
       sid: sid == freezed
           ? _value.sid
           : sid // ignore: cast_nullable_to_non_nullable
@@ -282,7 +247,7 @@ class _$_ScenarioTypeDB implements _ScenarioTypeDB {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ScenarioTypeDB &&
+            other is _$_ScenarioTypeDB &&
             const DeepCollectionEquality().equals(other.sid, sid) &&
             const DeepCollectionEquality().equals(other.aid, aid) &&
             const DeepCollectionEquality().equals(other.subtype, subtype) &&
@@ -296,6 +261,7 @@ class _$_ScenarioTypeDB implements _ScenarioTypeDB {
             const DeepCollectionEquality().equals(other.widget, widget));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -311,8 +277,8 @@ class _$_ScenarioTypeDB implements _ScenarioTypeDB {
 
   @JsonKey(ignore: true)
   @override
-  _$ScenarioTypeDBCopyWith<_ScenarioTypeDB> get copyWith =>
-      __$ScenarioTypeDBCopyWithImpl<_ScenarioTypeDB>(this, _$identity);
+  _$$_ScenarioTypeDBCopyWith<_$_ScenarioTypeDB> get copyWith =>
+      __$$_ScenarioTypeDBCopyWithImpl<_$_ScenarioTypeDB>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -322,41 +288,41 @@ class _$_ScenarioTypeDB implements _ScenarioTypeDB {
 
 abstract class _ScenarioTypeDB implements ScenarioTypeDB {
   factory _ScenarioTypeDB(
-      {required String sid,
-      required String aid,
-      required String subtype,
-      @JsonKey(name: 'icon_active') required String iconactive,
-      @JsonKey(name: 'icon_deactive') required String icondeactive,
-      required bool lock,
-      required int score,
-      required int medal,
-      required String widget}) = _$_ScenarioTypeDB;
+      {required final String sid,
+      required final String aid,
+      required final String subtype,
+      @JsonKey(name: 'icon_active') required final String iconactive,
+      @JsonKey(name: 'icon_deactive') required final String icondeactive,
+      required final bool lock,
+      required final int score,
+      required final int medal,
+      required final String widget}) = _$_ScenarioTypeDB;
 
   factory _ScenarioTypeDB.fromJson(Map<String, dynamic> json) =
       _$_ScenarioTypeDB.fromJson;
 
   @override
-  String get sid;
+  String get sid => throw _privateConstructorUsedError;
   @override
-  String get aid;
+  String get aid => throw _privateConstructorUsedError;
   @override
-  String get subtype;
+  String get subtype => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'icon_active')
-  String get iconactive;
+  String get iconactive => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'icon_deactive')
-  String get icondeactive;
+  String get icondeactive => throw _privateConstructorUsedError;
   @override
-  bool get lock;
+  bool get lock => throw _privateConstructorUsedError;
   @override
-  int get score;
+  int get score => throw _privateConstructorUsedError;
   @override
-  int get medal;
+  int get medal => throw _privateConstructorUsedError;
   @override
-  String get widget;
+  String get widget => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ScenarioTypeDBCopyWith<_ScenarioTypeDB> get copyWith =>
+  _$$_ScenarioTypeDBCopyWith<_$_ScenarioTypeDB> get copyWith =>
       throw _privateConstructorUsedError;
 }

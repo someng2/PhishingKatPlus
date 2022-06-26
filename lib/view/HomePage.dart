@@ -15,6 +15,7 @@ import 'package:class_builder/class_builder.dart';
 
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:voskat/view/SignUp/SignUpPage_age.dart';
+import 'package:voskat/view/home_screen.dart';
 
 import 'Simulation/AcquaintanceImpersonationPage.dart';
 
@@ -341,6 +342,12 @@ class _HomePageState extends State<HomePage> {
                       child: Text('회원가입 페이지'),
                       onPressed: () {
                         Get.to(LaunchPage());
+                      },
+                    ),
+                    TextButton(
+                      child: Text('HomeScreen 페이지'),
+                      onPressed: () {
+                        Get.to(HomeScreen());
                       },
                     ),
                     // Container(

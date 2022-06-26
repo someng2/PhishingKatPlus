@@ -1,42 +1,54 @@
 import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:voskat/view/HomePage.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
+import 'package:voskat/view/home_screen.dart';
+
+import 'package:voskat/controller/board_repository_impl.dart';
+import 'package:voskat/controller/board_api.dart';
+import 'package:voskat/view/user_view_model.dart';
+
+import 'controller/user_api.dart';
+import 'controller/user_repository_impl.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider.value(
+      value: user_view_model(UserRepositoryImpl(UserApi())),
+      child: MyApp(),
+    ),
+    // MyApp()
+  );
 }
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: Size(360, 760),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (BuildContext context, child) => GetMaterialApp(
-              title: 'Flutter Demo',
-              theme: _phishingTheme,
-              home: const HomePage(),
-              routes: {
-                '/home': (context) => HomePage(),
-                // '/simulation': (context) => SimulationPage(),
-              },
-              debugShowCheckedModeBanner: false,
-
-            ),
-
+      designSize: Size(360, 760),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) => GetMaterialApp(
+        title: 'Flutter Demo',
+        theme: _phishingTheme,
+        home: const HomePage(),
+        // home: HomeScreen(),
+        routes: {
+          '/home': (context) => HomePage(),
+          // '/simulation': (context) => SimulationPage(),
+        },
+        debugShowCheckedModeBanner: false,
+      ),
     );
-
   }
 }
 
