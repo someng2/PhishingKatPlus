@@ -7,33 +7,24 @@ import 'package:voskat/model/user/user.dart';
 
 import '../model/user/userDB.dart';
 import '../view/user_state.dart';
+import 'dart:async';
 
-class UserController with ChangeNotifier {
-  final UserRepository _userRepository;
+class UserController{
 
   var _state = UserState();
 
   UserState get state => _state;
-  late Future<List<UserDB>> userDB;
+  // late Future<List<UserDB>> userDB;
+  // late Future<UserDB> userDBList;
 
-  UserController(this._userRepository) {
-    userDB = _getUser();
+
+  getUserName(List<UserDB> userDB, int uid){
+    for(int i = 0; i< userDB.length; i++) {
+      if (uid == userDB[i].uid) {
+        return userDB[i].name;
+      }
+    }
   }
 
 
-  Future<List<UserDB>> _getUser() async {
-    _state = state.copyWith(isLoading: true);
-    notifyListeners();
-
-    final result = await _userRepository.getUser();
-    // ..sort((a, b) => -a.acid.compareTo(b.acid));
-
-    _state = state.copyWith(
-      isLoading: false,
-      userDB: result,
-    );
-    notifyListeners();
-
-    return _state.userDB;
-  }
 }
