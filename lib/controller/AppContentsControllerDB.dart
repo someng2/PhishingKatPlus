@@ -1,111 +1,164 @@
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+// ignore_for_file: file_names
+
+import 'package:get/get.dart';
 import 'package:voskat/model/simulation/appContentsDB.dart';
 
-class AppContentsControllerDB {
-  static const ROOT = 'http://localhost/capstone/AppContents.php';
-  static const String _GET_ACTION = 'GET_ALL';
-  static const String _CREATE_TABLE = 'CREATE_TABLE';
-  static const String _ADD_EMP_ACTION = 'ADD_CONT';
-  static const String _UPDATE_EMP_ACTION = 'UPDATE_CONT';
-  static const String _DELETE_EMP_ACTION = 'DELETE_CONT';
+import 'package:voskat/tempData/appContentsData.dart';
 
-  static Future<List<AppContentsDB>> getContents() async {
-    try {
-      var map = new Map<String, dynamic>();
-      map["action"] = _GET_ACTION;
-
-      print('before');
-      final response = await http.post(Uri.parse(ROOT), body: map);
-
-      print(response);
-      print("getEmployees >> Response:: ${response.body}");
-      if (response.statusCode == 200) {
-        List<AppContentsDB> list = parseResponse(response.body);
-        return list;
-      } else {
-        throw <AppContentsDB>[];
+class AppContentsControllerDB extends GetxController {
+  getContents(List<AppContentsDB> appContentsDB, String ac_id) {
+    String _return = '';
+    for (int i = 0; i < appContentsDB.length; i++) {
+      if (appContentsDB[i].acid == ac_id) {
+        _return = appContentsDB[i].contents;
+        return _return;
       }
-    } catch (e) {
-      return <AppContentsDB>[];
+    }
+    if (_return == '') {
+      print(
+          '[ERROR - getContents] Cannot find contents! Please check the parameter!');
     }
   }
 
-  static List<AppContentsDB> parseResponse(String responseBody) {
-    final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-    return parsed.map<AppContentsDB>((json) => AppContentsDB.fromJson(json)).toList();
+
+  getAppContentIds(List<AppContentsDB> appContentsDB, String aid) {
+    List<String> result = new List.empty(growable: true);
+
+    for(int i = 0; i < appContentsDB.length; i++){
+      if (appContentsDB[i].aid == aid){
+        result.add(appContentsDB[i].acid);
+      }
+    }
+    return result;
   }
 
-  static Future<String> createTable() async {
-    try {
-      var map = new Map<String, dynamic>();
-      map["action"] = _CREATE_TABLE;
-      final response = await http.post(Uri.parse(ROOT), body: map);
-      print("createTable >> Response:: ${response.body}");
-      return response.body;
-    } catch (e) {
-      return 'error';
+  getContentId(List<AppContentsDB> appContentsDB, String aid){
+    for(int i = 0; i < appContentsDB.length; i++) {
+      if (appContentsDB[i].aid == aid) {
+        return appContentsDB[i].acid;
+      }
     }
   }
 
-  static Future<String> addContents(
-  String ac_id,
-  String sid,
-  String aid,
-  int order,
-  String c_type,
-  String contents,
-  bool hasNextAction,
-      DateTime reg_date, DateTime mod_date
-      ) async {
-    try {
-      var map = new Map<String, dynamic>();
-      map["action"] = _ADD_EMP_ACTION;
-      map['ac_id'] = ac_id;
-      map['sid'] = sid;
-      map['aid'] = aid;
-      map['order'] = order;
-      map['c_type'] = c_type;
-      map['contents'] = contents;
-      map['hasNextAction'] = hasNextAction;
-      map['reg_date'] = reg_date;
-      map['mod_date'] = mod_date;
+//   getContentsType(String ac_id){
+//     for(int i = 0; i < appContentsList.length; i++) {
+//       if (appContentsList[i].ac_id == ac_id) {
+//         return appContentsList[i].c_type;
+//       }
+//     }
+//   }
 
-      final response = await http.post(Uri.parse(ROOT), body: map);
-      print(response);
-      print("addContents >> Response:: ${response.body}");
-      return response.body;
-    } catch (e) {
-      return 'error';
+  getContentsTypeAid(List<AppContentsDB> appContentsDB, String aid){
+    List<String> result = new List.empty(growable: true);
+
+    for(int i = 0; i < appContentsDB.length; i++){
+      if (appContentsDB[i].aid == aid){
+        result.add(appContentsDB[i].ctype);
+      }
+    }
+    return result;
+  }
+
+
+
+  /// return type: AppContents
+  getContentsWithOrder(List<AppContentsDB> appContentsDB, String sid, String ac_id, int order) {
+    bool found = false;
+    for (int i = 0; i < appContentsDB.length; i++) {
+      if (appContentsDB[i].sid == sid &&
+          appContentsDB[i].acid == ac_id &&
+          appContentsDB[i].order == order) {
+        // print(
+        //     'getContentsWithOrder => [$order] ${appContentsList[i].contents}');
+
+        found = true;
+        return appContentsDB[i];
+      }
+    }
+    if (!found) {
+      print(
+          '[ERROR - getContentsWithOrder] Cannot find contents! Please check the parameter!');
     }
   }
 
-  static Future<String> updateEmployee(
-      String empId, String firstName, String lastName) async {
-    try {
-      var map = new Map<String, dynamic>();
-      map["action"] = _UPDATE_EMP_ACTION;
-      map["emp_id"] = empId;
-      map["first_name"] = firstName;
-      map["last_name"] = lastName;
-      final response = await http.post(Uri.parse(ROOT), body: map);
-      print("deleteEmployee >> Response:: ${response.body}");
-      return response.body;
-    } catch (e) {
-      return 'error';
+
+
+  getContentsWithType(List<AppContentsDB> appContentsDB, String ac_id, String c_type) {
+    String _return = '';
+    for (int i = 0; i < appContentsDB.length; i++) {
+      if (appContentsDB[i].acid == ac_id &&
+          appContentsDB[i].ctype.contains(c_type)) {
+        // print(
+        //     'getContentsWithType => [$c_type] ${appContentsList[i].contents}');
+        _return = appContentsDB[i].contents;
+        return _return;
+      }
+    }
+    if (_return == '') {
+      print(
+          '[ERROR - getContentsWithType] Cannot find contents! Please check the parameter!');
     }
   }
 
-  static Future<String> deleteEmployee(String empId) async {
-    try {
-      var map = new Map<String, dynamic>();
-      map["action"] = _DELETE_EMP_ACTION;
-      map["emp_id"] = empId;
-      final response = await http.post(Uri.parse(ROOT), body: map);
-      print("deleteEmployee >> Response:: ${response.body}");
-      return response.body;
-    } catch (e) {
-      return 'error';
+  getContentsType(List<AppContentsDB> appContentsDB, String ac_id) {
+    String _return = '';
+    for (int i = 0; i < appContentsDB.length; i++) {
+      if (appContentsDB[i].acid == ac_id) {
+        _return = appContentsDB[i].ctype;
+        print('getContentsType => $_return');
+        return _return;
+      }
+    }
+    if (_return == '') {
+      print('[ERROR - getContentsType] Cannot find contents\' type!');
+    }
+  }
+
+
+  getContentsCount(List<AppContentsDB> appContentsDB, String sid, String ac_id, String c_type) {
+    int count = 0;
+
+    for (int i = 0; i < appContentsDB.length; i++) {
+      if (appContentsDB[i].sid == sid &&
+          appContentsDB[i].acid == ac_id &&
+          appContentsDB[i].ctype.contains(c_type)) {
+        print('c_type : ${appContentsDB[i].ctype}');
+        print(
+            'isContaining [$i] : ${appContentsDB[i].ctype.contains(c_type)})');
+        count ++;
+      }
+    }
+
+    return count;
+  }
+
+  getContentsOrderWithType(List<AppContentsDB> appContentsDB, String ac_id, String c_type) {
+    bool found = false;
+    for (int i = 0; i < appContentsDB.length; i++) {
+      if (appContentsDB[i].acid == ac_id &&
+          appContentsDB[i].ctype.contains(c_type)) {
+        found = true;
+        return appContentsDB[i].order;
+      }
+    }
+    if (!found) {
+      print('[ERROR - getContentsOrderWithType] Cannot find contents\' order!');
+    }
+  }
+
+
+  /// temp
+  getContentsWithSidNType(String sid, String c_type) {
+    bool found = false;
+    for (int i = 0; i < maliciousAppList.length; i++) {
+      if (maliciousAppList[i].sid == sid &&
+          maliciousAppList[i].c_type.contains(c_type)) {
+        found = true;
+        return maliciousAppList[i].contents;
+      }
+    }
+    if (!found) {
+      print('[ERROR - getContentsOrderWithType] Cannot find contents\' order!');
     }
   }
 }

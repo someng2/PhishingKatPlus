@@ -25,9 +25,11 @@ class _$ResultCatDescriptionDBTearOff {
 
   _ResultCatDescriptionDB call(
       {@JsonKey(name: 'cat_id') required String catid,
+      required String catDescription,
       required String description}) {
     return _ResultCatDescriptionDB(
       catid: catid,
+      catDescription: catDescription,
       description: description,
     );
   }
@@ -44,6 +46,7 @@ const $ResultCatDescriptionDB = _$ResultCatDescriptionDBTearOff();
 mixin _$ResultCatDescriptionDB {
   @JsonKey(name: 'cat_id')
   String get catid => throw _privateConstructorUsedError;
+  String get catDescription => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -57,7 +60,10 @@ abstract class $ResultCatDescriptionDBCopyWith<$Res> {
   factory $ResultCatDescriptionDBCopyWith(ResultCatDescriptionDB value,
           $Res Function(ResultCatDescriptionDB) then) =
       _$ResultCatDescriptionDBCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'cat_id') String catid, String description});
+  $Res call(
+      {@JsonKey(name: 'cat_id') String catid,
+      String catDescription,
+      String description});
 }
 
 /// @nodoc
@@ -72,12 +78,17 @@ class _$ResultCatDescriptionDBCopyWithImpl<$Res>
   @override
   $Res call({
     Object? catid = freezed,
+    Object? catDescription = freezed,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       catid: catid == freezed
           ? _value.catid
           : catid // ignore: cast_nullable_to_non_nullable
+              as String,
+      catDescription: catDescription == freezed
+          ? _value.catDescription
+          : catDescription // ignore: cast_nullable_to_non_nullable
               as String,
       description: description == freezed
           ? _value.description
@@ -94,7 +105,10 @@ abstract class _$ResultCatDescriptionDBCopyWith<$Res>
           $Res Function(_ResultCatDescriptionDB) then) =
       __$ResultCatDescriptionDBCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'cat_id') String catid, String description});
+  $Res call(
+      {@JsonKey(name: 'cat_id') String catid,
+      String catDescription,
+      String description});
 }
 
 /// @nodoc
@@ -111,12 +125,17 @@ class __$ResultCatDescriptionDBCopyWithImpl<$Res>
   @override
   $Res call({
     Object? catid = freezed,
+    Object? catDescription = freezed,
     Object? description = freezed,
   }) {
     return _then(_ResultCatDescriptionDB(
       catid: catid == freezed
           ? _value.catid
           : catid // ignore: cast_nullable_to_non_nullable
+              as String,
+      catDescription: catDescription == freezed
+          ? _value.catDescription
+          : catDescription // ignore: cast_nullable_to_non_nullable
               as String,
       description: description == freezed
           ? _value.description
@@ -131,6 +150,7 @@ class __$ResultCatDescriptionDBCopyWithImpl<$Res>
 class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
   _$_ResultCatDescriptionDB(
       {@JsonKey(name: 'cat_id') required this.catid,
+      required this.catDescription,
       required this.description});
 
   factory _$_ResultCatDescriptionDB.fromJson(Map<String, dynamic> json) =>
@@ -140,11 +160,13 @@ class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
   @JsonKey(name: 'cat_id')
   final String catid;
   @override
+  final String catDescription;
+  @override
   final String description;
 
   @override
   String toString() {
-    return 'ResultCatDescriptionDB(catid: $catid, description: $description)';
+    return 'ResultCatDescriptionDB(catid: $catid, catDescription: $catDescription, description: $description)';
   }
 
   @override
@@ -154,6 +176,8 @@ class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
             other is _ResultCatDescriptionDB &&
             const DeepCollectionEquality().equals(other.catid, catid) &&
             const DeepCollectionEquality()
+                .equals(other.catDescription, catDescription) &&
+            const DeepCollectionEquality()
                 .equals(other.description, description));
   }
 
@@ -161,6 +185,7 @@ class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(catid),
+      const DeepCollectionEquality().hash(catDescription),
       const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
@@ -178,6 +203,7 @@ class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
 abstract class _ResultCatDescriptionDB implements ResultCatDescriptionDB {
   factory _ResultCatDescriptionDB(
       {@JsonKey(name: 'cat_id') required String catid,
+      required String catDescription,
       required String description}) = _$_ResultCatDescriptionDB;
 
   factory _ResultCatDescriptionDB.fromJson(Map<String, dynamic> json) =
@@ -186,6 +212,8 @@ abstract class _ResultCatDescriptionDB implements ResultCatDescriptionDB {
   @override
   @JsonKey(name: 'cat_id')
   String get catid;
+  @override
+  String get catDescription;
   @override
   String get description;
   @override

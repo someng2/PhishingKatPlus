@@ -9,11 +9,11 @@ part of 'appContentsDB.dart';
 _$_AppContentsDB _$$_AppContentsDBFromJson(Map<String, dynamic> json) =>
     _$_AppContentsDB(
       acid: json['ac_id'] as String,
-      sid: json['sid'] as String,
-      aid: json['aid'] as String,
+      sid: json['sid'],
+      aid: json['aid'],
       order: json['order'] as int,
       ctype: json['c_type'] as String,
-      contents: json['contents'] as String,
+      contents: json['contents'],
       hasNextAction: json['hasNextAction'] as int,
     );
 

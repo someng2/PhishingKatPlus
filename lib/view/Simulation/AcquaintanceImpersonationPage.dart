@@ -6,13 +6,19 @@ import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:provider/src/provider.dart';
+import 'package:voskat/controller/AppContentsControllerDB.dart';
 import 'package:voskat/controller/ScenarioController.dart';
 import 'package:voskat/controller/UserActionController.dart';
+import 'package:voskat/controller/appContents_state.dart';
+import 'package:voskat/model/simulation/appContentsDB.dart';
 import 'package:voskat/model/simulation/scenario.dart';
 import 'package:voskat/view/Simulation/SimulationResultPage.dart';
 
 import 'package:voskat/controller/PairController.dart';
 import 'package:voskat/controller/AppContentsController.dart';
+
+import '../viewModel/appContents_view_model.dart';
 
 class AcquaintanceImpersonationPage extends StatefulWidget {
   final String sid;
@@ -37,6 +43,9 @@ class _AcquaintanceImpersonationPageState
   List<String> messageList = [];
   final ScrollController _scrollController = new ScrollController();
 
+  var _state = AppContentsState();
+  AppContentsState get state => _state;
+
   @override
   void initState() {
     super.initState();
@@ -49,8 +58,11 @@ class _AcquaintanceImpersonationPageState
 
   // @override
   Widget build(BuildContext context) {
-    print(messageList.last);
-    var ids = AppContentsController().getAppContentIds(messageList.last);
+    final viewModel = context.watch<AppContentsViewModel>();
+    final state = viewModel.state;
+    List<AppContentsDB> appContentsDBList = state.appContentsDB;
+
+    var ids = AppContentsControllerDB().getAppContentIds(appContentsDBList, messageList.last);
     Scenario scenario = _scenarioController.getScenario(widget.sid);
     messageList.remove(messageList.last);
     messageList.add(ids[0]);
@@ -141,8 +153,8 @@ class _AcquaintanceImpersonationPageState
                     return GestureDetector(
                       child: Card(
                           elevation: 0,
-                          child: (AppContentsController()
-                                      .getContentsType(messageList[position]) ==
+                          child: (AppContentsControllerDB()
+                                      .getContentsType(appContentsDBList, messageList[position]) ==
                                   'Ytext')
                               ? Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,8 +179,8 @@ class _AcquaintanceImpersonationPageState
                                               borderRadius:
                                                   BorderRadius.circular(10.sp)),
                                           child: Text(
-                                            AppContentsController()
-                                                .getContents(messageList[position]),
+                                            AppContentsControllerDB()
+                                                .getContents(appContentsDBList, messageList[position]),
                                             style: TextStyle(
                                                 color: const Color(0xffffffff),
                                                 fontWeight: FontWeight.w400,
@@ -208,8 +220,8 @@ class _AcquaintanceImpersonationPageState
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                AppContentsController().getContents(
-                                                    messageList[position]),
+                                                AppContentsControllerDB().getContents(
+                                                    appContentsDBList, messageList[position]),
                                                 style: TextStyle(
                                                     color: const Color(0xffffffff),
                                                     fontWeight: FontWeight.w400,
@@ -265,7 +277,7 @@ class _AcquaintanceImpersonationPageState
                             duration: const Duration(milliseconds: 300),
                           );
                         },
-                        child: Text(AppContentsController().getContents(ids[1]),
+                        child: Text(AppContentsControllerDB().getContents(appContentsDBList, ids[1]),
                             style: TextStyle(
                                 color: const Color(0xff000000),
                                 fontWeight: FontWeight.w400,
@@ -305,7 +317,7 @@ class _AcquaintanceImpersonationPageState
                             duration: const Duration(milliseconds: 300),
                           );
                         },
-                        child: Text(AppContentsController().getContents(ids[2]),
+                        child: Text(AppContentsControllerDB().getContents(appContentsDBList, ids[2]),
                             style: TextStyle(
                                 color: const Color(0xff000000),
                                 fontWeight: FontWeight.w400,

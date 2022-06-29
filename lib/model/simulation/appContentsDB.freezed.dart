@@ -24,11 +24,11 @@ class _$AppContentsDBTearOff {
 
   _AppContentsDB call(
       {@JsonKey(name: 'ac_id') required String acid,
-      required String sid,
-      required String aid,
+      required dynamic sid,
+      required dynamic aid,
       required int order,
       @JsonKey(name: 'c_type') required String ctype,
-      required String contents,
+      required dynamic contents,
       required int hasNextAction}) {
     return _AppContentsDB(
       acid: acid,
@@ -53,12 +53,12 @@ const $AppContentsDB = _$AppContentsDBTearOff();
 mixin _$AppContentsDB {
   @JsonKey(name: 'ac_id')
   String get acid => throw _privateConstructorUsedError;
-  String get sid => throw _privateConstructorUsedError;
-  String get aid => throw _privateConstructorUsedError;
+  dynamic get sid => throw _privateConstructorUsedError;
+  dynamic get aid => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
   @JsonKey(name: 'c_type')
   String get ctype => throw _privateConstructorUsedError;
-  String get contents => throw _privateConstructorUsedError;
+  dynamic get contents => throw _privateConstructorUsedError;
   int get hasNextAction => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -74,11 +74,11 @@ abstract class $AppContentsDBCopyWith<$Res> {
       _$AppContentsDBCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'ac_id') String acid,
-      String sid,
-      String aid,
+      dynamic sid,
+      dynamic aid,
       int order,
       @JsonKey(name: 'c_type') String ctype,
-      String contents,
+      dynamic contents,
       int hasNextAction});
 }
 
@@ -109,11 +109,11 @@ class _$AppContentsDBCopyWithImpl<$Res>
       sid: sid == freezed
           ? _value.sid
           : sid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       aid: aid == freezed
           ? _value.aid
           : aid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       order: order == freezed
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -125,7 +125,7 @@ class _$AppContentsDBCopyWithImpl<$Res>
       contents: contents == freezed
           ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       hasNextAction: hasNextAction == freezed
           ? _value.hasNextAction
           : hasNextAction // ignore: cast_nullable_to_non_nullable
@@ -143,11 +143,11 @@ abstract class _$AppContentsDBCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'ac_id') String acid,
-      String sid,
-      String aid,
+      dynamic sid,
+      dynamic aid,
       int order,
       @JsonKey(name: 'c_type') String ctype,
-      String contents,
+      dynamic contents,
       int hasNextAction});
 }
 
@@ -180,11 +180,11 @@ class __$AppContentsDBCopyWithImpl<$Res>
       sid: sid == freezed
           ? _value.sid
           : sid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       aid: aid == freezed
           ? _value.aid
           : aid // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       order: order == freezed
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -196,7 +196,7 @@ class __$AppContentsDBCopyWithImpl<$Res>
       contents: contents == freezed
           ? _value.contents
           : contents // ignore: cast_nullable_to_non_nullable
-              as String,
+              as dynamic,
       hasNextAction: hasNextAction == freezed
           ? _value.hasNextAction
           : hasNextAction // ignore: cast_nullable_to_non_nullable
@@ -224,16 +224,16 @@ class _$_AppContentsDB implements _AppContentsDB {
   @JsonKey(name: 'ac_id')
   final String acid;
   @override
-  final String sid;
+  final dynamic sid;
   @override
-  final String aid;
+  final dynamic aid;
   @override
   final int order;
   @override
   @JsonKey(name: 'c_type')
   final String ctype;
   @override
-  final String contents;
+  final dynamic contents;
   @override
   final int hasNextAction;
 
@@ -282,11 +282,11 @@ class _$_AppContentsDB implements _AppContentsDB {
 abstract class _AppContentsDB implements AppContentsDB {
   factory _AppContentsDB(
       {@JsonKey(name: 'ac_id') required String acid,
-      required String sid,
-      required String aid,
+      required dynamic sid,
+      required dynamic aid,
       required int order,
       @JsonKey(name: 'c_type') required String ctype,
-      required String contents,
+      required dynamic contents,
       required int hasNextAction}) = _$_AppContentsDB;
 
   factory _AppContentsDB.fromJson(Map<String, dynamic> json) =
@@ -296,16 +296,16 @@ abstract class _AppContentsDB implements AppContentsDB {
   @JsonKey(name: 'ac_id')
   String get acid;
   @override
-  String get sid;
+  dynamic get sid;
   @override
-  String get aid;
+  dynamic get aid;
   @override
   int get order;
   @override
   @JsonKey(name: 'c_type')
   String get ctype;
   @override
-  String get contents;
+  dynamic get contents;
   @override
   int get hasNextAction;
   @override
