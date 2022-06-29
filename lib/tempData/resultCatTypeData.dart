@@ -6,7 +6,7 @@ ResultCatType resultCatType1 = ResultCatType(
     cat_id: 'cat_1',
     catName: '봄베이',
     catDescription: '사랑한다면 모두 퍼주는 당신',
-    catExtraDescription: '거절은 거절한다! 무조건 퍼주는,',
+    descriptionAsPartner: '거절은 거절한다! 무조건 퍼주는,',
     catImage: 'image/CatType/Bombay.png',
     titleDescription: '슬프지만 당신의 성향상 인생의\n대부분 상황을 조심해야 해요.',
     titleDescriptionSize: 19.sp,
@@ -16,14 +16,15 @@ ResultCatType resultCatType1 = ResultCatType(
       '천리길도 한 걸음부터. 매사에 경계하는 습관을 들이다보면 이런 작은 습관이 큰 결과를 가 져올 거에요.'
     ],
     exampleScenario: 'image/CatType/Bombay_ex.png',
-    worstPartnerID: 'cat_4',
-    bestPartnerID: 'cat_8');
+    worstPartnerID: 'cat_4',    // 랙돌
+    bestPartnerID: 'cat_8'    // 엑조틱
+);
 
 ResultCatType resultCatType2 = ResultCatType(
     cat_id: 'cat_2',
     catName: '러시안 블루',
     catDescription: '가까운 사이엔 아낌없는 나무인 당신',
-    catExtraDescription: '아낌없이 퍼주는,',
+    descriptionAsPartner: '아낌없이 퍼주는,',
     catImage: 'image/CatType/RussianBlue.png',
     titleDescription: '친하다는 이유로 무리한 요구를 들어주고 있지 않은지 돌이켜봐요.',
     titleDescriptionSize: 19.sp,
@@ -40,7 +41,7 @@ ResultCatType resultCatType3 = ResultCatType(
     cat_id: 'cat_3',
     catName: '메인쿤',
     catDescription: '의외의 상술에 쉽게 현혹되는 당신',
-    catExtraDescription: '공과 사 구분 칼같은',
+    descriptionAsPartner: '공과 사 구분 칼같은',
     catImage: 'image/CatType/MaineCoon.png',
     titleDescription: '공과 사 구분이 확실하지만 의외로 허술한 포인트에서 통 크게 당하고 다니는 게 함정이에요.',
     titleDescriptionSize: 19.sp,
@@ -58,7 +59,7 @@ ResultCatType resultCatType4 = ResultCatType(
     cat_id: 'cat_4',
     catName: '랙돌',
     catDescription: '귀가 얇아 슬픈 당신',
-    catExtraDescription: '습자지 수준의 팔랑귀',
+    descriptionAsPartner: '습자지 수준의 팔랑귀,',
     catImage: 'image/CatType/Ragdoll.png',
     titleDescription: '늘 근거를 확인하고 모든 행동에\n발자취를 남기는 것만이 살 길이에요.',
     titleDescriptionSize: 16.sp,
@@ -74,7 +75,7 @@ ResultCatType resultCatType5 = ResultCatType(
     cat_id: 'cat_5',
     catName: '코리안 숏헤어',
     catDescription: '오지랖의 화신인 당신',
-    catExtraDescription: '민중의 지팡이 오지라퍼',
+    descriptionAsPartner: '민중의 지팡이 오지라퍼',
     catImage: 'image/CatType/KoreanShorthair.png',
     titleDescription: '헌신하다 헌신짝이 될 수 있으니 가까운 사이라도 가끔은 정확히 선 긋는 사람이 되어요.',
     titleDescriptionSize: 19.sp,
@@ -91,7 +92,7 @@ ResultCatType resultCatType6 = ResultCatType(
     cat_id: 'cat_6',
     catName: '샴',
     catDescription: '만사 귀찮아서 대충 살고 싶은 당신',
-    catExtraDescription: '친할수록 선을 지키는',
+    descriptionAsPartner: '친할수록 선을 지키는',
     catImage: 'image/CatType/Siamese.png',
     titleDescription:'당장은 편할지 몰라도, 티끌같은 귀차니즘 습관이 모여 태산같은 실수를 만드는 법이에요.',
     titleDescriptionSize: 19.sp,
@@ -109,7 +110,7 @@ ResultCatType resultCatType7 = ResultCatType(
     cat_id: 'cat_7',
     catName: '스코티쉬폴드',
     catDescription: '눈치만렙, 외유내강인 당신',
-    catExtraDescription: '눈치만렙, 외유내강',
+    descriptionAsPartner: '',
     catImage: 'image/CatType/ScottishFold.png',
     titleDescription: '증거 수집하는 당신의 노력을\n후려치는 지인이 최대 장애물이에요.',
     titleDescriptionSize: 19.sp,
@@ -127,7 +128,7 @@ ResultCatType resultCatType8 = ResultCatType(
     cat_id: 'cat_8',
     catName: '엑죠틱',
     catDescription: '단호박 그 자체인 당신',
-    catExtraDescription: '함께하면 최강 단호박 그 자체,',
+    descriptionAsPartner: '함께하면 최강 단호박 그 자체,',
     catImage: 'image/CatType/Exotic.png',
     titleDescription: '당신은 도대체... (말잇못)\n세상이 당신을 조심하면 된다.',
     titleDescriptionSize: 19.sp,
@@ -140,7 +141,6 @@ ResultCatType resultCatType8 = ResultCatType(
     exampleScenario: 'image/CatType/Exotic_ex.png',
     worstPartnerID: '',
     bestPartnerID: '');
-
 
 
 

@@ -27,7 +27,7 @@ class CatTypeController extends GetxController {
     } else if (score <= 90) {
       catID = 'cat_7';
     } else {
-      catID = 'cat_8';
+      catID = 'cat_8';  // 엑죠틱
     }
     return catID;
   }
@@ -120,7 +120,7 @@ class CatTypeController extends GetxController {
   getCatExtraDescription(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
       if (resultCatList[i].cat_id == catID) {
-        return resultCatList[i].catExtraDescription;
+        return resultCatList[i].descriptionAsPartner;
       }
     }
   }

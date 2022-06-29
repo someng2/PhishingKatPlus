@@ -6,7 +6,7 @@ class ResultCatType {
   // String over50Type; //  51~100점
   String catName;
   String catDescription;
-  String catExtraDescription; // ㅍㅏ트너일 때 설명
+  String descriptionAsPartner; // ㅍㅏ트너일 때 설명
   String catImage;
   String titleDescription;
   double titleDescriptionSize;
@@ -20,7 +20,7 @@ class ResultCatType {
 
       required this.catName,
         required this.catDescription,
-        required this.catExtraDescription,
+        required this.descriptionAsPartner,
       required this.catImage,
       required this.titleDescription,
       required this.titleDescriptionSize,

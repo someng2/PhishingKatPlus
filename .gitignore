@@ -54,3 +54,5 @@ lib/data/
 lib/domain/
 lib/presentation/
 lib/view/DBTest.dart
+
+/android/

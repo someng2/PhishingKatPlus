@@ -12,7 +12,7 @@ class ResultCatTypeDB with _$ResultCatTypeDB {
     @JsonKey(name:'cat_id') required String catid,
     required String catName,
     required String catDescription,
-    required String catExtraDescription, // ㅍㅏ트너일 때 설명
+    required String descriptionAsPartner, // ㅍㅏ트너일 때 설명
     required String catImage,
     required String titleDescription,
     required double titleDescriptionSize,
