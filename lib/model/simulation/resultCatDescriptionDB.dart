@@ -10,6 +10,7 @@ part 'resultCatDescriptionDB.g.dart';
 class ResultCatDescriptionDB with _$ResultCatDescriptionDB {
   factory ResultCatDescriptionDB({
     @JsonKey(name:'cat_id') required String catid,
+    required String catDescription,
     required String description,
   }) = _ResultCatDescriptionDB;
 

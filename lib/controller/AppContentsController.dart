@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
+import 'package:voskat/controller/appContents_state.dart';
 import 'package:voskat/model/simulation/appContents.dart';
 import 'package:voskat/model/simulation/contentsList.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:voskat/tempData/appContentsData.dart';
 
 class AppContentsController extends GetxController {
+  var _state = AppContentsState();
+
+  AppContentsState get state => _state;
+
   getContents(String ac_id) {
     String _return = '';
     for (int i = 0; i < appContentsList.length; i++) {

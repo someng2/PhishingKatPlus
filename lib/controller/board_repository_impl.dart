@@ -19,47 +19,52 @@ class BoardRepositoryImpl implements BoardRepository {
     await api.insert(ac_id, sid, aid, order, c_type, contents, hasNextAction);
   }
 
-
+  @override
+  Future<List<UserDB>> getUser() async{
+    final response = await api.getAllList('User');
+    final Iterable json = jsonDecode(utf8.decode(response.bodyBytes));
+    return json.map((e) => UserDB.fromJson(e)).toList();
+  }
 
   @override
-  Future<List<AppContentsDB>> getContents() async{
+  Future<List<AppContentsDB>> getAppContents() async{
     final response = await api.getAllList('appContents');
-    final Iterable json = jsonDecode(response.body);
+    final Iterable json = jsonDecode(utf8.decode(response.bodyBytes));
     return json.map((e) => AppContentsDB.fromJson(e)).toList();
   }
 
   @override
   Future<List<AppPageDB>> getPages() async{
     final response = await api.getAllList('appPage');
-    final Iterable json = jsonDecode(response.body);
+    final Iterable json = jsonDecode(utf8.decode(response.bodyBytes));
     return json.map((e) => AppPageDB.fromJson(e)).toList();
   }
 
   @override
   Future<List<PairDB>> getPairs() async{
     final response = await api.getAllList('pair');
-    final Iterable json = jsonDecode(response.body);
+    final Iterable json = jsonDecode(utf8.decode(response.bodyBytes));
     return json.map((e) => PairDB.fromJson(e)).toList();
   }
 
   @override
-  Future<List<ResultCatTypeDB>> getResults() async{
+  Future<List<ResultCatTypeDB>> getCatType() async{
     final response = await api.getAllList('ResultCatType');
-    final Iterable json = jsonDecode(response.body);
+    final Iterable json = jsonDecode(utf8.decode(response.bodyBytes));
     return json.map((e) => ResultCatTypeDB.fromJson(e)).toList();
   }
 
   @override
   Future<List<ScenarioDB>> getScenarios() async{
     final response = await api.getAllList('Scenario');
-    final Iterable json = jsonDecode(response.body);
+    final Iterable json = jsonDecode(utf8.decode(response.bodyBytes));
     return json.map((e) => ScenarioDB.fromJson(e)).toList();
   }
 
   @override
   Future<List<ScenarioTypeDB>> getScenarioTypes() async{
     final response = await api.getAllList('ScenarioType');
-    final Iterable json = jsonDecode(response.body);
+    final Iterable json = jsonDecode(utf8.decode(response.bodyBytes));
     return json.map((e) => ScenarioTypeDB.fromJson(e)).toList();
   }
 

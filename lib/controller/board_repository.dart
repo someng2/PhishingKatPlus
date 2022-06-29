@@ -7,8 +7,8 @@ import 'package:voskat/model/simulation/scenarioTypeDB.dart';
 import 'package:voskat/model/user/userDB.dart';
 
 abstract class BoardRepository {
-  // Future<List<UserDB>> getUser();
-  Future<List<AppContentsDB>> getContents();
+  Future<List<UserDB>> getUser();
+  Future<List<AppContentsDB>> getAppContents();
   Future<List<AppPageDB>> getPages();
   Future<List<PairDB>> getPairs();
   Future<List<ResultCatTypeDB>> getResults();

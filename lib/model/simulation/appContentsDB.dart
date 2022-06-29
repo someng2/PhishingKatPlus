@@ -10,11 +10,11 @@ part 'appContentsDB.g.dart';
 class AppContentsDB with _$AppContentsDB {
   factory AppContentsDB({
     @JsonKey(name:'ac_id') required String acid,
-    required String sid,
-    required String aid,
+    required dynamic sid,
+    required dynamic aid,
     required int order,
     @JsonKey(name:'c_type') required String ctype,
-    required String contents,
+    required dynamic contents,
     required int hasNextAction,
   }) = _AppContentsDB;
 
