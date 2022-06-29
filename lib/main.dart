@@ -6,7 +6,6 @@ import 'package:voskat/controller/board_repository_impl.dart';
 import 'package:voskat/view/HomePage.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:voskat/view/Simulation/DBTest.dart';
 
 import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/viewModel/appContents_view_model.dart';

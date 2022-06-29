@@ -120,7 +120,7 @@ class CatTypeControllerDB extends GetxController {
   getCatExtraDescription(List<ResultCatTypeDB> catTypeDB, String catID, Scenario scenario) {
     for (int i = 0; i < catTypeDB.length; i++) {
       if (catTypeDB[i].catid == catID) {
-        return catTypeDB[i].catExtraDescription;
+        return catTypeDB[i].descriptionAsPartner;
       }
     }
   }

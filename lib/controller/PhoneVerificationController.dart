@@ -86,7 +86,6 @@ class PhoneVerificationController {
           'x-ncp-iam-access-key': AccessKey,
           'x-ncp-apigw-signature-v2': getSignature(
               Uri.encodeComponent(OpenApiKey),
-              // OpenApiKey,
               timeStamp, AccessKey, SecretKey)
         },
         body: json.encode(data));
