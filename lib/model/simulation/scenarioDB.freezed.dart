@@ -12,40 +12,11 @@ part of 'scenarioDB.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ScenarioDB _$ScenarioDBFromJson(Map<String, dynamic> json) {
   return _ScenarioDB.fromJson(json);
 }
-
-/// @nodoc
-class _$ScenarioDBTearOff {
-  const _$ScenarioDBTearOff();
-
-  _ScenarioDB call(
-      {required String sid,
-      required String medium,
-      required String phoneNumber,
-      required String type,
-      required String subtype,
-      required int score}) {
-    return _ScenarioDB(
-      sid: sid,
-      medium: medium,
-      phoneNumber: phoneNumber,
-      type: type,
-      subtype: subtype,
-      score: score,
-    );
-  }
-
-  ScenarioDB fromJson(Map<String, Object?> json) {
-    return ScenarioDB.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ScenarioDB = _$ScenarioDBTearOff();
 
 /// @nodoc
 mixin _$ScenarioDB {
@@ -123,10 +94,11 @@ class _$ScenarioDBCopyWithImpl<$Res> implements $ScenarioDBCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ScenarioDBCopyWith<$Res> implements $ScenarioDBCopyWith<$Res> {
-  factory _$ScenarioDBCopyWith(
-          _ScenarioDB value, $Res Function(_ScenarioDB) then) =
-      __$ScenarioDBCopyWithImpl<$Res>;
+abstract class _$$_ScenarioDBCopyWith<$Res>
+    implements $ScenarioDBCopyWith<$Res> {
+  factory _$$_ScenarioDBCopyWith(
+          _$_ScenarioDB value, $Res Function(_$_ScenarioDB) then) =
+      __$$_ScenarioDBCopyWithImpl<$Res>;
   @override
   $Res call(
       {String sid,
@@ -138,14 +110,14 @@ abstract class _$ScenarioDBCopyWith<$Res> implements $ScenarioDBCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ScenarioDBCopyWithImpl<$Res> extends _$ScenarioDBCopyWithImpl<$Res>
-    implements _$ScenarioDBCopyWith<$Res> {
-  __$ScenarioDBCopyWithImpl(
-      _ScenarioDB _value, $Res Function(_ScenarioDB) _then)
-      : super(_value, (v) => _then(v as _ScenarioDB));
+class __$$_ScenarioDBCopyWithImpl<$Res> extends _$ScenarioDBCopyWithImpl<$Res>
+    implements _$$_ScenarioDBCopyWith<$Res> {
+  __$$_ScenarioDBCopyWithImpl(
+      _$_ScenarioDB _value, $Res Function(_$_ScenarioDB) _then)
+      : super(_value, (v) => _then(v as _$_ScenarioDB));
 
   @override
-  _ScenarioDB get _value => super._value as _ScenarioDB;
+  _$_ScenarioDB get _value => super._value as _$_ScenarioDB;
 
   @override
   $Res call({
@@ -156,7 +128,7 @@ class __$ScenarioDBCopyWithImpl<$Res> extends _$ScenarioDBCopyWithImpl<$Res>
     Object? subtype = freezed,
     Object? score = freezed,
   }) {
-    return _then(_ScenarioDB(
+    return _then(_$_ScenarioDB(
       sid: sid == freezed
           ? _value.sid
           : sid // ignore: cast_nullable_to_non_nullable
@@ -221,7 +193,7 @@ class _$_ScenarioDB implements _ScenarioDB {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ScenarioDB &&
+            other is _$_ScenarioDB &&
             const DeepCollectionEquality().equals(other.sid, sid) &&
             const DeepCollectionEquality().equals(other.medium, medium) &&
             const DeepCollectionEquality()
@@ -231,6 +203,7 @@ class _$_ScenarioDB implements _ScenarioDB {
             const DeepCollectionEquality().equals(other.score, score));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -243,8 +216,8 @@ class _$_ScenarioDB implements _ScenarioDB {
 
   @JsonKey(ignore: true)
   @override
-  _$ScenarioDBCopyWith<_ScenarioDB> get copyWith =>
-      __$ScenarioDBCopyWithImpl<_ScenarioDB>(this, _$identity);
+  _$$_ScenarioDBCopyWith<_$_ScenarioDB> get copyWith =>
+      __$$_ScenarioDBCopyWithImpl<_$_ScenarioDB>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -254,30 +227,30 @@ class _$_ScenarioDB implements _ScenarioDB {
 
 abstract class _ScenarioDB implements ScenarioDB {
   factory _ScenarioDB(
-      {required String sid,
-      required String medium,
-      required String phoneNumber,
-      required String type,
-      required String subtype,
-      required int score}) = _$_ScenarioDB;
+      {required final String sid,
+      required final String medium,
+      required final String phoneNumber,
+      required final String type,
+      required final String subtype,
+      required final int score}) = _$_ScenarioDB;
 
   factory _ScenarioDB.fromJson(Map<String, dynamic> json) =
       _$_ScenarioDB.fromJson;
 
   @override
-  String get sid;
+  String get sid => throw _privateConstructorUsedError;
   @override
-  String get medium;
+  String get medium => throw _privateConstructorUsedError;
   @override
-  String get phoneNumber;
+  String get phoneNumber => throw _privateConstructorUsedError;
   @override
-  String get type;
+  String get type => throw _privateConstructorUsedError;
   @override
-  String get subtype;
+  String get subtype => throw _privateConstructorUsedError;
   @override
-  int get score;
+  int get score => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ScenarioDBCopyWith<_ScenarioDB> get copyWith =>
+  _$$_ScenarioDBCopyWith<_$_ScenarioDB> get copyWith =>
       throw _privateConstructorUsedError;
 }

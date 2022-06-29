@@ -12,31 +12,11 @@ part of 'appPageDB.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AppPageDB _$AppPageDBFromJson(Map<String, dynamic> json) {
   return _AppPageDB.fromJson(json);
 }
-
-/// @nodoc
-class _$AppPageDBTearOff {
-  const _$AppPageDBTearOff();
-
-  _AppPageDB call(
-      {@JsonKey(name: 'ap_id') required String apid, required String widget}) {
-    return _AppPageDB(
-      apid: apid,
-      widget: widget,
-    );
-  }
-
-  AppPageDB fromJson(Map<String, Object?> json) {
-    return AppPageDB.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AppPageDB = _$AppPageDBTearOff();
 
 /// @nodoc
 mixin _$AppPageDB {
@@ -84,29 +64,30 @@ class _$AppPageDBCopyWithImpl<$Res> implements $AppPageDBCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AppPageDBCopyWith<$Res> implements $AppPageDBCopyWith<$Res> {
-  factory _$AppPageDBCopyWith(
-          _AppPageDB value, $Res Function(_AppPageDB) then) =
-      __$AppPageDBCopyWithImpl<$Res>;
+abstract class _$$_AppPageDBCopyWith<$Res> implements $AppPageDBCopyWith<$Res> {
+  factory _$$_AppPageDBCopyWith(
+          _$_AppPageDB value, $Res Function(_$_AppPageDB) then) =
+      __$$_AppPageDBCopyWithImpl<$Res>;
   @override
   $Res call({@JsonKey(name: 'ap_id') String apid, String widget});
 }
 
 /// @nodoc
-class __$AppPageDBCopyWithImpl<$Res> extends _$AppPageDBCopyWithImpl<$Res>
-    implements _$AppPageDBCopyWith<$Res> {
-  __$AppPageDBCopyWithImpl(_AppPageDB _value, $Res Function(_AppPageDB) _then)
-      : super(_value, (v) => _then(v as _AppPageDB));
+class __$$_AppPageDBCopyWithImpl<$Res> extends _$AppPageDBCopyWithImpl<$Res>
+    implements _$$_AppPageDBCopyWith<$Res> {
+  __$$_AppPageDBCopyWithImpl(
+      _$_AppPageDB _value, $Res Function(_$_AppPageDB) _then)
+      : super(_value, (v) => _then(v as _$_AppPageDB));
 
   @override
-  _AppPageDB get _value => super._value as _AppPageDB;
+  _$_AppPageDB get _value => super._value as _$_AppPageDB;
 
   @override
   $Res call({
     Object? apid = freezed,
     Object? widget = freezed,
   }) {
-    return _then(_AppPageDB(
+    return _then(_$_AppPageDB(
       apid: apid == freezed
           ? _value.apid
           : apid // ignore: cast_nullable_to_non_nullable
@@ -143,11 +124,12 @@ class _$_AppPageDB implements _AppPageDB {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppPageDB &&
+            other is _$_AppPageDB &&
             const DeepCollectionEquality().equals(other.apid, apid) &&
             const DeepCollectionEquality().equals(other.widget, widget));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -156,8 +138,8 @@ class _$_AppPageDB implements _AppPageDB {
 
   @JsonKey(ignore: true)
   @override
-  _$AppPageDBCopyWith<_AppPageDB> get copyWith =>
-      __$AppPageDBCopyWithImpl<_AppPageDB>(this, _$identity);
+  _$$_AppPageDBCopyWith<_$_AppPageDB> get copyWith =>
+      __$$_AppPageDBCopyWithImpl<_$_AppPageDB>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -167,19 +149,19 @@ class _$_AppPageDB implements _AppPageDB {
 
 abstract class _AppPageDB implements AppPageDB {
   factory _AppPageDB(
-      {@JsonKey(name: 'ap_id') required String apid,
-      required String widget}) = _$_AppPageDB;
+      {@JsonKey(name: 'ap_id') required final String apid,
+      required final String widget}) = _$_AppPageDB;
 
   factory _AppPageDB.fromJson(Map<String, dynamic> json) =
       _$_AppPageDB.fromJson;
 
   @override
   @JsonKey(name: 'ap_id')
-  String get apid;
+  String get apid => throw _privateConstructorUsedError;
   @override
-  String get widget;
+  String get widget => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AppPageDBCopyWith<_AppPageDB> get copyWith =>
+  _$$_AppPageDBCopyWith<_$_AppPageDB> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -11,7 +11,7 @@ abstract class BoardRepository {
   Future<List<AppContentsDB>> getAppContents();
   Future<List<AppPageDB>> getPages();
   Future<List<PairDB>> getPairs();
-  Future<List<ResultCatTypeDB>> getCatType();
+  Future<List<ResultCatTypeDB>> getResults();
   Future<List<ScenarioDB>> getScenarios();
   Future<List<ScenarioTypeDB>> getScenarioTypes();
 

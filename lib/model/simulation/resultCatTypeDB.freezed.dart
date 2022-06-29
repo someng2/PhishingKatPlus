@@ -12,48 +12,11 @@ part of 'resultCatTypeDB.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ResultCatTypeDB _$ResultCatTypeDBFromJson(Map<String, dynamic> json) {
   return _ResultCatTypeDB.fromJson(json);
 }
-
-/// @nodoc
-class _$ResultCatTypeDBTearOff {
-  const _$ResultCatTypeDBTearOff();
-
-  _ResultCatTypeDB call(
-      {@JsonKey(name: 'cat_id') required String catid,
-      required String catName,
-      required String catDescription,
-      required String catExtraDescription,
-      required String catImage,
-      required String titleDescription,
-      required double titleDescriptionSize,
-      required String exampleScenario,
-      required String worstPartnerID,
-      required String bestPartnerID}) {
-    return _ResultCatTypeDB(
-      catid: catid,
-      catName: catName,
-      catDescription: catDescription,
-      catExtraDescription: catExtraDescription,
-      catImage: catImage,
-      titleDescription: titleDescription,
-      titleDescriptionSize: titleDescriptionSize,
-      exampleScenario: exampleScenario,
-      worstPartnerID: worstPartnerID,
-      bestPartnerID: bestPartnerID,
-    );
-  }
-
-  ResultCatTypeDB fromJson(Map<String, Object?> json) {
-    return ResultCatTypeDB.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ResultCatTypeDB = _$ResultCatTypeDBTearOff();
 
 /// @nodoc
 mixin _$ResultCatTypeDB {
@@ -162,11 +125,11 @@ class _$ResultCatTypeDBCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResultCatTypeDBCopyWith<$Res>
+abstract class _$$_ResultCatTypeDBCopyWith<$Res>
     implements $ResultCatTypeDBCopyWith<$Res> {
-  factory _$ResultCatTypeDBCopyWith(
-          _ResultCatTypeDB value, $Res Function(_ResultCatTypeDB) then) =
-      __$ResultCatTypeDBCopyWithImpl<$Res>;
+  factory _$$_ResultCatTypeDBCopyWith(
+          _$_ResultCatTypeDB value, $Res Function(_$_ResultCatTypeDB) then) =
+      __$$_ResultCatTypeDBCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'cat_id') String catid,
@@ -182,15 +145,15 @@ abstract class _$ResultCatTypeDBCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResultCatTypeDBCopyWithImpl<$Res>
+class __$$_ResultCatTypeDBCopyWithImpl<$Res>
     extends _$ResultCatTypeDBCopyWithImpl<$Res>
-    implements _$ResultCatTypeDBCopyWith<$Res> {
-  __$ResultCatTypeDBCopyWithImpl(
-      _ResultCatTypeDB _value, $Res Function(_ResultCatTypeDB) _then)
-      : super(_value, (v) => _then(v as _ResultCatTypeDB));
+    implements _$$_ResultCatTypeDBCopyWith<$Res> {
+  __$$_ResultCatTypeDBCopyWithImpl(
+      _$_ResultCatTypeDB _value, $Res Function(_$_ResultCatTypeDB) _then)
+      : super(_value, (v) => _then(v as _$_ResultCatTypeDB));
 
   @override
-  _ResultCatTypeDB get _value => super._value as _ResultCatTypeDB;
+  _$_ResultCatTypeDB get _value => super._value as _$_ResultCatTypeDB;
 
   @override
   $Res call({
@@ -205,7 +168,7 @@ class __$ResultCatTypeDBCopyWithImpl<$Res>
     Object? worstPartnerID = freezed,
     Object? bestPartnerID = freezed,
   }) {
-    return _then(_ResultCatTypeDB(
+    return _then(_$_ResultCatTypeDB(
       catid: catid == freezed
           ? _value.catid
           : catid // ignore: cast_nullable_to_non_nullable
@@ -277,7 +240,8 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
   final String catDescription;
   @override
   final String catExtraDescription;
-  @override // ㅍㅏ트너일 때 설명
+// ㅍㅏ트너일 때 설명
+  @override
   final String catImage;
   @override
   final String titleDescription;
@@ -299,7 +263,7 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResultCatTypeDB &&
+            other is _$_ResultCatTypeDB &&
             const DeepCollectionEquality().equals(other.catid, catid) &&
             const DeepCollectionEquality().equals(other.catName, catName) &&
             const DeepCollectionEquality()
@@ -319,6 +283,7 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
                 .equals(other.bestPartnerID, bestPartnerID));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -335,8 +300,8 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
 
   @JsonKey(ignore: true)
   @override
-  _$ResultCatTypeDBCopyWith<_ResultCatTypeDB> get copyWith =>
-      __$ResultCatTypeDBCopyWithImpl<_ResultCatTypeDB>(this, _$identity);
+  _$$_ResultCatTypeDBCopyWith<_$_ResultCatTypeDB> get copyWith =>
+      __$$_ResultCatTypeDBCopyWithImpl<_$_ResultCatTypeDB>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -346,43 +311,43 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
 
 abstract class _ResultCatTypeDB implements ResultCatTypeDB {
   factory _ResultCatTypeDB(
-      {@JsonKey(name: 'cat_id') required String catid,
-      required String catName,
-      required String catDescription,
-      required String catExtraDescription,
-      required String catImage,
-      required String titleDescription,
-      required double titleDescriptionSize,
-      required String exampleScenario,
-      required String worstPartnerID,
-      required String bestPartnerID}) = _$_ResultCatTypeDB;
+      {@JsonKey(name: 'cat_id') required final String catid,
+      required final String catName,
+      required final String catDescription,
+      required final String catExtraDescription,
+      required final String catImage,
+      required final String titleDescription,
+      required final double titleDescriptionSize,
+      required final String exampleScenario,
+      required final String worstPartnerID,
+      required final String bestPartnerID}) = _$_ResultCatTypeDB;
 
   factory _ResultCatTypeDB.fromJson(Map<String, dynamic> json) =
       _$_ResultCatTypeDB.fromJson;
 
   @override
   @JsonKey(name: 'cat_id')
-  String get catid;
+  String get catid => throw _privateConstructorUsedError;
   @override
-  String get catName;
+  String get catName => throw _privateConstructorUsedError;
   @override
-  String get catDescription;
+  String get catDescription => throw _privateConstructorUsedError;
   @override
-  String get catExtraDescription;
+  String get catExtraDescription => throw _privateConstructorUsedError;
   @override // ㅍㅏ트너일 때 설명
-  String get catImage;
+  String get catImage => throw _privateConstructorUsedError;
   @override
-  String get titleDescription;
+  String get titleDescription => throw _privateConstructorUsedError;
   @override
-  double get titleDescriptionSize;
+  double get titleDescriptionSize => throw _privateConstructorUsedError;
   @override
-  String get exampleScenario;
+  String get exampleScenario => throw _privateConstructorUsedError;
   @override
-  String get worstPartnerID;
+  String get worstPartnerID => throw _privateConstructorUsedError;
   @override
-  String get bestPartnerID;
+  String get bestPartnerID => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResultCatTypeDBCopyWith<_ResultCatTypeDB> get copyWith =>
+  _$$_ResultCatTypeDBCopyWith<_$_ResultCatTypeDB> get copyWith =>
       throw _privateConstructorUsedError;
 }

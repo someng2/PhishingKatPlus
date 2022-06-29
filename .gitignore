@@ -44,3 +44,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/app/build.gradle
+/android/build.gradle
+/android/gradle/wrapper/gradle-wrapper.properties
+
+# DB related
+lib/data/
+lib/domain/
+lib/presentation/
+lib/view/DBTest.dart
