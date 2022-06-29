@@ -99,7 +99,7 @@ ScenarioType Type_6 = ScenarioType(
   aid: 'A0-h',
   medal: 1,
   subtype: '주식',
-  icon_active: 'image/SimulationType/stockgColor.png',
+  icon_active: 'image/SimulationType/stockColor.png',
   icon_disactive: 'image/SimulationType/stockBW.png',
   lock: true,
   score: 0,

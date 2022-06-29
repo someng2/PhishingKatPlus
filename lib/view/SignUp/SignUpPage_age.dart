@@ -402,20 +402,27 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
 
                     print('나이: $age');
 
-                    if (age - 1 < 14) {
-                      Get.showSnackbar(GetSnackBar(
+                    if (age == 1) {
+                      Get.showSnackbar(const GetSnackBar(
+                        message: '출생년도를 선택해 주세요.',
+                        duration: Duration(seconds: 2),
+                        snackPosition: SnackPosition.BOTTOM,
+                      ));
+                    }
+                    else if (age - 1 < 14) {
+                      Get.showSnackbar(const GetSnackBar(
                         message: '만 14세 이상만 가입할 수 있습니다.',
                         duration: Duration(seconds: 2),
                         snackPosition: SnackPosition.BOTTOM,
                       ));
                     } else if (nickNameController.text == '') {
-                      Get.showSnackbar(GetSnackBar(
+                      Get.showSnackbar(const GetSnackBar(
                         message: '별명을 입력해 주세요.',
                         duration: Duration(seconds: 2),
                         snackPosition: SnackPosition.BOTTOM,
                       ));
                     } else if (nickNameController.text.length > 6) {
-                      Get.showSnackbar(GetSnackBar(
+                      Get.showSnackbar(const GetSnackBar(
                         message: '6자 이내의 별명을 입력해 주세요.',
                         duration: Duration(seconds: 2),
                         snackPosition: SnackPosition.BOTTOM,

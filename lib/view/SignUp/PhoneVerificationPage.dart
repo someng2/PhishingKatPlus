@@ -17,8 +17,12 @@ class PhoneVerificationPage extends StatefulWidget {
 class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
   bool isFirstPage = true;
   TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController verificationNumController = TextEditingController();
   int phoneNumberLength = 0;
   bool isFirstSend = true;
+
+  var verificationNum = null;
+  bool isVerified = true;
 
   @override
   Widget build(BuildContext context) {
@@ -94,8 +98,8 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                           Container(
                               width: 16.1240234375.w,
                               height: 11.58544921875.h,
-                              child: (phoneNumberLength == 7 ||
-                                      phoneNumberLength == 8)
+                              child: (phoneNumberLength == 10 ||
+                                      phoneNumberLength == 11)
                                   ? Image.asset(
                                       'image/signUpFeedback1.png',
                                     )
@@ -114,6 +118,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                       child: Row(
                         children: [
                           SizedBox(width: 15.6.w),
+                          // TODO: 5분 카운트다운
                           Text("04:30",
                               style: TextStyle(
                                   color: const Color(0xff0b80f5),
@@ -126,16 +131,18 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                           Container(
                             width: 218.w,
                             child: TextField(
+                              controller: verificationNumController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: '인증번호 입력'),
                             ),
                           ),
-                          // TODO: 인증번호 틀릴 시, 아이콘 추가
                           Container(
                               width: 19.w,
                               height: 19.h,
-                              child: Image.asset('image/signUpFeedback2.png'))
+                              child: isVerified
+                                  ? Container()
+                                  : Image.asset('image/signUpFeedback2.png'))
                         ],
                       )),
                   SizedBox(height: 4.8.h),
@@ -156,16 +163,30 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                                 decoration: TextDecoration.underline,
                                 fontSize: 13.sp),
                           ),
-                          onPressed: () {
-                            if ((phoneNumberLength == 7 ||
-                                phoneNumberLength == 8)) {
+                          onPressed: () async {
+                            if ((phoneNumberLength != 10 &&
+                                phoneNumberLength != 11)) {
+                              Get.showSnackbar(
+                                const GetSnackBar(
+                                  title: '휴대폰 번호 형식 불일치',
+                                  message: '\'-\' 없이 번호만 입력해주세요. ',
+                                  duration: Duration(seconds: 3),
+                                  snackPosition: SnackPosition.BOTTOM,
+                                ),
+                              );
+                            } else {
                               setState(() {
                                 isFirstSend = false;
                               });
-                              // TODO: 인증번호 전송
 
-                              PhoneVerificationController()
-                                  .sendSMS(phoneNumberController.text);
+                              // print('인증번호 전송');
+                              print(
+                                  'phone number : ${phoneNumberController.text}');
+
+                              verificationNum =
+                                  await PhoneVerificationController()
+                                      .sendSMS(phoneNumberController.text);
+                              print('verificationNum: $verificationNum');
                             }
                           },
                           style: TextButton.styleFrom(
@@ -203,9 +224,31 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                     fontSize: 19.sp),
                 textAlign: TextAlign.center),
             onPressed: () {
-              // TODO: 권한 허용 절차
-
-              Get.to(SignUpPage_age());
+              print('correct verificationNum: $verificationNum');
+              print(
+                  'verificationNumControllertext: ${verificationNumController.text}');
+              if (verificationNum != verificationNumController.text) {
+                print('[ERROR] 인증번호 불일치 !!');
+                Get.showSnackbar(
+                  const GetSnackBar(
+                    title: '인증번호 불일치',
+                    message: '인증번호 6자리를 다시 입력해주세요.',
+                    duration: Duration(seconds: 3),
+                    snackPosition: SnackPosition.BOTTOM,
+                  ),
+                );
+                setState(() {
+                  isVerified = false;
+                  print('isVerified: $isVerified');
+                });
+              } else {
+                print('인증번호 일치 :)');
+                setState(() {
+                  isVerified = true;
+                  print('isVerified: $isVerified');
+                });
+                Get.to(SignUpPage_age());
+              }
             },
           ),
         )
