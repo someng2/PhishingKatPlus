@@ -41,6 +41,18 @@ class ScenarioTypeController extends GetxController {
     }
   }
 
+  getActiveIcon(String subtype) {
+    late String activie_icon;
+
+    for (int i = 0; i < scenarioTypeList.length; i++) {
+      if (scenarioTypeList[i].subtype == subtype) {
+        activie_icon = scenarioTypeList[i].icon_active;
+      }
+    }
+    return activie_icon;
+
+  }
+
 
 
 }

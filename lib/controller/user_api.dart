@@ -7,10 +7,10 @@ class UserApi {
 
   // 에뮬레이터 ip: 10.0.2.2
   // 실제 기기 -> 실제 pc의 ip
-  static const baseUrl = 'http://10.0.2.2:9001';
+  // static const baseUrl = 'http://10.0.2.2:9001';
 
   // 소망 맥북 ip
-  // static const baseUrl = 'http://192.168.0.32:9001';
+  static const baseUrl = 'http://192.168.0.32:9001';
 
   Future<http.Response> getAllUser() async {
     String table = 'User';

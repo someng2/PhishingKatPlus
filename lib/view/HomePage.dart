@@ -351,12 +351,12 @@ class _HomePageState extends State<HomePage> {
                         Get.to(HomeScreen());
                       },
                     ),
-                    TextButton(
-                      child: Text('UserDBTest 페이지'),
-                      onPressed: () {
-                        Get.to(UserDBTestPage());
-                      },
-                    ),
+                    // TextButton(
+                    //   child: Text('UserDBTest 페이지'),
+                    //   onPressed: () {
+                    //     Get.to(UserDBTestPage());
+                    //   },
+                    // ),
                     // Container(
                     //   padding: EdgeInsets.zero,
                     //     width: 359.5,
