@@ -5,7 +5,7 @@ class User {
   String name; // or nickname
   int age;
   TypeNAge typeNage;
-  // TODO: 점수 기록 data
+
 
   User(
       {required this.uid,

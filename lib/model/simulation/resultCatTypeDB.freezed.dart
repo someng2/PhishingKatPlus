@@ -24,7 +24,7 @@ mixin _$ResultCatTypeDB {
   String get catid => throw _privateConstructorUsedError;
   String get catName => throw _privateConstructorUsedError;
   String get catDescription => throw _privateConstructorUsedError;
-  String get catExtraDescription =>
+  String get descriptionAsPartner =>
       throw _privateConstructorUsedError; // ㅍㅏ트너일 때 설명
   String get catImage => throw _privateConstructorUsedError;
   String get titleDescription => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $ResultCatTypeDBCopyWith<$Res> {
       {@JsonKey(name: 'cat_id') String catid,
       String catName,
       String catDescription,
-      String catExtraDescription,
+      String descriptionAsPartner,
       String catImage,
       String titleDescription,
       double titleDescriptionSize,
@@ -71,7 +71,7 @@ class _$ResultCatTypeDBCopyWithImpl<$Res>
     Object? catid = freezed,
     Object? catName = freezed,
     Object? catDescription = freezed,
-    Object? catExtraDescription = freezed,
+    Object? descriptionAsPartner = freezed,
     Object? catImage = freezed,
     Object? titleDescription = freezed,
     Object? titleDescriptionSize = freezed,
@@ -92,9 +92,9 @@ class _$ResultCatTypeDBCopyWithImpl<$Res>
           ? _value.catDescription
           : catDescription // ignore: cast_nullable_to_non_nullable
               as String,
-      catExtraDescription: catExtraDescription == freezed
-          ? _value.catExtraDescription
-          : catExtraDescription // ignore: cast_nullable_to_non_nullable
+      descriptionAsPartner: descriptionAsPartner == freezed
+          ? _value.descriptionAsPartner
+          : descriptionAsPartner // ignore: cast_nullable_to_non_nullable
               as String,
       catImage: catImage == freezed
           ? _value.catImage
@@ -135,7 +135,7 @@ abstract class _$$_ResultCatTypeDBCopyWith<$Res>
       {@JsonKey(name: 'cat_id') String catid,
       String catName,
       String catDescription,
-      String catExtraDescription,
+      String descriptionAsPartner,
       String catImage,
       String titleDescription,
       double titleDescriptionSize,
@@ -160,7 +160,7 @@ class __$$_ResultCatTypeDBCopyWithImpl<$Res>
     Object? catid = freezed,
     Object? catName = freezed,
     Object? catDescription = freezed,
-    Object? catExtraDescription = freezed,
+    Object? descriptionAsPartner = freezed,
     Object? catImage = freezed,
     Object? titleDescription = freezed,
     Object? titleDescriptionSize = freezed,
@@ -181,9 +181,9 @@ class __$$_ResultCatTypeDBCopyWithImpl<$Res>
           ? _value.catDescription
           : catDescription // ignore: cast_nullable_to_non_nullable
               as String,
-      catExtraDescription: catExtraDescription == freezed
-          ? _value.catExtraDescription
-          : catExtraDescription // ignore: cast_nullable_to_non_nullable
+      descriptionAsPartner: descriptionAsPartner == freezed
+          ? _value.descriptionAsPartner
+          : descriptionAsPartner // ignore: cast_nullable_to_non_nullable
               as String,
       catImage: catImage == freezed
           ? _value.catImage
@@ -220,7 +220,7 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
       {@JsonKey(name: 'cat_id') required this.catid,
       required this.catName,
       required this.catDescription,
-      required this.catExtraDescription,
+      required this.descriptionAsPartner,
       required this.catImage,
       required this.titleDescription,
       required this.titleDescriptionSize,
@@ -239,7 +239,7 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
   @override
   final String catDescription;
   @override
-  final String catExtraDescription;
+  final String descriptionAsPartner;
 // ㅍㅏ트너일 때 설명
   @override
   final String catImage;
@@ -256,7 +256,7 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
 
   @override
   String toString() {
-    return 'ResultCatTypeDB(catid: $catid, catName: $catName, catDescription: $catDescription, catExtraDescription: $catExtraDescription, catImage: $catImage, titleDescription: $titleDescription, titleDescriptionSize: $titleDescriptionSize, exampleScenario: $exampleScenario, worstPartnerID: $worstPartnerID, bestPartnerID: $bestPartnerID)';
+    return 'ResultCatTypeDB(catid: $catid, catName: $catName, catDescription: $catDescription, descriptionAsPartner: $descriptionAsPartner, catImage: $catImage, titleDescription: $titleDescription, titleDescriptionSize: $titleDescriptionSize, exampleScenario: $exampleScenario, worstPartnerID: $worstPartnerID, bestPartnerID: $bestPartnerID)';
   }
 
   @override
@@ -269,7 +269,7 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
             const DeepCollectionEquality()
                 .equals(other.catDescription, catDescription) &&
             const DeepCollectionEquality()
-                .equals(other.catExtraDescription, catExtraDescription) &&
+                .equals(other.descriptionAsPartner, descriptionAsPartner) &&
             const DeepCollectionEquality().equals(other.catImage, catImage) &&
             const DeepCollectionEquality()
                 .equals(other.titleDescription, titleDescription) &&
@@ -290,7 +290,7 @@ class _$_ResultCatTypeDB implements _ResultCatTypeDB {
       const DeepCollectionEquality().hash(catid),
       const DeepCollectionEquality().hash(catName),
       const DeepCollectionEquality().hash(catDescription),
-      const DeepCollectionEquality().hash(catExtraDescription),
+      const DeepCollectionEquality().hash(descriptionAsPartner),
       const DeepCollectionEquality().hash(catImage),
       const DeepCollectionEquality().hash(titleDescription),
       const DeepCollectionEquality().hash(titleDescriptionSize),
@@ -314,7 +314,7 @@ abstract class _ResultCatTypeDB implements ResultCatTypeDB {
       {@JsonKey(name: 'cat_id') required final String catid,
       required final String catName,
       required final String catDescription,
-      required final String catExtraDescription,
+      required final String descriptionAsPartner,
       required final String catImage,
       required final String titleDescription,
       required final double titleDescriptionSize,
@@ -333,7 +333,7 @@ abstract class _ResultCatTypeDB implements ResultCatTypeDB {
   @override
   String get catDescription => throw _privateConstructorUsedError;
   @override
-  String get catExtraDescription => throw _privateConstructorUsedError;
+  String get descriptionAsPartner => throw _privateConstructorUsedError;
   @override // ㅍㅏ트너일 때 설명
   String get catImage => throw _privateConstructorUsedError;
   @override
