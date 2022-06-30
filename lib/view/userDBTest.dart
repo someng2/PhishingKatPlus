@@ -1,77 +1,76 @@
+import 'package:voskat/model/simulation/appContentsDB.dart';
+import 'package:voskat/controller/user/user_event.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:voskat/controller/UserController.dart';
-import 'package:voskat/view/user_state.dart';
-import 'package:voskat/view/user_view_model.dart';
+import 'package:voskat/view/viewModel/user_view_model.dart';
 
-import '../controller/user_reposiroty.dart';
-import '../model/user/userDB.dart';
+class UserDBTestScreen extends StatefulWidget {
 
-class UserDBTestPage extends StatefulWidget with ChangeNotifier {
-  UserDBTestPage({Key? key}) : super(key: key);
+  const UserDBTestScreen({Key? key}) : super(key: key);
 
   @override
-  State<UserDBTestPage> createState() => _UserDBTestPageState();
+  State<UserDBTestScreen> createState() => _UserDBTestScreenState();
 }
 
-class _UserDBTestPageState extends State<UserDBTestPage> with ChangeNotifier {
-  // late UserRepository _userRepository;
-  // late Future<List<UserDB>> userDB;
-
-  var _state = UserState();
-  UserState get state => _state;
+class _UserDBTestScreenState extends State<UserDBTestScreen> {
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<user_view_model>();
+    final viewModel = context.watch<UserViewModel>();
+
     final state = viewModel.state;
-
-    List<UserDB> userDBList = state.userDB;
-    print('userDBList: $userDBList');
-
-    String name = UserController().getUserName(userDBList, 6);
 
     return Scaffold(
       appBar: AppBar(
-          // title:Text('UserDBTest [state.userDb.length: ${state.userDB.length}]'),
-          ),
-      body: Column(
-        children: [
-          Container(child: Text('name: ${name}')),
-          Container(
-            height: 550.h,
-            child: ListView.builder(
-              itemCount: userDBList.length,
-              itemBuilder: (context, index) {
-                final userDB = userDBList[index];
-                return ListTile(
-                  title: Text(
-                      '${userDB.uid} : ${UserController().getUserName(userDBList, userDB.uid)}'),
-                  subtitle: Text('birthYear: ${userDB.birthYear}'),
-                  trailing: Text('gender: ${userDB.gender}'),
-                );
-              },
-            ),
-          ),
-        ],
+        title:Text('[state.userDB.length: ${state.userDB.length}]'),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   child: const Icon(Icons.add),
-      //   onPressed: () {
-      //     showDialog(
-      //         context: context,
-      //         builder: (_) => _buildInsertAlertDialog(viewModel, context));
-      //   },
-      // ),
+      body: ListView.builder(
+        itemCount: state.userDB.length,
+        itemBuilder: (context, index) {
+          final userDB = state.userDB[index];
+          return ListTile(
+            title: Text('${userDB.uid} : ${userDB.name}'),
+            subtitle: Text('birthYear: ${userDB.birthYear}'),
+            trailing: Text('gender: ${userDB.gender}'),
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (_) => _buildInsertAlertDialog(viewModel, context));
+        },
+      ),
     );
   }
 
-  // Future<String> convertType(Future<dynamic> before) async {
-  //   print('before: $before');
-  //   String after = await before;
-  //   print('after: $after');
-  //   return after;
-  // }
+  AlertDialog _buildInsertAlertDialog(
+      UserViewModel viewModel,
+      BuildContext context,
+      ) {
+    _controller.text = '';
+    return AlertDialog(
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextField(
+            controller: _controller,
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            print(_controller.text);
+            viewModel.onEvent(UserEvent.insertUser(_controller.text, 1990, 'female'));
+            Navigator.pop(context, true);
+          },
+          child: const Text('Insert'),
+        ),
+      ],
+    );
+  }
 }

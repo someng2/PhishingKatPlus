@@ -12,31 +12,11 @@ part of 'scenario_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ScenarioState _$ScenarioStateFromJson(Map<String, dynamic> json) {
   return _ScenarioState.fromJson(json);
 }
-
-/// @nodoc
-class _$ScenarioStateTearOff {
-  const _$ScenarioStateTearOff();
-
-  _ScenarioState call(
-      {List<ScenarioDB> scenarioDB = const [], bool isLoading = false}) {
-    return _ScenarioState(
-      scenarioDB: scenarioDB,
-      isLoading: isLoading,
-    );
-  }
-
-  ScenarioState fromJson(Map<String, Object?> json) {
-    return ScenarioState.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ScenarioState = _$ScenarioStateTearOff();
 
 /// @nodoc
 mixin _$ScenarioState {
@@ -85,34 +65,34 @@ class _$ScenarioStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ScenarioStateCopyWith<$Res>
+abstract class _$$_ScenarioStateCopyWith<$Res>
     implements $ScenarioStateCopyWith<$Res> {
-  factory _$ScenarioStateCopyWith(
-          _ScenarioState value, $Res Function(_ScenarioState) then) =
-      __$ScenarioStateCopyWithImpl<$Res>;
+  factory _$$_ScenarioStateCopyWith(
+          _$_ScenarioState value, $Res Function(_$_ScenarioState) then) =
+      __$$_ScenarioStateCopyWithImpl<$Res>;
   @override
   $Res call({List<ScenarioDB> scenarioDB, bool isLoading});
 }
 
 /// @nodoc
-class __$ScenarioStateCopyWithImpl<$Res>
+class __$$_ScenarioStateCopyWithImpl<$Res>
     extends _$ScenarioStateCopyWithImpl<$Res>
-    implements _$ScenarioStateCopyWith<$Res> {
-  __$ScenarioStateCopyWithImpl(
-      _ScenarioState _value, $Res Function(_ScenarioState) _then)
-      : super(_value, (v) => _then(v as _ScenarioState));
+    implements _$$_ScenarioStateCopyWith<$Res> {
+  __$$_ScenarioStateCopyWithImpl(
+      _$_ScenarioState _value, $Res Function(_$_ScenarioState) _then)
+      : super(_value, (v) => _then(v as _$_ScenarioState));
 
   @override
-  _ScenarioState get _value => super._value as _ScenarioState;
+  _$_ScenarioState get _value => super._value as _$_ScenarioState;
 
   @override
   $Res call({
     Object? scenarioDB = freezed,
     Object? isLoading = freezed,
   }) {
-    return _then(_ScenarioState(
+    return _then(_$_ScenarioState(
       scenarioDB: scenarioDB == freezed
-          ? _value.scenarioDB
+          ? _value._scenarioDB
           : scenarioDB // ignore: cast_nullable_to_non_nullable
               as List<ScenarioDB>,
       isLoading: isLoading == freezed
@@ -126,16 +106,23 @@ class __$ScenarioStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ScenarioState implements _ScenarioState {
-  _$_ScenarioState({this.scenarioDB = const [], this.isLoading = false});
+  _$_ScenarioState(
+      {final List<ScenarioDB> scenarioDB = const [], this.isLoading = false})
+      : _scenarioDB = scenarioDB;
 
   factory _$_ScenarioState.fromJson(Map<String, dynamic> json) =>
       _$$_ScenarioStateFromJson(json);
 
-  @JsonKey()
+  final List<ScenarioDB> _scenarioDB;
   @override
-  final List<ScenarioDB> scenarioDB;
   @JsonKey()
+  List<ScenarioDB> get scenarioDB {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_scenarioDB);
+  }
+
   @override
+  @JsonKey()
   final bool isLoading;
 
   @override
@@ -147,22 +134,23 @@ class _$_ScenarioState implements _ScenarioState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ScenarioState &&
+            other is _$_ScenarioState &&
             const DeepCollectionEquality()
-                .equals(other.scenarioDB, scenarioDB) &&
+                .equals(other._scenarioDB, _scenarioDB) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(scenarioDB),
+      const DeepCollectionEquality().hash(_scenarioDB),
       const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
-  _$ScenarioStateCopyWith<_ScenarioState> get copyWith =>
-      __$ScenarioStateCopyWithImpl<_ScenarioState>(this, _$identity);
+  _$$_ScenarioStateCopyWith<_$_ScenarioState> get copyWith =>
+      __$$_ScenarioStateCopyWithImpl<_$_ScenarioState>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -171,18 +159,19 @@ class _$_ScenarioState implements _ScenarioState {
 }
 
 abstract class _ScenarioState implements ScenarioState {
-  factory _ScenarioState({List<ScenarioDB> scenarioDB, bool isLoading}) =
-      _$_ScenarioState;
+  factory _ScenarioState(
+      {final List<ScenarioDB> scenarioDB,
+      final bool isLoading}) = _$_ScenarioState;
 
   factory _ScenarioState.fromJson(Map<String, dynamic> json) =
       _$_ScenarioState.fromJson;
 
   @override
-  List<ScenarioDB> get scenarioDB;
+  List<ScenarioDB> get scenarioDB => throw _privateConstructorUsedError;
   @override
-  bool get isLoading;
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ScenarioStateCopyWith<_ScenarioState> get copyWith =>
+  _$$_ScenarioStateCopyWith<_$_ScenarioState> get copyWith =>
       throw _privateConstructorUsedError;
 }

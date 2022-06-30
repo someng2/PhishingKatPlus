@@ -20,29 +20,6 @@ ResultCatDescriptionDB _$ResultCatDescriptionDBFromJson(
 }
 
 /// @nodoc
-class _$ResultCatDescriptionDBTearOff {
-  const _$ResultCatDescriptionDBTearOff();
-
-  _ResultCatDescriptionDB call(
-      {@JsonKey(name: 'cat_id') required String catid,
-      required String catDescription,
-      required String description}) {
-    return _ResultCatDescriptionDB(
-      catid: catid,
-      catDescription: catDescription,
-      description: description,
-    );
-  }
-
-  ResultCatDescriptionDB fromJson(Map<String, Object?> json) {
-    return ResultCatDescriptionDB.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ResultCatDescriptionDB = _$ResultCatDescriptionDBTearOff();
-
-/// @nodoc
 mixin _$ResultCatDescriptionDB {
   @JsonKey(name: 'cat_id')
   String get catid => throw _privateConstructorUsedError;
@@ -99,11 +76,11 @@ class _$ResultCatDescriptionDBCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ResultCatDescriptionDBCopyWith<$Res>
+abstract class _$$_ResultCatDescriptionDBCopyWith<$Res>
     implements $ResultCatDescriptionDBCopyWith<$Res> {
-  factory _$ResultCatDescriptionDBCopyWith(_ResultCatDescriptionDB value,
-          $Res Function(_ResultCatDescriptionDB) then) =
-      __$ResultCatDescriptionDBCopyWithImpl<$Res>;
+  factory _$$_ResultCatDescriptionDBCopyWith(_$_ResultCatDescriptionDB value,
+          $Res Function(_$_ResultCatDescriptionDB) then) =
+      __$$_ResultCatDescriptionDBCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'cat_id') String catid,
@@ -112,15 +89,16 @@ abstract class _$ResultCatDescriptionDBCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ResultCatDescriptionDBCopyWithImpl<$Res>
+class __$$_ResultCatDescriptionDBCopyWithImpl<$Res>
     extends _$ResultCatDescriptionDBCopyWithImpl<$Res>
-    implements _$ResultCatDescriptionDBCopyWith<$Res> {
-  __$ResultCatDescriptionDBCopyWithImpl(_ResultCatDescriptionDB _value,
-      $Res Function(_ResultCatDescriptionDB) _then)
-      : super(_value, (v) => _then(v as _ResultCatDescriptionDB));
+    implements _$$_ResultCatDescriptionDBCopyWith<$Res> {
+  __$$_ResultCatDescriptionDBCopyWithImpl(_$_ResultCatDescriptionDB _value,
+      $Res Function(_$_ResultCatDescriptionDB) _then)
+      : super(_value, (v) => _then(v as _$_ResultCatDescriptionDB));
 
   @override
-  _ResultCatDescriptionDB get _value => super._value as _ResultCatDescriptionDB;
+  _$_ResultCatDescriptionDB get _value =>
+      super._value as _$_ResultCatDescriptionDB;
 
   @override
   $Res call({
@@ -128,7 +106,7 @@ class __$ResultCatDescriptionDBCopyWithImpl<$Res>
     Object? catDescription = freezed,
     Object? description = freezed,
   }) {
-    return _then(_ResultCatDescriptionDB(
+    return _then(_$_ResultCatDescriptionDB(
       catid: catid == freezed
           ? _value.catid
           : catid // ignore: cast_nullable_to_non_nullable
@@ -173,7 +151,7 @@ class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ResultCatDescriptionDB &&
+            other is _$_ResultCatDescriptionDB &&
             const DeepCollectionEquality().equals(other.catid, catid) &&
             const DeepCollectionEquality()
                 .equals(other.catDescription, catDescription) &&
@@ -181,6 +159,7 @@ class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
                 .equals(other.description, description));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -190,8 +169,8 @@ class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
 
   @JsonKey(ignore: true)
   @override
-  _$ResultCatDescriptionDBCopyWith<_ResultCatDescriptionDB> get copyWith =>
-      __$ResultCatDescriptionDBCopyWithImpl<_ResultCatDescriptionDB>(
+  _$$_ResultCatDescriptionDBCopyWith<_$_ResultCatDescriptionDB> get copyWith =>
+      __$$_ResultCatDescriptionDBCopyWithImpl<_$_ResultCatDescriptionDB>(
           this, _$identity);
 
   @override
@@ -202,22 +181,22 @@ class _$_ResultCatDescriptionDB implements _ResultCatDescriptionDB {
 
 abstract class _ResultCatDescriptionDB implements ResultCatDescriptionDB {
   factory _ResultCatDescriptionDB(
-      {@JsonKey(name: 'cat_id') required String catid,
-      required String catDescription,
-      required String description}) = _$_ResultCatDescriptionDB;
+      {@JsonKey(name: 'cat_id') required final String catid,
+      required final String catDescription,
+      required final String description}) = _$_ResultCatDescriptionDB;
 
   factory _ResultCatDescriptionDB.fromJson(Map<String, dynamic> json) =
       _$_ResultCatDescriptionDB.fromJson;
 
   @override
   @JsonKey(name: 'cat_id')
-  String get catid;
+  String get catid => throw _privateConstructorUsedError;
   @override
-  String get catDescription;
+  String get catDescription => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResultCatDescriptionDBCopyWith<_ResultCatDescriptionDB> get copyWith =>
+  _$$_ResultCatDescriptionDBCopyWith<_$_ResultCatDescriptionDB> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -29,7 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get: ^4.6.1
+  get: ^4.6.5
   loading_overlay_pro: ^2.1.1
   percent_indicator: ^4.0.0
   flutter_screenutil: ^5.3.1

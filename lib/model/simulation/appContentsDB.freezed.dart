@@ -19,37 +19,6 @@ AppContentsDB _$AppContentsDBFromJson(Map<String, dynamic> json) {
 }
 
 /// @nodoc
-class _$AppContentsDBTearOff {
-  const _$AppContentsDBTearOff();
-
-  _AppContentsDB call(
-      {@JsonKey(name: 'ac_id') required String acid,
-      required dynamic sid,
-      required dynamic aid,
-      required int order,
-      @JsonKey(name: 'c_type') required String ctype,
-      required dynamic contents,
-      required int hasNextAction}) {
-    return _AppContentsDB(
-      acid: acid,
-      sid: sid,
-      aid: aid,
-      order: order,
-      ctype: ctype,
-      contents: contents,
-      hasNextAction: hasNextAction,
-    );
-  }
-
-  AppContentsDB fromJson(Map<String, Object?> json) {
-    return AppContentsDB.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AppContentsDB = _$AppContentsDBTearOff();
-
-/// @nodoc
 mixin _$AppContentsDB {
   @JsonKey(name: 'ac_id')
   String get acid => throw _privateConstructorUsedError;
@@ -135,11 +104,11 @@ class _$AppContentsDBCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AppContentsDBCopyWith<$Res>
+abstract class _$$_AppContentsDBCopyWith<$Res>
     implements $AppContentsDBCopyWith<$Res> {
-  factory _$AppContentsDBCopyWith(
-          _AppContentsDB value, $Res Function(_AppContentsDB) then) =
-      __$AppContentsDBCopyWithImpl<$Res>;
+  factory _$$_AppContentsDBCopyWith(
+          _$_AppContentsDB value, $Res Function(_$_AppContentsDB) then) =
+      __$$_AppContentsDBCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'ac_id') String acid,
@@ -152,15 +121,15 @@ abstract class _$AppContentsDBCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AppContentsDBCopyWithImpl<$Res>
+class __$$_AppContentsDBCopyWithImpl<$Res>
     extends _$AppContentsDBCopyWithImpl<$Res>
-    implements _$AppContentsDBCopyWith<$Res> {
-  __$AppContentsDBCopyWithImpl(
-      _AppContentsDB _value, $Res Function(_AppContentsDB) _then)
-      : super(_value, (v) => _then(v as _AppContentsDB));
+    implements _$$_AppContentsDBCopyWith<$Res> {
+  __$$_AppContentsDBCopyWithImpl(
+      _$_AppContentsDB _value, $Res Function(_$_AppContentsDB) _then)
+      : super(_value, (v) => _then(v as _$_AppContentsDB));
 
   @override
-  _AppContentsDB get _value => super._value as _AppContentsDB;
+  _$_AppContentsDB get _value => super._value as _$_AppContentsDB;
 
   @override
   $Res call({
@@ -172,7 +141,7 @@ class __$AppContentsDBCopyWithImpl<$Res>
     Object? contents = freezed,
     Object? hasNextAction = freezed,
   }) {
-    return _then(_AppContentsDB(
+    return _then(_$_AppContentsDB(
       acid: acid == freezed
           ? _value.acid
           : acid // ignore: cast_nullable_to_non_nullable
@@ -246,7 +215,7 @@ class _$_AppContentsDB implements _AppContentsDB {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppContentsDB &&
+            other is _$_AppContentsDB &&
             const DeepCollectionEquality().equals(other.acid, acid) &&
             const DeepCollectionEquality().equals(other.sid, sid) &&
             const DeepCollectionEquality().equals(other.aid, aid) &&
@@ -257,6 +226,7 @@ class _$_AppContentsDB implements _AppContentsDB {
                 .equals(other.hasNextAction, hasNextAction));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -270,8 +240,8 @@ class _$_AppContentsDB implements _AppContentsDB {
 
   @JsonKey(ignore: true)
   @override
-  _$AppContentsDBCopyWith<_AppContentsDB> get copyWith =>
-      __$AppContentsDBCopyWithImpl<_AppContentsDB>(this, _$identity);
+  _$$_AppContentsDBCopyWith<_$_AppContentsDB> get copyWith =>
+      __$$_AppContentsDBCopyWithImpl<_$_AppContentsDB>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -281,35 +251,35 @@ class _$_AppContentsDB implements _AppContentsDB {
 
 abstract class _AppContentsDB implements AppContentsDB {
   factory _AppContentsDB(
-      {@JsonKey(name: 'ac_id') required String acid,
-      required dynamic sid,
-      required dynamic aid,
-      required int order,
-      @JsonKey(name: 'c_type') required String ctype,
-      required dynamic contents,
-      required int hasNextAction}) = _$_AppContentsDB;
+      {@JsonKey(name: 'ac_id') required final String acid,
+      required final dynamic sid,
+      required final dynamic aid,
+      required final int order,
+      @JsonKey(name: 'c_type') required final String ctype,
+      required final dynamic contents,
+      required final int hasNextAction}) = _$_AppContentsDB;
 
   factory _AppContentsDB.fromJson(Map<String, dynamic> json) =
       _$_AppContentsDB.fromJson;
 
   @override
   @JsonKey(name: 'ac_id')
-  String get acid;
+  String get acid => throw _privateConstructorUsedError;
   @override
-  dynamic get sid;
+  dynamic get sid => throw _privateConstructorUsedError;
   @override
-  dynamic get aid;
+  dynamic get aid => throw _privateConstructorUsedError;
   @override
-  int get order;
+  int get order => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'c_type')
-  String get ctype;
+  String get ctype => throw _privateConstructorUsedError;
   @override
-  dynamic get contents;
+  dynamic get contents => throw _privateConstructorUsedError;
   @override
-  int get hasNextAction;
+  int get hasNextAction => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AppContentsDBCopyWith<_AppContentsDB> get copyWith =>
+  _$$_AppContentsDBCopyWith<_$_AppContentsDB> get copyWith =>
       throw _privateConstructorUsedError;
 }

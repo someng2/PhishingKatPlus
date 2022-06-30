@@ -1,4 +1,3 @@
-import 'package:voskat/model/simulation/appContentsDB.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:voskat/model/user/userDB.dart';
 

@@ -247,7 +247,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                   isVerified = true;
                   print('isVerified: $isVerified');
                 });
-                Get.to(SignUpPage_age());
+                // Get.to(SignUpPage_age());
               }
             },
           ),

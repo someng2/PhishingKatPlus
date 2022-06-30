@@ -117,7 +117,7 @@ class CatTypeController extends GetxController {
     }
   }
 
-  getCatExtraDescription(String catID, Scenario scenario) {
+  getDescriptionAsPartner(String catID, Scenario scenario) {
     for (int i = 0; i < resultCatList.length; i++) {
       if (resultCatList[i].cat_id == catID) {
         return resultCatList[i].descriptionAsPartner;

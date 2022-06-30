@@ -1,19 +1,20 @@
-import 'package:voskat/controller/board_repository.dart';
-import 'package:voskat/view/user_state.dart';
+import 'package:provider/provider.dart';
+import 'package:voskat/controller/user/user_state.dart';
 import 'package:flutter/material.dart';
 
-import 'package:voskat/controller/user_reposiroty.dart';
+import 'package:voskat/controller/user/user_reposiroty.dart';
 
-import 'package:voskat/view/user_event.dart';
+import 'package:voskat/controller/user/user_event.dart';
 
-class user_view_model with ChangeNotifier {
+
+class UserViewModel with ChangeNotifier {
   final UserRepository _userRepository;
 
   var _state = UserState();
 
   UserState get state => _state;
 
-  user_view_model(this._userRepository) {
+  UserViewModel(this._userRepository) {
     _getUser();
   }
 
@@ -29,6 +30,7 @@ class user_view_model with ChangeNotifier {
 
 
   Future _getUser() async {
+
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 
@@ -40,6 +42,8 @@ class user_view_model with ChangeNotifier {
       userDB: result,
     );
     notifyListeners();
+
+
   }
 
   Future _insertUser(String name, int birthYear, String gender) async {

@@ -311,7 +311,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                             SizedBox(height: 17.4.h),
                             Text(
                                 CatTypeController()
-                                    .getCatExtraDescription(bestPartnerID, scenario),
+                                    .getDescriptionAsPartner(bestPartnerID, scenario),
                                 style: TextStyle(
                                     color: const Color(0xff000000),
                                     fontWeight: FontWeight.w400,
@@ -360,7 +360,7 @@ class _SimulationResultPageState extends State<SimulationResultPage> {
                             ),
                             SizedBox(height: 17.4.h),
                             Text(
-                                CatTypeController().getCatExtraDescription(
+                                CatTypeController().getDescriptionAsPartner(
                                     worstPartnerID, scenario),
                                 style: TextStyle(
                                     color: const Color(0xff000000),

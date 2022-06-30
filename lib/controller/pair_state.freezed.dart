@@ -12,30 +12,11 @@ part of 'pair_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PairState _$PairStateFromJson(Map<String, dynamic> json) {
   return _PairState.fromJson(json);
 }
-
-/// @nodoc
-class _$PairStateTearOff {
-  const _$PairStateTearOff();
-
-  _PairState call({List<PairDB> pairDB = const [], bool isLoading = false}) {
-    return _PairState(
-      pairDB: pairDB,
-      isLoading: isLoading,
-    );
-  }
-
-  PairState fromJson(Map<String, Object?> json) {
-    return PairState.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PairState = _$PairStateTearOff();
 
 /// @nodoc
 mixin _$PairState {
@@ -82,31 +63,32 @@ class _$PairStateCopyWithImpl<$Res> implements $PairStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PairStateCopyWith<$Res> implements $PairStateCopyWith<$Res> {
-  factory _$PairStateCopyWith(
-          _PairState value, $Res Function(_PairState) then) =
-      __$PairStateCopyWithImpl<$Res>;
+abstract class _$$_PairStateCopyWith<$Res> implements $PairStateCopyWith<$Res> {
+  factory _$$_PairStateCopyWith(
+          _$_PairState value, $Res Function(_$_PairState) then) =
+      __$$_PairStateCopyWithImpl<$Res>;
   @override
   $Res call({List<PairDB> pairDB, bool isLoading});
 }
 
 /// @nodoc
-class __$PairStateCopyWithImpl<$Res> extends _$PairStateCopyWithImpl<$Res>
-    implements _$PairStateCopyWith<$Res> {
-  __$PairStateCopyWithImpl(_PairState _value, $Res Function(_PairState) _then)
-      : super(_value, (v) => _then(v as _PairState));
+class __$$_PairStateCopyWithImpl<$Res> extends _$PairStateCopyWithImpl<$Res>
+    implements _$$_PairStateCopyWith<$Res> {
+  __$$_PairStateCopyWithImpl(
+      _$_PairState _value, $Res Function(_$_PairState) _then)
+      : super(_value, (v) => _then(v as _$_PairState));
 
   @override
-  _PairState get _value => super._value as _PairState;
+  _$_PairState get _value => super._value as _$_PairState;
 
   @override
   $Res call({
     Object? pairDB = freezed,
     Object? isLoading = freezed,
   }) {
-    return _then(_PairState(
+    return _then(_$_PairState(
       pairDB: pairDB == freezed
-          ? _value.pairDB
+          ? _value._pairDB
           : pairDB // ignore: cast_nullable_to_non_nullable
               as List<PairDB>,
       isLoading: isLoading == freezed
@@ -120,16 +102,22 @@ class __$PairStateCopyWithImpl<$Res> extends _$PairStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_PairState implements _PairState {
-  _$_PairState({this.pairDB = const [], this.isLoading = false});
+  _$_PairState({final List<PairDB> pairDB = const [], this.isLoading = false})
+      : _pairDB = pairDB;
 
   factory _$_PairState.fromJson(Map<String, dynamic> json) =>
       _$$_PairStateFromJson(json);
 
-  @JsonKey()
+  final List<PairDB> _pairDB;
   @override
-  final List<PairDB> pairDB;
   @JsonKey()
+  List<PairDB> get pairDB {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pairDB);
+  }
+
   @override
+  @JsonKey()
   final bool isLoading;
 
   @override
@@ -141,21 +129,22 @@ class _$_PairState implements _PairState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PairState &&
-            const DeepCollectionEquality().equals(other.pairDB, pairDB) &&
+            other is _$_PairState &&
+            const DeepCollectionEquality().equals(other._pairDB, _pairDB) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(pairDB),
+      const DeepCollectionEquality().hash(_pairDB),
       const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
-  _$PairStateCopyWith<_PairState> get copyWith =>
-      __$PairStateCopyWithImpl<_PairState>(this, _$identity);
+  _$$_PairStateCopyWith<_$_PairState> get copyWith =>
+      __$$_PairStateCopyWithImpl<_$_PairState>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -164,17 +153,18 @@ class _$_PairState implements _PairState {
 }
 
 abstract class _PairState implements PairState {
-  factory _PairState({List<PairDB> pairDB, bool isLoading}) = _$_PairState;
+  factory _PairState({final List<PairDB> pairDB, final bool isLoading}) =
+      _$_PairState;
 
   factory _PairState.fromJson(Map<String, dynamic> json) =
       _$_PairState.fromJson;
 
   @override
-  List<PairDB> get pairDB;
+  List<PairDB> get pairDB => throw _privateConstructorUsedError;
   @override
-  bool get isLoading;
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PairStateCopyWith<_PairState> get copyWith =>
+  _$$_PairStateCopyWith<_$_PairState> get copyWith =>
       throw _privateConstructorUsedError;
 }
