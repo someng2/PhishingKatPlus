@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:voskat/controller/user_reposiroty.dart';
+import 'package:voskat/controller/user/user_reposiroty.dart';
 import 'package:voskat/model/user/user.dart';
 
-import '../model/user/userDB.dart';
-import '../view/user_state.dart';
+import 'package:voskat/model/user/userDB.dart';
+import 'package:voskat/controller/user/user_state.dart';
 import 'dart:async';
 
 class UserController{

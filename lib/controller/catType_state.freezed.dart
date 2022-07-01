@@ -12,31 +12,11 @@ part of 'catType_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CatTypeState _$CatTypeStateFromJson(Map<String, dynamic> json) {
   return _CatTypeState.fromJson(json);
 }
-
-/// @nodoc
-class _$CatTypeStateTearOff {
-  const _$CatTypeStateTearOff();
-
-  _CatTypeState call(
-      {List<ResultCatTypeDB> catTypeDB = const [], bool isLoading = false}) {
-    return _CatTypeState(
-      catTypeDB: catTypeDB,
-      isLoading: isLoading,
-    );
-  }
-
-  CatTypeState fromJson(Map<String, Object?> json) {
-    return CatTypeState.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $CatTypeState = _$CatTypeStateTearOff();
 
 /// @nodoc
 mixin _$CatTypeState {
@@ -84,33 +64,34 @@ class _$CatTypeStateCopyWithImpl<$Res> implements $CatTypeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CatTypeStateCopyWith<$Res>
+abstract class _$$_CatTypeStateCopyWith<$Res>
     implements $CatTypeStateCopyWith<$Res> {
-  factory _$CatTypeStateCopyWith(
-          _CatTypeState value, $Res Function(_CatTypeState) then) =
-      __$CatTypeStateCopyWithImpl<$Res>;
+  factory _$$_CatTypeStateCopyWith(
+          _$_CatTypeState value, $Res Function(_$_CatTypeState) then) =
+      __$$_CatTypeStateCopyWithImpl<$Res>;
   @override
   $Res call({List<ResultCatTypeDB> catTypeDB, bool isLoading});
 }
 
 /// @nodoc
-class __$CatTypeStateCopyWithImpl<$Res> extends _$CatTypeStateCopyWithImpl<$Res>
-    implements _$CatTypeStateCopyWith<$Res> {
-  __$CatTypeStateCopyWithImpl(
-      _CatTypeState _value, $Res Function(_CatTypeState) _then)
-      : super(_value, (v) => _then(v as _CatTypeState));
+class __$$_CatTypeStateCopyWithImpl<$Res>
+    extends _$CatTypeStateCopyWithImpl<$Res>
+    implements _$$_CatTypeStateCopyWith<$Res> {
+  __$$_CatTypeStateCopyWithImpl(
+      _$_CatTypeState _value, $Res Function(_$_CatTypeState) _then)
+      : super(_value, (v) => _then(v as _$_CatTypeState));
 
   @override
-  _CatTypeState get _value => super._value as _CatTypeState;
+  _$_CatTypeState get _value => super._value as _$_CatTypeState;
 
   @override
   $Res call({
     Object? catTypeDB = freezed,
     Object? isLoading = freezed,
   }) {
-    return _then(_CatTypeState(
+    return _then(_$_CatTypeState(
       catTypeDB: catTypeDB == freezed
-          ? _value.catTypeDB
+          ? _value._catTypeDB
           : catTypeDB // ignore: cast_nullable_to_non_nullable
               as List<ResultCatTypeDB>,
       isLoading: isLoading == freezed
@@ -124,16 +105,24 @@ class __$CatTypeStateCopyWithImpl<$Res> extends _$CatTypeStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CatTypeState implements _CatTypeState {
-  _$_CatTypeState({this.catTypeDB = const [], this.isLoading = false});
+  _$_CatTypeState(
+      {final List<ResultCatTypeDB> catTypeDB = const [],
+      this.isLoading = false})
+      : _catTypeDB = catTypeDB;
 
   factory _$_CatTypeState.fromJson(Map<String, dynamic> json) =>
       _$$_CatTypeStateFromJson(json);
 
-  @JsonKey()
+  final List<ResultCatTypeDB> _catTypeDB;
   @override
-  final List<ResultCatTypeDB> catTypeDB;
   @JsonKey()
+  List<ResultCatTypeDB> get catTypeDB {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_catTypeDB);
+  }
+
   @override
+  @JsonKey()
   final bool isLoading;
 
   @override
@@ -145,21 +134,23 @@ class _$_CatTypeState implements _CatTypeState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CatTypeState &&
-            const DeepCollectionEquality().equals(other.catTypeDB, catTypeDB) &&
+            other is _$_CatTypeState &&
+            const DeepCollectionEquality()
+                .equals(other._catTypeDB, _catTypeDB) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(catTypeDB),
+      const DeepCollectionEquality().hash(_catTypeDB),
       const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
-  _$CatTypeStateCopyWith<_CatTypeState> get copyWith =>
-      __$CatTypeStateCopyWithImpl<_CatTypeState>(this, _$identity);
+  _$$_CatTypeStateCopyWith<_$_CatTypeState> get copyWith =>
+      __$$_CatTypeStateCopyWithImpl<_$_CatTypeState>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -168,18 +159,19 @@ class _$_CatTypeState implements _CatTypeState {
 }
 
 abstract class _CatTypeState implements CatTypeState {
-  factory _CatTypeState({List<ResultCatTypeDB> catTypeDB, bool isLoading}) =
-      _$_CatTypeState;
+  factory _CatTypeState(
+      {final List<ResultCatTypeDB> catTypeDB,
+      final bool isLoading}) = _$_CatTypeState;
 
   factory _CatTypeState.fromJson(Map<String, dynamic> json) =
       _$_CatTypeState.fromJson;
 
   @override
-  List<ResultCatTypeDB> get catTypeDB;
+  List<ResultCatTypeDB> get catTypeDB => throw _privateConstructorUsedError;
   @override
-  bool get isLoading;
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CatTypeStateCopyWith<_CatTypeState> get copyWith =>
+  _$$_CatTypeStateCopyWith<_$_CatTypeState> get copyWith =>
       throw _privateConstructorUsedError;
 }

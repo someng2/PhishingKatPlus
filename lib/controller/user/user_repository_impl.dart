@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:voskat/controller/user_api.dart';
-import 'package:voskat/controller/user_reposiroty.dart';
+import 'package:voskat/controller/user/user_api.dart';
+import 'package:voskat/controller/user/user_reposiroty.dart';
 
-import '../model/user/userDB.dart';
+import '../../model/user/userDB.dart';
 
 class UserRepositoryImpl implements UserRepository {
   UserApi api;

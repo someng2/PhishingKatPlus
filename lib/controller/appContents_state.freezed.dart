@@ -12,31 +12,11 @@ part of 'appContents_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AppContentsState _$AppContentsStateFromJson(Map<String, dynamic> json) {
   return _AppContentsState.fromJson(json);
 }
-
-/// @nodoc
-class _$AppContentsStateTearOff {
-  const _$AppContentsStateTearOff();
-
-  _AppContentsState call(
-      {List<AppContentsDB> appContentsDB = const [], bool isLoading = false}) {
-    return _AppContentsState(
-      appContentsDB: appContentsDB,
-      isLoading: isLoading,
-    );
-  }
-
-  AppContentsState fromJson(Map<String, Object?> json) {
-    return AppContentsState.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AppContentsState = _$AppContentsStateTearOff();
 
 /// @nodoc
 mixin _$AppContentsState {
@@ -85,34 +65,34 @@ class _$AppContentsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AppContentsStateCopyWith<$Res>
+abstract class _$$_AppContentsStateCopyWith<$Res>
     implements $AppContentsStateCopyWith<$Res> {
-  factory _$AppContentsStateCopyWith(
-          _AppContentsState value, $Res Function(_AppContentsState) then) =
-      __$AppContentsStateCopyWithImpl<$Res>;
+  factory _$$_AppContentsStateCopyWith(
+          _$_AppContentsState value, $Res Function(_$_AppContentsState) then) =
+      __$$_AppContentsStateCopyWithImpl<$Res>;
   @override
   $Res call({List<AppContentsDB> appContentsDB, bool isLoading});
 }
 
 /// @nodoc
-class __$AppContentsStateCopyWithImpl<$Res>
+class __$$_AppContentsStateCopyWithImpl<$Res>
     extends _$AppContentsStateCopyWithImpl<$Res>
-    implements _$AppContentsStateCopyWith<$Res> {
-  __$AppContentsStateCopyWithImpl(
-      _AppContentsState _value, $Res Function(_AppContentsState) _then)
-      : super(_value, (v) => _then(v as _AppContentsState));
+    implements _$$_AppContentsStateCopyWith<$Res> {
+  __$$_AppContentsStateCopyWithImpl(
+      _$_AppContentsState _value, $Res Function(_$_AppContentsState) _then)
+      : super(_value, (v) => _then(v as _$_AppContentsState));
 
   @override
-  _AppContentsState get _value => super._value as _AppContentsState;
+  _$_AppContentsState get _value => super._value as _$_AppContentsState;
 
   @override
   $Res call({
     Object? appContentsDB = freezed,
     Object? isLoading = freezed,
   }) {
-    return _then(_AppContentsState(
+    return _then(_$_AppContentsState(
       appContentsDB: appContentsDB == freezed
-          ? _value.appContentsDB
+          ? _value._appContentsDB
           : appContentsDB // ignore: cast_nullable_to_non_nullable
               as List<AppContentsDB>,
       isLoading: isLoading == freezed
@@ -126,16 +106,24 @@ class __$AppContentsStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AppContentsState implements _AppContentsState {
-  _$_AppContentsState({this.appContentsDB = const [], this.isLoading = false});
+  _$_AppContentsState(
+      {final List<AppContentsDB> appContentsDB = const [],
+      this.isLoading = false})
+      : _appContentsDB = appContentsDB;
 
   factory _$_AppContentsState.fromJson(Map<String, dynamic> json) =>
       _$$_AppContentsStateFromJson(json);
 
-  @JsonKey()
+  final List<AppContentsDB> _appContentsDB;
   @override
-  final List<AppContentsDB> appContentsDB;
   @JsonKey()
+  List<AppContentsDB> get appContentsDB {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_appContentsDB);
+  }
+
   @override
+  @JsonKey()
   final bool isLoading;
 
   @override
@@ -147,22 +135,23 @@ class _$_AppContentsState implements _AppContentsState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppContentsState &&
+            other is _$_AppContentsState &&
             const DeepCollectionEquality()
-                .equals(other.appContentsDB, appContentsDB) &&
+                .equals(other._appContentsDB, _appContentsDB) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(appContentsDB),
+      const DeepCollectionEquality().hash(_appContentsDB),
       const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
-  _$AppContentsStateCopyWith<_AppContentsState> get copyWith =>
-      __$AppContentsStateCopyWithImpl<_AppContentsState>(this, _$identity);
+  _$$_AppContentsStateCopyWith<_$_AppContentsState> get copyWith =>
+      __$$_AppContentsStateCopyWithImpl<_$_AppContentsState>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -172,18 +161,18 @@ class _$_AppContentsState implements _AppContentsState {
 
 abstract class _AppContentsState implements AppContentsState {
   factory _AppContentsState(
-      {List<AppContentsDB> appContentsDB,
-      bool isLoading}) = _$_AppContentsState;
+      {final List<AppContentsDB> appContentsDB,
+      final bool isLoading}) = _$_AppContentsState;
 
   factory _AppContentsState.fromJson(Map<String, dynamic> json) =
       _$_AppContentsState.fromJson;
 
   @override
-  List<AppContentsDB> get appContentsDB;
+  List<AppContentsDB> get appContentsDB => throw _privateConstructorUsedError;
   @override
-  bool get isLoading;
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AppContentsStateCopyWith<_AppContentsState> get copyWith =>
+  _$$_AppContentsStateCopyWith<_$_AppContentsState> get copyWith =>
       throw _privateConstructorUsedError;
 }

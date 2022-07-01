@@ -12,32 +12,11 @@ part of 'scenarioType_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ScenarioTypeState _$ScenarioTypeStateFromJson(Map<String, dynamic> json) {
   return _ScenarioTypeState.fromJson(json);
 }
-
-/// @nodoc
-class _$ScenarioTypeStateTearOff {
-  const _$ScenarioTypeStateTearOff();
-
-  _ScenarioTypeState call(
-      {List<ScenarioTypeDB> scenarioTypeDB = const [],
-      bool isLoading = false}) {
-    return _ScenarioTypeState(
-      scenarioTypeDB: scenarioTypeDB,
-      isLoading: isLoading,
-    );
-  }
-
-  ScenarioTypeState fromJson(Map<String, Object?> json) {
-    return ScenarioTypeState.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $ScenarioTypeState = _$ScenarioTypeStateTearOff();
 
 /// @nodoc
 mixin _$ScenarioTypeState {
@@ -86,34 +65,34 @@ class _$ScenarioTypeStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ScenarioTypeStateCopyWith<$Res>
+abstract class _$$_ScenarioTypeStateCopyWith<$Res>
     implements $ScenarioTypeStateCopyWith<$Res> {
-  factory _$ScenarioTypeStateCopyWith(
-          _ScenarioTypeState value, $Res Function(_ScenarioTypeState) then) =
-      __$ScenarioTypeStateCopyWithImpl<$Res>;
+  factory _$$_ScenarioTypeStateCopyWith(_$_ScenarioTypeState value,
+          $Res Function(_$_ScenarioTypeState) then) =
+      __$$_ScenarioTypeStateCopyWithImpl<$Res>;
   @override
   $Res call({List<ScenarioTypeDB> scenarioTypeDB, bool isLoading});
 }
 
 /// @nodoc
-class __$ScenarioTypeStateCopyWithImpl<$Res>
+class __$$_ScenarioTypeStateCopyWithImpl<$Res>
     extends _$ScenarioTypeStateCopyWithImpl<$Res>
-    implements _$ScenarioTypeStateCopyWith<$Res> {
-  __$ScenarioTypeStateCopyWithImpl(
-      _ScenarioTypeState _value, $Res Function(_ScenarioTypeState) _then)
-      : super(_value, (v) => _then(v as _ScenarioTypeState));
+    implements _$$_ScenarioTypeStateCopyWith<$Res> {
+  __$$_ScenarioTypeStateCopyWithImpl(
+      _$_ScenarioTypeState _value, $Res Function(_$_ScenarioTypeState) _then)
+      : super(_value, (v) => _then(v as _$_ScenarioTypeState));
 
   @override
-  _ScenarioTypeState get _value => super._value as _ScenarioTypeState;
+  _$_ScenarioTypeState get _value => super._value as _$_ScenarioTypeState;
 
   @override
   $Res call({
     Object? scenarioTypeDB = freezed,
     Object? isLoading = freezed,
   }) {
-    return _then(_ScenarioTypeState(
+    return _then(_$_ScenarioTypeState(
       scenarioTypeDB: scenarioTypeDB == freezed
-          ? _value.scenarioTypeDB
+          ? _value._scenarioTypeDB
           : scenarioTypeDB // ignore: cast_nullable_to_non_nullable
               as List<ScenarioTypeDB>,
       isLoading: isLoading == freezed
@@ -128,16 +107,23 @@ class __$ScenarioTypeStateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ScenarioTypeState implements _ScenarioTypeState {
   _$_ScenarioTypeState(
-      {this.scenarioTypeDB = const [], this.isLoading = false});
+      {final List<ScenarioTypeDB> scenarioTypeDB = const [],
+      this.isLoading = false})
+      : _scenarioTypeDB = scenarioTypeDB;
 
   factory _$_ScenarioTypeState.fromJson(Map<String, dynamic> json) =>
       _$$_ScenarioTypeStateFromJson(json);
 
-  @JsonKey()
+  final List<ScenarioTypeDB> _scenarioTypeDB;
   @override
-  final List<ScenarioTypeDB> scenarioTypeDB;
   @JsonKey()
+  List<ScenarioTypeDB> get scenarioTypeDB {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_scenarioTypeDB);
+  }
+
   @override
+  @JsonKey()
   final bool isLoading;
 
   @override
@@ -149,22 +135,24 @@ class _$_ScenarioTypeState implements _ScenarioTypeState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ScenarioTypeState &&
+            other is _$_ScenarioTypeState &&
             const DeepCollectionEquality()
-                .equals(other.scenarioTypeDB, scenarioTypeDB) &&
+                .equals(other._scenarioTypeDB, _scenarioTypeDB) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(scenarioTypeDB),
+      const DeepCollectionEquality().hash(_scenarioTypeDB),
       const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
-  _$ScenarioTypeStateCopyWith<_ScenarioTypeState> get copyWith =>
-      __$ScenarioTypeStateCopyWithImpl<_ScenarioTypeState>(this, _$identity);
+  _$$_ScenarioTypeStateCopyWith<_$_ScenarioTypeState> get copyWith =>
+      __$$_ScenarioTypeStateCopyWithImpl<_$_ScenarioTypeState>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -174,18 +162,18 @@ class _$_ScenarioTypeState implements _ScenarioTypeState {
 
 abstract class _ScenarioTypeState implements ScenarioTypeState {
   factory _ScenarioTypeState(
-      {List<ScenarioTypeDB> scenarioTypeDB,
-      bool isLoading}) = _$_ScenarioTypeState;
+      {final List<ScenarioTypeDB> scenarioTypeDB,
+      final bool isLoading}) = _$_ScenarioTypeState;
 
   factory _ScenarioTypeState.fromJson(Map<String, dynamic> json) =
       _$_ScenarioTypeState.fromJson;
 
   @override
-  List<ScenarioTypeDB> get scenarioTypeDB;
+  List<ScenarioTypeDB> get scenarioTypeDB => throw _privateConstructorUsedError;
   @override
-  bool get isLoading;
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ScenarioTypeStateCopyWith<_ScenarioTypeState> get copyWith =>
+  _$$_ScenarioTypeStateCopyWith<_$_ScenarioTypeState> get copyWith =>
       throw _privateConstructorUsedError;
 }

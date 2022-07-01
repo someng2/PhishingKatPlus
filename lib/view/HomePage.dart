@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:voskat/controller/AppPageController.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/tempData/userData.dart';
+import 'package:voskat/view/AppContentsDBTestPage.dart';
 import 'package:voskat/view/MY/MyPage.dart';
 import 'package:voskat/view/SignUp/AuthorityRequestPage.dart';
 import 'package:voskat/view/SignUp/LaunchPage.dart';
@@ -15,9 +17,16 @@ import 'package:class_builder/class_builder.dart';
 
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:voskat/view/SignUp/SignUpPage_age.dart';
-import 'package:voskat/view/home_screen.dart';
+import 'package:voskat/view/simulationResultDBTest.dart';
 import 'package:voskat/view/userDBTest.dart';
+import 'package:voskat/view/viewModel/simulation_result_view_model.dart';
+import 'package:voskat/view/viewModel/user_view_model.dart';
 
+import '../controller/user/simulation_result_api.dart';
+import '../controller/user/simulation_result_repository_impl.dart';
+import '../controller/user/user_api.dart';
+import '../controller/user/user_repository_impl.dart';
+import '../controller/user/user_state.dart';
 import 'Simulation/AcquaintanceImpersonationPage.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,6 +40,12 @@ class _HomePageState extends State<HomePage> {
   bool isCustom = true;
   bool isType = false;
   late List<bool> isSelected = [isCustom, isType];
+
+  // @override
+  // void dispose() {
+  //   // _network.dispose();
+  //   super.dispose();
+  // }
 
   @override
   void initState() {
@@ -55,8 +70,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print('userList.last.name -> ${userList.last.name}');
-    print('userList.last.typeNAge -> ${userList.last.typeNage.ageGroup}');
+    // print('userList.last.name -> ${userList.last.name}');
+    // print('userList.last.typeNAge -> ${userList.last.typeNage.ageGroup}');
 
     return Scaffold(
         appBar: PreferredSize(
@@ -346,17 +361,19 @@ class _HomePageState extends State<HomePage> {
                       },
                     ),
                     TextButton(
-                      child: Text('HomeScreen 페이지'),
+                      child: Text('UserDBTest 페이지'),
                       onPressed: () {
-                        Get.to(HomeScreen());
+                        Get.to(UserDBTestScreen());
                       },
                     ),
-                    // TextButton(
-                    //   child: Text('UserDBTest 페이지'),
-                    //   onPressed: () {
-                    //     Get.to(UserDBTestPage());
-                    //   },
-                    // ),
+
+                    TextButton(
+                      child: Text('SimulationResultDBTest 페이지'),
+                      onPressed: () {
+                        Get.to(SimulationResultDBTestScreen());
+                      },
+                    ),
+
                     // Container(
                     //   padding: EdgeInsets.zero,
                     //     width: 359.5,
@@ -684,8 +701,10 @@ class _HomePageState extends State<HomePage> {
                                     )
                                   ],
                                 ),
-                              )
-                            ]))
+                              ),
+
+                            ])),
+                    SizedBox(height: 35.h)
                   ],
                 ),
               )

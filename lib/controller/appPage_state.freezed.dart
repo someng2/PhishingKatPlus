@@ -12,31 +12,11 @@ part of 'appPage_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AppPageState _$AppPageStateFromJson(Map<String, dynamic> json) {
   return _AppPageState.fromJson(json);
 }
-
-/// @nodoc
-class _$AppPageStateTearOff {
-  const _$AppPageStateTearOff();
-
-  _AppPageState call(
-      {List<AppPageDB> appPageDB = const [], bool isLoading = false}) {
-    return _AppPageState(
-      appPageDB: appPageDB,
-      isLoading: isLoading,
-    );
-  }
-
-  AppPageState fromJson(Map<String, Object?> json) {
-    return AppPageState.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AppPageState = _$AppPageStateTearOff();
 
 /// @nodoc
 mixin _$AppPageState {
@@ -84,33 +64,34 @@ class _$AppPageStateCopyWithImpl<$Res> implements $AppPageStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AppPageStateCopyWith<$Res>
+abstract class _$$_AppPageStateCopyWith<$Res>
     implements $AppPageStateCopyWith<$Res> {
-  factory _$AppPageStateCopyWith(
-          _AppPageState value, $Res Function(_AppPageState) then) =
-      __$AppPageStateCopyWithImpl<$Res>;
+  factory _$$_AppPageStateCopyWith(
+          _$_AppPageState value, $Res Function(_$_AppPageState) then) =
+      __$$_AppPageStateCopyWithImpl<$Res>;
   @override
   $Res call({List<AppPageDB> appPageDB, bool isLoading});
 }
 
 /// @nodoc
-class __$AppPageStateCopyWithImpl<$Res> extends _$AppPageStateCopyWithImpl<$Res>
-    implements _$AppPageStateCopyWith<$Res> {
-  __$AppPageStateCopyWithImpl(
-      _AppPageState _value, $Res Function(_AppPageState) _then)
-      : super(_value, (v) => _then(v as _AppPageState));
+class __$$_AppPageStateCopyWithImpl<$Res>
+    extends _$AppPageStateCopyWithImpl<$Res>
+    implements _$$_AppPageStateCopyWith<$Res> {
+  __$$_AppPageStateCopyWithImpl(
+      _$_AppPageState _value, $Res Function(_$_AppPageState) _then)
+      : super(_value, (v) => _then(v as _$_AppPageState));
 
   @override
-  _AppPageState get _value => super._value as _AppPageState;
+  _$_AppPageState get _value => super._value as _$_AppPageState;
 
   @override
   $Res call({
     Object? appPageDB = freezed,
     Object? isLoading = freezed,
   }) {
-    return _then(_AppPageState(
+    return _then(_$_AppPageState(
       appPageDB: appPageDB == freezed
-          ? _value.appPageDB
+          ? _value._appPageDB
           : appPageDB // ignore: cast_nullable_to_non_nullable
               as List<AppPageDB>,
       isLoading: isLoading == freezed
@@ -124,16 +105,23 @@ class __$AppPageStateCopyWithImpl<$Res> extends _$AppPageStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AppPageState implements _AppPageState {
-  _$_AppPageState({this.appPageDB = const [], this.isLoading = false});
+  _$_AppPageState(
+      {final List<AppPageDB> appPageDB = const [], this.isLoading = false})
+      : _appPageDB = appPageDB;
 
   factory _$_AppPageState.fromJson(Map<String, dynamic> json) =>
       _$$_AppPageStateFromJson(json);
 
-  @JsonKey()
+  final List<AppPageDB> _appPageDB;
   @override
-  final List<AppPageDB> appPageDB;
   @JsonKey()
+  List<AppPageDB> get appPageDB {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_appPageDB);
+  }
+
   @override
+  @JsonKey()
   final bool isLoading;
 
   @override
@@ -145,21 +133,23 @@ class _$_AppPageState implements _AppPageState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppPageState &&
-            const DeepCollectionEquality().equals(other.appPageDB, appPageDB) &&
+            other is _$_AppPageState &&
+            const DeepCollectionEquality()
+                .equals(other._appPageDB, _appPageDB) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(appPageDB),
+      const DeepCollectionEquality().hash(_appPageDB),
       const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
-  _$AppPageStateCopyWith<_AppPageState> get copyWith =>
-      __$AppPageStateCopyWithImpl<_AppPageState>(this, _$identity);
+  _$$_AppPageStateCopyWith<_$_AppPageState> get copyWith =>
+      __$$_AppPageStateCopyWithImpl<_$_AppPageState>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -168,18 +158,19 @@ class _$_AppPageState implements _AppPageState {
 }
 
 abstract class _AppPageState implements AppPageState {
-  factory _AppPageState({List<AppPageDB> appPageDB, bool isLoading}) =
-      _$_AppPageState;
+  factory _AppPageState(
+      {final List<AppPageDB> appPageDB,
+      final bool isLoading}) = _$_AppPageState;
 
   factory _AppPageState.fromJson(Map<String, dynamic> json) =
       _$_AppPageState.fromJson;
 
   @override
-  List<AppPageDB> get appPageDB;
+  List<AppPageDB> get appPageDB => throw _privateConstructorUsedError;
   @override
-  bool get isLoading;
+  bool get isLoading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AppPageStateCopyWith<_AppPageState> get copyWith =>
+  _$$_AppPageStateCopyWith<_$_AppPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
