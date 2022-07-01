@@ -11,7 +11,7 @@ class SimulationResultDB with _$SimulationResultDB {
   factory SimulationResultDB({
     required int uid,
     required String sid,
-    required String simulationType,
+    required String simulation_type,
     required String worst_ua_keyword1,
     required String worst_ua_keyword2,
     required String create_time,

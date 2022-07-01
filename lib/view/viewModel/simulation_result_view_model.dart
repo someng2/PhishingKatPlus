@@ -4,8 +4,6 @@ import 'package:voskat/controller/user/simulation_result_state.dart';
 import 'package:flutter/material.dart';
 import 'package:voskat/controller/user/simulation_result_event.dart';
 
-
-
 class SimulationResultViewModel with ChangeNotifier {
   final SimulationResultRepository _simulationResultRepository;
 
@@ -14,10 +12,8 @@ class SimulationResultViewModel with ChangeNotifier {
   SimulationResultState get state => _state;
 
   SimulationResultViewModel(this._simulationResultRepository) {
-
     _getSimulationResult();
   }
-
 
   void onEvent(SimulationResultEvent event) {
     // freezed의 패턴 매칭 사용
@@ -30,8 +26,7 @@ class SimulationResultViewModel with ChangeNotifier {
   }
 
   Future _getSimulationResult() async {
-
-    print('_getSimulationResult()');
+    // print('_getSimulationResult()');
 
     _state = state.copyWith(isLoading: true);
     notifyListeners();

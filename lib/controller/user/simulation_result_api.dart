@@ -14,7 +14,7 @@ class SimulationResultApi {
 
   Future<http.Response> getAllSimulationResult() async {
     String table = 'SimulationResult';
-    final response = await _client.get(Uri.parse('$baseUrl/query.php?table=$table'));
+    final response = await _client.get(Uri.parse('$baseUrl/selectSimulationResult.php?table=$table'));
     return response;
   }
 

@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:voskat/controller/AppPageController.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/tempData/userData.dart';
+import 'package:voskat/view/AppContentsDBTestPage.dart';
 import 'package:voskat/view/MY/MyPage.dart';
 import 'package:voskat/view/SignUp/AuthorityRequestPage.dart';
 import 'package:voskat/view/SignUp/LaunchPage.dart';
@@ -39,6 +40,12 @@ class _HomePageState extends State<HomePage> {
   bool isCustom = true;
   bool isType = false;
   late List<bool> isSelected = [isCustom, isType];
+
+  // @override
+  // void dispose() {
+  //   // _network.dispose();
+  //   super.dispose();
+  // }
 
   @override
   void initState() {
@@ -364,22 +371,9 @@ class _HomePageState extends State<HomePage> {
                       child: Text('SimulationResultDBTest 페이지'),
                       onPressed: () {
                         Get.to(SimulationResultDBTestScreen());
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute<void>(
-                        //     builder: (context2) =>
-                        //     // Provider<SimulationResultViewModel>.value(
-                        //     //   value: Provider.of<SimulationResultViewModel>(context),
-                        //         ChangeNotifierProvider<
-                        //         SimulationResultViewModel>(
-                        //       create: (context2) => SimulationResultViewModel(
-                        //           SimulationResultRepositoryImpl(
-                        //               SimulationResultApi())),
-                        //       child: SimulationResultDBTestScreen(),
-                        //     ),
-                        //   ),
-                        // );
                       },
                     ),
+
                     // Container(
                     //   padding: EdgeInsets.zero,
                     //     width: 359.5,
@@ -707,8 +701,10 @@ class _HomePageState extends State<HomePage> {
                                     )
                                   ],
                                 ),
-                              )
-                            ]))
+                              ),
+
+                            ])),
+                    SizedBox(height: 35.h)
                   ],
                 ),
               )
