@@ -18,8 +18,8 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future addUser(String name, int birthYear, String gender) async {
-    await api.insertUser(name, birthYear, gender);
+  Future addUser(String name, int birthYear, String gender, String interest) async {
+    await api.insertUser(name, birthYear, gender, interest);
   }
 
 }

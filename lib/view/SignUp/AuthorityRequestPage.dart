@@ -128,9 +128,7 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
                       fontSize: 19.sp),
                   textAlign: TextAlign.center),
               onPressed: () {
-                // TODO: 권한 허용 절차
-
-                Get.to(PhoneVerificationPage(firstLogin: true,));
+                Get.off(PhoneVerificationPage(firstLogin: true,));
               },
             ),
           )

@@ -1,14 +1,13 @@
 import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:voskat/controller/board_api.dart';
-import 'package:voskat/controller/board_repository_impl.dart';
 import 'package:voskat/controller/user/simulation_result_repository_impl.dart';
 import 'package:voskat/view/HomePage.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:voskat/view/Simulation/SimulationPage.dart';
+import 'package:voskat/view/SplashScreen.dart';
 import 'package:voskat/view/simulationResultDBTest.dart';
 import 'package:voskat/view/userDBTest.dart';
 import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
@@ -50,7 +49,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => GetMaterialApp(
         title: 'Flutter Demo',
         theme: _phishingTheme,
-        home: const HomePage(),
+        home: const SplashScreen(),
         routes: {
           '/home': (context) => HomePage(),
           // '/simulation': (context) => SimulationPage(),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -20,12 +22,66 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
   TextEditingController verificationNumController = TextEditingController();
   int phoneNumberLength = 0;
   bool isFirstSend = true;
+  bool isSent = false;
 
   var verificationNum = null;
   bool isVerified = true;
 
+  Timer? countdownTimer;
+
+  // 인증번호 입력 시간 설정
+  Duration myDuration = const Duration(minutes: 5);
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void startTimer() {
+    countdownTimer =
+        Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
+  }
+
+  void stopTimer() {
+    setState(() => countdownTimer!.cancel());
+  }
+
+  void restartTimer() {
+    stopTimer();
+    setState(() => myDuration = const Duration(minutes: 5));
+    startTimer();
+  }
+
+  void setCountDown() {
+    final reduceSecondsBy = 1;
+    setState(() {
+      final seconds = myDuration.inSeconds - reduceSecondsBy;
+      if (seconds < 0) {
+        countdownTimer!.cancel();
+        Get.showSnackbar(
+          const GetSnackBar(
+            title: '인증번호 입력 시간 초과',
+            message: '\'인증번호 다시 받기\' 버튼을 눌러주세요.',
+            duration: Duration(seconds: 4),
+            snackPosition: SnackPosition.BOTTOM,
+          ),
+        );
+        setState(() {
+          verificationNum = null;
+        });
+      } else {
+        myDuration = Duration(seconds: seconds);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    String strDigits(int n) => n.toString().padLeft(2, '0');
+
+    final minutes = strDigits(myDuration.inMinutes.remainder(60));
+    final seconds = strDigits(myDuration.inSeconds.remainder(60));
+
     return Scaffold(
         body: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,7 +175,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                         children: [
                           SizedBox(width: 15.6.w),
                           // TODO: 5분 카운트다운
-                          Text("04:30",
+                          Text("$minutes:$seconds",
                               style: TextStyle(
                                   color: const Color(0xff0b80f5),
                                   fontWeight: FontWeight.w700,
@@ -175,11 +231,17 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                                 ),
                               );
                             } else {
+                              if (isFirstSend) {
+                                startTimer();
+                              } else {
+                                restartTimer();
+                              }
                               setState(() {
+                                isSent = true;
                                 isFirstSend = false;
                               });
 
-                              // print('인증번호 전송');
+                              print('인증번호 전송');
                               print(
                                   'phone number : ${phoneNumberController.text}');
 
@@ -227,28 +289,41 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
               print('correct verificationNum: $verificationNum');
               print(
                   'verificationNumControllertext: ${verificationNumController.text}');
-              if (verificationNum != verificationNumController.text) {
-                print('[ERROR] 인증번호 불일치 !!');
-                Get.showSnackbar(
-                  const GetSnackBar(
-                    title: '인증번호 불일치',
-                    message: '인증번호 6자리를 다시 입력해주세요.',
-                    duration: Duration(seconds: 3),
-                    snackPosition: SnackPosition.BOTTOM,
-                  ),
-                );
-                setState(() {
-                  isVerified = false;
-                  print('isVerified: $isVerified');
-                });
-              } else {
-                print('인증번호 일치 :)');
-                setState(() {
-                  isVerified = true;
-                  print('isVerified: $isVerified');
-                });
-                // Get.to(SignUpPage_age());
-              }
+              // if (verificationNumController.text.length == 0) {
+              //   Get.showSnackbar(
+              //     const GetSnackBar(
+              //       title: '인증번호 미입력',
+              //       message: '인증번호를 입력해주세요',
+              //       duration: Duration(seconds: 3),
+              //       snackPosition: SnackPosition.BOTTOM,
+              //     ),
+              //   );
+              //   setState(() {
+              //     isVerified = false;
+              //     print('isVerified: $isVerified');
+              //   });
+              // } else if (verificationNum != verificationNumController.text) {
+              //   print('[ERROR] 인증번호 불일치 !!');
+              //   Get.showSnackbar(
+              //     const GetSnackBar(
+              //       title: '인증번호 불일치',
+              //       message: '인증번호 6자리를 다시 입력해주세요.',
+              //       duration: Duration(seconds: 3),
+              //       snackPosition: SnackPosition.BOTTOM,
+              //     ),
+              //   );
+              //   setState(() {
+              //     isVerified = false;
+              //     print('isVerified: $isVerified');
+              //   });
+              // } else {
+              //   print('인증번호 일치 :)');
+              //   setState(() {
+              //     isVerified = true;
+              //     print('isVerified: $isVerified');
+              //   });
+                Get.off(SignUpPage_age());
+              // }
             },
           ),
         )
