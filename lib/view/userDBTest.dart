@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:voskat/view/viewModel/user_view_model.dart';
 
 class UserDBTestScreen extends StatefulWidget {
-
   const UserDBTestScreen({Key? key}) : super(key: key);
 
   @override
@@ -23,7 +22,7 @@ class _UserDBTestScreenState extends State<UserDBTestScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title:Text('[state.userDB.length: ${state.userDB.length}]'),
+        title: Text('[state.userDB.length: ${state.userDB.length}]'),
       ),
       body: ListView.builder(
         itemCount: state.userDB.length,
@@ -31,8 +30,18 @@ class _UserDBTestScreenState extends State<UserDBTestScreen> {
           final userDB = state.userDB[index];
           return ListTile(
             title: Text('${userDB.uid} : ${userDB.name}'),
-            subtitle: Text('birthYear: ${userDB.birthYear}'),
-            trailing: Text('gender: ${userDB.gender}'),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('birthYear: ${userDB.birthYear}'),
+                Text('gender: ${userDB.gender}'),
+              ],
+            ),
+            trailing: Column(
+              children: [
+                Text('관심 키워드: ${userDB.interest_keyword}'),
+              ],
+            ),
           );
         },
       ),
@@ -48,9 +57,9 @@ class _UserDBTestScreenState extends State<UserDBTestScreen> {
   }
 
   AlertDialog _buildInsertAlertDialog(
-      UserViewModel viewModel,
-      BuildContext context,
-      ) {
+    UserViewModel viewModel,
+    BuildContext context,
+  ) {
     _controller.text = '';
     return AlertDialog(
       content: Column(
@@ -65,7 +74,8 @@ class _UserDBTestScreenState extends State<UserDBTestScreen> {
         TextButton(
           onPressed: () {
             print(_controller.text);
-            viewModel.onEvent(UserEvent.insertUser(_controller.text, 1990, 'female'));
+            viewModel.onEvent(
+                UserEvent.insertUser(_controller.text, 1990, 'female', 'loan'));
             Navigator.pop(context, true);
           },
           child: const Text('Insert'),

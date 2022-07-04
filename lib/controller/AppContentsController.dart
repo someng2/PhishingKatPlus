@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:voskat/controller/appContents_state.dart';
 import 'package:voskat/model/simulation/appContents.dart';
 import 'package:voskat/model/simulation/contentsList.dart';
-import 'package:flutter/material.dart';
 
 import 'package:voskat/tempData/appContentsData.dart';
 

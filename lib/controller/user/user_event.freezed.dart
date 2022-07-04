@@ -19,20 +19,25 @@ mixin _$UserEvent<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() query,
-    required TResult Function(String name, int birthYear, String gender)
+    required TResult Function(
+            String name, int birthYear, String gender, String interest)
         insertUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? query,
-    TResult Function(String name, int birthYear, String gender)? insertUser,
+    TResult Function(
+            String name, int birthYear, String gender, String interest)?
+        insertUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? query,
-    TResult Function(String name, int birthYear, String gender)? insertUser,
+    TResult Function(
+            String name, int birthYear, String gender, String interest)?
+        insertUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,7 +117,8 @@ class _$Query<T> implements Query<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() query,
-    required TResult Function(String name, int birthYear, String gender)
+    required TResult Function(
+            String name, int birthYear, String gender, String interest)
         insertUser,
   }) {
     return query();
@@ -122,7 +128,9 @@ class _$Query<T> implements Query<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? query,
-    TResult Function(String name, int birthYear, String gender)? insertUser,
+    TResult Function(
+            String name, int birthYear, String gender, String interest)?
+        insertUser,
   }) {
     return query?.call();
   }
@@ -131,7 +139,9 @@ class _$Query<T> implements Query<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? query,
-    TResult Function(String name, int birthYear, String gender)? insertUser,
+    TResult Function(
+            String name, int birthYear, String gender, String interest)?
+        insertUser,
     required TResult orElse(),
   }) {
     if (query != null) {
@@ -181,7 +191,7 @@ abstract class _$$InsertUserCopyWith<T, $Res> {
   factory _$$InsertUserCopyWith(
           _$InsertUser<T> value, $Res Function(_$InsertUser<T>) then) =
       __$$InsertUserCopyWithImpl<T, $Res>;
-  $Res call({String name, int birthYear, String gender});
+  $Res call({String name, int birthYear, String gender, String interest});
 }
 
 /// @nodoc
@@ -200,6 +210,7 @@ class __$$InsertUserCopyWithImpl<T, $Res>
     Object? name = freezed,
     Object? birthYear = freezed,
     Object? gender = freezed,
+    Object? interest = freezed,
   }) {
     return _then(_$InsertUser<T>(
       name == freezed
@@ -214,6 +225,10 @@ class __$$InsertUserCopyWithImpl<T, $Res>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
+      interest == freezed
+          ? _value.interest
+          : interest // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -221,7 +236,7 @@ class __$$InsertUserCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$InsertUser<T> implements InsertUser<T> {
-  const _$InsertUser(this.name, this.birthYear, this.gender);
+  const _$InsertUser(this.name, this.birthYear, this.gender, this.interest);
 
   @override
   final String name;
@@ -229,10 +244,12 @@ class _$InsertUser<T> implements InsertUser<T> {
   final int birthYear;
   @override
   final String gender;
+  @override
+  final String interest;
 
   @override
   String toString() {
-    return 'UserEvent<$T>.insertUser(name: $name, birthYear: $birthYear, gender: $gender)';
+    return 'UserEvent<$T>.insertUser(name: $name, birthYear: $birthYear, gender: $gender, interest: $interest)';
   }
 
   @override
@@ -242,7 +259,8 @@ class _$InsertUser<T> implements InsertUser<T> {
             other is _$InsertUser<T> &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.birthYear, birthYear) &&
-            const DeepCollectionEquality().equals(other.gender, gender));
+            const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality().equals(other.interest, interest));
   }
 
   @override
@@ -250,7 +268,8 @@ class _$InsertUser<T> implements InsertUser<T> {
       runtimeType,
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(birthYear),
-      const DeepCollectionEquality().hash(gender));
+      const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(interest));
 
   @JsonKey(ignore: true)
   @override
@@ -261,30 +280,35 @@ class _$InsertUser<T> implements InsertUser<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() query,
-    required TResult Function(String name, int birthYear, String gender)
+    required TResult Function(
+            String name, int birthYear, String gender, String interest)
         insertUser,
   }) {
-    return insertUser(name, birthYear, gender);
+    return insertUser(name, birthYear, gender, interest);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? query,
-    TResult Function(String name, int birthYear, String gender)? insertUser,
+    TResult Function(
+            String name, int birthYear, String gender, String interest)?
+        insertUser,
   }) {
-    return insertUser?.call(name, birthYear, gender);
+    return insertUser?.call(name, birthYear, gender, interest);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? query,
-    TResult Function(String name, int birthYear, String gender)? insertUser,
+    TResult Function(
+            String name, int birthYear, String gender, String interest)?
+        insertUser,
     required TResult orElse(),
   }) {
     if (insertUser != null) {
-      return insertUser(name, birthYear, gender);
+      return insertUser(name, birthYear, gender, interest);
     }
     return orElse();
   }
@@ -322,13 +346,13 @@ class _$InsertUser<T> implements InsertUser<T> {
 }
 
 abstract class InsertUser<T> implements UserEvent<T> {
-  const factory InsertUser(
-          final String name, final int birthYear, final String gender) =
-      _$InsertUser<T>;
+  const factory InsertUser(final String name, final int birthYear,
+      final String gender, final String interest) = _$InsertUser<T>;
 
   String get name => throw _privateConstructorUsedError;
   int get birthYear => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
+  String get interest => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$InsertUserCopyWith<T, _$InsertUser<T>> get copyWith =>
       throw _privateConstructorUsedError;

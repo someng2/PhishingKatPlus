@@ -17,6 +17,7 @@ import 'package:class_builder/class_builder.dart';
 
 import 'package:fab_circular_menu/fab_circular_menu.dart';
 import 'package:voskat/view/SignUp/SignUpPage_age.dart';
+import 'package:voskat/view/SplashScreen.dart';
 import 'package:voskat/view/simulationResultDBTest.dart';
 import 'package:voskat/view/userDBTest.dart';
 import 'package:voskat/view/viewModel/simulation_result_view_model.dart';
@@ -373,6 +374,12 @@ class _HomePageState extends State<HomePage> {
                         Get.to(SimulationResultDBTestScreen());
                       },
                     ),
+                    // TextButton(
+                    //   child: Text('Splash Screen'),
+                    //   onPressed: () {
+                    //     Get.to(SplashScreen());
+                    //   },
+                    // ),
 
                     // Container(
                     //   padding: EdgeInsets.zero,

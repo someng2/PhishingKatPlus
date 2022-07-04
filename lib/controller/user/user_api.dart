@@ -18,9 +18,9 @@ class UserApi {
     return response;
   }
 
-  Future<http.Response> insertUser(String name, int birthYear, String gender) async {
+  Future<http.Response> insertUser(String name, int birthYear, String gender, String interest) async {
     final response = await _client
-        .get(Uri.parse('$baseUrl/insertUser.php?NULL&name=$name&birthYear=$birthYear&gender=$gender'));
+        .get(Uri.parse('$baseUrl/insertUser.php?NULL&name=$name&birthYear=$birthYear&gender=$gender&interest=$interest'));
     return response;
   }
 }

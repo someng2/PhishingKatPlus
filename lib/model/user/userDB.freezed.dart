@@ -24,6 +24,7 @@ mixin _$UserDB {
   String get name => throw _privateConstructorUsedError;
   int get birthYear => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
+  String get interest_keyword => throw _privateConstructorUsedError;
   String get reg_date => throw _privateConstructorUsedError;
   String get mod_date => throw _privateConstructorUsedError;
 
@@ -41,6 +42,7 @@ abstract class $UserDBCopyWith<$Res> {
       String name,
       int birthYear,
       String gender,
+      String interest_keyword,
       String reg_date,
       String mod_date});
 }
@@ -59,6 +61,7 @@ class _$UserDBCopyWithImpl<$Res> implements $UserDBCopyWith<$Res> {
     Object? name = freezed,
     Object? birthYear = freezed,
     Object? gender = freezed,
+    Object? interest_keyword = freezed,
     Object? reg_date = freezed,
     Object? mod_date = freezed,
   }) {
@@ -78,6 +81,10 @@ class _$UserDBCopyWithImpl<$Res> implements $UserDBCopyWith<$Res> {
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      interest_keyword: interest_keyword == freezed
+          ? _value.interest_keyword
+          : interest_keyword // ignore: cast_nullable_to_non_nullable
               as String,
       reg_date: reg_date == freezed
           ? _value.reg_date
@@ -101,6 +108,7 @@ abstract class _$$_UserDBCopyWith<$Res> implements $UserDBCopyWith<$Res> {
       String name,
       int birthYear,
       String gender,
+      String interest_keyword,
       String reg_date,
       String mod_date});
 }
@@ -120,6 +128,7 @@ class __$$_UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
     Object? name = freezed,
     Object? birthYear = freezed,
     Object? gender = freezed,
+    Object? interest_keyword = freezed,
     Object? reg_date = freezed,
     Object? mod_date = freezed,
   }) {
@@ -139,6 +148,10 @@ class __$$_UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
       gender: gender == freezed
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      interest_keyword: interest_keyword == freezed
+          ? _value.interest_keyword
+          : interest_keyword // ignore: cast_nullable_to_non_nullable
               as String,
       reg_date: reg_date == freezed
           ? _value.reg_date
@@ -160,6 +173,7 @@ class _$_UserDB implements _UserDB {
       required this.name,
       required this.birthYear,
       required this.gender,
+      required this.interest_keyword,
       required this.reg_date,
       required this.mod_date});
 
@@ -175,13 +189,15 @@ class _$_UserDB implements _UserDB {
   @override
   final String gender;
   @override
+  final String interest_keyword;
+  @override
   final String reg_date;
   @override
   final String mod_date;
 
   @override
   String toString() {
-    return 'UserDB(uid: $uid, name: $name, birthYear: $birthYear, gender: $gender, reg_date: $reg_date, mod_date: $mod_date)';
+    return 'UserDB(uid: $uid, name: $name, birthYear: $birthYear, gender: $gender, interest_keyword: $interest_keyword, reg_date: $reg_date, mod_date: $mod_date)';
   }
 
   @override
@@ -193,6 +209,8 @@ class _$_UserDB implements _UserDB {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.birthYear, birthYear) &&
             const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality()
+                .equals(other.interest_keyword, interest_keyword) &&
             const DeepCollectionEquality().equals(other.reg_date, reg_date) &&
             const DeepCollectionEquality().equals(other.mod_date, mod_date));
   }
@@ -205,6 +223,7 @@ class _$_UserDB implements _UserDB {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(birthYear),
       const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(interest_keyword),
       const DeepCollectionEquality().hash(reg_date),
       const DeepCollectionEquality().hash(mod_date));
 
@@ -225,6 +244,7 @@ abstract class _UserDB implements UserDB {
       required final String name,
       required final int birthYear,
       required final String gender,
+      required final String interest_keyword,
       required final String reg_date,
       required final String mod_date}) = _$_UserDB;
 
@@ -238,6 +258,8 @@ abstract class _UserDB implements UserDB {
   int get birthYear => throw _privateConstructorUsedError;
   @override
   String get gender => throw _privateConstructorUsedError;
+  @override
+  String get interest_keyword => throw _privateConstructorUsedError;
   @override
   String get reg_date => throw _privateConstructorUsedError;
   @override
