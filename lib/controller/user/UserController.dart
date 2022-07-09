@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:voskat/controller/user/user_reposiroty.dart';
+import 'package:voskat/controller/user/user_repository.dart';
 import 'package:voskat/model/user/user.dart';
 
 import 'package:voskat/model/user/userDB.dart';

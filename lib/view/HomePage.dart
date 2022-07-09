@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:voskat/controller/AppPageController.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
 import 'package:voskat/tempData/userData.dart';
-import 'package:voskat/view/AppContentsDBTestPage.dart';
+import 'package:voskat/view/Etc./NoticePage.dart';
 import 'package:voskat/view/MY/MyPage.dart';
 import 'package:voskat/view/SignUp/AuthorityRequestPage.dart';
 import 'package:voskat/view/SignUp/LaunchPage.dart';
@@ -29,6 +29,8 @@ import '../controller/user/user_api.dart';
 import '../controller/user/user_repository_impl.dart';
 import '../controller/user/user_state.dart';
 import 'Simulation/AcquaintanceImpersonationPage.dart';
+import 'Simulation/CustomAnalysisTestPage.dart';
+import 'noticeDBTest.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -206,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                       child: TextButton(
                         child: Image.asset('image/noticeIcon.png'),
                         onPressed: () {
-                          print('공지사항');
+                          Get.to(NoticePage());
                         },
                         style: TextButton.styleFrom(
                           minimumSize: Size.zero,
@@ -374,12 +376,13 @@ class _HomePageState extends State<HomePage> {
                         Get.to(SimulationResultDBTestScreen());
                       },
                     ),
-                    // TextButton(
-                    //   child: Text('Splash Screen'),
-                    //   onPressed: () {
-                    //     Get.to(SplashScreen());
-                    //   },
-                    // ),
+                    TextButton(
+                      child: Text('CustomAnalysisTest Page'),
+                      onPressed: () {
+                        Get.to(CustomAnalysisTestPage());
+                      },
+                    ),
+
 
                     // Container(
                     //   padding: EdgeInsets.zero,

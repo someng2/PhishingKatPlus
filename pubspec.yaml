@@ -53,6 +53,8 @@ dependencies:
   permission_handler: ^10.0.0
   image_picker: ^0.8.5+3
   intl: ^0.17.0
+  step_progress_indicator: ^1.0.2
+
 
 dev_dependencies:
   flutter_test:
@@ -194,6 +196,7 @@ flutter:
     - image/thumbsUpIcon.png
     - image/badMoodIcon.png
     - image/phishingkatSIcon.png
+    - image/customTestProgressIcon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

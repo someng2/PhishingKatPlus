@@ -75,7 +75,7 @@ class _UserDBTestScreenState extends State<UserDBTestScreen> {
           onPressed: () {
             print(_controller.text);
             viewModel.onEvent(
-                UserEvent.insertUser(_controller.text, 1990, 'female', 'loan'));
+                UserEvent.insertUser(_controller.text, 1990, 'male', 'famliy'));
             Navigator.pop(context, true);
           },
           child: const Text('Insert'),

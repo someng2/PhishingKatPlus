@@ -289,41 +289,41 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
               print('correct verificationNum: $verificationNum');
               print(
                   'verificationNumControllertext: ${verificationNumController.text}');
-              // if (verificationNumController.text.length == 0) {
-              //   Get.showSnackbar(
-              //     const GetSnackBar(
-              //       title: '인증번호 미입력',
-              //       message: '인증번호를 입력해주세요',
-              //       duration: Duration(seconds: 3),
-              //       snackPosition: SnackPosition.BOTTOM,
-              //     ),
-              //   );
-              //   setState(() {
-              //     isVerified = false;
-              //     print('isVerified: $isVerified');
-              //   });
-              // } else if (verificationNum != verificationNumController.text) {
-              //   print('[ERROR] 인증번호 불일치 !!');
-              //   Get.showSnackbar(
-              //     const GetSnackBar(
-              //       title: '인증번호 불일치',
-              //       message: '인증번호 6자리를 다시 입력해주세요.',
-              //       duration: Duration(seconds: 3),
-              //       snackPosition: SnackPosition.BOTTOM,
-              //     ),
-              //   );
-              //   setState(() {
-              //     isVerified = false;
-              //     print('isVerified: $isVerified');
-              //   });
-              // } else {
-              //   print('인증번호 일치 :)');
-              //   setState(() {
-              //     isVerified = true;
-              //     print('isVerified: $isVerified');
-              //   });
+              if (verificationNumController.text.length == 0) {
+                Get.showSnackbar(
+                  const GetSnackBar(
+                    title: '인증번호 미입력',
+                    message: '인증번호를 입력해주세요',
+                    duration: Duration(seconds: 3),
+                    snackPosition: SnackPosition.BOTTOM,
+                  ),
+                );
+                setState(() {
+                  isVerified = false;
+                  print('isVerified: $isVerified');
+                });
+              } else if (verificationNum != verificationNumController.text) {
+                print('[ERROR] 인증번호 불일치 !!');
+                Get.showSnackbar(
+                  const GetSnackBar(
+                    title: '인증번호 불일치',
+                    message: '인증번호 6자리를 다시 입력해주세요.',
+                    duration: Duration(seconds: 3),
+                    snackPosition: SnackPosition.BOTTOM,
+                  ),
+                );
+                setState(() {
+                  isVerified = false;
+                  print('isVerified: $isVerified');
+                });
+              } else {
+                print('인증번호 일치 :)');
+                setState(() {
+                  isVerified = true;
+                  print('isVerified: $isVerified');
+                });
                 Get.off(SignUpPage_age());
-              // }
+              }
             },
           ),
         )

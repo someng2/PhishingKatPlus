@@ -452,11 +452,11 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                         print('selectedInterest: $selectedInterest');
 
                         // user DB 에 저장
-                        // viewModel.onEvent(UserEvent.insertUser(
-                        //     nickNameController.text,
-                        //     birthYear.year,
-                        //     gender,
-                        //     selectedInterest));
+                        viewModel.onEvent(UserEvent.insertUser(
+                            nickNameController.text,
+                            birthYear.year,
+                            gender,
+                            selectedInterest));
 
                         Get.off(SignUpCompletePage());
                       }
