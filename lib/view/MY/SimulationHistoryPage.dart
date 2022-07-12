@@ -24,7 +24,6 @@ class _SimulationHistoryPageState extends State<SimulationHistoryPage> {
 
   @override
   Widget build(BuildContext context) {
-    List<bool> isExpanded = List.filled(phishingType.length, false);
 
     return Scaffold(
         appBar: PreferredSize(

@@ -6,16 +6,15 @@ import 'package:voskat/view/HomePage.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:voskat/view/Simulation/SimulationPage.dart';
 import 'package:voskat/view/SplashScreen.dart';
-import 'package:voskat/view/simulationResultDBTest.dart';
-import 'package:voskat/view/userDBTest.dart';
-import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
+import 'package:voskat/view/viewModel/notice_view_model.dart';
 import 'package:voskat/view/viewModel/simulation_result_view_model.dart';
 import 'package:voskat/view/viewModel/user_view_model.dart';
 import 'package:voskat/controller/user/simulation_result_api.dart';
-import 'controller/user/user_api.dart';
-import 'controller/user/user_repository_impl.dart';
+import 'package:voskat/controller/Etc./notice_api.dart';
+import 'package:voskat/controller/Etc./notice_repository_impl.dart';
+import 'package:voskat/controller/user/user_api.dart';
+import 'package:voskat/controller/user/user_repository_impl.dart';
 
 void main() {
   runApp(
@@ -27,7 +26,10 @@ void main() {
         ),
         ChangeNotifierProvider<UserViewModel>(
           create: (context) => UserViewModel(UserRepositoryImpl(UserApi())),
-          lazy: true,
+        ),
+        ChangeNotifierProvider<NoticeViewModel>(
+          create: (context) =>
+              NoticeViewModel(NoticeRepositoryImpl(NoticeApi())),
         ),
       ],
       child: MyApp(),
@@ -42,23 +44,52 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // return FutureBuilder(
+    //     future: Init.instance.initialize(context),
+    //     builder: (context, AsyncSnapshot snapshot) {
+    //       if (snapshot.connectionState == ConnectionState.waiting) {
+    //         return SplashScreen(); // 초기 로딩 시 Splash Screen
+    //       } else if (snapshot.hasError) {
+    //         // TODO: 에러 스크린 구현
+    //         // return MaterialApp(home: ErrorScreen()); // 초기 로딩 에러 시 Error Screen
+    //         return Scaffold(body: Container(child: Text('error screen')));
+    //       } else {
+
     return ScreenUtilInit(
       designSize: Size(360, 760),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) => GetMaterialApp(
-        title: 'Flutter Demo',
+        title: 'PhishingKat Plus',
         theme: _phishingTheme,
-        home: const SplashScreen(),
+        home: SplashScreen(),
+        // snapshot.data, // 로딩 완료 시 Home Screen
         routes: {
-          '/home': (context) => HomePage(),
-          // '/simulation': (context) => SimulationPage(),
+          // '/home': (context) => HomePage(),
         },
         debugShowCheckedModeBanner: false,
       ),
     );
+    // }
+    // }
+    // );
   }
 }
+
+// class Init {
+//   Init._();
+//   static final instance = Init._();
+//
+//   Future<Widget?> initialize(BuildContext context) async {
+//     await Future.delayed(Duration(milliseconds: 1000));
+//
+//     // . . .
+//     // 초기 로딩 작성
+//     // . . .
+//
+//     return HomePage(); // 초기 로딩 완료 시 띄울 앱 첫 화면
+//   }
+// }
 
 final ThemeData _phishingTheme = _buildSimulkatTheme();
 

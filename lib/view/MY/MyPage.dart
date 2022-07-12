@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:voskat/view/MY/SimulationHistoryPage.dart';
 import 'package:get/get.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class MyPage extends StatefulWidget {
   const MyPage({Key? key}) : super(key: key);
@@ -358,159 +360,7 @@ class _MyPageState extends State<MyPage> {
                         ),
                       ),
                       SizedBox(height: 10.h),
-                      //       SizedBox(
-                      //         height: 12.h,
-                      //       ),
-                      //       Container(
-                      //         width: 360.w,
-                      //         height: 130.h,
-                      //         child: Row(
-                      //           children: [
-                      //             Column(
-                      //               children: [
-                      //                 TextButton(
-                      //                   child: Stack(children: [
-                      //                     ClipRRect(
-                      //                       borderRadius: BorderRadius.all(
-                      //                           Radius.circular(8.sp)),
-                      //                       child: Image.asset(
-                      //                         'image/customSimulation.png',
-                      //                         fit: BoxFit.fitHeight,
-                      //                         width: 134.w,
-                      //                         height: 130.h,
-                      //                       ),
-                      //                     ),
-                      //                     Container(
-                      //                       width: 134.w,
-                      //                       height: 130.h,
-                      //                       decoration: BoxDecoration(
-                      //                           borderRadius: BorderRadius.all(
-                      //                               Radius.circular(8.sp)),
-                      //                           color:
-                      //                               Colors.black.withOpacity(0.3)),
-                      //                     ),
-                      //                     Container(
-                      //                       padding: EdgeInsets.only(
-                      //                           top: 108.h, left: 29.w),
-                      //                       alignment: Alignment.center,
-                      //                       child: Text("맞춤형 모의체험",
-                      //                           style: TextStyle(
-                      //                               color: const Color(0xffffffff),
-                      //                               fontWeight: FontWeight.w400,
-                      //                               fontFamily:
-                      //                                   "AppleSDGothicNeoSB00",
-                      //                               fontStyle: FontStyle.normal,
-                      //                               fontSize: 12.sp),
-                      //                           textAlign: TextAlign.center),
-                      //                     )
-                      //                   ]),
-                      //                   onPressed: () {
-                      //                     //TODO: 2.3.2 MY 맞춤형 으로 이동
-                      //                   },
-                      //                   style: TextButton.styleFrom(
-                      //                     minimumSize: Size.zero,
-                      //                     padding: EdgeInsets.zero,
-                      //                     tapTargetSize:
-                      //                         MaterialTapTargetSize.shrinkWrap,
-                      //                   ),
-                      //                 ),
-                      //               ],
-                      //             ),
-                      //             SizedBox(width: 48.w),
-                      //             TextButton(
-                      //               child: Stack(children: [
-                      //                 ClipRRect(
-                      //                   borderRadius:
-                      //                       BorderRadius.all(Radius.circular(8.sp)),
-                      //                   child: Image.asset(
-                      //                     'image/categorySimulation.png',
-                      //                     fit: BoxFit.fitHeight,
-                      //                     width: 134.w,
-                      //                     height: 130.h,
-                      //                   ),
-                      //                 ),
-                      //                 Container(
-                      //                   width: 134.w,
-                      //                   height: 130.h,
-                      //                   decoration: BoxDecoration(
-                      //                       borderRadius: BorderRadius.all(
-                      //                           Radius.circular(8.sp)),
-                      //                       color: Colors.black.withOpacity(0.3)),
-                      //                 ),
-                      //                 Container(
-                      //                   padding:
-                      //                       EdgeInsets.only(top: 108.h, left: 33.w),
-                      //                   alignment: Alignment.center,
-                      //                   child: Text("유형별 모의체험",
-                      //                       style: TextStyle(
-                      //                           color: const Color(0xffffffff),
-                      //                           fontWeight: FontWeight.w400,
-                      //                           fontFamily: "AppleSDGothicNeoSB00",
-                      //                           fontStyle: FontStyle.normal,
-                      //                           fontSize: 12.sp),
-                      //                       textAlign: TextAlign.center),
-                      //                 )
-                      //               ]),
-                      //               onPressed: () {
-                      //                 //TODO: 2.3.3 MY 유형별 으로 이동
-                      //               },
-                      //               style: TextButton.styleFrom(
-                      //                 minimumSize: Size.zero,
-                      //                 padding: EdgeInsets.zero,
-                      //                 tapTargetSize:
-                      //                     MaterialTapTargetSize.shrinkWrap,
-                      //               ),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //       ),
-                      //       SizedBox(height: 6.h),
-                      //       Row(
-                      //         children: [
-                      //           SizedBox(width: 10.w),
-                      //           Text("2022. 02. 15",
-                      //               style: TextStyle(
-                      //                   color: const Color(0xff000000),
-                      //                   fontWeight: FontWeight.w400,
-                      //                   fontFamily: "AppleSDGothicNeoL00",
-                      //                   fontStyle: FontStyle.normal,
-                      //                   fontSize: 12.sp),
-                      //               textAlign: TextAlign.left),
-                      //           SizedBox(
-                      //             width: 30.w,
-                      //           ),
-                      //           Text("00점",
-                      //               style: TextStyle(
-                      //                   color: const Color(0xff000000),
-                      //                   fontWeight: FontWeight.w400,
-                      //                   fontFamily: "AppleSDGothicNeoL00",
-                      //                   fontStyle: FontStyle.normal,
-                      //                   fontSize: 12.sp),
-                      //               textAlign: TextAlign.left),
-                      //           SizedBox(width: 70.w),
-                      //
-                      //           /// zeplin이랑 width 다름
-                      //           Text("2022. 02. 15",
-                      //               style: TextStyle(
-                      //                   color: const Color(0xff000000),
-                      //                   fontWeight: FontWeight.w400,
-                      //                   fontFamily: "AppleSDGothicNeoL00",
-                      //                   fontStyle: FontStyle.normal,
-                      //                   fontSize: 12.sp),
-                      //               textAlign: TextAlign.left),
-                      //           SizedBox(
-                      //             width: 30.w,
-                      //           ),
-                      //           Text("00%",
-                      //               style: TextStyle(
-                      //                   color: const Color(0xff000000),
-                      //                   fontWeight: FontWeight.w400,
-                      //                   fontFamily: "AppleSDGothicNeoL00",
-                      //                   fontStyle: FontStyle.normal,
-                      //                   fontSize: 12.sp),
-                      //               textAlign: TextAlign.left),
-                      //         ],
-                      //       )
+
                     ],
                   ),
                   // SizedBox(height: 14.h),
@@ -541,41 +391,7 @@ class _MyPageState extends State<MyPage> {
                                         fontSize: 19.sp),
                                     textAlign: TextAlign.left),
                               ),
-                              // SizedBox(width: 74.w),
-                              // Container(
-                              //   width: 83.w,
-                              //   height: 26.h,
-                              //   decoration: BoxDecoration(
-                              //       borderRadius: BorderRadius.all(
-                              //           Radius.circular(12.sp)),
-                              //       boxShadow: [
-                              //         BoxShadow(
-                              //             color: const Color(0x29000000),
-                              //             offset: Offset(0, 0),
-                              //             blurRadius: 8,
-                              //             spreadRadius: 0)
-                              //       ],
-                              //       color: const Color(0xffffffff)),
-                              //   child: TextButton(
-                              //     child: Text("과거 훈련 이력",
-                              //         style: TextStyle(
-                              //             color: Colors.black,
-                              //             fontWeight: FontWeight.w700,
-                              //             fontFamily: "HancomMalangMalang",
-                              //             fontStyle: FontStyle.normal,
-                              //             fontSize: 12.sp),
-                              //         textAlign: TextAlign.left),
-                              //     onPressed: () {
-                              //       Get.to(SimulationHistoryPage());
-                              //     },
-                              //     style: TextButton.styleFrom(
-                              //       minimumSize: Size.zero,
-                              //       padding: EdgeInsets.zero,
-                              //       tapTargetSize:
-                              //           MaterialTapTargetSize.shrinkWrap,
-                              //     ),
-                              //   ),
-                              // )
+
                             ],
                           ),
                         ),
@@ -915,7 +731,8 @@ class _MyPageState extends State<MyPage> {
                           fontSize: 12.sp),
                       textAlign: TextAlign.left),
                   onPressed: () {
-                    _getImage();
+                    getImage();
+                    // TODO: 서버에 이미지 업로드
                     Navigator.pop(dialogContext);
                   },
                   style: TextButton.styleFrom(
@@ -937,8 +754,8 @@ class _MyPageState extends State<MyPage> {
                   onPressed: () {
                     setState(() {
                       _image = null;
-                      Navigator.pop(dialogContext);
                     });
+                    Navigator.pop(dialogContext);
                   },
                   style: TextButton.styleFrom(
                     minimumSize: Size.zero,
@@ -954,11 +771,12 @@ class _MyPageState extends State<MyPage> {
     );
   }
 
-  Future _getImage() async {
+  Future getImage() async {
     final image = await picker.pickImage(source: ImageSource.gallery);
 
     setState(() {
       _image = i.File(image!.path);
     });
   }
+
 }

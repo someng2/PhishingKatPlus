@@ -13,14 +13,22 @@ class UserApi {
   static const baseUrl = 'http://192.168.0.32:9001';
 
   Future<http.Response> getAllUser() async {
-    String table = 'User';
-    final response = await _client.get(Uri.parse('$baseUrl/query.php?table=$table'));
+    String table = 'Users';
+    final response =
+        await _client.get(Uri.parse('$baseUrl/query.php?table=$table'));
     return response;
   }
 
-  Future<http.Response> insertUser(String name, int birthYear, String gender, String interest) async {
+  Future<http.Response> insertUser(String token, String name, int birthYear,
+      String gender, String interest) async {
+    final response = await _client.get(Uri.parse(
+        '$baseUrl/insertUser.php?token=$token&name=$name&birthYear=$birthYear&gender=$gender&interest=$interest'));
+    return response;
+  }
+
+  Future<http.Response> getUid(String token) async {
     final response = await _client
-        .get(Uri.parse('$baseUrl/insertUser.php?NULL&name=$name&birthYear=$birthYear&gender=$gender&interest=$interest'));
+        .get(Uri.parse('$baseUrl/queryUserToken.php?token=$token'));
     return response;
   }
 }

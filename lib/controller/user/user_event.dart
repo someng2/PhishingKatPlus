@@ -5,7 +5,7 @@ part 'user_event.freezed.dart';
 @freezed
 abstract class UserEvent<T> with _$UserEvent<T> {
   const factory UserEvent.query() = Query;
-  const factory UserEvent.insertUser(String name, int birthYear, String gender, String interest) = InsertUser;
-  // const factory HomeEvent.update(int id, String content) = Update;
+  const factory UserEvent.insertUser(String token, String name, int birthYear, String gender, String interest) = InsertUser;
+  // const factory UserEvent.queryUserToken(String token) = QueryUserToken;
   // const factory HomeEvent.delete(int id) = Delete;
 }
