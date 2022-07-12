@@ -49,8 +49,9 @@ class UserViewModel with ChangeNotifier {
 
   }
 
-  Future _insertUser(String name, int birthYear, String gender, String interest) async {
-    await _userRepository.addUser(name, birthYear, gender, interest);
+  Future _insertUser(String token, String name, int birthYear, String gender, String interest) async {
+    await _userRepository.addUser(token, name, birthYear, gender, interest);
     await _getUser();
   }
+
 }

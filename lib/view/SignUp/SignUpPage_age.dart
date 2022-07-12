@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:voskat/model/simulation/type&age.dart';
 import 'package:voskat/model/user/user.dart';
@@ -12,13 +13,17 @@ import 'package:voskat/view/customWidget/SignUpTextField.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/HomePage.dart';
 import 'package:voskat/view/customWidget/customProgressDot.dart';
-
 import 'package:voskat/view/viewModel/user_view_model.dart';
-
 import 'package:voskat/controller/user/user_event.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:encrypt/encrypt.dart' as e;
+import 'package:voskat/model/globals.dart' as globals;
+import 'package:voskat/controller/user/UserController.dart';
 
 class SignUpPage_age extends StatefulWidget {
-  const SignUpPage_age({Key? key}) : super(key: key);
+  String phoneNumber;
+
+  SignUpPage_age({Key? key, required this.phoneNumber}) : super(key: key);
 
   @override
   _SignUpPage_ageState createState() => _SignUpPage_ageState();
@@ -48,6 +53,8 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
   List<bool> interestSelected = List.filled(12, false);
   String gender = '';
   String selectedInterest = '';
+
+  final token_storage = FlutterSecureStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -397,7 +404,7 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                             fontFamily: "NotoSansCJKKR",
                             fontStyle: FontStyle.normal,
                             fontSize: 19.sp)),
-                    onPressed: () {
+                    onPressed: () async {
                       print('출생년도: ${birthYear.year}');
                       int age = DateTime.now().year - birthYear.year + 1;
                       // print('nickNameController.text: ${nickNameController.text}');
@@ -451,12 +458,25 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                         //     selectedInterestList.join(", ");
                         print('selectedInterest: $selectedInterest');
 
+                        String originToken = widget.phoneNumber;
+
+                        // user token & tokenCreatedTime 로컬에 저장
+                        var encryptedToken = await encrypt(originToken);
+                        print(
+                            'encryptedToken.base64: ${encryptedToken.base64}');
+
                         // user DB 에 저장
                         viewModel.onEvent(UserEvent.insertUser(
+                            encryptedToken.base64,
                             nickNameController.text,
                             birthYear.year,
                             gender,
                             selectedInterest));
+
+                        globals.userDB = state.userDB;
+                        globals.uid = UserController()
+                            .getUserId(state.userDB, encryptedToken.base64);
+                        print('globals.uid = ${globals.uid}');
 
                         Get.off(SignUpCompletePage());
                       }
@@ -498,5 +518,38 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
     }
 
     return _typeNAge;
+  }
+
+  encrypt(String originToken) async {
+    // 암호화 키 생성
+    // late secureStorageKey = e.SecureRandom(32).base64;
+    final _iv = e.IV.fromLength(16);
+
+    // aes 암호화
+    // final aesKey = e.Key.romBase64(secureStorageValue);
+    // final encryptedBytes = e.AES(aesKey).encrypt(
+    //   Uint8List.fromList(utf8.encode(originToken)),
+    //   iv: _iv,
+    // );
+    final key = e.Key.fromUtf8('my 32 length key................');
+
+    final encrypter = e.Encrypter(e.AES(key, padding: null));
+
+    final encrypted = encrypter.encrypt(originToken, iv: _iv);
+    final decrypted = encrypter.decrypt(encrypted, iv: _iv);
+
+    print('[encrypt() ]decrypted: $decrypted');
+    print('[encrypt() ]encrypted: ${encrypted.base64}');
+
+    await token_storage.write(key: "userToken", value: encrypted.base64);
+
+    print(
+        'userTokenCreatedTime = > ${DateFormat('yyyyMMdd').format(DateTime.now())}');
+    await token_storage.write(
+        key: "userTokenCreatedTime",
+        value: DateFormat('yyyyMMdd').format(DateTime.now()));
+
+    // return encryptedBytes.base64;
+    return encrypted;
   }
 }

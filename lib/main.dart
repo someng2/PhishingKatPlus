@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
         home: SplashScreen(),
         // snapshot.data, // 로딩 완료 시 Home Screen
         routes: {
-          '/home': (context) => HomePage(),
+          // '/home': (context) => HomePage(),
         },
         debugShowCheckedModeBanner: false,
       ),

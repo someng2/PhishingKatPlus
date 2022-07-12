@@ -70,6 +70,9 @@ dev_dependencies:
   freezed: ^2.0.3+1
   json_serializable: ^6.2.0
   build_runner: ^2.1.11
+  url_launcher: ^6.1.4
+  flutter_secure_storage: ^5.0.2
+  encrypt: ^5.0.1
 
 
 # For information on the generic Dart part of this file, see the

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:voskat/controller/AppPageController.dart';
 import 'package:voskat/controller/CustomSimulController.dart';
+import 'package:voskat/controller/user/UserController.dart';
 import 'package:voskat/tempData/userData.dart';
 import 'package:voskat/view/Etc./NoticePage.dart';
 import 'package:voskat/view/MY/MyPage.dart';
@@ -20,17 +21,21 @@ import 'package:voskat/view/SignUp/SignUpPage_age.dart';
 import 'package:voskat/view/SplashScreen.dart';
 import 'package:voskat/view/simulationResultDBTest.dart';
 import 'package:voskat/view/userDBTest.dart';
+import 'package:voskat/view/userTokenTestPage.dart';
 import 'package:voskat/view/viewModel/simulation_result_view_model.dart';
 import 'package:voskat/view/viewModel/user_view_model.dart';
 
 import '../controller/user/simulation_result_api.dart';
 import '../controller/user/simulation_result_repository_impl.dart';
 import '../controller/user/user_api.dart';
+import '../controller/user/user_event.dart';
 import '../controller/user/user_repository_impl.dart';
 import '../controller/user/user_state.dart';
 import 'Simulation/AcquaintanceImpersonationPage.dart';
 import 'Simulation/CustomAnalysisTestPage.dart';
-import 'noticeDBTest.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:voskat/model/globals.dart' as globals;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -43,6 +48,8 @@ class _HomePageState extends State<HomePage> {
   bool isCustom = true;
   bool isType = false;
   late List<bool> isSelected = [isCustom, isType];
+
+  final token_storage = FlutterSecureStorage();
 
   // @override
   // void dispose() {
@@ -73,8 +80,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // print('userList.last.name -> ${userList.last.name}');
-    // print('userList.last.typeNAge -> ${userList.last.typeNage.ageGroup}');
+    print('globals.uid = ${globals.uid}');
 
     return Scaffold(
         appBar: PreferredSize(
@@ -325,8 +331,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: TextButton(
                         child: Image.asset('image/phishingNewsIcon.png'),
-                        onPressed: () {
-                          print('피싱뉴스');
+                        onPressed: () async {
+                          final url = Uri.parse('http://naver.me/5WGVa9qi');
+                          if (await canLaunchUrl(url)) {
+                            launchUrl(url,
+                                mode: LaunchMode.externalApplication);
+                          }
                         },
                         style: TextButton.styleFrom(
                           minimumSize: Size.zero,
@@ -382,7 +392,21 @@ class _HomePageState extends State<HomePage> {
                         Get.to(CustomAnalysisTestPage());
                       },
                     ),
+                    TextButton(
+                      child: Text('UserTokenTest Page'),
+                      onPressed: () {
+                        Get.to(UserTokenTestPage());
+                      },
+                    ),
+                    TextButton(
+                        onPressed: () async {
+                          await token_storage.delete(key: "userToken");
+                          await token_storage.delete(
+                              key: "userTokenCreatedTime");
 
+                          print('deleted user token in local!');
+                        },
+                        child: Text('local에서 유저 토큰 없애기')),
 
                     // Container(
                     //   padding: EdgeInsets.zero,
@@ -397,7 +421,8 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Row(
                           children: [
-                            Text("${userList.last.name}",
+                            Text(
+                                '${UserController().getUserName(globals.userDB, globals.uid)}',
                                 style: TextStyle(
                                     color: Color(0xff0473e1),
                                     fontWeight: FontWeight.bold,
@@ -712,7 +737,6 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-
                             ])),
                     SizedBox(height: 35.h)
                   ],

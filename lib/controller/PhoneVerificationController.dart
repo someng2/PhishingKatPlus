@@ -42,10 +42,7 @@ class PhoneVerificationController {
 
     // String OpenApiKey = "ncp:sms:kr:267090247781:phishingkat_plus";
     String OpenApiKey = "ncp:sms:kr:267090278852:phishingkat_sms";
-    // String OpenApiKey = "ncp:sms:kr:267090264439:wekat";
 
-    // DateFormat dateFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
-    // String timeStamp = dateFormat.format(DateTime.now());
     int dateTime = DateTime.now().millisecondsSinceEpoch;
     String timeStamp = "$dateTime";
     // print('timeStamp: \'$timeStamp\'');

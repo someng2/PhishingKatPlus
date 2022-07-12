@@ -37,6 +37,13 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
     super.initState();
   }
 
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    countdownTimer!.cancel();
+  }
+
   void startTimer() {
     countdownTimer =
         Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
@@ -322,7 +329,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                   isVerified = true;
                   print('isVerified: $isVerified');
                 });
-                Get.off(SignUpPage_age());
+                Get.off(SignUpPage_age(phoneNumber: phoneNumberController.text,));
               }
             },
           ),
