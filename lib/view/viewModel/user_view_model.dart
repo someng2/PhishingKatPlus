@@ -9,7 +9,6 @@ import 'package:voskat/controller/user/user_event.dart';
 import '../../controller/user/user_api.dart';
 import '../../controller/user/user_repository_impl.dart';
 
-
 class UserViewModel with ChangeNotifier {
   final UserRepository _userRepository;
 
@@ -32,7 +31,6 @@ class UserViewModel with ChangeNotifier {
   }
 
   Future _getUser() async {
-
     print('_getUser()');
 
     _state = state.copyWith(isLoading: true);
@@ -46,12 +44,12 @@ class UserViewModel with ChangeNotifier {
       userDB: result,
     );
     notifyListeners();
-
   }
 
-  Future _insertUser(String token, String name, int birthYear, String gender, String interest) async {
-    await _userRepository.addUser(token, name, birthYear, gender, interest);
+  Future _insertUser(String phone_number, String token, String name,
+      int birthYear, String gender, String interest) async {
+    await _userRepository.addUser(
+        phone_number, token, name, birthYear, gender, interest);
     await _getUser();
   }
-
 }

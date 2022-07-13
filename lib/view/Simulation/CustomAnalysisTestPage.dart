@@ -1,10 +1,16 @@
+import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:voskat/controller/user/UserController.dart';
 import 'package:voskat/model/simulation/customAnalysisTest.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:voskat/view/HomePage.dart';
 import 'package:get/get.dart';
 import 'package:voskat/view/Simulation/SimulationPage.dart';
+
+import 'package:voskat/controller/AppPageController.dart';
+import 'package:voskat/controller/CustomSimulController.dart';
+import 'package:voskat/model/globals.dart' as globals;
 
 class CustomAnalysisTestPage extends StatefulWidget {
   const CustomAnalysisTestPage({Key? key}) : super(key: key);
@@ -18,7 +24,6 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Future.delayed(Duration.zero, () {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -366,7 +371,14 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
       // 분석 테스트 끝
 
       // TODO: 맞춤형 모의훈련 시작
-      // Get.off(SimulationPage(user: ));
+      // Get.off(SimulationPage(user: , scenario: null,));
+      
+      // Get.off(ClassBuilder.fromString(AppPageController().getWidget(
+      //     CustomSimulController(
+      //             user: UserController().getUser(globals.userDB, globals.uid))
+      //         .getCustomSimulation_withScenarioType(
+      //             UserController().getUser(globals.userDB, globals.uid))
+      //         .aid)));
 
       Get.off(HomePage());
     }

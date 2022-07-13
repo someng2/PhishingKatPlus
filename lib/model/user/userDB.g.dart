@@ -8,6 +8,7 @@ part of 'userDB.dart';
 
 _$_UserDB _$$_UserDBFromJson(Map<String, dynamic> json) => _$_UserDB(
       uid: json['uid'] as int,
+      phone_number: json['phone_number'] as String,
       token: json['token'] as String,
       name: json['name'] as String,
       birthYear: json['birthYear'] as int,
@@ -19,6 +20,7 @@ _$_UserDB _$$_UserDBFromJson(Map<String, dynamic> json) => _$_UserDB(
 
 Map<String, dynamic> _$$_UserDBToJson(_$_UserDB instance) => <String, dynamic>{
       'uid': instance.uid,
+      'phone_number': instance.phone_number,
       'token': instance.token,
       'name': instance.name,
       'birthYear': instance.birthYear,

@@ -40,4 +40,19 @@ class UserController {
       print('[ERROR] getUserId() Cannot find user id!!');
     }
   }
+
+  getUser(List<UserDB> userDB, int uid) {
+    bool found = false;
+    for (int i = 0; i < userDB.length; i++) {
+      // print('i = $i');
+      if (uid == userDB[i].uid) {
+        print('[UserController - getUser] uid = ${userDB[i].uid}');
+        found = true;
+        return userDB[i];
+      }
+    }
+    if (!found) {
+      print('[ERROR] getUserId() Cannot find user id!!');
+    }
+  }
 }

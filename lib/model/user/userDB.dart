@@ -10,6 +10,7 @@ part 'userDB.g.dart';
 class UserDB with _$UserDB {
   factory UserDB({
     required int uid,
+    required String phone_number,
     required String token,
     required String name,
     required int birthYear,

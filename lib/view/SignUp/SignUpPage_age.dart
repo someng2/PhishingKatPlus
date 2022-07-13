@@ -465,8 +465,15 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                         print(
                             'encryptedToken.base64: ${encryptedToken.base64}');
 
+                        // 하이픈 추가
+                        String phoneNumber = widget.phoneNumber
+                            .replaceAllMapped(
+                                RegExp(r'(\d{3})(\d{3,4})(\d{4})'),
+                                (m) => '${m[1]}-${m[2]}-${m[3]}');
+
                         // user DB 에 저장
                         viewModel.onEvent(UserEvent.insertUser(
+                            phoneNumber,
                             encryptedToken.base64,
                             nickNameController.text,
                             birthYear.year,
