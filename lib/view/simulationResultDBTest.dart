@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:voskat/view/viewModel/simulation_result_view_model.dart';
+import 'package:PhishingKatPlus/view/viewModel/simulation_result_view_model.dart';
 
 import '../controller/user/simulation_result_api.dart';
 import '../controller/user/simulation_result_repository_impl.dart';

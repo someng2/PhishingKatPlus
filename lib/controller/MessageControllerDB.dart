@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/model/simulation/appContentsDB.dart';
-import 'package:voskat/tempData/appContentsData.dart';
+import 'package:PhishingKatPlus/model/simulation/appContentsDB.dart';
+import 'package:PhishingKatPlus/tempData/appContentsData.dart';
 
 class MessageControllerDB extends GetxController {
   getMessageIdList(List<AppContentsDB> appContentsDB, String sid) {

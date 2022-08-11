@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:voskat/model/simulation/pairDB.dart';
+import 'package:PhishingKatPlus/model/simulation/pairDB.dart';
 
 part 'pair_state.freezed.dart';
 part 'pair_state.g.dart';

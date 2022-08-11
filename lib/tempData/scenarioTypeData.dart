@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
-import 'package:voskat/model/simulation/scenarioType.dart';
-import 'package:voskat/view/Simulation/SimulationPage.dart';
+import 'package:PhishingKatPlus/model/simulation/scenarioType.dart';
+import 'package:PhishingKatPlus/view/Simulation/SimulationPage.dart';
 
 List<ScenarioType> scenarioTypeList = [
   Type_0,

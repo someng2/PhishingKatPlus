@@ -1,4 +1,4 @@
-import 'package:voskat/model/simulation/userAction.dart';
+import 'package:PhishingKatPlus/model/simulation/userAction.dart';
 
 class Scenario {
   String sid;

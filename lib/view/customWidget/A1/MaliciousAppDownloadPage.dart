@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/view/customWidget/A1/A1a_downloadSettingPage.dart';
+import 'package:PhishingKatPlus/view/customWidget/A1/A1a_downloadSettingPage.dart';
 
 class MaliciousAppDownloadPage extends StatefulWidget {
   String sid;

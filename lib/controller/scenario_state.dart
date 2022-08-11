@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:voskat/model/simulation/scenarioDB.dart';
+import 'package:PhishingKatPlus/model/simulation/scenarioDB.dart';
 
 part 'scenario_state.freezed.dart';
 part 'scenario_state.g.dart';

@@ -1,5 +1,5 @@
 // ignore_for_file: file_names
-import 'package:voskat/model/simulation/pair.dart';
+import 'package:PhishingKatPlus/model/simulation/pair.dart';
 
 //대출사기
 

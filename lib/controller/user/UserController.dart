@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:voskat/controller/user/user_repository.dart';
-import 'package:voskat/model/user/user.dart';
+import 'package:PhishingKatPlus/controller/user/user_repository.dart';
+import 'package:PhishingKatPlus/model/user/user.dart';
 
-import 'package:voskat/model/user/userDB.dart';
-import 'package:voskat/controller/user/user_state.dart';
+import 'package:PhishingKatPlus/model/user/userDB.dart';
+import 'package:PhishingKatPlus/controller/user/user_state.dart';
 import 'dart:async';
 
 class UserController {
@@ -53,6 +53,21 @@ class UserController {
     }
     if (!found) {
       print('[ERROR] getUserId() Cannot find user id!!');
+    }
+  }
+
+  isCustomTestNull(List<UserDB> userDB, int uid) {
+    bool found = false;
+    for (int i = 0; i < userDB.length; i++) {
+      // print('i = $i');
+      if (uid == userDB[i].uid) {
+        // print('[UserController - isCustomTestNull] uid = ${userDB[i].uid}');
+        found = true;
+        return (userDB[i].custom_test_result == null);
+      }
+    }
+    if (!found) {
+      print('[ERROR] isCustomTestNull() Cannot find user id!!');
     }
   }
 }

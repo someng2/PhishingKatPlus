@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/view/customWidget/A1/A1a_downloadPage.dart';
-import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
+import 'package:PhishingKatPlus/view/customWidget/A1/A1a_downloadPage.dart';
+import 'package:PhishingKatPlus/view/customWidget/A1/MaliciousAppDownloadPage.dart';
 
 class A1a_downloadSettingPage extends StatefulWidget {
   String sid;

@@ -1,12 +1,12 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/model/simulation/scenarioType.dart';
-import 'package:voskat/model/user/user.dart';
-import 'package:voskat/tempData/scenarioTypeData.dart';
-import 'package:voskat/tempData/type&ageData.dart';
-import 'package:voskat/tempData/scenarioData.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/model/simulation/scenarioType.dart';
+import 'package:PhishingKatPlus/model/user/user.dart';
+import 'package:PhishingKatPlus/tempData/scenarioTypeData.dart';
+import 'package:PhishingKatPlus/tempData/type&ageData.dart';
+import 'package:PhishingKatPlus/tempData/scenarioData.dart';
 
 class CustomSimulController extends GetxController {
   Rx<User> user;

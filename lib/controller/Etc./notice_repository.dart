@@ -1,4 +1,4 @@
-import 'package:voskat/model/Etc./noticeDB.dart';
+import 'package:PhishingKatPlus/model/Etc./noticeDB.dart';
 
 abstract class NoticeRepository{
 

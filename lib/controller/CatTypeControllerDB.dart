@@ -1,10 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/controller/SimulationResultControllerDB.dart';
-import 'package:voskat/model/simulation/resultCatTypeDB.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/tempData/resultCatTypeData.dart';
+import 'package:PhishingKatPlus/controller/SimulationResultControllerDB.dart';
+import 'package:PhishingKatPlus/model/simulation/resultCatTypeDB.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/tempData/resultCatTypeData.dart';
 
 class CatTypeControllerDB extends GetxController {
 

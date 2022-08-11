@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:voskat/model/simulation/resultCatType.dart';
+import 'package:PhishingKatPlus/model/simulation/resultCatType.dart';
 
 ResultCatType resultCatType1 = ResultCatType(
     cat_id: 'cat_1',

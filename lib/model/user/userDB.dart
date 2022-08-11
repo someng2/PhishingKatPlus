@@ -16,6 +16,7 @@ class UserDB with _$UserDB {
     required int birthYear,
     required String gender,
     required String interest_keyword,
+    required String custom_test_result,
     required String reg_date,
     required String mod_date,
   }) = _UserDB;

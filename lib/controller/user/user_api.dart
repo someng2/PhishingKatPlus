@@ -26,9 +26,9 @@ class UserApi {
     return response;
   }
 
-  Future<http.Response> getUid(String token) async {
-    final response = await _client
-        .get(Uri.parse('$baseUrl/queryUserToken.php?token=$token'));
+  Future<http.Response> updateCustomTestResult(int uid, String custom_test_result) async {
+    final response = await _client.get(Uri.parse(
+        '$baseUrl/updateUser.php?uid=$uid&custom_test_result=$custom_test_result'));
     return response;
   }
 }

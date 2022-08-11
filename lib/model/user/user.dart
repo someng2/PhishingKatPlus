@@ -1,4 +1,4 @@
-import 'package:voskat/model/simulation/type&age.dart';
+import 'package:PhishingKatPlus/model/simulation/type&age.dart';
 
 class User {
   int uid;

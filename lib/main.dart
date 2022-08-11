@@ -1,20 +1,20 @@
 import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:voskat/controller/user/simulation_result_repository_impl.dart';
-import 'package:voskat/view/HomePage.dart';
+import 'package:PhishingKatPlus/controller/user/simulation_result_repository_impl.dart';
+import 'package:PhishingKatPlus/view/HomePage.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:voskat/view/SplashScreen.dart';
-import 'package:voskat/view/viewModel/notice_view_model.dart';
-import 'package:voskat/view/viewModel/simulation_result_view_model.dart';
-import 'package:voskat/view/viewModel/user_view_model.dart';
-import 'package:voskat/controller/user/simulation_result_api.dart';
-import 'package:voskat/controller/Etc./notice_api.dart';
-import 'package:voskat/controller/Etc./notice_repository_impl.dart';
-import 'package:voskat/controller/user/user_api.dart';
-import 'package:voskat/controller/user/user_repository_impl.dart';
+import 'package:PhishingKatPlus/view/SplashScreen.dart';
+import 'package:PhishingKatPlus/view/viewModel/notice_view_model.dart';
+import 'package:PhishingKatPlus/view/viewModel/simulation_result_view_model.dart';
+import 'package:PhishingKatPlus/view/viewModel/user_view_model.dart';
+import 'package:PhishingKatPlus/controller/user/simulation_result_api.dart';
+import 'package:PhishingKatPlus/controller/Etc./notice_api.dart';
+import 'package:PhishingKatPlus/controller/Etc./notice_repository_impl.dart';
+import 'package:PhishingKatPlus/controller/user/user_api.dart';
+import 'package:PhishingKatPlus/controller/user/user_repository_impl.dart';
 
 void main() {
   runApp(

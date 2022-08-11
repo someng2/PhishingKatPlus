@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:voskat/controller/user/simulation_result_api.dart';
-import 'package:voskat/controller/user/simulation_result_repository.dart';
-import 'package:voskat/model/user/simulationResultDB.dart';
+import 'package:PhishingKatPlus/controller/user/simulation_result_api.dart';
+import 'package:PhishingKatPlus/controller/user/simulation_result_repository.dart';
+import 'package:PhishingKatPlus/model/user/simulationResultDB.dart';
 
 
 class SimulationResultRepositoryImpl implements SimulationResultRepository {

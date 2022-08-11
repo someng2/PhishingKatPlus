@@ -1,6 +1,6 @@
-import 'package:voskat/controller/board_repository.dart';
-import 'package:voskat/controller/catType_state.dart';
-import 'package:voskat/controller/pair_state.dart';
+import 'package:PhishingKatPlus/controller/board_repository.dart';
+import 'package:PhishingKatPlus/controller/catType_state.dart';
+import 'package:PhishingKatPlus/controller/pair_state.dart';
 import 'package:flutter/material.dart';
 
 class CatTypeViewModel with ChangeNotifier {

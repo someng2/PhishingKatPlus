@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
 import 'package:get/get.dart';
-import 'package:voskat/controller/AppContentsController.dart';
-import 'package:voskat/tempData/userActionData.dart';
-import 'package:voskat/view/Simulation/SimulationPage.dart';
+import 'package:PhishingKatPlus/controller/AppContentsController.dart';
+import 'package:PhishingKatPlus/tempData/userActionData.dart';
+import 'package:PhishingKatPlus/view/Simulation/SimulationPage.dart';
 
-import 'package:voskat/view/customWidget/A3/MessagePage.dart';
+import 'package:PhishingKatPlus/view/customWidget/A3/MessagePage.dart';
 
 
-import 'package:voskat/view/customWidget/customDialog.dart';
+import 'package:PhishingKatPlus/view/customWidget/customDialog.dart';
 
 class ReportCallPage extends StatefulWidget {
 

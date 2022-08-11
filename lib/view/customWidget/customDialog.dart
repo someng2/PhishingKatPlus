@@ -2,16 +2,16 @@
 
 import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:voskat/controller/AppContentsController.dart';
-import 'package:voskat/controller/PairController.dart';
+import 'package:PhishingKatPlus/controller/AppContentsController.dart';
+import 'package:PhishingKatPlus/controller/PairController.dart';
 
-import 'package:voskat/view/customWidget/A3/ReportPage.dart';
-import 'package:voskat/model/simulation/userAction.dart';
-import 'package:voskat/controller/ScenarioController.dart';
-import 'package:voskat/view/customWidget/customDialogTemplate.dart';
+import 'package:PhishingKatPlus/view/customWidget/A3/ReportPage.dart';
+import 'package:PhishingKatPlus/model/simulation/userAction.dart';
+import 'package:PhishingKatPlus/controller/ScenarioController.dart';
+import 'package:PhishingKatPlus/view/customWidget/customDialogTemplate.dart';
 import 'A3/MessagePage.dart';
-import 'package:voskat/controller/ScenarioController.dart';
-import 'package:voskat/view/customWidget/customDialogTemplate.dart';
+import 'package:PhishingKatPlus/controller/ScenarioController.dart';
+import 'package:PhishingKatPlus/view/customWidget/customDialogTemplate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 

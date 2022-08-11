@@ -8,16 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:voskat/controller/AppContentsController.dart';
-import 'package:voskat/controller/MessageController.dart';
-import 'package:voskat/controller/PairController.dart';
-import 'package:voskat/controller/ScenarioController.dart';
-import 'package:voskat/controller/UserActionController.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/tempData/userActionData.dart';
-import 'package:voskat/view/Simulation/SimulationResultPage.dart';
+import 'package:PhishingKatPlus/controller/AppContentsController.dart';
+import 'package:PhishingKatPlus/controller/MessageController.dart';
+import 'package:PhishingKatPlus/controller/PairController.dart';
+import 'package:PhishingKatPlus/controller/ScenarioController.dart';
+import 'package:PhishingKatPlus/controller/UserActionController.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/tempData/userActionData.dart';
+import 'package:PhishingKatPlus/view/Simulation/SimulationResultPage.dart';
 
-import 'package:voskat/view/customWidget/messageTemplate.dart';
+import 'package:PhishingKatPlus/view/customWidget/messageTemplate.dart';
 import 'ReportPage.dart';
 
 class MessagePage extends StatefulWidget {

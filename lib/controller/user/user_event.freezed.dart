@@ -22,6 +22,8 @@ mixin _$UserEvent<T> {
     required TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)
         insertUser,
+    required TResult Function(int uid, String custom_test_result)
+        updateCustomTestResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,8 @@ mixin _$UserEvent<T> {
     TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)?
         insertUser,
+    TResult Function(int uid, String custom_test_result)?
+        updateCustomTestResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +42,8 @@ mixin _$UserEvent<T> {
     TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)?
         insertUser,
+    TResult Function(int uid, String custom_test_result)?
+        updateCustomTestResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,18 +51,22 @@ mixin _$UserEvent<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Query<T> value) query,
     required TResult Function(InsertUser<T> value) insertUser,
+    required TResult Function(UpdateCustomTestResult<T> value)
+        updateCustomTestResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Query<T> value)? query,
     TResult Function(InsertUser<T> value)? insertUser,
+    TResult Function(UpdateCustomTestResult<T> value)? updateCustomTestResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Query<T> value)? query,
     TResult Function(InsertUser<T> value)? insertUser,
+    TResult Function(UpdateCustomTestResult<T> value)? updateCustomTestResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +130,8 @@ class _$Query<T> implements Query<T> {
     required TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)
         insertUser,
+    required TResult Function(int uid, String custom_test_result)
+        updateCustomTestResult,
   }) {
     return query();
   }
@@ -131,6 +143,8 @@ class _$Query<T> implements Query<T> {
     TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)?
         insertUser,
+    TResult Function(int uid, String custom_test_result)?
+        updateCustomTestResult,
   }) {
     return query?.call();
   }
@@ -142,6 +156,8 @@ class _$Query<T> implements Query<T> {
     TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)?
         insertUser,
+    TResult Function(int uid, String custom_test_result)?
+        updateCustomTestResult,
     required TResult orElse(),
   }) {
     if (query != null) {
@@ -155,6 +171,8 @@ class _$Query<T> implements Query<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Query<T> value) query,
     required TResult Function(InsertUser<T> value) insertUser,
+    required TResult Function(UpdateCustomTestResult<T> value)
+        updateCustomTestResult,
   }) {
     return query(this);
   }
@@ -164,6 +182,7 @@ class _$Query<T> implements Query<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Query<T> value)? query,
     TResult Function(InsertUser<T> value)? insertUser,
+    TResult Function(UpdateCustomTestResult<T> value)? updateCustomTestResult,
   }) {
     return query?.call(this);
   }
@@ -173,6 +192,7 @@ class _$Query<T> implements Query<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Query<T> value)? query,
     TResult Function(InsertUser<T> value)? insertUser,
+    TResult Function(UpdateCustomTestResult<T> value)? updateCustomTestResult,
     required TResult orElse(),
   }) {
     if (query != null) {
@@ -309,6 +329,8 @@ class _$InsertUser<T> implements InsertUser<T> {
     required TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)
         insertUser,
+    required TResult Function(int uid, String custom_test_result)
+        updateCustomTestResult,
   }) {
     return insertUser(phone_number, token, name, birthYear, gender, interest);
   }
@@ -320,6 +342,8 @@ class _$InsertUser<T> implements InsertUser<T> {
     TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)?
         insertUser,
+    TResult Function(int uid, String custom_test_result)?
+        updateCustomTestResult,
   }) {
     return insertUser?.call(
         phone_number, token, name, birthYear, gender, interest);
@@ -332,6 +356,8 @@ class _$InsertUser<T> implements InsertUser<T> {
     TResult Function(String phone_number, String token, String name,
             int birthYear, String gender, String interest)?
         insertUser,
+    TResult Function(int uid, String custom_test_result)?
+        updateCustomTestResult,
     required TResult orElse(),
   }) {
     if (insertUser != null) {
@@ -345,6 +371,8 @@ class _$InsertUser<T> implements InsertUser<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Query<T> value) query,
     required TResult Function(InsertUser<T> value) insertUser,
+    required TResult Function(UpdateCustomTestResult<T> value)
+        updateCustomTestResult,
   }) {
     return insertUser(this);
   }
@@ -354,6 +382,7 @@ class _$InsertUser<T> implements InsertUser<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(Query<T> value)? query,
     TResult Function(InsertUser<T> value)? insertUser,
+    TResult Function(UpdateCustomTestResult<T> value)? updateCustomTestResult,
   }) {
     return insertUser?.call(this);
   }
@@ -363,6 +392,7 @@ class _$InsertUser<T> implements InsertUser<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Query<T> value)? query,
     TResult Function(InsertUser<T> value)? insertUser,
+    TResult Function(UpdateCustomTestResult<T> value)? updateCustomTestResult,
     required TResult orElse(),
   }) {
     if (insertUser != null) {
@@ -390,4 +420,170 @@ abstract class InsertUser<T> implements UserEvent<T> {
   @JsonKey(ignore: true)
   _$$InsertUserCopyWith<T, _$InsertUser<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateCustomTestResultCopyWith<T, $Res> {
+  factory _$$UpdateCustomTestResultCopyWith(_$UpdateCustomTestResult<T> value,
+          $Res Function(_$UpdateCustomTestResult<T>) then) =
+      __$$UpdateCustomTestResultCopyWithImpl<T, $Res>;
+  $Res call({int uid, String custom_test_result});
+}
+
+/// @nodoc
+class __$$UpdateCustomTestResultCopyWithImpl<T, $Res>
+    extends _$UserEventCopyWithImpl<T, $Res>
+    implements _$$UpdateCustomTestResultCopyWith<T, $Res> {
+  __$$UpdateCustomTestResultCopyWithImpl(_$UpdateCustomTestResult<T> _value,
+      $Res Function(_$UpdateCustomTestResult<T>) _then)
+      : super(_value, (v) => _then(v as _$UpdateCustomTestResult<T>));
+
+  @override
+  _$UpdateCustomTestResult<T> get _value =>
+      super._value as _$UpdateCustomTestResult<T>;
+
+  @override
+  $Res call({
+    Object? uid = freezed,
+    Object? custom_test_result = freezed,
+  }) {
+    return _then(_$UpdateCustomTestResult<T>(
+      uid == freezed
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as int,
+      custom_test_result == freezed
+          ? _value.custom_test_result
+          : custom_test_result // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateCustomTestResult<T> implements UpdateCustomTestResult<T> {
+  const _$UpdateCustomTestResult(this.uid, this.custom_test_result);
+
+  @override
+  final int uid;
+  @override
+  final String custom_test_result;
+
+  @override
+  String toString() {
+    return 'UserEvent<$T>.updateCustomTestResult(uid: $uid, custom_test_result: $custom_test_result)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCustomTestResult<T> &&
+            const DeepCollectionEquality().equals(other.uid, uid) &&
+            const DeepCollectionEquality()
+                .equals(other.custom_test_result, custom_test_result));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(uid),
+      const DeepCollectionEquality().hash(custom_test_result));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$UpdateCustomTestResultCopyWith<T, _$UpdateCustomTestResult<T>>
+      get copyWith => __$$UpdateCustomTestResultCopyWithImpl<T,
+          _$UpdateCustomTestResult<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() query,
+    required TResult Function(String phone_number, String token, String name,
+            int birthYear, String gender, String interest)
+        insertUser,
+    required TResult Function(int uid, String custom_test_result)
+        updateCustomTestResult,
+  }) {
+    return updateCustomTestResult(uid, custom_test_result);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? query,
+    TResult Function(String phone_number, String token, String name,
+            int birthYear, String gender, String interest)?
+        insertUser,
+    TResult Function(int uid, String custom_test_result)?
+        updateCustomTestResult,
+  }) {
+    return updateCustomTestResult?.call(uid, custom_test_result);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? query,
+    TResult Function(String phone_number, String token, String name,
+            int birthYear, String gender, String interest)?
+        insertUser,
+    TResult Function(int uid, String custom_test_result)?
+        updateCustomTestResult,
+    required TResult orElse(),
+  }) {
+    if (updateCustomTestResult != null) {
+      return updateCustomTestResult(uid, custom_test_result);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Query<T> value) query,
+    required TResult Function(InsertUser<T> value) insertUser,
+    required TResult Function(UpdateCustomTestResult<T> value)
+        updateCustomTestResult,
+  }) {
+    return updateCustomTestResult(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Query<T> value)? query,
+    TResult Function(InsertUser<T> value)? insertUser,
+    TResult Function(UpdateCustomTestResult<T> value)? updateCustomTestResult,
+  }) {
+    return updateCustomTestResult?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Query<T> value)? query,
+    TResult Function(InsertUser<T> value)? insertUser,
+    TResult Function(UpdateCustomTestResult<T> value)? updateCustomTestResult,
+    required TResult orElse(),
+  }) {
+    if (updateCustomTestResult != null) {
+      return updateCustomTestResult(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateCustomTestResult<T> implements UserEvent<T> {
+  const factory UpdateCustomTestResult(
+          final int uid, final String custom_test_result) =
+      _$UpdateCustomTestResult<T>;
+
+  int get uid => throw _privateConstructorUsedError;
+  String get custom_test_result => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$UpdateCustomTestResultCopyWith<T, _$UpdateCustomTestResult<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/model/simulation/userAction.dart';
-import 'package:voskat/tempData/userActionData.dart';
+import 'package:PhishingKatPlus/model/simulation/userAction.dart';
+import 'package:PhishingKatPlus/tempData/userActionData.dart';
 
 class UserActionController extends GetxController {
 

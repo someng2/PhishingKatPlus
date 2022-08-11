@@ -4,26 +4,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:voskat/controller/AppPageController.dart';
-import 'package:voskat/controller/CustomSimulController.dart';
-import 'package:voskat/controller/user/UserController.dart';
-import 'package:voskat/tempData/userData.dart';
-import 'package:voskat/view/Etc./NoticePage.dart';
-import 'package:voskat/view/MY/MyPage.dart';
-import 'package:voskat/view/SignUp/AuthorityRequestPage.dart';
-import 'package:voskat/view/SignUp/LaunchPage.dart';
-import 'package:voskat/view/Simulation/SimulationPage.dart';
-import 'package:voskat/view/Simulation/SimulationType.dart';
+import 'package:PhishingKatPlus/controller/AppPageController.dart';
+import 'package:PhishingKatPlus/controller/CustomSimulController.dart';
+import 'package:PhishingKatPlus/controller/user/UserController.dart';
+import 'package:PhishingKatPlus/tempData/userData.dart';
+import 'package:PhishingKatPlus/view/Etc./NoticePage.dart';
+import 'package:PhishingKatPlus/view/MY/MyPage.dart';
+import 'package:PhishingKatPlus/view/SignUp/AuthorityRequestPage.dart';
+import 'package:PhishingKatPlus/view/SignUp/LaunchPage.dart';
+import 'package:PhishingKatPlus/view/Simulation/SimulationPage.dart';
+import 'package:PhishingKatPlus/view/Simulation/SimulationType.dart';
 import 'package:class_builder/class_builder.dart';
 
 import 'package:fab_circular_menu/fab_circular_menu.dart';
-import 'package:voskat/view/SignUp/SignUpPage_age.dart';
-import 'package:voskat/view/SplashScreen.dart';
-import 'package:voskat/view/simulationResultDBTest.dart';
-import 'package:voskat/view/userDBTest.dart';
-import 'package:voskat/view/userTokenTestPage.dart';
-import 'package:voskat/view/viewModel/simulation_result_view_model.dart';
-import 'package:voskat/view/viewModel/user_view_model.dart';
+import 'package:PhishingKatPlus/view/SignUp/SignUpPage_age.dart';
+import 'package:PhishingKatPlus/view/SplashScreen.dart';
+import 'package:PhishingKatPlus/view/simulationResultDBTest.dart';
+import 'package:PhishingKatPlus/view/simulationTestPage.dart';
+import 'package:PhishingKatPlus/view/userDBTest.dart';
+import 'package:PhishingKatPlus/view/userTokenTestPage.dart';
+import 'package:PhishingKatPlus/view/viewModel/simulation_result_view_model.dart';
+import 'package:PhishingKatPlus/view/viewModel/user_view_model.dart';
 
 import '../controller/user/simulation_result_api.dart';
 import '../controller/user/simulation_result_repository_impl.dart';
@@ -34,7 +35,7 @@ import '../controller/user/user_state.dart';
 import 'Simulation/AcquaintanceImpersonationPage.dart';
 import 'Simulation/CustomAnalysisTestPage.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:voskat/model/globals.dart' as globals;
+import 'package:PhishingKatPlus/model/globals.dart' as globals;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class HomePage extends StatefulWidget {
@@ -367,46 +368,33 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextButton(
-                      child: Text('회원가입 페이지'),
-                      onPressed: () {
-                        Get.to(LaunchPage());
-                      },
-                    ),
-                    TextButton(
-                      child: Text('UserDBTest 페이지'),
-                      onPressed: () {
-                        Get.to(UserDBTestScreen());
-                      },
-                    ),
+                    // TextButton(
+                    //     onPressed: () {
+                    //       Get.to(UserDBTestScreen());
+                    //     },
+                    //     child: Text('userDBTest 페이지')),
 
-                    TextButton(
-                      child: Text('SimulationResultDBTest 페이지'),
-                      onPressed: () {
-                        Get.to(SimulationResultDBTestScreen());
-                      },
-                    ),
-                    TextButton(
-                      child: Text('CustomAnalysisTest Page'),
-                      onPressed: () {
-                        Get.to(CustomAnalysisTestPage());
-                      },
-                    ),
-                    TextButton(
-                      child: Text('UserTokenTest Page'),
-                      onPressed: () {
-                        Get.to(UserTokenTestPage());
-                      },
-                    ),
-                    TextButton(
-                        onPressed: () async {
-                          await token_storage.delete(key: "userToken");
-                          await token_storage.delete(
-                              key: "userTokenCreatedTime");
-
-                          print('deleted user token in local!');
-                        },
-                        child: Text('local에서 유저 토큰 없애기')),
+                    // TextButton(
+                    //   child: Text('CustomAnalysisTest Page'),
+                    //   onPressed: () {
+                    //     Get.to(CustomAnalysisTestPage());
+                    //   },
+                    // ),
+                    // TextButton(
+                    //   child: Text('UserTokenTest Page'),
+                    //   onPressed: () {
+                    //     Get.to(UserTokenTestPage());
+                    //   },
+                    // ),
+                    // TextButton(
+                    //     onPressed: () async {
+                    //       await token_storage.delete(key: "userToken");
+                    //       await token_storage.delete(
+                    //           key: "userTokenCreatedTime");
+                    //
+                    //       print('deleted user token in local!');
+                    //     },
+                    //     child: Text('local에서 유저 토큰 없애기')),
 
                     // Container(
                     //   padding: EdgeInsets.zero,
@@ -571,19 +559,27 @@ class _HomePageState extends State<HomePage> {
                           }
 
                           isCustom
-
-                              //  ? Get.to(SimulationPage())
-                              //   : Get.to(SimulationType());
-
                               ? {
-                                  // Get.to(SimulationPage(user: userList.last))
-                                  Get.to(ClassBuilder.fromString(AppPageController()
-                                      .getWidget(CustomSimulController(
-                                              user: userList.last)
-                                          .getCustomSimulation_withScenarioType(
-                                              userList.last)
-                                          .aid)))
+                                  if (UserController().isCustomTestNull(
+                                      globals.userDB, globals.uid))
+                                    {Get.to(CustomAnalysisTestPage())}
+                                  else
+                                    {
+                                      // TODO: 맞춤형 모의훈련으로 이동
+
+                                      // Get.to(ClassBuilder.fromString(
+                                      //     AppPageController().getWidget(
+                                      //         CustomSimulController(
+                                      //                 user: userList.last)
+                                      //             .getCustomSimulation_withScenarioType(
+                                      //                 userList.last)
+                                      //             .aid)))
+
+                                      Get.to(SimulationTestPage())
+                                    }
                                 }
+                              // Get.to(SimulationPage(user: userList.last))
+
                               :
 
                               // Get.to(SimulationPage(user: user2));
@@ -693,14 +689,15 @@ class _HomePageState extends State<HomePage> {
                                                     fontSize: 15.sp),
                                               ),
                                               onPressed: () {
-                                                Get.to(ClassBuilder.fromString(
-                                                    AppPageController().getWidget(
-                                                        CustomSimulController(
-                                                                user: userList
-                                                                    .last)
-                                                            .getCustomSimulation_withScenarioType(
-                                                                userList.last)
-                                                            .aid)));
+                                                // Get.to(ClassBuilder.fromString(
+                                                //     AppPageController().getWidget(
+                                                //         CustomSimulController(
+                                                //                 user: userList
+                                                //                     .last)
+                                                //             .getCustomSimulation_withScenarioType(
+                                                //                 userList.last)
+                                                //             .aid)));
+                                                Get.to(SimulationTestPage());
                                               },
                                               style: TextButton.styleFrom(
                                                 minimumSize: Size.zero,

@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/tempData/scenarioData.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/tempData/scenarioData.dart';
 
 class ScenarioController extends GetxController {
   // Rx<String> sid;

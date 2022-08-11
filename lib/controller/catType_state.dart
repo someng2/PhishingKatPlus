@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:voskat/model/simulation/resultCatTypeDB.dart';
+import 'package:PhishingKatPlus/model/simulation/resultCatTypeDB.dart';
 
 part 'catType_state.freezed.dart';
 part 'catType_state.g.dart';

@@ -1,14 +1,14 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:voskat/controller/CatTypeController.dart';
-import 'package:voskat/controller/ScenarioController.dart';
-import 'package:voskat/controller/SimulationResultController.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/tempData/scenarioData.dart';
+import 'package:PhishingKatPlus/controller/CatTypeController.dart';
+import 'package:PhishingKatPlus/controller/ScenarioController.dart';
+import 'package:PhishingKatPlus/controller/SimulationResultController.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/tempData/scenarioData.dart';
 import 'package:get/get.dart';
 
-import 'package:voskat/view/HomePage.dart';
+import 'package:PhishingKatPlus/view/HomePage.dart';
 
 class SimulationResultPage extends StatefulWidget {
   String sid;

@@ -4,12 +4,12 @@
 import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:voskat/controller/AppContentsController.dart';
-import 'package:voskat/controller/PairController.dart';
-import 'package:voskat/controller/ScenarioController.dart';
-import 'package:voskat/controller/UserActionController.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/view/customWidget/A3/LogisticAppPage_2.dart';
+import 'package:PhishingKatPlus/controller/AppContentsController.dart';
+import 'package:PhishingKatPlus/controller/PairController.dart';
+import 'package:PhishingKatPlus/controller/ScenarioController.dart';
+import 'package:PhishingKatPlus/controller/UserActionController.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/view/customWidget/A3/LogisticAppPage_2.dart';
 import 'package:get/get.dart';
 
 class LogisticAppPage_1 extends StatefulWidget {

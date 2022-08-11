@@ -1,8 +1,8 @@
 import 'package:provider/provider.dart';
-import 'package:voskat/controller/user/simulation_result_repository.dart';
-import 'package:voskat/controller/user/simulation_result_state.dart';
+import 'package:PhishingKatPlus/controller/user/simulation_result_repository.dart';
+import 'package:PhishingKatPlus/controller/user/simulation_result_state.dart';
 import 'package:flutter/material.dart';
-import 'package:voskat/controller/user/simulation_result_event.dart';
+import 'package:PhishingKatPlus/controller/user/simulation_result_event.dart';
 
 class SimulationResultViewModel with ChangeNotifier {
   final SimulationResultRepository _simulationResultRepository;

@@ -3,19 +3,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/controller/AppPageController.dart';
-import 'package:voskat/controller/ScenarioController.dart';
-import 'package:voskat/controller/ScenrioTypeController.dart';
-import 'package:voskat/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/controller/AppPageController.dart';
+import 'package:PhishingKatPlus/controller/ScenarioController.dart';
+import 'package:PhishingKatPlus/controller/ScenrioTypeController.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
 
-import 'package:voskat/model/simulation/scenarioType.dart';
-import 'package:voskat/tempData/scenarioTypeData.dart';
-import 'package:voskat/controller/ScenrioTypeController.dart';
-import 'package:voskat/view/Simulation/AcquaintanceImpersonationPage.dart';
+import 'package:PhishingKatPlus/model/simulation/scenarioType.dart';
+import 'package:PhishingKatPlus/tempData/scenarioTypeData.dart';
+import 'package:PhishingKatPlus/controller/ScenrioTypeController.dart';
+import 'package:PhishingKatPlus/view/Simulation/AcquaintanceImpersonationPage.dart';
 
-import 'package:voskat/tempData/userData.dart';
+import 'package:PhishingKatPlus/tempData/userData.dart';
 
-import 'package:voskat/view/Simulation/SimulationPage.dart';
+import 'package:PhishingKatPlus/view/Simulation/SimulationPage.dart';
 import 'package:class_builder/class_builder.dart';
 
 class SimulationType extends StatefulWidget {

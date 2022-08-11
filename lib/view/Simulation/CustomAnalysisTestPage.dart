@@ -1,16 +1,21 @@
 import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:voskat/controller/user/UserController.dart';
-import 'package:voskat/model/simulation/customAnalysisTest.dart';
+import 'package:provider/provider.dart';
+import 'package:PhishingKatPlus/controller/user/UserController.dart';
+import 'package:PhishingKatPlus/model/simulation/customAnalysisTest.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
-import 'package:voskat/view/HomePage.dart';
+import 'package:PhishingKatPlus/view/HomePage.dart';
 import 'package:get/get.dart';
-import 'package:voskat/view/Simulation/SimulationPage.dart';
+import 'package:PhishingKatPlus/view/Simulation/SimulationPage.dart';
 
-import 'package:voskat/controller/AppPageController.dart';
-import 'package:voskat/controller/CustomSimulController.dart';
-import 'package:voskat/model/globals.dart' as globals;
+import 'package:PhishingKatPlus/controller/AppPageController.dart';
+import 'package:PhishingKatPlus/controller/CustomSimulController.dart';
+import 'package:PhishingKatPlus/model/globals.dart' as globals;
+import 'package:PhishingKatPlus/view/simulationTestPage.dart';
+
+import 'package:PhishingKatPlus/controller/user/user_event.dart';
+import 'package:PhishingKatPlus/view/viewModel/user_view_model.dart';
 
 class CustomAnalysisTestPage extends StatefulWidget {
   const CustomAnalysisTestPage({Key? key}) : super(key: key);
@@ -21,6 +26,7 @@ class CustomAnalysisTestPage extends StatefulWidget {
 
 class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
   int index = 0;
+  String selectedOptionList = "";
 
   @override
   void initState() {
@@ -29,7 +35,7 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.only(bottom: 374.h, left: 65.w, right: 77.w),
-        duration: Duration(milliseconds: 2500),
+        duration: Duration(milliseconds: 2000),
         padding: EdgeInsets.zero,
         backgroundColor: const Color(0xffffffff),
         content: Container(
@@ -117,8 +123,11 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<UserViewModel>();
+
     print('index = $index');
     print('customAnalysisList.length: ${customAnalysisTestList.length}');
+
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(47.h), // here the desired height
@@ -250,7 +259,7 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
                               fontSize: 14.sp)),
                     ),
                     onPressed: () {
-                      optionPressed();
+                      optionPressed(viewModel, "1");
                     },
                     style: TextButton.styleFrom(
                         minimumSize: Size.fromWidth(302.w),
@@ -282,7 +291,7 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
                               fontSize: 14.sp)),
                     ),
                     onPressed: () {
-                      optionPressed();
+                      optionPressed(viewModel, "2");
                     },
                     style: TextButton.styleFrom(
                         minimumSize: Size.fromWidth(302.w),
@@ -314,7 +323,7 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
                               fontSize: 14.sp)),
                     ),
                     onPressed: () {
-                      optionPressed();
+                      optionPressed(viewModel, "3");
                     },
                     style: TextButton.styleFrom(
                         minimumSize: Size.fromWidth(302.w),
@@ -346,7 +355,7 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
                               fontSize: 14.sp)),
                     ),
                     onPressed: () {
-                      optionPressed();
+                      optionPressed(viewModel, "4");
                     },
                     style: TextButton.styleFrom(
                         minimumSize: Size.fromWidth(302.w),
@@ -362,17 +371,30 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
     );
   }
 
-  void optionPressed() {
+  void optionPressed(UserViewModel viewModel, String option) {
     if (index < customAnalysisTestList.length - 1) {
       setState(() {
+        if (index == 0) {
+          selectedOptionList = selectedOptionList + " " + option;
+        } else {
+          selectedOptionList = selectedOptionList + ", " + option;
+        }
         index++;
       });
-    } else {
-      // 분석 테스트 끝
+      print('selectedOptionList = $selectedOptionList');
+    }
+    // 분석 테스트 끝
+    else {
+      // TODO: user DB에 결과 저장
+      selectedOptionList = selectedOptionList + ", " + option;
+      print('selectedOptionList = $selectedOptionList');
+      print('globals.uid = ${globals.uid}');
+      viewModel.onEvent(
+          UserEvent.updateCustomTestResult(globals.uid, selectedOptionList));
 
       // TODO: 맞춤형 모의훈련 시작
       // Get.off(SimulationPage(user: , scenario: null,));
-      
+
       // Get.off(ClassBuilder.fromString(AppPageController().getWidget(
       //     CustomSimulController(
       //             user: UserController().getUser(globals.userDB, globals.uid))
@@ -380,7 +402,7 @@ class _CustomAnalysisTestPageState extends State<CustomAnalysisTestPage> {
       //             UserController().getUser(globals.userDB, globals.uid))
       //         .aid)));
 
-      Get.off(HomePage());
+      Get.off(SimulationTestPage());
     }
   }
 }

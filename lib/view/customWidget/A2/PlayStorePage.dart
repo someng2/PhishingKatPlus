@@ -7,16 +7,16 @@ import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/controller/AppContentsController.dart';
-import 'package:voskat/controller/PairController.dart';
-import 'package:voskat/controller/ScenarioController.dart';
-import 'package:voskat/controller/UserActionController.dart';
-import 'package:voskat/tempData/appAdData.dart';
-import 'package:voskat/model/simulation/appInfo.dart';
-import 'package:voskat/view/customWidget/A2/VaccineAppPage.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/view/customWidget/A2/LogisticAppPage_1.dart';
-import 'package:voskat/view/customWidget/A3/MessagePage.dart';
+import 'package:PhishingKatPlus/controller/AppContentsController.dart';
+import 'package:PhishingKatPlus/controller/PairController.dart';
+import 'package:PhishingKatPlus/controller/ScenarioController.dart';
+import 'package:PhishingKatPlus/controller/UserActionController.dart';
+import 'package:PhishingKatPlus/tempData/appAdData.dart';
+import 'package:PhishingKatPlus/model/simulation/appInfo.dart';
+import 'package:PhishingKatPlus/view/customWidget/A2/VaccineAppPage.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/view/customWidget/A2/LogisticAppPage_1.dart';
+import 'package:PhishingKatPlus/view/customWidget/A3/MessagePage.dart';
 
 class PlayStorePage extends StatefulWidget {
   String sid;

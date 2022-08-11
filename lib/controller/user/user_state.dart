@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:voskat/model/user/userDB.dart';
+import 'package:PhishingKatPlus/model/user/userDB.dart';
 
 part 'user_state.freezed.dart';
 part 'user_state.g.dart';

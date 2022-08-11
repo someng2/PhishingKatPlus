@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:voskat/model/Etc./noticeDB.dart';
+import 'package:PhishingKatPlus/model/Etc./noticeDB.dart';
 
 part 'notice_state.freezed.dart';
 part 'notice_state.g.dart';
