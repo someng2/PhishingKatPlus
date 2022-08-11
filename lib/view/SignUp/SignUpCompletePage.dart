@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
 import 'package:get/get.dart';
 
-import 'package:voskat/view/HomePage.dart';
+import 'package:PhishingKatPlus/view/HomePage.dart';
 
 class SignUpCompletePage extends StatefulWidget {
   const SignUpCompletePage({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class _SignUpCompletePageState extends State<SignUpCompletePage> {
       // print('time: $time');
       print('Time off!');
 
-      Get.off(HomePage());
+      Get.offAll(HomePage());
       _timer.cancel();
     });
 
@@ -73,7 +73,7 @@ class _SignUpCompletePageState extends State<SignUpCompletePage> {
                 ],
               ),
             ),
-            SizedBox(height: 23.h),
+            // SizedBox(height: 23.h),
           ],
         ),
         Container(

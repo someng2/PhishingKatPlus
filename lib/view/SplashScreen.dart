@@ -5,12 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:voskat/view/HomePage.dart';
+import 'package:PhishingKatPlus/view/HomePage.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:voskat/view/SignUp/LaunchPage.dart';
-import 'package:voskat/view/SignUp/PhoneVerificationPage.dart';
-import 'package:voskat/model/globals.dart' as globals;
-import 'package:voskat/view/viewModel/user_view_model.dart';
+import 'package:PhishingKatPlus/view/SignUp/LaunchPage.dart';
+import 'package:PhishingKatPlus/view/SignUp/PhoneVerificationPage.dart';
+import 'package:PhishingKatPlus/model/globals.dart' as globals;
+import 'package:PhishingKatPlus/view/viewModel/user_view_model.dart';
 
 import '../controller/user/UserController.dart';
 import '../controller/user/user_state.dart';

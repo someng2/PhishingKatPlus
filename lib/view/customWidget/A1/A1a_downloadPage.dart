@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:loading_overlay_pro/loading_overlay_pro.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:voskat/view/customWidget/A1/MaliciousAppPage_1.dart';
-import 'package:voskat/model/simulation/appInfo.dart';
+import 'package:PhishingKatPlus/view/customWidget/A1/MaliciousAppPage_1.dart';
+import 'package:PhishingKatPlus/model/simulation/appInfo.dart';
 
 class A1a_downloadPage extends StatefulWidget {
   String sid;

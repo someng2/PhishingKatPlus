@@ -4,30 +4,30 @@ import 'package:class_builder/class_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/controller/MessageController.dart';
-import 'package:voskat/controller/UserActionController.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/model/user/user.dart';
-import 'package:voskat/tempData/appContentsData.dart';
-import 'package:voskat/tempData/scenarioData.dart';
-import 'package:voskat/tempData/type&ageData.dart';
-import 'package:voskat/tempData/userActionData.dart';
-import 'package:voskat/tempData/userData.dart';
-import 'package:voskat/controller/CustomSimulController.dart';
+import 'package:PhishingKatPlus/controller/MessageController.dart';
+import 'package:PhishingKatPlus/controller/UserActionController.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/model/user/user.dart';
+import 'package:PhishingKatPlus/tempData/appContentsData.dart';
+import 'package:PhishingKatPlus/tempData/scenarioData.dart';
+import 'package:PhishingKatPlus/tempData/type&ageData.dart';
+import 'package:PhishingKatPlus/tempData/userActionData.dart';
+import 'package:PhishingKatPlus/tempData/userData.dart';
+import 'package:PhishingKatPlus/controller/CustomSimulController.dart';
 
-import 'package:voskat/view/customWidget/A1/MaliciousAppDownloadPage.dart';
-import 'package:voskat/view/customWidget/A1/MaliciousAppPage_1.dart';
-import 'package:voskat/view/customWidget/A2/PlayStorePage.dart';
-import 'package:voskat/view/customWidget/A3/ReportPage.dart';
-import 'package:voskat/view/customWidget/A3/MessagePage.dart';
-import 'package:voskat/view/customWidget/customDialog.dart';
+import 'package:PhishingKatPlus/view/customWidget/A1/MaliciousAppDownloadPage.dart';
+import 'package:PhishingKatPlus/view/customWidget/A1/MaliciousAppPage_1.dart';
+import 'package:PhishingKatPlus/view/customWidget/A2/PlayStorePage.dart';
+import 'package:PhishingKatPlus/view/customWidget/A3/ReportPage.dart';
+import 'package:PhishingKatPlus/view/customWidget/A3/MessagePage.dart';
+import 'package:PhishingKatPlus/view/customWidget/customDialog.dart';
 
-import 'package:voskat/controller/PairController.dart';
-import 'package:voskat/controller/AppContentsController.dart';
+import 'package:PhishingKatPlus/controller/PairController.dart';
+import 'package:PhishingKatPlus/controller/AppContentsController.dart';
 
-import 'package:voskat/view/customWidget/customDialog.dart';
+import 'package:PhishingKatPlus/view/customWidget/customDialog.dart';
 
-import 'package:voskat/view/customWidget/messageTemplate.dart';
+import 'package:PhishingKatPlus/view/customWidget/messageTemplate.dart';
 
 class SimulationPage extends StatefulWidget {
   /// temp

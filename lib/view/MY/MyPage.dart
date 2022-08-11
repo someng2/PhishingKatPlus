@@ -3,10 +3,13 @@ import 'dart:io' as i;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:voskat/view/MY/SimulationHistoryPage.dart';
+import 'package:PhishingKatPlus/view/MY/SimulationHistoryPage.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+
+import 'package:PhishingKatPlus/controller/user/UserController.dart';
+import 'package:PhishingKatPlus/model/globals.dart' as globals;
 
 class MyPage extends StatefulWidget {
   const MyPage({Key? key}) : super(key: key);
@@ -123,7 +126,7 @@ class _MyPageState extends State<MyPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("홍길동",
+                              Text("${UserController().getUserName(globals.userDB, globals.uid)}",
                                   style: TextStyle(
                                       color: const Color(0xff0473e1),
                                       fontWeight: FontWeight.w500,
@@ -169,7 +172,7 @@ class _MyPageState extends State<MyPage> {
                                     fontStyle: FontStyle.normal,
                                     fontSize: 14.sp),
                                 textAlign: TextAlign.left),
-                            SizedBox(height: 4.h),
+                            // SizedBox(height: 3.h),
                             Row(
                               children: [
                                 Text("[관련기사] ",

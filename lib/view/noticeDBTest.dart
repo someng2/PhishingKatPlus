@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:voskat/view/viewModel/notice_view_model.dart';
+import 'package:PhishingKatPlus/view/viewModel/notice_view_model.dart';
 
 class NoticeDBTestScreen extends StatefulWidget {
   const NoticeDBTestScreen({Key? key}) : super(key: key);

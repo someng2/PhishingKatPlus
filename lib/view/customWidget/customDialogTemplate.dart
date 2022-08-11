@@ -5,11 +5,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:voskat/controller/AppContentsController.dart';
-import 'package:voskat/controller/PairController.dart';
-import 'package:voskat/controller/UserActionController.dart';
-import 'package:voskat/model/simulation/scenario.dart';
-import 'package:voskat/view/customWidget/customDialog.dart';
+import 'package:PhishingKatPlus/controller/AppContentsController.dart';
+import 'package:PhishingKatPlus/controller/PairController.dart';
+import 'package:PhishingKatPlus/controller/UserActionController.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/view/customWidget/customDialog.dart';
 
 Widget customDialogTemplate(Scenario scenario, List<String> ac_id_list) {
   print(ac_id_list);

@@ -1,9 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/model/simulation/appPage.dart';
-import 'package:voskat/model/simulation/appPageDB.dart';
-import 'package:voskat/tempData/appPageData.dart';
+import 'package:PhishingKatPlus/model/simulation/appPage.dart';
+import 'package:PhishingKatPlus/model/simulation/appPageDB.dart';
+import 'package:PhishingKatPlus/tempData/appPageData.dart';
 
 class AppPageControllerDB extends GetxController {
   getWidget(List<AppPageDB> appPageDB, String aid) {

@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:voskat/controller/Etc./notice_api.dart';
-import 'package:voskat/controller/Etc./notice_repository.dart';
+import 'package:PhishingKatPlus/controller/Etc./notice_api.dart';
+import 'package:PhishingKatPlus/controller/Etc./notice_repository.dart';
 
-import 'package:voskat/model/Etc./noticeDB.dart';
+import 'package:PhishingKatPlus/model/Etc./noticeDB.dart';
 
 class NoticeRepositoryImpl implements NoticeRepository {
   NoticeApi api;

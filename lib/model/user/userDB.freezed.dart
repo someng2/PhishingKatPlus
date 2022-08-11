@@ -21,11 +21,13 @@ UserDB _$UserDBFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserDB {
   int get uid => throw _privateConstructorUsedError;
+  String get phone_number => throw _privateConstructorUsedError;
   String get token => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get birthYear => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get interest_keyword => throw _privateConstructorUsedError;
+  String get custom_test_result => throw _privateConstructorUsedError;
   String get reg_date => throw _privateConstructorUsedError;
   String get mod_date => throw _privateConstructorUsedError;
 
@@ -40,11 +42,13 @@ abstract class $UserDBCopyWith<$Res> {
       _$UserDBCopyWithImpl<$Res>;
   $Res call(
       {int uid,
+      String phone_number,
       String token,
       String name,
       int birthYear,
       String gender,
       String interest_keyword,
+      String custom_test_result,
       String reg_date,
       String mod_date});
 }
@@ -60,11 +64,13 @@ class _$UserDBCopyWithImpl<$Res> implements $UserDBCopyWith<$Res> {
   @override
   $Res call({
     Object? uid = freezed,
+    Object? phone_number = freezed,
     Object? token = freezed,
     Object? name = freezed,
     Object? birthYear = freezed,
     Object? gender = freezed,
     Object? interest_keyword = freezed,
+    Object? custom_test_result = freezed,
     Object? reg_date = freezed,
     Object? mod_date = freezed,
   }) {
@@ -73,6 +79,10 @@ class _$UserDBCopyWithImpl<$Res> implements $UserDBCopyWith<$Res> {
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as int,
+      phone_number: phone_number == freezed
+          ? _value.phone_number
+          : phone_number // ignore: cast_nullable_to_non_nullable
+              as String,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -92,6 +102,10 @@ class _$UserDBCopyWithImpl<$Res> implements $UserDBCopyWith<$Res> {
       interest_keyword: interest_keyword == freezed
           ? _value.interest_keyword
           : interest_keyword // ignore: cast_nullable_to_non_nullable
+              as String,
+      custom_test_result: custom_test_result == freezed
+          ? _value.custom_test_result
+          : custom_test_result // ignore: cast_nullable_to_non_nullable
               as String,
       reg_date: reg_date == freezed
           ? _value.reg_date
@@ -112,11 +126,13 @@ abstract class _$$_UserDBCopyWith<$Res> implements $UserDBCopyWith<$Res> {
   @override
   $Res call(
       {int uid,
+      String phone_number,
       String token,
       String name,
       int birthYear,
       String gender,
       String interest_keyword,
+      String custom_test_result,
       String reg_date,
       String mod_date});
 }
@@ -133,11 +149,13 @@ class __$$_UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uid = freezed,
+    Object? phone_number = freezed,
     Object? token = freezed,
     Object? name = freezed,
     Object? birthYear = freezed,
     Object? gender = freezed,
     Object? interest_keyword = freezed,
+    Object? custom_test_result = freezed,
     Object? reg_date = freezed,
     Object? mod_date = freezed,
   }) {
@@ -146,6 +164,10 @@ class __$$_UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
           ? _value.uid
           : uid // ignore: cast_nullable_to_non_nullable
               as int,
+      phone_number: phone_number == freezed
+          ? _value.phone_number
+          : phone_number // ignore: cast_nullable_to_non_nullable
+              as String,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -166,6 +188,10 @@ class __$$_UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
           ? _value.interest_keyword
           : interest_keyword // ignore: cast_nullable_to_non_nullable
               as String,
+      custom_test_result: custom_test_result == freezed
+          ? _value.custom_test_result
+          : custom_test_result // ignore: cast_nullable_to_non_nullable
+              as String,
       reg_date: reg_date == freezed
           ? _value.reg_date
           : reg_date // ignore: cast_nullable_to_non_nullable
@@ -183,11 +209,13 @@ class __$$_UserDBCopyWithImpl<$Res> extends _$UserDBCopyWithImpl<$Res>
 class _$_UserDB implements _UserDB {
   _$_UserDB(
       {required this.uid,
+      required this.phone_number,
       required this.token,
       required this.name,
       required this.birthYear,
       required this.gender,
       required this.interest_keyword,
+      required this.custom_test_result,
       required this.reg_date,
       required this.mod_date});
 
@@ -196,6 +224,8 @@ class _$_UserDB implements _UserDB {
 
   @override
   final int uid;
+  @override
+  final String phone_number;
   @override
   final String token;
   @override
@@ -207,13 +237,15 @@ class _$_UserDB implements _UserDB {
   @override
   final String interest_keyword;
   @override
+  final String custom_test_result;
+  @override
   final String reg_date;
   @override
   final String mod_date;
 
   @override
   String toString() {
-    return 'UserDB(uid: $uid, token: $token, name: $name, birthYear: $birthYear, gender: $gender, interest_keyword: $interest_keyword, reg_date: $reg_date, mod_date: $mod_date)';
+    return 'UserDB(uid: $uid, phone_number: $phone_number, token: $token, name: $name, birthYear: $birthYear, gender: $gender, interest_keyword: $interest_keyword, custom_test_result: $custom_test_result, reg_date: $reg_date, mod_date: $mod_date)';
   }
 
   @override
@@ -222,12 +254,16 @@ class _$_UserDB implements _UserDB {
         (other.runtimeType == runtimeType &&
             other is _$_UserDB &&
             const DeepCollectionEquality().equals(other.uid, uid) &&
+            const DeepCollectionEquality()
+                .equals(other.phone_number, phone_number) &&
             const DeepCollectionEquality().equals(other.token, token) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.birthYear, birthYear) &&
             const DeepCollectionEquality().equals(other.gender, gender) &&
             const DeepCollectionEquality()
                 .equals(other.interest_keyword, interest_keyword) &&
+            const DeepCollectionEquality()
+                .equals(other.custom_test_result, custom_test_result) &&
             const DeepCollectionEquality().equals(other.reg_date, reg_date) &&
             const DeepCollectionEquality().equals(other.mod_date, mod_date));
   }
@@ -237,11 +273,13 @@ class _$_UserDB implements _UserDB {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(uid),
+      const DeepCollectionEquality().hash(phone_number),
       const DeepCollectionEquality().hash(token),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(birthYear),
       const DeepCollectionEquality().hash(gender),
       const DeepCollectionEquality().hash(interest_keyword),
+      const DeepCollectionEquality().hash(custom_test_result),
       const DeepCollectionEquality().hash(reg_date),
       const DeepCollectionEquality().hash(mod_date));
 
@@ -259,11 +297,13 @@ class _$_UserDB implements _UserDB {
 abstract class _UserDB implements UserDB {
   factory _UserDB(
       {required final int uid,
+      required final String phone_number,
       required final String token,
       required final String name,
       required final int birthYear,
       required final String gender,
       required final String interest_keyword,
+      required final String custom_test_result,
       required final String reg_date,
       required final String mod_date}) = _$_UserDB;
 
@@ -271,6 +311,8 @@ abstract class _UserDB implements UserDB {
 
   @override
   int get uid => throw _privateConstructorUsedError;
+  @override
+  String get phone_number => throw _privateConstructorUsedError;
   @override
   String get token => throw _privateConstructorUsedError;
   @override
@@ -281,6 +323,8 @@ abstract class _UserDB implements UserDB {
   String get gender => throw _privateConstructorUsedError;
   @override
   String get interest_keyword => throw _privateConstructorUsedError;
+  @override
+  String get custom_test_result => throw _privateConstructorUsedError;
   @override
   String get reg_date => throw _privateConstructorUsedError;
   @override

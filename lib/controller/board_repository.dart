@@ -1,10 +1,10 @@
-import 'package:voskat/model/simulation/appContentsDB.dart';
-import 'package:voskat/model/simulation/appPageDB.dart';
-import 'package:voskat/model/simulation/pairDB.dart';
-import 'package:voskat/model/simulation/resultCatTypeDB.dart';
-import 'package:voskat/model/simulation/scenarioDB.dart';
-import 'package:voskat/model/simulation/scenarioTypeDB.dart';
-import 'package:voskat/model/user/userDB.dart';
+import 'package:PhishingKatPlus/model/simulation/appContentsDB.dart';
+import 'package:PhishingKatPlus/model/simulation/appPageDB.dart';
+import 'package:PhishingKatPlus/model/simulation/pairDB.dart';
+import 'package:PhishingKatPlus/model/simulation/resultCatTypeDB.dart';
+import 'package:PhishingKatPlus/model/simulation/scenarioDB.dart';
+import 'package:PhishingKatPlus/model/simulation/scenarioTypeDB.dart';
+import 'package:PhishingKatPlus/model/user/userDB.dart';
 
 abstract class BoardRepository {
   Future<List<UserDB>> getUser();

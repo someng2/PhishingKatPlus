@@ -2,9 +2,9 @@
 
 import 'package:get/get.dart';
 
-import 'package:voskat/controller/AppPageController.dart';
-import 'package:voskat/model/simulation/pairDB.dart';
-import 'package:voskat/tempData/pairData.dart';
+import 'package:PhishingKatPlus/controller/AppPageController.dart';
+import 'package:PhishingKatPlus/model/simulation/pairDB.dart';
+import 'package:PhishingKatPlus/tempData/pairData.dart';
 
 class PairControllerDB extends GetxController {
   getCurrentActionId(List<PairDB> pairDB, String ac_id) {

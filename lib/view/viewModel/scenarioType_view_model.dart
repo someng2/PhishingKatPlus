@@ -1,7 +1,7 @@
-import 'package:voskat/controller/board_repository.dart';
-import 'package:voskat/controller/pair_state.dart';
+import 'package:PhishingKatPlus/controller/board_repository.dart';
+import 'package:PhishingKatPlus/controller/pair_state.dart';
 import 'package:flutter/material.dart';
-import 'package:voskat/controller/scenarioType_state.dart';
+import 'package:PhishingKatPlus/controller/scenarioType_state.dart';
 
 class ScenarioTypeViewModel with ChangeNotifier {
   late final BoardRepository _repository;

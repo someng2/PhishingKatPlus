@@ -1,4 +1,4 @@
-import 'package:voskat/model/simulation/appContentsDB.dart';
+import 'package:PhishingKatPlus/model/simulation/appContentsDB.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'appContents_state.freezed.dart';

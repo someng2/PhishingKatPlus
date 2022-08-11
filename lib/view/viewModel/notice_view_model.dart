@@ -1,9 +1,9 @@
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:voskat/controller/Etc./notice_repository.dart';
+import 'package:PhishingKatPlus/controller/Etc./notice_repository.dart';
 
-import 'package:voskat/controller/Etc./notice_event.dart';
-import 'package:voskat/controller/Etc./notice_state.dart';
+import 'package:PhishingKatPlus/controller/Etc./notice_event.dart';
+import 'package:PhishingKatPlus/controller/Etc./notice_state.dart';
 
 class NoticeViewModel with ChangeNotifier {
   final NoticeRepository _noticeRepository;

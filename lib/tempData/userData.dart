@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
-import 'package:voskat/model/user/user.dart';
-import 'package:voskat/tempData/type&ageData.dart';
+import 'package:PhishingKatPlus/model/user/user.dart';
+import 'package:PhishingKatPlus/tempData/type&ageData.dart';
 
 User user1 = User(
     uid: 0,

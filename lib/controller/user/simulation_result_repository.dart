@@ -1,4 +1,4 @@
-import 'package:voskat/model/user/simulationResultDB.dart';
+import 'package:PhishingKatPlus/model/user/simulationResultDB.dart';
 
 abstract class SimulationResultRepository{
 

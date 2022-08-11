@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:voskat/model/simulation/appPageDB.dart';
+import 'package:PhishingKatPlus/model/simulation/appPageDB.dart';
 
 part 'appPage_state.freezed.dart';
 part 'appPage_state.g.dart';

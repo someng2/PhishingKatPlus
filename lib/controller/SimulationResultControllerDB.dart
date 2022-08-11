@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
 
 class SimulationResultControllerDB extends GetxController {
   int calculateScore(Scenario scenario) {

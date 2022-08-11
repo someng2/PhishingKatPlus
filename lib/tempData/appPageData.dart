@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:voskat/model/simulation/appPage.dart';
+import 'package:PhishingKatPlus/model/simulation/appPage.dart';
 
 AppPage A1a = AppPage(ap_id: 'A1-a', widget: 'MaliciousAppDownloadPage');
 

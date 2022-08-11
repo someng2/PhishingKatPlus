@@ -1,14 +1,13 @@
 import 'package:provider/provider.dart';
-import 'package:voskat/controller/user/user_state.dart';
+import 'package:PhishingKatPlus/controller/user/user_state.dart';
 import 'package:flutter/material.dart';
 
-import 'package:voskat/controller/user/user_repository.dart';
+import 'package:PhishingKatPlus/controller/user/user_repository.dart';
 
-import 'package:voskat/controller/user/user_event.dart';
+import 'package:PhishingKatPlus/controller/user/user_event.dart';
 
 import '../../controller/user/user_api.dart';
 import '../../controller/user/user_repository_impl.dart';
-
 
 class UserViewModel with ChangeNotifier {
   final UserRepository _userRepository;
@@ -26,13 +25,13 @@ class UserViewModel with ChangeNotifier {
     event.when(
       query: _getUser,
       insertUser: _insertUser,
+      updateCustomTestResult: _updateCustomTestResult,
       // update: _update,
       // delete: _delete,
     );
   }
 
   Future _getUser() async {
-
     print('_getUser()');
 
     _state = state.copyWith(isLoading: true);
@@ -46,12 +45,17 @@ class UserViewModel with ChangeNotifier {
       userDB: result,
     );
     notifyListeners();
-
   }
 
-  Future _insertUser(String token, String name, int birthYear, String gender, String interest) async {
-    await _userRepository.addUser(token, name, birthYear, gender, interest);
+  Future _insertUser(String phone_number, String token, String name,
+      int birthYear, String gender, String interest) async {
+    await _userRepository.addUser(
+        phone_number, token, name, birthYear, gender, interest);
     await _getUser();
   }
 
+  Future _updateCustomTestResult(int uid, String custom_test_result) async {
+    await _userRepository.updateCustomTestResult(uid, custom_test_result);
+    await _getUser();
+  }
 }

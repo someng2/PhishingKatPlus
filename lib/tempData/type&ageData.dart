@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:voskat/model/simulation/type&age.dart';
+import 'package:PhishingKatPlus/model/simulation/type&age.dart';
 
 TypeNAge Type10s = TypeNAge(ageGroup: '10대', type: ['택배']);
 TypeNAge Type20s = TypeNAge(ageGroup: '20대', type: ['택배']);

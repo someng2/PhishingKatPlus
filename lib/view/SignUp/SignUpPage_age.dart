@@ -4,21 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:voskat/model/simulation/type&age.dart';
-import 'package:voskat/model/user/user.dart';
-import 'package:voskat/tempData/type&ageData.dart';
-import 'package:voskat/tempData/userData.dart';
-import 'package:voskat/view/SignUp/SignUpCompletePage.dart';
-import 'package:voskat/view/customWidget/SignUpTextField.dart';
+import 'package:PhishingKatPlus/model/simulation/type&age.dart';
+import 'package:PhishingKatPlus/model/user/user.dart';
+import 'package:PhishingKatPlus/tempData/type&ageData.dart';
+import 'package:PhishingKatPlus/tempData/userData.dart';
+import 'package:PhishingKatPlus/view/SignUp/SignUpCompletePage.dart';
+import 'package:PhishingKatPlus/view/customWidget/SignUpTextField.dart';
 import 'package:get/get.dart';
-import 'package:voskat/view/HomePage.dart';
-import 'package:voskat/view/customWidget/customProgressDot.dart';
-import 'package:voskat/view/viewModel/user_view_model.dart';
-import 'package:voskat/controller/user/user_event.dart';
+import 'package:PhishingKatPlus/view/HomePage.dart';
+import 'package:PhishingKatPlus/view/customWidget/customProgressDot.dart';
+import 'package:PhishingKatPlus/view/viewModel/user_view_model.dart';
+import 'package:PhishingKatPlus/controller/user/user_event.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:encrypt/encrypt.dart' as e;
-import 'package:voskat/model/globals.dart' as globals;
-import 'package:voskat/controller/user/UserController.dart';
+import 'package:PhishingKatPlus/model/globals.dart' as globals;
+import 'package:PhishingKatPlus/controller/user/UserController.dart';
 
 class SignUpPage_age extends StatefulWidget {
   String phoneNumber;
@@ -336,17 +336,19 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                               textAlign: TextAlign.left)
                         ],
                       ),
-                      SizedBox(height: 13.h),
+                      // SizedBox(height: 13.h),
                       Container(
-                          height: 250.h,
+                          height: 150.h,
+                          padding: EdgeInsets.zero,
+                          margin: EdgeInsets.zero,
                           child: GridView.builder(
                               itemCount: interestList.length,
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 4, //1 개의 행에 보여줄 item 개수
                                 childAspectRatio: 2.3, //item 의 가로 1, 세로 2 의 비율
-                                mainAxisSpacing: 12.w, //수평 Padding
-                                crossAxisSpacing: 6.h, //수직 Padding
+                                mainAxisSpacing: 3.h, //수평 Padding
+                                crossAxisSpacing: 12.w, //수직 Padding
                               ),
                               itemBuilder: (BuildContext context, int index) {
                                 return TextButton(
@@ -392,96 +394,113 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                   ),
                 ),
               ]),
-              Container(
-                  width: 360.w,
-                  height: 60.h,
-                  decoration: BoxDecoration(color: Color(0xff0473e1)),
-                  child: TextButton(
-                    child: Text('확인',
-                        style: TextStyle(
-                            color: Color(0xffffffff),
-                            fontWeight: FontWeight.w400,
-                            fontFamily: "NotoSansCJKKR",
-                            fontStyle: FontStyle.normal,
-                            fontSize: 19.sp)),
-                    onPressed: () async {
-                      print('출생년도: ${birthYear.year}');
-                      int age = DateTime.now().year - birthYear.year + 1;
-                      // print('nickNameController.text: ${nickNameController.text}');
+              // SizedBox(
+              //   height: 36.6.h,
+              // ),
+              Column(
+                children: [
+                  Container(
+                      width: 360.w,
+                      height: 60.h,
+                      decoration: BoxDecoration(color: Color(0xff0473e1)),
+                      child: TextButton(
+                        child: Text('확인',
+                            style: TextStyle(
+                                color: Color(0xffffffff),
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "NotoSansCJKKR",
+                                fontStyle: FontStyle.normal,
+                                fontSize: 19.sp)),
+                        onPressed: () async {
+                          print('출생년도: ${birthYear.year}');
+                          int age = DateTime.now().year - birthYear.year + 1;
+                          // print('nickNameController.text: ${nickNameController.text}');
 
-                      print('나이: $age');
+                          print('나이: $age');
 
-                      if (age == 1) {
-                        Get.showSnackbar(const GetSnackBar(
-                          message: '출생년도를 선택해 주세요.',
-                          duration: Duration(seconds: 2),
-                          snackPosition: SnackPosition.BOTTOM,
-                        ));
-                      } else if (age - 1 < 14) {
-                        Get.showSnackbar(const GetSnackBar(
-                          message: '만 14세 이상만 가입할 수 있습니다.',
-                          duration: Duration(seconds: 2),
-                          snackPosition: SnackPosition.BOTTOM,
-                        ));
-                      } else if (nickNameController.text == '') {
-                        Get.showSnackbar(const GetSnackBar(
-                          message: '별명을 입력해 주세요.',
-                          duration: Duration(seconds: 2),
-                          snackPosition: SnackPosition.BOTTOM,
-                        ));
-                      } else if (nickNameController.text.length > 6) {
-                        Get.showSnackbar(const GetSnackBar(
-                          message: '6자 이내의 별명을 입력해 주세요.',
-                          duration: Duration(seconds: 2),
-                          snackPosition: SnackPosition.BOTTOM,
-                        ));
-                      } else {
-                        print('birthYear : ${birthYear.year}');
-                        print('getAgeGroup => ${getAgeGroup(age).ageGroup}');
-                        print('nickname: ${nickNameController.text}');
-                        if (_femaleSelected) {
-                          gender = 'female';
-                          print('성별: 여');
-                        } else {
-                          gender = 'male';
-                          print('성별: 남');
-                        }
-                        List<String> selectedInterestList =
-                            getInterestList(interestSelected);
-                        // for (int i = 0; i < selectedInterestList.length; i++) {
-                        //   print('$i: ${selectedInterestList[i]}');
-                        // }
-                        setState(() {
-                          selectedInterest = selectedInterestList.join(", ");
-                        });
-                        // selectedInterest =
-                        //     selectedInterestList.join(", ");
-                        print('selectedInterest: $selectedInterest');
+                          if (age == 1) {
+                            Get.showSnackbar(const GetSnackBar(
+                              message: '출생년도를 선택해 주세요.',
+                              duration: Duration(seconds: 2),
+                              snackPosition: SnackPosition.BOTTOM,
+                            ));
+                          } else if (age - 1 < 14) {
+                            Get.showSnackbar(const GetSnackBar(
+                              message: '만 14세 이상만 가입할 수 있습니다.',
+                              duration: Duration(seconds: 2),
+                              snackPosition: SnackPosition.BOTTOM,
+                            ));
+                          } else if (nickNameController.text == '') {
+                            Get.showSnackbar(const GetSnackBar(
+                              message: '별명을 입력해 주세요.',
+                              duration: Duration(seconds: 2),
+                              snackPosition: SnackPosition.BOTTOM,
+                            ));
+                          } else if (nickNameController.text.length > 6) {
+                            Get.showSnackbar(const GetSnackBar(
+                              message: '6자 이내의 별명을 입력해 주세요.',
+                              duration: Duration(seconds: 2),
+                              snackPosition: SnackPosition.BOTTOM,
+                            ));
+                          } else {
+                            print('birthYear : ${birthYear.year}');
+                            print('getAgeGroup => ${getAgeGroup(age).ageGroup}');
+                            print('nickname: ${nickNameController.text}');
+                            if (_femaleSelected) {
+                              gender = 'female';
+                              print('성별: 여');
+                            } else {
+                              gender = 'male';
+                              print('성별: 남');
+                            }
+                            List<String> selectedInterestList =
+                                getInterestList(interestSelected);
+                            // for (int i = 0; i < selectedInterestList.length; i++) {
+                            //   print('$i: ${selectedInterestList[i]}');
+                            // }
+                            setState(() {
+                              selectedInterest = selectedInterestList.join(", ");
+                            });
+                            // selectedInterest =
+                            //     selectedInterestList.join(", ");
+                            print('selectedInterest: $selectedInterest');
 
-                        String originToken = widget.phoneNumber;
+                            String originToken = widget.phoneNumber;
 
-                        // user token & tokenCreatedTime 로컬에 저장
-                        var encryptedToken = await encrypt(originToken);
-                        print(
-                            'encryptedToken.base64: ${encryptedToken.base64}');
+                            // user token & tokenCreatedTime 로컬에 저장
+                            var encryptedToken = await encrypt(originToken);
+                            print(
+                                'encryptedToken.base64: ${encryptedToken.base64}');
 
-                        // user DB 에 저장
-                        viewModel.onEvent(UserEvent.insertUser(
-                            encryptedToken.base64,
-                            nickNameController.text,
-                            birthYear.year,
-                            gender,
-                            selectedInterest));
+                            // 하이픈 추가
+                            String phoneNumber = widget.phoneNumber
+                                .replaceAllMapped(
+                                    RegExp(r'(\d{3})(\d{3,4})(\d{4})'),
+                                    (m) => '${m[1]}-${m[2]}-${m[3]}');
 
-                        globals.userDB = state.userDB;
-                        globals.uid = UserController()
-                            .getUserId(state.userDB, encryptedToken.base64);
-                        print('globals.uid = ${globals.uid}');
+                            // user DB 에 저장
+                            viewModel.onEvent(UserEvent.insertUser(
+                                phoneNumber,
+                                encryptedToken.base64,
+                                nickNameController.text,
+                                birthYear.year,
+                                gender,
+                                selectedInterest));
 
-                        Get.off(SignUpCompletePage());
-                      }
-                    },
-                  ))
+                            globals.userDB = state.userDB;
+                            globals.uid = UserController()
+                                .getUserId(state.userDB, encryptedToken.base64);
+                            print('globals.uid = ${globals.uid}');
+
+                            Get.off(SignUpCompletePage());
+                          }
+                        },
+                      )),
+                  SizedBox(
+                    height: 7.h,
+                  ),
+                ],
+              )
             ],
           ),
         ),

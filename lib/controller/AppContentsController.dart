@@ -1,11 +1,11 @@
 // ignore_for_file: file_names
 
 import 'package:get/get.dart';
-import 'package:voskat/controller/appContents_state.dart';
-import 'package:voskat/model/simulation/appContents.dart';
-import 'package:voskat/model/simulation/contentsList.dart';
+import 'package:PhishingKatPlus/controller/appContents_state.dart';
+import 'package:PhishingKatPlus/model/simulation/appContents.dart';
+import 'package:PhishingKatPlus/model/simulation/contentsList.dart';
 
-import 'package:voskat/tempData/appContentsData.dart';
+import 'package:PhishingKatPlus/tempData/appContentsData.dart';
 
 class AppContentsController extends GetxController {
   var _state = AppContentsState();

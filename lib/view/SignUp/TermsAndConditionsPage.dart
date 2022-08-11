@@ -41,11 +41,12 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
                         ),
                         onPressed: () {
                           Navigator.pop(context);
+                          print('pop');
                         },
                         style: TextButton.styleFrom(
                           minimumSize: Size.zero,
                           padding: EdgeInsets.zero,
-                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          // tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                       )),
                 ),

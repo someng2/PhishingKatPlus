@@ -2,8 +2,8 @@
 
 import 'package:get/get.dart';
 
-import 'package:voskat/controller/AppPageController.dart';
-import 'package:voskat/tempData/pairData.dart';
+import 'package:PhishingKatPlus/controller/AppPageController.dart';
+import 'package:PhishingKatPlus/tempData/pairData.dart';
 
 class PairController extends GetxController {
   getCurrentActionId(String ac_id) {

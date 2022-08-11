@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:voskat/model/simulation/appContents.dart';
+import 'package:PhishingKatPlus/model/simulation/appContents.dart';
 
 /// order: 0 -> 순서 상관없는 컨텐츠
 

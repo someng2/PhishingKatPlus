@@ -1,5 +1,5 @@
-import 'package:voskat/controller/appPage_state.dart';
-import 'package:voskat/controller/board_repository.dart';
+import 'package:PhishingKatPlus/controller/appPage_state.dart';
+import 'package:PhishingKatPlus/controller/board_repository.dart';
 import 'package:flutter/material.dart';
 
 class AppPageViewModel with ChangeNotifier {

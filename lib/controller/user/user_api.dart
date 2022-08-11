@@ -19,16 +19,16 @@ class UserApi {
     return response;
   }
 
-  Future<http.Response> insertUser(String token, String name, int birthYear,
-      String gender, String interest) async {
+  Future<http.Response> insertUser(String phone_number, String token,
+      String name, int birthYear, String gender, String interest) async {
     final response = await _client.get(Uri.parse(
-        '$baseUrl/insertUser.php?token=$token&name=$name&birthYear=$birthYear&gender=$gender&interest=$interest'));
+        '$baseUrl/insertUser.php?phone_number=$phone_number&token=$token&name=$name&birthYear=$birthYear&gender=$gender&interest=$interest'));
     return response;
   }
 
-  Future<http.Response> getUid(String token) async {
-    final response = await _client
-        .get(Uri.parse('$baseUrl/queryUserToken.php?token=$token'));
+  Future<http.Response> updateCustomTestResult(int uid, String custom_test_result) async {
+    final response = await _client.get(Uri.parse(
+        '$baseUrl/updateUser.php?uid=$uid&custom_test_result=$custom_test_result'));
     return response;
   }
 }

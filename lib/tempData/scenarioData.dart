@@ -1,5 +1,5 @@
 // ignore_for_file: file_names
-import 'package:voskat/model/simulation/scenario.dart';
+import 'package:PhishingKatPlus/model/simulation/scenario.dart';
 
 Scenario scenario_A0a = Scenario(
   sid: 'A0-a',

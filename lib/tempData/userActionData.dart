@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
-import 'package:voskat/model/simulation/userAction.dart';
+import 'package:PhishingKatPlus/model/simulation/userAction.dart';
 
-import 'package:voskat/view/Simulation/SimulationResultPage.dart';
+import 'package:PhishingKatPlus/view/Simulation/SimulationResultPage.dart';
 
 
 UserAction U1_a = UserAction(

@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:voskat/view/SignUp/SignUpPage_age.dart';
-import 'package:voskat/view/customWidget/customProgressDot.dart';
-import 'package:voskat/controller/PhoneVerificationController.dart';
+import 'package:PhishingKatPlus/view/SignUp/SignUpPage_age.dart';
+import 'package:PhishingKatPlus/view/customWidget/customProgressDot.dart';
+import 'package:PhishingKatPlus/controller/PhoneVerificationController.dart';
 
 class PhoneVerificationPage extends StatefulWidget {
   bool firstLogin;
