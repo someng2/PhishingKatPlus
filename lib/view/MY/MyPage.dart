@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:PhishingKatPlus/controller/user/UserController.dart';
 import 'package:PhishingKatPlus/model/globals.dart' as globals;
+import 'package:expand_tap_area/expand_tap_area.dart';
 
 class MyPage extends StatefulWidget {
   const MyPage({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class _MyPageState extends State<MyPage> {
         body: SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: 24.h),
+          SizedBox(height: MediaQuery.of(context).padding.top),
           Stack(
             children: [
               Container(
@@ -46,23 +47,30 @@ class _MyPageState extends State<MyPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                            margin: EdgeInsets.only(top: 6.h),
-                            width: 14.sp,
-                            child: TextButton(
-                              child: Icon(
-                                Icons.close,
-                                color: Color(0xff000000),
+                        Column(
+                          children: [
+                            SizedBox(height: 6.h),
+                            Container(
+                              width: 14.sp,
+                              height: 14.sp,
+                              child: ExpandTapWidget(
+                                child: Image.asset(
+                                  'image/closeIcon.png',
+                                  color: Color(0xff000000),
+                                ),
+                                onTap: () {
+                                  Navigator.pop(context);
+                                },
+                                tapPadding: EdgeInsets.all(25.0),
+                                // style: TextButton.styleFrom(
+                                //   minimumSize: Size.zero,
+                                //   padding: EdgeInsets.zero,
+                                //   // tapTargetSize: MaterialTapTargetSize.padded,
+                                // ),
                               ),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              style: TextButton.styleFrom(
-                                minimumSize: Size.zero,
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              ),
-                            )),
+                            ),
+                          ],
+                        ),
                         // SizedBox(width: 293.h),
                         Container(
                           width: 24.sp,
@@ -80,16 +88,16 @@ class _MyPageState extends State<MyPage> {
                             style: TextButton.styleFrom(
                               minimumSize: Size.zero,
                               padding: EdgeInsets.zero,
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              // tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
                           ),
                         )
                       ],
                     ),
                   ),
-                  SizedBox(height: 11.h),
+                  SizedBox(height: 19.h),
                   Container(
-                    height: 80.h,
+                    // height: 80.h,
                     padding: EdgeInsets.only(left: 13.w),
                     child: Row(
                       children: [
@@ -115,6 +123,7 @@ class _MyPageState extends State<MyPage> {
                               child: _image == null
                                   ? Image.asset(
                                       'image/defaultProfileImage.png',
+                                      fit: BoxFit.fill,
                                     )
                                   : Image.file(i.File(_image!.path)))
                         ]),
@@ -126,7 +135,9 @@ class _MyPageState extends State<MyPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("${UserController().getUserName(globals.userDB, globals.uid)}",
+                              Text(
+                                  // "${UserController().getUserName(globals.userDB, globals.uid)}",
+                                  globals.nickname,
                                   style: TextStyle(
                                       color: const Color(0xff0473e1),
                                       fontWeight: FontWeight.w500,
@@ -167,7 +178,7 @@ class _MyPageState extends State<MyPage> {
                             Text("피싱관련 주요뉴스",
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontWeight: FontWeight.w700,
+                                    fontWeight: FontWeight.w600,
                                     fontFamily: "AppleSDGothicNeoB00",
                                     fontStyle: FontStyle.normal,
                                     fontSize: 14.sp),
@@ -178,19 +189,27 @@ class _MyPageState extends State<MyPage> {
                                 Text("[관련기사] ",
                                     style: TextStyle(
                                         color: Colors.black,
-                                        fontWeight: FontWeight.w700,
+                                        fontWeight: FontWeight.w600,
                                         fontFamily: "AppleSDGothicNeoB00",
                                         fontStyle: FontStyle.normal,
                                         fontSize: 14.sp),
                                     textAlign: TextAlign.left),
-                                Text("야간근무 전 은행 들렀다 보이스피싱범 잡은 경찰...",
+                                Container(
+                                  width: 240.w,
+                                  child: Text(
+                                    "야간근무 전 은행 들렀다 보이스피싱범 잡은 경찰",
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w300,
-                                        fontFamily: "AppleSDGothicNeoB00",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 14.sp),
-                                    textAlign: TextAlign.left),
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w300,
+                                      fontFamily: "AppleSDGothicNeoB00",
+                                      fontStyle: FontStyle.normal,
+                                      fontSize: 12.sp,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                    maxLines: 1,
+                                  ),
+                                ),
                               ],
                             ),
                           ],
@@ -363,7 +382,6 @@ class _MyPageState extends State<MyPage> {
                         ),
                       ),
                       SizedBox(height: 10.h),
-
                     ],
                   ),
                   // SizedBox(height: 14.h),
@@ -394,7 +412,6 @@ class _MyPageState extends State<MyPage> {
                                         fontSize: 19.sp),
                                     textAlign: TextAlign.left),
                               ),
-
                             ],
                           ),
                         ),
@@ -509,7 +526,7 @@ class _MyPageState extends State<MyPage> {
                                     ])),
                             SizedBox(width: 1.w),
                             Container(
-                              width: 50.w,
+                              // width: 50.w,
                               padding: EdgeInsets.only(top: 9.h),
                               child: Column(children: [
                                 Container(
@@ -532,7 +549,7 @@ class _MyPageState extends State<MyPage> {
                                 SizedBox(height: 7.h),
                                 Container(
                                   alignment: Alignment.center,
-                                  width: 50.w,
+                                  // width: 50.w,
                                   height: 17.h,
                                   // margin: EdgeInsets.only(top: 1.h),
                                   decoration: BoxDecoration(
@@ -551,6 +568,7 @@ class _MyPageState extends State<MyPage> {
                             ),
                             SizedBox(width: 10.w),
                             Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(height: 9.h),
                                 Text(
@@ -600,11 +618,13 @@ class _MyPageState extends State<MyPage> {
                         SizedBox(height: 12.h),
                         Container(
                             padding: EdgeInsets.only(left: 3.w),
+                            height: 67.4.h,
                             child: Row(
                               children: [
                                 Container(
                                   width: 31.w,
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 31.w,
@@ -624,10 +644,12 @@ class _MyPageState extends State<MyPage> {
                                     ],
                                   ),
                                 ),
-                                SizedBox(width: 55.w),
+                                SizedBox(width: 50.w),
                                 Container(
-                                    width: 31.w,
+                                    width: 42.w,
                                     child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
                                         Container(
                                           width: 31.w,
@@ -644,7 +666,7 @@ class _MyPageState extends State<MyPage> {
                                               'image/phishingkatSIcon.png'),
                                         ),
                                         SizedBox(height: 4.h),
-                                        Text("위캣",
+                                        Text("스미싱\n출시예정",
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.w400,
@@ -652,11 +674,12 @@ class _MyPageState extends State<MyPage> {
                                                     "AppleSDGothicNeoL00",
                                                 fontStyle: FontStyle.normal,
                                                 fontSize: 12.sp),
-                                            textAlign: TextAlign.left)
+                                            textAlign: TextAlign.center)
                                       ],
                                     )),
-                                SizedBox(width: 55.w),
+                                SizedBox(width: 47.w),
                                 Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Container(
                                         width: 33.w,
@@ -781,5 +804,4 @@ class _MyPageState extends State<MyPage> {
       _image = i.File(image!.path);
     });
   }
-
 }

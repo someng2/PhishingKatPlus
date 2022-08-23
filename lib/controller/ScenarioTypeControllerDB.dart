@@ -35,7 +35,7 @@ class ScenarioTypeController extends GetxController {
     }else if (medal == 2){
       return 'image/medalSilver.png';
     }else if (medal == 3){
-      return 'image/medalGold.png';
+      return 'image/medalGold_deco.png';
     }
     else{
       print('[ERROR] medal');

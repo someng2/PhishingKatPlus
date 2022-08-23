@@ -110,7 +110,6 @@ class _AuthorityRequestPageState extends State<AuthorityRequestPage> {
                       fontStyle: FontStyle.normal,
                       fontSize: 14.sp),
                 ),
-                SizedBox(height: 273.4.h),
               ],
             ),
           ),

@@ -146,7 +146,12 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                               controller: phoneNumberController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: '휴대폰 번호 입력'),
+                                  hintText: '휴대폰 번호 입력',
+                                  hintStyle: TextStyle(
+                                      color: const Color(0xffb1aeae),
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: "NotoSansCJKKR",
+                                      fontSize: 16.sp)),
                               onChanged: (text) {
                                 setState(() {
                                   if (double.tryParse(text) != null) {
@@ -181,7 +186,6 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                       child: Row(
                         children: [
                           SizedBox(width: 15.6.w),
-                          // TODO: 5분 카운트다운
                           Text("$minutes:$seconds",
                               style: TextStyle(
                                   color: const Color(0xff0b80f5),
@@ -192,12 +196,18 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                               textAlign: TextAlign.left),
                           SizedBox(width: 18.w),
                           Container(
-                            width: 218.w,
+                            width: 217.w,
                             child: TextField(
                               controller: verificationNumController,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
-                                  hintText: '인증번호 입력'),
+                                  hintText: '인증번호 입력',
+                                  hintStyle: TextStyle(
+                                      color: const Color(0xffb1aeae),
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: "NotoSansCJKKR",
+                                      fontSize: 16.sp)
+                              ),
                             ),
                           ),
                           Container(
@@ -205,7 +215,9 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                               height: 19.h,
                               child: isVerified
                                   ? Container()
-                                  : Image.asset('image/signUpFeedback2.png'))
+                                  : Image.asset('image/signUpFeedback2.png'
+                                      // ''
+                                      ))
                         ],
                       )),
                   SizedBox(height: 4.8.h),
@@ -329,7 +341,9 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                   isVerified = true;
                   print('isVerified: $isVerified');
                 });
-                Get.off(SignUpPage_age(phoneNumber: phoneNumberController.text,));
+                Get.off(SignUpPage_age(
+                  phoneNumber: phoneNumberController.text,
+                ));
               }
             },
           ),

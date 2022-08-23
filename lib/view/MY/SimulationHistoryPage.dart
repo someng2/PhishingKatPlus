@@ -134,7 +134,7 @@ class _SimulationHistoryPageState extends State<SimulationHistoryPage> {
                           ])),
                   SizedBox(width: 1.w),
                   Container(
-                    width: 50.w,
+                    // width: 50.w,
                     padding: EdgeInsets.only(top: 9.h),
                     child: Column(children: [
                       Container(
@@ -157,7 +157,7 @@ class _SimulationHistoryPageState extends State<SimulationHistoryPage> {
                       SizedBox(height: 7.h),
                       Container(
                         alignment: Alignment.center,
-                        width: 50.w,
+                        // width: 50.w,
                         height: 17.h,
                         // margin: EdgeInsets.only(top: 1.h),
                         decoration: BoxDecoration(
@@ -205,10 +205,10 @@ class _SimulationHistoryPageState extends State<SimulationHistoryPage> {
             SizedBox(height: 15.h,),
             Container(
               width: 360.w,
-              height: 171.h,
-              decoration: BoxDecoration(border: Border.all()),
+              height: 173.h,
+              // decoration: BoxDecoration(border: Border.all()),
               padding: EdgeInsets.only(left: 19.w, right: 22.w),
-                child: Text('graph'))
+                child: Image.asset('image/graphEx.png'))
           ],
         ),
       )

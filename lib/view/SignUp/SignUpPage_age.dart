@@ -55,6 +55,7 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
   String selectedInterest = '';
 
   final token_storage = FlutterSecureStorage();
+  final user_storage = FlutterSecureStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -491,6 +492,10 @@ class _SignUpPage_ageState extends State<SignUpPage_age> {
                             globals.uid = UserController()
                                 .getUserId(state.userDB, encryptedToken.base64);
                             print('globals.uid = ${globals.uid}');
+
+                            globals.nickname = nickNameController.text;
+
+                            await user_storage.write(key: "nickname", value: nickNameController.text);
 
                             Get.off(SignUpCompletePage());
                           }

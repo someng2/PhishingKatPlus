@@ -121,12 +121,12 @@ class _HomePageState extends State<HomePage> {
             ),
             actions: [
               Container(
-                padding: EdgeInsets.only(right: 12.w, top: 7.5.h, bottom: 10.h),
+                width: 16.w,
+                margin: EdgeInsets.only(right: 12.w, top: 7.5.h, bottom: 10.h),
                 child: TextButton(
                   child: Image.asset(
                     'image/bellIcon.png',
-                    // color: const Color(0xff898686),
-                    color: Colors.black,
+                    color: const Color(0xff898686),
                   ),
                   onPressed: () {},
                   style: TextButton.styleFrom(
@@ -410,10 +410,11 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           children: [
                             Text(
-                                '${UserController().getUserName(globals.userDB, globals.uid)}',
+                                // '${UserController().getUserName(globals.userDB, globals.uid)}',
+                                globals.nickname,
                                 style: TextStyle(
                                     color: Color(0xff0473e1),
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w500,
                                     fontFamily: 'Recipekorea',
                                     fontStyle: FontStyle.normal,
                                     fontSize: 20.sp),
@@ -421,7 +422,7 @@ class _HomePageState extends State<HomePage> {
                             Text("님!",
                                 style: TextStyle(
                                     color: Color(0xff0473e1),
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w500,
                                     fontFamily: 'Recipekorea',
                                     fontStyle: FontStyle.normal,
                                     fontSize: 20.sp),
@@ -431,7 +432,7 @@ class _HomePageState extends State<HomePage> {
                         Text("시작할 준비가 되었나요?",
                             style: TextStyle(
                                 color: Color(0xff0473e1),
-                                fontWeight: FontWeight.bold,
+                                fontWeight: FontWeight.w500,
                                 fontFamily: 'Recipekorea',
                                 fontStyle: FontStyle.normal,
                                 fontSize: 20.sp),
@@ -602,61 +603,135 @@ class _HomePageState extends State<HomePage> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(8.sp)),
                             color: const Color(0xff0473e1)),
-                        padding: EdgeInsets.only(left: 19.w, top: 21.h),
+                        padding: EdgeInsets.only(left: 15.w, top: 21.h),
                         child: Column(
                             // crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Row(children: [
-                                Text("나의 안심점수",
+                              Container(
+                                // padding: EdgeInsets.only(right: 41.w),
+                                child: Row(
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                  Text("나의 안심점수",
+                                      style: TextStyle(
+                                          color: const Color(0xffffffff),
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: "Recipekorea",
+                                          // fontStyle: FontStyle.normal,
+                                          fontSize: 25.sp),
+                                      textAlign: TextAlign.left),
+                                  SizedBox(width: 31.w),
+                                  Text(
+                                    "80점",
                                     style: TextStyle(
                                         color: const Color(0xffffffff),
                                         fontWeight: FontWeight.w500,
                                         fontFamily: "Recipekorea",
-                                        fontStyle: FontStyle.normal,
-                                        fontSize: 25.sp),
-                                    textAlign: TextAlign.left),
-                                SizedBox(width: 31.w),
-                                Text(
-                                  "80점",
-                                  style: TextStyle(
-                                      color: const Color(0xffffffff),
-                                      fontWeight: FontWeight.w500,
-                                      fontFamily: "Recipekorea",
-                                      fontStyle: FontStyle.normal,
-                                      fontSize: 25.sp),
-                                ),
-                              ]),
+                                        // fontStyle: FontStyle.normal,
+                                        fontSize: 23.sp),
+                                  ),
+                                ]),
+                              ),
                               SizedBox(height: 20.h),
-                              Container(
-                                padding: EdgeInsets.only(left: 1.w),
-                                child: Row(
+                              Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      width: 100.w,
-                                      child: Column(
+                                SizedBox(
+                                  width: 1.w,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "T 모의훈련",
+                                          style: TextStyle(
+                                              color: const Color(0xffffffff),
+                                              fontWeight: FontWeight.w500,
+                                              fontFamily: "Recipekorea",
+                                              fontStyle: FontStyle.normal,
+                                              fontSize: 15.sp),
+                                        ),
+                                        SizedBox(
+                                          width: 17.w,
+                                        ),
+                                        Container(
+                                          // width: 60.w,
+                                          height: 20.h,
+                                          child: TextButton(
+                                            child: Text(
+                                              "시작하기",
+                                              style: TextStyle(
+                                                  color:
+                                                      const Color(0xffddff00),
+                                                  fontWeight: FontWeight.w500,
+                                                  fontFamily: "Recipekorea",
+                                                  fontStyle: FontStyle.normal,
+                                                  fontSize: 15.sp),
+                                            ),
+                                            onPressed: () {
+                                              // Get.to(ClassBuilder.fromString(
+                                              //     AppPageController().getWidget(
+                                              //         CustomSimulController(
+                                              //                 user: userList
+                                              //                     .last)
+                                              //             .getCustomSimulation_withScenarioType(
+                                              //                 userList.last)
+                                              //             .aid)));
+                                              Get.to(SimulationTestPage());
+                                            },
+                                            style: TextButton.styleFrom(
+                                              minimumSize: Size.zero,
+                                              padding: EdgeInsets.zero,
+                                              tapTargetSize:
+                                                  MaterialTapTargetSize
+                                                      .shrinkWrap,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 19.h,),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "S 스미싱",
+                                          style: TextStyle(
+                                              color: const Color(0xffffffff),
+                                              fontWeight: FontWeight.w500,
+                                              fontFamily: "Recipekorea",
+                                              fontStyle: FontStyle.normal,
+                                              fontSize: 15.sp),
+                                        ),
+                                        SizedBox(
+                                          width: 42.w,
+                                        ),
+                                        Text(
+                                          "80점",
+                                          style: TextStyle(
+                                              color: const Color(0xffffffff),
+                                              fontWeight: FontWeight.w500,
+                                              fontFamily: "Recipekorea",
+                                              fontStyle: FontStyle.normal,
+                                              fontSize: 15.sp),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 19.h,),
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            "T 모의훈련",
-                                            style: TextStyle(
-                                                color: const Color(0xffffffff),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "Recipekorea",
-                                                fontStyle: FontStyle.normal,
-                                                fontSize: 15.sp),
-                                          ),
-                                          SizedBox(height: 22.h),
-                                          Text(
-                                            "S 스미싱",
-                                            style: TextStyle(
-                                                color: const Color(0xffffffff),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "Recipekorea",
-                                                fontStyle: FontStyle.normal,
-                                                fontSize: 15.sp),
-                                          ),
-                                          SizedBox(height: 22.h),
                                           Text(
                                             "V 보이스피싱",
                                             style: TextStyle(
@@ -666,49 +741,9 @@ class _HomePageState extends State<HomePage> {
                                                 fontStyle: FontStyle.normal,
                                                 fontSize: 15.sp),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(width: 82.w),
-                                    Container(
-                                      width: 70.w,
-                                      child: Column(
-                                        children: [
-                                          Container(
-                                            width: 70.w,
-                                            height: 20.h,
-                                            child: TextButton(
-                                              child: Text(
-                                                "시작하기",
-                                                style: TextStyle(
-                                                    color:
-                                                        const Color(0xffddff00),
-                                                    fontWeight: FontWeight.w500,
-                                                    fontFamily: "Recipekorea",
-                                                    fontStyle: FontStyle.normal,
-                                                    fontSize: 15.sp),
-                                              ),
-                                              onPressed: () {
-                                                // Get.to(ClassBuilder.fromString(
-                                                //     AppPageController().getWidget(
-                                                //         CustomSimulController(
-                                                //                 user: userList
-                                                //                     .last)
-                                                //             .getCustomSimulation_withScenarioType(
-                                                //                 userList.last)
-                                                //             .aid)));
-                                                Get.to(SimulationTestPage());
-                                              },
-                                              style: TextButton.styleFrom(
-                                                minimumSize: Size.zero,
-                                                padding: EdgeInsets.zero,
-                                                tapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap,
-                                              ),
-                                            ),
+                                          SizedBox(
+                                            width: 11.w,
                                           ),
-                                          SizedBox(height: 22.h),
                                           Text(
                                             "80점",
                                             style: TextStyle(
@@ -718,24 +753,15 @@ class _HomePageState extends State<HomePage> {
                                                 fontStyle: FontStyle.normal,
                                                 fontSize: 15.sp),
                                           ),
-                                          SizedBox(height: 22.h),
-                                          Text(
-                                            "80점",
-                                            style: TextStyle(
-                                                color: const Color(0xffffffff),
-                                                fontWeight: FontWeight.w500,
-                                                fontFamily: "Recipekorea",
-                                                fontStyle: FontStyle.normal,
-                                                fontSize: 15.sp),
-                                          ),
-                                        ],
-                                      ),
-                                    )
+                                        ]),
                                   ],
                                 ),
-                              ),
+                                SizedBox(width: 7.w,),
+                                Container(
+                                    width: 100.w,
+                                    child: Image.asset('image/scoreGraph.png'))
+                              ]),
                             ])),
-                    SizedBox(height: 35.h)
                   ],
                 ),
               )

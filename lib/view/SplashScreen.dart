@@ -31,6 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   final token_storage = FlutterSecureStorage();
+  final user_storage = FlutterSecureStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final state = viewModel.state;
 
     readToken(state);
+    readUser();
 
     return Scaffold(
         backgroundColor: Color(0xff0473e1),
@@ -45,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Container(
             alignment: Alignment.center,
             child: Column(children: [
-              SizedBox(height: 283.5.h),
+              SizedBox(height: 202.8.h),
               Text("스미싱 모의훈련 서비스",
                   style: TextStyle(
                       color: const Color(0xffffffff),
@@ -126,5 +128,14 @@ class _SplashScreenState extends State<SplashScreen> {
     }
 
     return result;
+  }
+
+  readUser() async {
+    String? nickname =
+    await user_storage.read(key: "nickname");
+
+    if (nickname != null) {
+      globals.nickname = nickname;
+    }
   }
 }
