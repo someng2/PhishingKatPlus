@@ -84,7 +84,7 @@ class _SimulationTypeState extends State<SimulationType> {
         child: Stack(
           children: [Column(
             children: [
-              SizedBox(height: 29.5.h),
+              SizedBox(height: 43.h),
               Container(
                 child: Column(children: [
                   Row(
@@ -204,14 +204,14 @@ class _SimulationTypeState extends State<SimulationType> {
                 ),
               ),
               Positioned(
-                bottom: 70,
-                right: 28,
+                bottom: 70.h,
+                right: (medal == 3) ? -10.w : 26.w,
                 child: TextButton(
                   child: isLocked
                       ? SizedBox.shrink()
                       : Container(
-                          width: 27.w,
-                          height: 29.h,
+                          width: (medal == 3) ? 94.9.w : 27.w,
+                          height: (medal == 3) ? 56.6.h : 29.h,
                           decoration: BoxDecoration(
                               image: DecorationImage(
                             fit: BoxFit.cover,

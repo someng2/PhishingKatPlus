@@ -73,6 +73,7 @@ dev_dependencies:
   url_launcher: ^6.1.4
   flutter_secure_storage: ^5.0.2
   encrypt: ^5.0.1
+  expand_tap_area: ^1.1.1
 
 
 # For information on the generic Dart part of this file, see the
@@ -141,6 +142,7 @@ flutter:
     - image/Lock.png
     - image/medalBronze.png
     - image/medalSilver.png
+    - image/medalGold_deco.png
     - image/medalGold.png
 
     - image/googlePlayIcon.jpg
@@ -200,6 +202,9 @@ flutter:
     - image/badMoodIcon.png
     - image/phishingkatSIcon.png
     - image/customTestProgressIcon.png
+    - image/closeIcon.png
+    - image/graphEx.png
+    - image/scoreGraph.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

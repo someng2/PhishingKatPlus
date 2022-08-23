@@ -4,3 +4,4 @@ import 'package:PhishingKatPlus/model/user/userDB.dart';
 
 int uid = 0;
 List<UserDB> userDB = [];
+String nickname = '홍길동';
