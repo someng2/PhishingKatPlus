@@ -117,15 +117,30 @@ class _MyPageState extends State<MyPage> {
                                 shape: BoxShape.circle,
                                 color: const Color(0xffffffff)),
                           ),
-                          Container(
-                              width: 53.8.w,
-                              height: 58.6.h,
-                              child: _image == null
-                                  ? Image.asset(
-                                      'image/defaultProfileImage.png',
-                                      fit: BoxFit.fill,
-                                    )
-                                  : Image.file(i.File(_image!.path)))
+                          ClipOval(
+                            child: Container(
+                              width: 70.sp,
+                              height: 70.sp,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,),
+                              // fit: BoxFit.fill,
+                              // child: CircleAvatar(
+                              //   radius: 35.sp,
+                                // width: 70.sp,
+                                // height: 70.sp,
+                                // backgroundColor: const Color(0xffffffff),
+                                child: _image == null
+                                    ? Image.asset(
+                                        'image/defaultProfileImage.png',
+                                        // fit: BoxFit.fitHeight,
+                                      )
+                                    : Image.file(
+                                        i.File(_image!.path),
+                                        fit: BoxFit.cover,
+                                      ),
+                              // ),
+                            ),
+                          )
                         ]),
                         SizedBox(
                           width: 10.w,
