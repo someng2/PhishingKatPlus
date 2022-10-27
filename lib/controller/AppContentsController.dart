@@ -2,9 +2,6 @@
 
 import 'package:get/get.dart';
 import 'package:PhishingKatPlus/controller/appContents_state.dart';
-import 'package:PhishingKatPlus/model/simulation/appContents.dart';
-import 'package:PhishingKatPlus/model/simulation/contentsList.dart';
-
 import 'package:PhishingKatPlus/tempData/appContentsData.dart';
 
 class AppContentsController extends GetxController {

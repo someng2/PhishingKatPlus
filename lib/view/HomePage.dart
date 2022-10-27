@@ -22,7 +22,7 @@ import 'package:PhishingKatPlus/view/SplashScreen.dart';
 import 'package:PhishingKatPlus/view/simulationResultDBTest.dart';
 import 'package:PhishingKatPlus/view/simulationTestPage.dart';
 import 'package:PhishingKatPlus/view/userDBTest.dart';
-import 'package:PhishingKatPlus/view/userTokenTestPage.dart';
+// import 'package:PhishingKatPlus/view/userTokenTestPage.dart';
 import 'package:PhishingKatPlus/view/viewModel/simulation_result_view_model.dart';
 import 'package:PhishingKatPlus/view/viewModel/user_view_model.dart';
 
